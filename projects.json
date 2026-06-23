@@ -1,0 +1,118 @@
+{
+ "Bazooka-Candy": {
+  "brand": {
+   "industry": "FMCG",
+   "market": "",
+   "since": "2024",
+   "services": "Social Media+TVC",
+   "summary": "",
+   "cover": ""
+  },
+  "projects": [
+   {
+    "name": "Mooz Character",
+    "type": "Character Design",
+    "client": "Bazooka Candy",
+    "date": "Mar 2025",
+    "role": "Ai content creator",
+    "status": "Delivered",
+    "desc": "Mooz Project Brief\n\nProject Overview\nThe Mooz project is a strategic branding initiative focused on Bazooka Candy, centered on the development of a digital-first brand mascot. Unlike a static logo, Mooz was conceptualized as an extroverted, approachable personality designed to function as an active influencer within the social media ecosystem.",
+    "cover": "",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image__69813.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__replace-product-with-chews-__40598.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image-medium-l__69763.jpeg"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Gemini_Generated_Image_fysrp2fysrp2fysr.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image__98869.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image-extreme-__98825.png"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_they-all-look-and-wave-towards-the-camera_kling_1080p_16-9_24fps_69779.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_opening-cut-medium-shot-on-the-gray-cratered-surfa_veo3_1_1080p_16-9_24fps_98861.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_dancing-moose-character_minimax_768p_16-9_24fps_53801.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_the-moose-offering-the-bear-a-peice-of-candy-the-b_veo3_1_720p_16-9_24fps_69806.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_camera-close-up-at-the-bear-as-he-takes-the-candy-_veo3_1_720p_16-9_24fps_69809.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_a-stylish-anthropomorphic-moose-dj-energetically-m_kling_1080p_16-9_24fps_69824.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_a-closeup-reaction-shot-of-a-teenage-boy-sitting-o_seedance_720p_1-1_24fps_69772.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_a-cool-moose-character-saying-advice-while-looking_omnihuman_1080p_16-9_25fps_53816.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/creation_2252534113.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_a-stylish-anthropomorphic-moose-with-muscular-huma_kling_1080p_16-9_24fps_98826.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/freepik_a-stylized-celebrity-moose-character-wearing-cool-_minimax_768p_16-9_24fps_69822.mp4"
+     }
+    ]
+   }
+  ],
+  "active": 0
+ }
+}

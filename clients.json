@@ -1,0 +1,406 @@
+[
+  {
+    "slug": "MBC-Group",
+    "name": "MBC Group",
+    "color": "#E8192C",
+    "text": "#fff",
+    "domain": "mbc.net",
+    "category": [
+      "Social Media",
+      "Production",
+      "Lead Creative"
+    ]
+  },
+  {
+    "slug": "Geely",
+    "name": "Geely",
+    "color": "#003DA5",
+    "text": "#fff",
+    "domain": "geely.com",
+    "category": [
+      "Lead Creative",
+      "TVC",
+      "ATL"
+    ]
+  },
+  {
+    "slug": "Subway-Oman",
+    "name": "Subway Oman",
+    "color": "#009B3A",
+    "text": "#fff",
+    "domain": "subway.com",
+    "category": [
+      "Lead Creative",
+      "BTL",
+      "Copywriting"
+    ]
+  },
+  {
+    "slug": "Bazooka-Candy",
+    "name": "Bazooka Candy",
+    "color": "#E8192C",
+    "text": "#fff",
+    "domain": "bazookacandy.com",
+    "category": [
+      "Social Media",
+      "Lead Creative",
+      "Character Design"
+    ]
+  },
+  {
+    "slug": "Molfix",
+    "name": "Molfix",
+    "color": "#00AEEF",
+    "text": "#fff",
+    "domain": "molfix.com",
+    "category": [
+      "TVC",
+      "Production",
+      "Lead Creative"
+    ]
+  },
+  {
+    "slug": "Quooker",
+    "name": "Quooker",
+    "color": "#1A1A1A",
+    "text": "#fff",
+    "domain": "quooker.com",
+    "category": [
+      "Social Media",
+      "TVC",
+      "Strategy"
+    ]
+  },
+  {
+    "slug": "Carina",
+    "name": "Carina",
+    "color": "#8B1A1A",
+    "text": "#fff",
+    "domain": "carina.com.eg",
+    "category": [
+      "Social Media",
+      "Strategy",
+      "5yr Partnership"
+    ]
+  },
+  {
+    "slug": "Kappa",
+    "name": "Kappa",
+    "color": "#FF0000",
+    "text": "#fff",
+    "domain": "kappa.com",
+    "category": [
+      "Lead Creative",
+      "Ramadan Campaign",
+      "Photography"
+    ]
+  },
+  {
+    "slug": "Krispy-Kreme",
+    "name": "Krispy Kreme",
+    "color": "#007A3D",
+    "text": "#fff",
+    "domain": "krispykreme.com",
+    "category": [
+      "Social Media",
+      "Strategy",
+      "Egypt"
+    ]
+  },
+  {
+    "slug": "Royal-Herbs",
+    "name": "Royal Herbs",
+    "color": "#2D6A2D",
+    "text": "#fff",
+    "domain": "royalherbs.com",
+    "category": [
+      "Influencer",
+      "Social Media",
+      "Photography"
+    ]
+  },
+  {
+    "slug": "Warba-Bank",
+    "name": "Warba Bank",
+    "color": "#006341",
+    "text": "#fff",
+    "domain": "warbabank.com.kw",
+    "category": [
+      "TVC",
+      "Creative Direction",
+      "AI Animatics"
+    ]
+  },
+  {
+    "slug": "Snapchat",
+    "name": "Snapchat",
+    "color": "#FFFC00",
+    "text": "#000",
+    "domain": "snapchat.com",
+    "category": [
+      "Social Media",
+      "Lead Gen",
+      "Strategy"
+    ]
+  },
+  {
+    "slug": "Glow",
+    "name": "Glow",
+    "color": "#00C4B4",
+    "text": "#fff",
+    "domain": "glowegypt.com",
+    "category": [
+      "Social Media",
+      "Design",
+      "Strategy"
+    ]
+  },
+  {
+    "slug": "Delight-Parties",
+    "name": "Delight Parties",
+    "color": "#F7931E",
+    "text": "#fff",
+    "domain": "delightparties.com",
+    "category": [
+      "Social Media",
+      "Photography",
+      "Videography",
+      "Design"
+    ]
+  },
+  {
+    "slug": "Bershka",
+    "name": "Bershka",
+    "color": "#000000",
+    "text": "#fff",
+    "domain": "bershka.com",
+    "category": [
+      "Strategy",
+      "Social Media"
+    ]
+  },
+  {
+    "slug": "Gourmet",
+    "name": "Gourmet",
+    "color": "#8B0000",
+    "text": "#fff",
+    "domain": "gourmetegypt.com",
+    "category": [
+      "Strategy",
+      "Social Media"
+    ]
+  },
+  {
+    "slug": "Royal-Tulip-Hotel",
+    "name": "Royal Tulip Hotel",
+    "color": "#6B2D8B",
+    "text": "#fff",
+    "domain": "royaltulip.com",
+    "category": [
+      "Photography",
+      "Videography"
+    ]
+  },
+  {
+    "slug": "AXE-Unilever",
+    "name": "AXE / Unilever",
+    "color": "#000000",
+    "text": "#fff",
+    "domain": "axe.com",
+    "category": [
+      "Photography",
+      "Videography",
+      "Logos & Branding"
+    ]
+  },
+  {
+    "slug": "Audi",
+    "name": "Audi",
+    "color": "#BB0A30",
+    "text": "#fff",
+    "domain": "audi.com",
+    "category": [
+      "TVC",
+      "Creative Direction",
+      "Photography"
+    ]
+  },
+  {
+    "slug": "EA-FC-Mobile",
+    "name": "EA FC Mobile",
+    "color": "#003087",
+    "text": "#fff",
+    "domain": "ea.com",
+    "category": [
+      "TVC",
+      "Production Management"
+    ]
+  },
+  {
+    "slug": "Hardees",
+    "name": "Hardee's",
+    "color": "#E31837",
+    "text": "#fff",
+    "domain": "hardees.com",
+    "category": [
+      "TVC",
+      "Creative Direction"
+    ]
+  },
+  {
+    "slug": "MTN",
+    "name": "MTN",
+    "color": "#FFCC00",
+    "text": "#000",
+    "domain": "mtn.com",
+    "category": [
+      "Social Media",
+      "Photography",
+      "Videography"
+    ]
+  },
+  {
+    "slug": "Tonic-International",
+    "name": "Tonic International",
+    "color": "#222222",
+    "text": "#fff",
+    "domain": "tonic.com",
+    "category": [
+      "Agency",
+      "Creative Partner"
+    ]
+  },
+  {
+    "slug": "Septam-Foods",
+    "name": "Septam Foods",
+    "color": "#C8960C",
+    "text": "#fff",
+    "domain": "septam.com",
+    "category": [
+      "Strategy",
+      "Social Media"
+    ]
+  },
+  {
+    "slug": "Juicy-Drop",
+    "name": "Juicy Drop",
+    "color": "#FF4500",
+    "text": "#fff",
+    "domain": "juicydrop.com",
+    "category": [
+      "Social Media",
+      "Jingle",
+      "Strategy"
+    ]
+  },
+  {
+    "slug": "American-Express",
+    "name": "American Express",
+    "color": "#016FD0",
+    "text": "#fff",
+    "domain": "americanexpress.com",
+    "category": [
+      "Social Media"
+    ]
+  },
+  {
+    "slug": "Decoys-Real-Estate",
+    "name": "Decoys Real Estate",
+    "color": "#1A3A5C",
+    "text": "#fff",
+    "domain": "decoys.com",
+    "category": [
+      "Social Media",
+      "Strategy",
+      "Egypt Launch"
+    ]
+  },
+  {
+    "slug": "No-Limits-Furniture",
+    "name": "No Limits Furniture",
+    "color": "#5B3A29",
+    "text": "#fff",
+    "domain": "nolimitsfurniture.com",
+    "category": [
+      "Social Media",
+      "Photography"
+    ]
+  },
+  {
+    "slug": "Lord-of-the-Wings",
+    "name": "Lord of the Wings",
+    "color": "#C00000",
+    "text": "#fff",
+    "domain": "lordofthewings.com",
+    "category": [
+      "Photography",
+      "Design"
+    ]
+  },
+  {
+    "slug": "GDK",
+    "name": "GDK",
+    "color": "#D4A017",
+    "text": "#000",
+    "domain": "gdkuk.com",
+    "category": [
+      "Photography"
+    ]
+  },
+  {
+    "slug": "Brew-Craft",
+    "name": "Brew",
+    "color": "#4A2C2A",
+    "text": "#fff",
+    "domain": "brew.com",
+    "category": [
+      "Logos & Branding",
+      "Design"
+    ]
+  },
+  {
+    "slug": "WallPost",
+    "name": "WallPost",
+    "color": "#1877F2",
+    "text": "#fff",
+    "domain": "wallpost.com",
+    "category": [
+      "Copywriting",
+      "Social Media"
+    ]
+  },
+  {
+    "slug": "Fahel-Brand",
+    "name": "Fahel Brand",
+    "color": "#2ECC71",
+    "text": "#fff",
+    "domain": "fahel.com",
+    "category": [
+      "Created/Co-created"
+    ]
+  },
+  {
+    "slug": "Imagine-Studio",
+    "name": "Imagine Studio",
+    "color": "#9B59B6",
+    "text": "#fff",
+    "domain": "imaginestudio.com",
+    "category": [
+      "Created/Co-created",
+      "Photography",
+      "Design"
+    ]
+  },
+  {
+    "slug": "URBEELS",
+    "name": "URBEELS",
+    "color": "#FF6B35",
+    "text": "#fff",
+    "domain": "urbeels.com",
+    "category": [
+      "Created/Co-created",
+      "Music",
+      "Events"
+    ]
+  }
+]

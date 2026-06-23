@@ -1,0 +1,166 @@
+{
+ "_probe.html": {},
+ "index.html": {
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(2)": {
+   "html": "Abdelaziz Askar<br>&nbsp; &nbsp;(Escapegoat)"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>img:nth-child(5)": {
+   "img": "assets/photos/freepik__zzio-standing-in-music-studio-creative-wall-hangin__93740.png"
+  },
+  "body>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(5)>div:nth-child(11)>div:nth-child(2)>img:nth-child(1)": {
+   "img": "assets/photos/Gemini_Generated_Image_89us7q89us7q89us.png"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>div:nth-child(8)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>img:nth-child(1)": {
+   "img": "assets/photos/freepik__zzio-standing-in-a-white-space-sporting-oversized-__93725-1.png"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>img:nth-child(2)": {
+   "img": "assets/photos/creation_2301043823.png"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>img:nth-child(3)": {
+   "img": "assets/photos/freepik__zzio-standing-in-a-white-space-wearing-black-urban__93724.png"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>img:nth-child(4)": {
+   "img": "assets/photos/freepik__generate-9-different-angles-of-this-image-aerial-s__93745.png"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(7)>img:nth-child(2)": {
+   "w": "45%"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>div:nth-child(16)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)": {
+   "html": "<div class=\"proj-name\" style=\"font-size:14px\">Arnaud Veschera</div><div style=\"font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple2);margin-bottom:10px\" class=\"\">Group CEO · Tonic International</div><div class=\"proj-desc\">\"Working with Abdelaziz is an efficiency. He didn't just shorten our workflow — he genuinely changed how we collaborate daily.\"</div>"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>div:nth-child(14)>div:nth-child(2)>div:nth-child(1)>div:nth-child(5)>div:nth-child(3)": {
+   "adds": []
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>div:nth-child(14)>div:nth-child(2)>div:nth-child(1)": {
+   "adds": []
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>div:nth-child(14)>div:nth-child(1)>div:nth-child(2)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__zzio-sitting-on-an-office-chair-on-his-desk-looks-__93696.png",
+     "w": "33%"
+    }
+   ]
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>p:nth-child(1)": {
+   "html": "Social Media Director · Creative Director · AI integration specialist"
+  },
+  "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(5)>div:nth-child(2)>div:nth-child(1)": {
+   "html": "8"
+  }
+ },
+ "about.html": {
+  "body>div:nth-child(4)>section:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(4)>div:nth-child(2)": {
+   "html": "<span style=\"\" class=\"\">Fine Arts, Alexandria 2009<br></span><span style=\"color:var(--muted);font-size:13px\" class=\"\">Graphics Communication</span>"
+  },
+  "body>nav:nth-child(1)>div:nth-child(1)>ul:nth-child(2)>li:nth-child(3)": {
+   "html": "<a href=\"clients.html\" class=\"\">&nbsp;Brands</a>"
+  },
+  "body>div:nth-child(5)>section:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(1)": {
+   "html": "\n          <div class=\"achieve-num\" data-target=\"35\">180+</div>\n          <div class=\"achieve-label\">Brands Served</div>\n          <div class=\"achieve-sub\">Global &amp; Regional</div>\n        "
+  },
+  "body>div:nth-child(5)>section:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)": {
+   "html": "16+"
+  },
+  "body>div:nth-child(5)>section:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(3)>div:nth-child(1)": {
+   "html": "200+"
+  },
+  "body>div:nth-child(5)>section:nth-child(1)>div:nth-child(1)>div:nth-child(3)>div:nth-child(4)>div:nth-child(1)": {
+   "html": "8+"
+  },
+  "body>div:nth-child(5)>section:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(2)>div:nth-child(4)>div:nth-child(1)>div:nth-child(1)": {
+   "html": "44"
+  },
+  "body>div:nth-child(5)>section:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(2)>div:nth-child(4)>div:nth-child(1)>div:nth-child(2)": {
+   "html": "Long-term Retainers <br>(3+ contracts)"
+  },
+  "body>section:nth-child(2)>div:nth-child(2)>div:nth-child(1)>img:nth-child(1)": {
+   "img": "assets/photos/freepik__zzio-sitting-on-an-office-chair-on-his-desk-looks-__93696.png"
+  }
+ },
+ "_nda": {},
+ "clients.html": {
+  "body>div:nth-child(3)>div:nth-child(32)>div:nth-child(1)>img:nth-child(1)": {
+   "w": "56%"
+  }
+ },
+ "clients/Bazooka-Candy/index.html": {
+  "body>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>img:nth-child(1)": {
+   "img": "assets/photos/freepik__design-a-b-logo-using-img1-font-chunky-white-lette__40596.jpeg",
+   "w": "100%"
+  },
+  "body>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)": {
+   "html": "<div style=\"font-size:24px;font-weight:900;letter-spacing:-.5px\" class=\"\">Bazooka Candy MENA</div><div style=\"font-size:12px;color:#e4e4e4;margin-top:2px\" class=\"\">FMCG</div>",
+   "adds": [
+    {
+     "kind": "video",
+     "src": "assets/videos/VID-20240725-WA0035.mp4"
+    }
+   ]
+  },
+  "body>div:nth-child(17)>div:nth-child(4)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__char1-in-img1-a-male-a-male-holding-a-bag-of-chews__31217.png"
+    }
+   ]
+  },
+  "body>div:nth-child(17)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__char1-in-img1-a-male-a-male-holding-a-bag-of-chews__31217.png"
+    }
+   ]
+  },
+  "body>div:nth-child(3)>div:nth-child(3)>div:nth-child(8)>div:nth-child(4)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__char1-both-characters-sitting-on-a-couch-in-the-li__69802.png"
+    }
+   ]
+  },
+  "body>div:nth-child(3)>div:nth-child(3)>div:nth-child(8)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__generate-9-different-angles-of-this-image-high-ang__69812.png",
+     "w": "36%"
+    }
+   ]
+  },
+  "body>div:nth-child(3)>div:nth-child(3)>img:nth-child(9)": {
+   "w": "37%"
+  },
+  "body>div:nth-child(7)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__char1-in-img1-a-male-a-male-holding-a-bag-of-chews__31217.png"
+    }
+   ]
+  },
+  "body>section:nth-child(6)": {
+   "adds": [
+    {
+     "kind": "img",
+     "src": "assets/photos/freepik__char1-in-img1-a-male-a-male-holding-a-bag-of-chews__31217.png"
+    }
+   ]
+  },
+  "body>div:nth-child(3)>div:nth-child(3)>div:nth-child(8)>div:nth-child(4)>div:nth-child(3)>img:nth-child(1)": {
+   "w": "100%"
+  }
+ },
+ "clients/Geely/index.html": {
+  "body>div:nth-child(3)": {
+   "html": "<div class=\"\"><p class=\"zp-sl\">Brand Level</p><h2 class=\"zp-h\">Brand Profile</h2><div class=\"zp-card\"><div class=\"zp-grid\"><div class=\"\"><label>Industry</label><input placeholder=\"e.g. Food &amp; Beverage\"></div><div class=\"\"><label>Market / Region</label><input placeholder=\"e.g. Egypt · GCC\"></div><div><label>Working Together Since</label><input placeholder=\"e.g. 2021\"></div><div><label>Services</label><input placeholder=\"e.g. Social, TVC, Photography\"></div><div class=\"zp-full\"><label>Summary</label><textarea placeholder=\"Short brand summary — who they are and what you did for them.\"></textarea></div></div></div></div><div><p class=\"zp-sl\">Projects</p><h2 class=\"zp-h\">Work for Geely</h2><div class=\"zp-tabs\"><button class=\"zp-tab on\">Tab 1</button><button class=\"zp-tab\">Tab 2</button><button class=\"zp-add\">＋ Add Tab</button></div><div class=\"zp-card\"><div class=\"zp-grid\"><div><label>Project Name</label><input placeholder=\"e.g. Ramadan 2024 Campaign\"></div><div><label>Type</label><input placeholder=\"e.g. TVC · Social · Photography\"></div><div><label>Client</label><input placeholder=\"Geely\"></div><div><label>Date</label><input placeholder=\"e.g. Mar 2024\"></div><div class=\"\"><label>Your Role</label><input placeholder=\"e.g. Creative Director\"></div><div><label>Status</label><input placeholder=\"e.g. Delivered\"></div><div><label>Deliverables</label><input placeholder=\"e.g. 3 films, 20 posts, KV\"></div><div class=\"zp-full\"><label>Description</label><textarea placeholder=\"What was the brief, what did you make, what was the result?\"></textarea></div></div><div class=\"zp-bar\"><button class=\"zp-save\">💾 Save</button><button class=\"zp-del\">Delete this tab</button><span class=\"zp-hint\">Saved to the site when the editor server is running — otherwise stored on this device.</span></div></div></div>"
+  },
+  "body>section:nth-child(4)>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div:nth-child(2)": {
+   "html": "Tonic International"
+  }
+ }
+}

@@ -1,0 +1,36 @@
+# Desktop app — not part of the website
+focus_app.html
+focus_app.py
+focus_data.json
+
+# Local Claude data
+claude_tasks.json
+memory/
+.claude/
+*.jsonl
+
+# Root AI-generated images (not used in site, 341 MB)
+freepik__*.png
+freepik__*.jpg
+creation_*.png
+creation_*.jpg
+
+# Local scripts & tools (not part of the site)
+*.bat
+*.ps1
+*.py
+editor.js
+editor_server.py
+nda.js
+
+# Archives & personal files
+*.zip
+"WhatsApp Image*"
+
+# Temp / system
+Thumbs.db
+.DS_Store
+*.tmp
+_verify.py
+_add_*.py
+_fix_*.py

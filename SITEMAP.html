@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIZO — Portfolio Sitemap</title>
+<style>
+  :root {
+    --bg: #0a0a0a; --surface: #111; --border: #222;
+    --accent: #f0c233; --text: #f0ede8; --muted: #666;
+    --creative: #f0c233; --music: #e85d4a; --ai: #4a9eff;
+    --font: 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--font); padding: 48px 32px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1 {
+    font-size: 11px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 48px;
+  }
+  h1 span { color: var(--accent); font-size: 32px; letter-spacing: -1px; font-weight: 900; display: block; margin-bottom: 4px; }
+
+  /* Sitemap grid */
+  .map {
+    display: grid;
+    grid-template-columns: 220px repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1300px;
+  }
+
+  /* Cells */
+  .cell {
+    background: var(--surface);
+    padding: 20px 22px;
+    border-top: 2px solid var(--border);
+    position: relative;
+  }
+  .cell.root {
+    grid-row: span 2;
+    display: flex; flex-direction: column; justify-content: center;
+    border-top-color: var(--accent);
+    background: #141208;
+  }
+  .cell.root .site-name {
+    font-size: 28px; font-weight: 900; letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .cell.root .site-name span { color: var(--accent); }
+  .cell.root .site-sub { font-size: 11px; color: var(--muted); margin-top: 8px; letter-spacing: 0.05em; }
+
+  /* Pillar headers */
+  .pillar { border-top-width: 3px; }
+  .pillar.creative { border-top-color: var(--creative); }
+  .pillar.music    { border-top-color: var(--music); }
+  .pillar.ai       { border-top-color: var(--ai); }
+
+  .pillar-icon { font-size: 22px; margin-bottom: 8px; }
+  .pillar-num  { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 4px; }
+  .pillar.creative .pillar-num { color: var(--creative); }
+  .pillar.music    .pillar-num { color: var(--music); }
+  .pillar.ai       .pillar-num { color: var(--ai); }
+  .pillar-title { font-size: 17px; font-weight: 800; }
+  .pillar-desc  { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+  /* Page list cells */
+  .pages { padding: 0; }
+  .page-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .page-item:last-child { border-bottom: none; }
+  .page-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border); flex-shrink: 0; margin-top: 5px;
+  }
+  .creative-col .page-dot { background: var(--creative); opacity: 0.5; }
+  .music-col    .page-dot { background: var(--music);    opacity: 0.5; }
+  .ai-col       .page-dot { background: var(--ai);       opacity: 0.5; }
+  .page-name  { font-weight: 600; line-height: 1.2; }
+  .page-sub   { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+  /* Sub-pages inside a case */
+  .sub-pages {
+    background: #0d0d0d;
+    padding: 0;
+  }
+  .sub-item {
+    padding: 10px 22px 10px 38px;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px; color: var(--muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sub-item:last-child { border-bottom: none; }
+  .sub-arrow { opacity: 0.3; }
+
+  /* Shared + global row */
+  .shared-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 220px repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 2px;
+  }
+  .shared-label {
+    background: var(--surface);
+    padding: 16px 22px;
+    display: flex; align-items: center;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .shared-page {
+    background: var(--surface);
+    padding: 16px 22px;
+    font-size: 13px;
+  }
+  .shared-page .pg-name { font-weight: 600; }
+  .shared-page .pg-sub  { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* Legend */
+  .legend {
+    display: flex; gap: 24px; margin-top: 40px; flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--muted); letter-spacing: 0.05em;
+  }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* Folder note */
+  .folder-map {
+    max-width: 900px; margin-top: 64px;
+  }
+  .folder-map h2 {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .tree {
+    font-size: 12px; line-height: 2;
+    color: var(--muted);
+    background: var(--surface);
+    padding: 28px 32px;
+    border-left: 3px solid var(--accent);
+    font-family: 'Courier New', monospace;
+  }
+  .tree .dir  { color: var(--text); font-weight: 700; }
+  .tree .atl  { color: var(--creative); }
+  .tree .mus  { color: var(--music); }
+  .tree .ai   { color: var(--ai); }
+  .tree .note { color: #444; font-style: italic; }
+</style>
+</head>
+<body>
+
+<h1>
+  <span>ZIZO</span>
+  Portfolio Sitemap — v1
+</h1>
+
+<div class="map">
+
+  <!-- Root -->
+  <div class="cell root">
+    <p class="site-name">ZZ<span>IO</span></p>
+    <p class="site-sub">abdelazizaskar.com<br>Creative · Music · AI</p>
+  </div>
+
+  <!-- Pillar headers -->
+  <div class="cell pillar creative">
+    <p class="pillar-num">01</p>
+    <p class="pillar-title">Creative & Content</p>
+    <p class="pillar-desc">Campaigns, social, copywriting, photography. ATL / BTL.</p>
+  </div>
+  <div class="cell pillar music">
+    <p class="pillar-num">02</p>
+    <p class="pillar-title">Production & Music</p>
+    <p class="pillar-desc">Tracks, sound design, video production, jingles.</p>
+  </div>
+  <div class="cell pillar ai">
+    <p class="pillar-num">03</p>
+    <p class="pillar-title">AI & Automation</p>
+    <p class="pillar-desc">Tools, workflows, client automation builds, experiments.</p>
+  </div>
+
+  <!-- Page lists -->
+  <div class="cell pages creative-col">
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">ATL Campaigns</p><p class="page-sub">TV / YouTube / OOH<br>e.g. Geely Coolray, Hardee's</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">BTL Campaigns</p><p class="page-sub">Social / Activation / In-store<br>e.g. Subway SubSavers, Kappa Ramadan</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Social Content</p><p class="page-sub">Ongoing brand social strategy<br>e.g. Quooker GCC, Carina 5yr</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Photography</p><p class="page-sub">Editorial · Commercial · BTS</p></div>
+    </div>
+  </div>
+
+  <div class="cell pages music-col">
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Tracks & Releases</p><p class="page-sub">Original music, Escapegust alias</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Jingles & Ad Music</p><p class="page-sub">Client-facing sound branding</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Video Production</p><p class="page-sub">Direction, edit, final delivery</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Sound Design</p><p class="page-sub">SFX, audio post, AI audio</p></div>
+    </div>
+  </div>
+
+  <div class="cell pages ai-col">
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Tools & Workflows</p><p class="page-sub">Custom automations, n8n, AI stacks</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Client Work</p><p class="page-sub">AI builds delivered for brands</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">AI Image / Video</p><p class="page-sub">Generative creative output<br>Veo3, KlingAI, Ideogram, Flux</p></div>
+    </div>
+    <div class="page-item">
+      <span class="page-dot"></span>
+      <div><p class="page-name">Experiments</p><p class="page-sub">R&D, prompts, new tech exploration</p></div>
+    </div>
+  </div>
+
+  <!-- Case study sub-pages (spanning all three pillars) -->
+  <div class="cell sub-pages creative-col">
+    <div class="sub-item"><span class="sub-arrow">└</span> Hero visual / Thumbnail</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Brief + Strategy</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Sketches & Process</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Copywriting</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Work Done / Deliverables</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Agency + Team</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> BTS / Behind the Scenes</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Results & Impact</div>
+  </div>
+  <div class="cell sub-pages music-col">
+    <div class="sub-item"><span class="sub-arrow">└</span> Cover / Visual</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Brief / Concept</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Stems & Notes</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Lyrics / Copywriting</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Mix + Masters</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Collaborators / Team</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Studio BTS</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Embed / Stream Link</div>
+  </div>
+  <div class="cell sub-pages ai-col">
+    <div class="sub-item"><span class="sub-arrow">└</span> Demo / Preview</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Problem Statement</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Process / Architecture</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Copywriting / Docs</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Deliverables</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Tools Used</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Walkthrough Video</div>
+    <div class="sub-item"><span class="sub-arrow">└</span> Outcomes</div>
+  </div>
+
+</div>
+
+<!-- Shared / global pages row -->
+<div class="shared-row">
+  <div class="shared-label">Global Pages</div>
+  <div class="shared-page">
+    <p class="pg-name">Home</p>
+    <p class="pg-sub">All three pillars intro, selected work reel, CTA</p>
+  </div>
+  <div class="shared-page">
+    <p class="pg-name">About</p>
+    <p class="pg-sub">Bio, skill timeline, software stack, approach</p>
+  </div>
+  <div class="shared-page">
+    <p class="pg-name">Brands / Clients</p>
+    <p class="pg-sub">Logo wall, GCC market experience</p>
+  </div>
+  <div class="shared-page">
+    <p class="pg-name">Contact</p>
+    <p class="pg-sub">Email, social, collab enquiry form</p>
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:var(--creative)"></span> Creative & Content</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--music)"></span> Production & Music</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--ai)"></span> AI & Automation</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--muted)"></span> Global / Shared</div>
+</div>
+
+<!-- Folder tree -->
+<div class="folder-map">
+  <h2>Folder Structure</h2>
+  <pre class="tree">
+<span class="dir">Portfolio/</span>
+├── <span class="dir">00_brand-assets/</span>         <span class="note">← fonts, logos, palette, your photos, templates</span>
+│   └── page-templates/
+│       └── portfolio-template.html  <span class="note">← branded base template</span>
+│
+├── <span class="dir atl">01_creative-content/</span>
+│   ├── campaigns/
+│   │   ├── ATL/[campaign-name]/
+│   │   │   ├── assets/             <span class="note">← final visuals, videos</span>
+│   │   │   ├── sketches-process/   <span class="note">← mood boards, sketches, WIPs</span>
+│   │   │   ├── copywriting/        <span class="note">← headlines, scripts, copy decks</span>
+│   │   │   ├── behind-scenes/      <span class="note">← on-set, team photos</span>
+│   │   │   └── final-work/         <span class="note">← delivered output</span>
+│   │   └── BTL/[campaign-name]/    <span class="note">← same structure</span>
+│   ├── social-content/
+│   ├── photography/
+│   └── _template_campaign/         <span class="note">← copy this for every new project</span>
+│
+├── <span class="dir mus">02_production-music/</span>
+│   ├── tracks/[track-name]/
+│   │   ├── stems/
+│   │   ├── mix-masters/
+│   │   ├── artwork/
+│   │   └── lyrics/
+│   ├── video-production/[project]/
+│   ├── sound-design/
+│   └── _template_project/
+│
+├── <span class="dir ai">03_ai-automation/</span>
+│   ├── tools-workflows/[project-name]/
+│   ├── client-work/[client-name]/
+│   ├── experiments/
+│   └── _template_project/
+│
+└── <span class="dir">99_archive/</span>
+  </pre>
+</div>
+
+<a href="index.html" id="zz-home-chip" style="position:fixed;top:14px;left:14px;z-index:99998;display:flex;align-items:center;gap:6px;background:rgba(10,10,10,.85);border:1px solid #333;color:#f0c233;border-radius:99px;padding:7px 14px;font:700 12px Inter,system-ui,sans-serif;text-decoration:none;backdrop-filter:blur(10px)">⌂ Home</a>
+<script src="editor.js?v=2"></script>
+<script src="nda.js"></script>
+</body>
+</html>

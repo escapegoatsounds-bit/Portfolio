@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIZO — Abdelaziz Askar · Social Media & Creative Director</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="ZIZO — Abdelaziz Askar. Head of Social & AI at Tonic International. Creative Director, Music Producer & Photographer with 18 years across Egypt, Qatar & UAE.">
+<meta property="og:title" content="ZIZO — Abdelaziz Askar · Creative Director">
+<meta property="og:description" content="18 years. 70+ global brands. Head of Social & AI. One identity: ZIZO.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/photos/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZIZO — Abdelaziz Askar · Creative Director">
+<meta name="twitter:description" content="Head of Social & AI · Creative Director · Music Producer">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090c; --s1:#111118; --s2:#19191f; --b:#252532;
+  --gold:#f0c233; --gold2:#ffe566; --gold-a:rgba(240,194,51,.08);
+  --purple:#8b5cf6; --purple2:#a78bfa;
+  --text:#f3f0eb; --m:#706c64; --m2:#b5b0a6;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --r:10px;
+}
+.hl{color:var(--gold);font-weight:800}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--font);border:none}
+
+.mobile-wall{display:none;position:fixed;inset:0;z-index:9999;background:#000;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.mobile-wall-icon{font-size:48px;margin-bottom:20px}
+.mobile-wall h2{font-size:22px;font-weight:800;margin-bottom:12px}
+.mobile-wall p{font-size:14px;color:var(--m2);line-height:1.7;max-width:320px}
+.mobile-wall .gold{color:var(--gold);font-weight:700}
+
+nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 44px;border-bottom:1px solid var(--b);background:rgba(5,5,6,.97);backdrop-filter:blur(20px);z-index:100}
+.nav-logo{font-size:14px;font-weight:700;letter-spacing:-.3px;color:var(--m2);display:flex;align-items:center}
+.nav-logo em{color:var(--gold);font-style:normal;font-size:19px;font-weight:900;letter-spacing:-.5px;margin-right:2px}
+.nav-divider{color:var(--m);font-weight:300;font-size:14px;margin:0 7px}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);transition:color .2s;cursor:pointer;font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:9px 20px;background:var(--gold);color:#000;border-radius:var(--r);transition:filter .2s,transform .15s}
+.nav-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+.layout{flex:1;overflow:hidden;display:grid;grid-template-columns:520px 1fr}
+
+.phone-col{border-right:1px solid var(--b);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;background:radial-gradient(ellipse at 50% 55%,rgba(240,194,51,.08) 0%,transparent 70%);position:relative;overflow:hidden;perspective:1800px}
+.phone-col::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.phone-hint{position:relative;z-index:3;text-align:center;max-width:330px}
+.phone-hint .ph-big{font-size:20px;font-weight:900;letter-spacing:-.4px;line-height:1.25;color:var(--text)}
+.phone-hint .ph-big em{color:var(--gold);font-style:normal}
+.phone-hint .ph-sub{font-size:12px;color:var(--m2);margin-top:6px;letter-spacing:.02em}
+
+.phone{width:340px;height:724px;background:#0c0c0c;border-radius:56px;border:2px solid #2c2c2c;
+  box-shadow:0 0 0 1px #111,inset 0 0 0 1px #1e1e1e,0 50px 90px -20px rgba(0,0,0,.95),-30px 40px 80px -30px rgba(0,0,0,.7),0 0 80px rgba(240,194,51,.06);
+  position:relative;overflow:hidden;flex-shrink:0;
+  transform:rotateY(-9deg) rotateX(3deg) rotate(.5deg);transform-style:preserve-3d;transition:transform .5s cubic-bezier(.22,.68,0,1.2)}
+.phone:hover{transform:rotateY(-2deg) rotateX(1deg)}
+.phone::after{content:'';position:absolute;right:-3px;top:120px;width:3px;height:62px;background:#1c1c1c;border-radius:0 2px 2px 0}
+.phone::before{content:'';position:absolute;left:-3px;top:90px;width:3px;height:40px;background:#1c1c1c;border-radius:2px 0 0 2px;box-shadow:0 52px 0 #1c1c1c}
+.phone-screen{position:absolute;inset:0;border-radius:50px;overflow:hidden}
+.dynamic-island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:96px;height:28px;background:#000;border-radius:20px;z-index:50}
+
+.status-bar{position:absolute;top:0;left:0;right:0;height:48px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 7px;z-index:40;font-size:12px;font-weight:700}
+.status-time{font-size:14px;font-weight:800}
+.status-icons{display:flex;gap:5px;align-items:center}
+
+.screen{position:absolute;inset:0;border-radius:50px;overflow:hidden;transition:opacity .3s,transform .3s;transform-origin:center}
+.screen.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
+
+#lockScreen{cursor:pointer;user-select:none}
+.lock-time{font-size:72px;font-weight:200;line-height:1;color:#fff;letter-spacing:-3px}
+.lock-date{font-size:13px;font-weight:400;color:rgba(255,255,255,.7);letter-spacing:.05em;margin-top:4px}
+.lock-brand{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(240,194,51,.85);margin-top:10px}
+.lock-notification{background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:9px 14px;width:100%}
+.lock-notif-text{font-size:11px!important}
+.lock-notif-app{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px}
+.lock-notif-text{font-size:12px;color:rgba(255,255,255,.9);line-height:1.4}
+.lock-notif-text strong{color:var(--gold2)}
+.lock-pill{display:inline-block;width:34px;height:4px;background:rgba(255,255,255,.3);border-radius:99px;margin-bottom:8px}
+.lock-unlock-text{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+
+.home-wallpaper{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 25%,#1a1530 0%,#0d0b15 45%,#0a0a0a 100%)}
+.home-wallpaper::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 80%,rgba(240,194,51,.08) 0%,transparent 55%),radial-gradient(circle at 20% 30%,rgba(139,92,246,.14) 0%,transparent 50%)}
+.home-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding-top:52px}
+.home-widget{padding:8px 22px 14px;flex-shrink:0}
+.widget-name{font-size:14px;font-weight:800;letter-spacing:-.3px;color:rgba(255,255,255,.95)}
+.widget-name em{color:var(--gold);font-style:normal}
+.widget-title{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:2px}
+
+.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;padding:4px 18px 8px;flex:1;align-content:start}
+.app-icon{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.app-icon-face{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .15s,filter .15s;flex-shrink:0;box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.app-icon:hover .app-icon-face,.app-icon:active .app-icon-face{transform:scale(.92);filter:brightness(1.12)}
+.app-icon-face svg{width:100%;height:100%}
+.app-icon-face img{width:100%;height:100%;object-fit:cover}
+.app-label{font-size:9.5px;font-weight:500;color:rgba(255,255,255,.85);text-align:center;text-shadow:0 1px 4px rgba(0,0,0,.8);max-width:58px;line-height:1.2}
+
+.home-dock{margin:0 14px 18px;padding:10px 6px;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:26px;display:flex;justify-content:space-around;align-items:center;flex-shrink:0}
+.home-dock .app-icon-face{width:50px;height:50px}
+
+.app-screen{position:absolute;inset:0;background:var(--bg);border-radius:50px;overflow:hidden;display:flex;flex-direction:column}
+.app-topbar{display:flex;align-items:center;gap:10px;padding:52px 16px 11px;border-bottom:1px solid var(--b);flex-shrink:0;background:var(--s1)}
+.app-topbar .mini-ico{width:24px;height:24px;border-radius:6px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.app-topbar .mini-ico svg,.app-topbar .mini-ico img{width:100%;height:100%;object-fit:cover}
+.back-btn{font-size:20px;color:var(--gold);background:none;padding:2px 4px;line-height:1}
+.app-screen-title{font-size:14px;font-weight:800;letter-spacing:-.3px;flex:1}
+.app-body{flex:1;overflow-y:auto;scrollbar-width:none}
+.app-body::-webkit-scrollbar{display:none}
+
+.feed-post{border-bottom:1px solid var(--b)}
+.feed-head{display:flex;align-items:center;gap:9px;padding:9px 12px}
+.feed-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
+.feed-user{font-size:11px;font-weight:700}
+.feed-sub{font-size:9px;color:var(--m2)}
+.feed-img{height:150px;position:relative;display:flex;align-items:flex-end;padding:12px;overflow:hidden}
+.feed-img-label{font-size:13px;font-weight:800;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.9);position:relative;z-index:2}
+.feed-actions{display:flex;gap:14px;padding:8px 12px 4px;font-size:15px}
+.feed-cap{padding:0 12px 11px;font-size:11px;line-height:1.5;color:var(--text)}
+.feed-cap b{font-weight:700}
+
+.tweet{display:flex;gap:9px;padding:12px;border-bottom:1px solid var(--b)}
+.tweet-av{width:32px;height:32px;border-radius:50%;background:var(--gold);color:#000;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0}
+.tweet-h{font-size:11px;margin-bottom:3px}
+.tweet-h b{font-weight:700}.tweet-h span{color:var(--m2)}
+.tweet-txt{font-size:13px;line-height:1.45}
+.tweet-meta{font-size:9px;color:var(--m2);margin-top:7px}
+
+.acard{margin:10px 12px 0;background:var(--s1);border:1px solid var(--b);border-radius:12px;overflow:hidden;display:block}
+.acard:active{background:var(--s2)}
+.acard-body{padding:10px 13px}
+.acard-name{font-size:13px;font-weight:700;margin-bottom:3px}
+.acard-meta{font-size:10px;color:var(--m2)}
+
+.sp-now{padding:14px 16px;text-align:center}
+.sp-art{width:150px;height:150px;border-radius:10px;margin:0 auto 12px;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.sp-track{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--b)}
+.sp-track audio{width:100%;height:30px}
+.sp-num{font-size:11px;color:var(--m);width:14px;flex-shrink:0}
+.sp-tname{font-size:12px;font-weight:700}
+
+.content-panel{overflow-y:auto;display:flex;flex-direction:column}
+.content-panel::-webkit-scrollbar{width:5px}
+.content-panel::-webkit-scrollbar-thumb{background:var(--b);border-radius:3px}
+
+.panel-default{flex:1;display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;gap:48px;padding:40px 68px 40px 64px}
+.pd-hero{display:flex;flex-direction:column}
+.pd-text{min-width:0}
+.panel-eyebrow{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
+.panel-eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--gold);margin-bottom:13px;border-radius:1px}
+.panel-name{font-size:clamp(42px,4.2vw,68px);font-weight:900;line-height:.88;letter-spacing:-2.8px;margin-bottom:14px}
+.panel-name em{color:var(--gold);font-style:normal;display:block}
+.panel-role{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--m2);margin-bottom:26px;font-weight:600;padding-left:12px;border-left:2px solid var(--gold)}
+.panel-bio{font-size:14.5px;color:var(--m2);line-height:1.82;margin-bottom:30px}
+.panel-bio strong{color:var(--text);font-weight:700}
+.panel-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:var(--r);margin-bottom:30px;overflow:hidden}
+.panel-stat{background:var(--s1);padding:18px 14px;transition:background .15s}
+.panel-stat-num{font-size:28px;font-weight:900;color:var(--gold);line-height:1;letter-spacing:-1.5px;margin-bottom:5px}
+.panel-stat-lbl{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--m);font-weight:500}
+.panel-stat.has-drop{cursor:pointer}
+.panel-stat.has-drop:hover{background:var(--s2)}
+.stat-drop{position:absolute;top:100%;left:0;min-width:230px;background:#15151a;border:1px solid var(--purple);border-radius:10px;padding:14px 16px;z-index:60;display:none;box-shadow:0 18px 50px rgba(0,0,0,.7)}
+.stat-drop b{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple2);margin-bottom:10px}
+.stat-drop span{display:inline-block;font-size:11.5px;color:var(--text);padding:4px 10px;margin:2px;background:var(--s2);border:1px solid var(--b);border-radius:99px;white-space:nowrap}
+.panel-stat.has-drop{position:relative}
+.panel-stat.has-drop:hover .stat-drop{display:block}
+.panel-hint{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m);display:flex;align-items:center;gap:8px}
+.panel-hint::before{content:'←';font-size:14px;color:var(--gold)}
+.pd-hero{position:relative}
+.hero-slides{position:relative;width:100%;height:100%;min-height:480px;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.7);background:linear-gradient(135deg,var(--s2) 0%,var(--s1) 100%)}
+.hero-slides::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,.32) 100%);z-index:1;pointer-events:none}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
+.hero-slides img:not(.on){pointer-events:none}
+.hero-slides img.on{opacity:1}
+.hero-dots{position:absolute;bottom:22px;right:18px;display:flex;gap:6px;z-index:3}
+.hero-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .25s}
+.hero-dots span.on{background:var(--gold);width:18px;border-radius:99px}
+.pd-hero-badge{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:99px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:var(--r);transition:all .2s}
+.btn-gold{background:var(--gold);color:#000}
+.btn-gold:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--b);color:var(--m2)}
+.btn-ghost:hover{border-color:var(--m2);color:var(--text)}
+
+.panel-app{display:none;flex:1;flex-direction:column}
+.panel-app.active{display:flex}
+.panel-app-header{padding:40px 68px 28px;border-bottom:1px solid var(--b);flex-shrink:0;display:flex;align-items:flex-start;gap:20px}
+.panel-app-ico{width:56px;height:56px;border-radius:16px;flex-shrink:0;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.55)}
+.panel-app-ico svg,.panel-app-ico img{width:100%;height:100%;object-fit:cover}
+.panel-app-htext{flex:1}
+.panel-app-eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;font-weight:600}
+.panel-app-title{font-size:clamp(28px,2.8vw,44px);font-weight:900;letter-spacing:-1.5px;line-height:1}
+.panel-app-sub{font-size:13.5px;color:var(--m2);margin-top:11px;max-width:520px;line-height:1.68}
+.panel-app-body{flex:1;overflow-y:auto;padding:32px 68px 52px;scrollbar-width:thin;scrollbar-color:var(--b) transparent}
+.panel-app-body::-webkit-scrollbar{width:4px}
+.panel-app-body::-webkit-scrollbar-thumb{background:var(--b)}
+
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.work-card{position:relative;overflow:hidden;min-height:220px;cursor:pointer;background:var(--s1);transition:transform .28s cubic-bezier(.22,.68,0,1.2),filter .28s;display:block}
+.work-card:hover{transform:scale(.984);filter:brightness(1.1)}
+.wc-color{position:absolute;inset:0;opacity:.36;transition:opacity .28s}
+.work-card:hover .wc-color{opacity:.52}
+.wc-dot{position:absolute;top:14px;left:14px;width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;z-index:2;border:1px solid rgba(255,255,255,.15)}
+.wc-info{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.97) 0%,rgba(0,0,0,.6) 55%,transparent);padding:38px 16px 18px}
+.wc-meta{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:600}
+.wc-title{font-size:16px;font-weight:800;line-height:1.12;margin-bottom:4px}
+.wc-role{font-size:10px;color:rgba(255,255,255,.55);font-weight:500}
+
+.brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--b)}
+.brand-tile{background:var(--s1);padding:22px 10px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:background .18s,transform .18s;text-decoration:none}
+.brand-tile:hover{background:var(--s2)}
+.bt-dot{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.45);position:relative;overflow:hidden}
+.bt-name{font-size:10.5px;font-weight:700;text-align:center;line-height:1.3;color:var(--text)}
+
+.quote-card{background:var(--s1);border:1px solid var(--b);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:24px 28px;margin-bottom:16px}
+.quote-eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.quote-big{font-size:23px;font-weight:900;letter-spacing:-.5px;line-height:1.22;margin-bottom:10px}
+.quote-src{font-size:11px;color:var(--m2)}
+
+.skillbar{background:var(--s1);border:1px solid var(--b);border-radius:8px;padding:16px}
+.skillbar-h{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px}
+.skillbar-h b{font-weight:700}.skillbar-h span{color:var(--gold);font-weight:700}
+.skillbar-track{height:7px;background:var(--s2);border-radius:4px;overflow:hidden}
+.skillbar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px}
+
+.tabs{display:flex;gap:8px;padding:12px 12px 0;flex-wrap:wrap}
+.tabs.in-panel{padding:0 0 22px}
+.tab{padding:7px 14px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--s2);color:var(--m2);border:1px solid var(--b);cursor:pointer;transition:all .15s}
+.tab:hover{color:var(--text)}
+.tab.on{background:var(--gold);color:#000;border-color:var(--gold)}
+.tab.on.alt{background:var(--purple);color:#fff;border-color:var(--purple)}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.proj-card{background:var(--s1);border:1px solid var(--b);border-top:3px solid var(--purple);border-radius:10px;padding:22px}
+.proj-card.g{border-top-color:var(--gold)}
+.proj-ico{font-size:26px;margin-bottom:10px}
+.proj-name{font-size:16px;font-weight:800;margin-bottom:6px}
+.proj-desc{font-size:12px;color:var(--m2);line-height:1.6}
+@media(max-width:1100px){.panel-default{grid-template-columns:1fr}.pd-hero{display:none}}
+@media(max-width:900px){
+  html,body{overflow:auto}
+  .layout{grid-template-columns:1fr;height:auto}
+  .phone-col{padding:60px 24px 40px;border-right:none;border-bottom:1px solid var(--b)}
+  .content-panel{overflow-y:visible;padding-bottom:60px}
+  nav{padding:0 20px}.nav-links{display:none}
+  .panel-app-body,.panel-default{padding-left:30px;padding-right:30px}
+}
+@media(max-width:520px){.mobile-wall{display:flex}}
+</style>
+</head>
+<body>
+
+<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .5s ease,visibility .5s ease">
+  <svg width="64" height="64" viewBox="0 0 64 64" style="animation:preloaderPulse 1.2s ease-in-out infinite">
+    <rect width="64" height="64" rx="14" fill="#09090c" stroke="#252532" stroke-width="1"/>
+    <line x1="14" y1="18" x2="50" y2="18" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
+    <line x1="50" y1="18" x2="14" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
+    <line x1="14" y1="46" x2="50" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <div style="width:200px;height:2px;background:#252532;border-radius:1px;overflow:hidden">
+    <div id="preloaderBar" style="height:100%;width:0;background:#f0c233;border-radius:1px;transition:width .4s ease"></div>
+  </div>
+  <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#706c64;font-family:'Inter',system-ui,sans-serif">Loading Portfolio</div>
+</div>
+<style>
+@keyframes preloaderPulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}
+</style>
+<script>
+(function(){
+  const bar=document.getElementById('preloaderBar');
+  let p=0;
+  const t=setInterval(()=>{p=Math.min(p+Math.random()*18,90);bar.style.width=p+'%';},120);
+  window.addEventListener('load',()=>{
+    clearInterval(t);bar.style.width='100%';
+    setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},400);
+  });
+})();
+</script>
+
+<div class="mobile-wall">
+  <div class="mobile-wall-icon">🖥️</div>
+  <h2>Best viewed on desktop</h2>
+  <p>This portfolio is built as a <span class="gold">desktop-first phone experience</span>. Open it on a laptop or monitor for the full interface.</p>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo"><em>ZIZO</em><span class="nav-divider">·</span>Abdelaziz Askar</a>
+  <ul class="nav-links">
+    <li><a onclick="openApp('instagram')">Work</a></li>
+    <li><a onclick="openApp('brands')">Brands</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a onclick="openApp('escapegoat')" style="color:#ff7ad9">Escapegoat</a></li>
+    <li><a onclick="openApp('linkedin')">Resume</a></li>
+    <li><a href="contact.html" style="color:var(--gold)">Contact</a></li>
+  </ul>
+  <a href="mailto:bananalover9119@gmail.com" class="nav-cta">Let's Talk →</a>
+</nav>
+
+<div class="layout">
+  <div class="phone-col">
+    <div class="phone-hint">
+      <div class="ph-big">👇 This portfolio is a <em>phone</em>.<br>Tap the apps to explore my world.</div>
+      <div class="ph-sub">Unlock it, then open any app — every icon is a different part of the story.</div>
+    </div>
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="dynamic-island"></div>
+        <div class="status-bar" style="color:#fff">
+          <span class="status-time" id="clockDisplay">9:41</span>
+          <div class="status-icons">
+            <svg width="14" height="11" viewBox="0 0 14 11" fill="white"><rect x="0" y="4" width="2.5" height="7" rx=".8"/><rect x="3.5" y="2.5" width="2.5" height="8.5" rx=".8"/><rect x="7" y="1" width="2.5" height="10" rx=".8"/><rect x="10.5" y="0" width="2.5" height="11" rx=".8"/></svg>
+            <svg width="22" height="11" viewBox="0 0 24 11" fill="none"><rect x=".5" y="1" width="20" height="9" rx="2.5" stroke="white" opacity=".5"/><rect x="2" y="2.5" width="16" height="6" rx="1" fill="white"/><rect x="21.5" y="3.5" width="1.5" height="4" rx=".75" fill="white" opacity=".5"/></svg>
+          </div>
+        </div>
+
+        <div class="screen" id="lockScreen" onclick="unlockPhone()">
+          <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1c1140 0%,#0c0c0c 55%,#0c0e0b 100%)"></div>
+          <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 28%,rgba(240,194,51,.14),transparent 55%),radial-gradient(circle at 25% 75%,rgba(139,92,246,.18),transparent 50%)"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;height:100%;padding:60px 24px 36px">
+            <div style="margin-top:46px;text-align:center">
+              <div class="lock-time" id="lockTime">9:41</div>
+              <div class="lock-date" id="lockDate">Monday, June 8</div>
+              <div class="lock-brand">ZIZO · PORTFOLIO OS</div>
+            </div>
+            <div style="margin-top:26px;display:flex;flex-direction:column;gap:8px;width:100%;max-width:240px">
+              <div class="lock-notification">
+                <div class="lock-notif-app">💬 Arnaud Veschera · CEO, Tonic Intl · now</div>
+                <div class="lock-notif-text">"He didn't just shorten our workflow — he <strong>changed how we collaborate daily</strong>."</div>
+              </div>
+              <div class="lock-notification">
+                <div class="lock-notif-app">💬 Mikey · Music Artist · 2m ago</div>
+                <div class="lock-notif-text">"He doesn't just do the work — he <strong>lives the project with you</strong>."</div>
+              </div>
+              <div class="lock-notification">
+                <div class="lock-notif-app">💬 Shehab Kassem · Septam Foods · 5m ago</div>
+                <div class="lock-notif-text">"Rare to find someone who can handle the <strong>entire creative spectrum</strong>."</div>
+              </div>
+              <div class="lock-notification">
+                <div class="lock-notif-app">💬 Amina Rashad · Glow · 1h ago</div>
+                <div class="lock-notif-text">"Brought a creative edge that <strong>kept us top of mind</strong>."</div>
+              </div>
+            </div>
+            <div style="flex:1"></div>
+            <div style="text-align:center"><div class="lock-pill"></div><div class="lock-unlock-text">tap to unlock</div></div>
+          </div>
+        </div>
+
+        <div class="screen hidden" id="homeScreen">
+          <div class="home-wallpaper"></div>
+          <div class="home-content">
+            <div class="home-widget">
+              <div class="widget-name">ZI<em>ZO</em> — Abdelaziz Askar</div>
+              <div class="widget-title">Social Media & Creative Director · MENA</div>
+            </div>
+            <div class="app-grid" id="appGrid"></div>
+            <div class="home-dock" id="appDock"></div>
+          </div>
+        </div>
+
+        <div id="appScreens"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-panel" id="contentPanel">
+    <div class="panel-default" id="panelDefault">
+      <div class="pd-text">
+        <p class="panel-eyebrow">Social Media Director · Creative Director · AI</p>
+        <h1 class="panel-name">Abdelaziz<em>Askar</em></h1>
+        <p class="panel-role">ZIZO — Head of Social &amp; AI at Tonic International · since 2007</p>
+        <p class="panel-bio">
+          My portfolio, built as a phone. <strong>Every app is a discipline.</strong>
+          Instagram is the creative feed. YouTube holds the TVCs. X is the copy.
+          Spotify plays my music. The game app is my skill tree. Tap any icon to explore.
+          <br><br>
+          <strong>200+ projects</strong> across <strong>Egypt, Qatar and the UAE</strong> — and brand work that's reached audiences across the wider MENA region and beyond.
+        </p>
+        <div class="panel-stats">
+          <div class="panel-stat"><div class="panel-stat-num">200+</div><div class="panel-stat-lbl">Projects</div></div>
+          <div class="panel-stat has-drop"><div class="panel-stat-num">3</div><div class="panel-stat-lbl">Markets ▾</div>
+            <div class="stat-drop"><b>Markets I've worked in</b>
+              <span>🇪🇬 Egypt</span><span>🇶🇦 Qatar</span><span>🇦🇪 UAE</span><span>🌍 Brands across MENA</span>
+            </div>
+          </div>
+          <div class="panel-stat has-drop"><div class="panel-stat-num">10+</div><div class="panel-stat-lbl">Sectors ▾</div>
+            <div class="stat-drop"><b>Sectors</b>
+              <span>🚗 Automotive</span><span>🍔 Food &amp; Beverage</span><span>🛒 FMCG</span><span>💎 Luxury</span><span>🏨 Hospitality</span><span>💻 Tech</span><span>🏭 Industrial</span><span>📰 Print Media</span><span>⭐ Celebrity Management</span><span>🤖 Content Creation &amp; AI</span>
+            </div>
+          </div>
+          <div class="panel-stat"><div class="panel-stat-num">180+</div><div class="panel-stat-lbl">Brands</div></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px">
+          <a class="btn btn-gold" onclick="openApp('instagram')">Open Creative Feed →</a>
+          <a class="btn btn-ghost" onclick="openApp('brands')">All Brands</a>
+        </div>
+        <p class="panel-hint">Tap any app on the phone to explore</p>
+      </div>
+      <div class="pd-hero">
+        <div class="hero-slides">
+          <img src="assets/photos/slide-1.jpg" class="on" alt="ZIZO in the studio">
+          <img src="assets/photos/slide-2.jpg" alt="ZIZO on the rooftop">
+          <img src="assets/photos/slide-3.jpg" alt="ZIZO at the desk">
+          <img src="assets/photos/slide-4.jpg" alt="ZIZO with laptop">
+          <img src="assets/photos/slide-5.jpg" alt="ZIZO all black">
+        </div>
+        <div class="pd-hero-badge">ZIZO · Abdelaziz Askar</div>
+        <div class="hero-dots"></div>
+      </div>
+    </div>
+    <div id="appPanels"></div>
+  </div>
+</div>
+
+<script>
+const ICO = {
+  instagram:`<defs><radialGradient id="ig" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="54" height="54" rx="14" fill="url(#ig)"/><g fill="none" stroke="#fff" stroke-width="3"><rect x="15" y="15" width="24" height="24" rx="7"/><circle cx="27" cy="27" r="7"/></g><circle cx="36.5" cy="17.5" r="1.9" fill="#fff"/>`,
+  facebook:`<rect width="54" height="54" rx="14" fill="#1877F2"/><path d="M33 27h-4v14h-6V27h-3v-5h3v-3.2c0-3.6 1.8-5.8 6-5.8h4v5h-2.6c-1 0-1.4.6-1.4 1.6V22h4l-.6 5z" fill="#fff"/>`,
+  x:`<rect width="54" height="54" rx="14" fill="#000"/><path d="M30.5 24.8L40 14h-3l-7.8 8.9L23 14h-8l10 14.3L14.5 40h3l8.4-9.5L33 40h8L30.5 24.8zm-3 3.4l-1-1.4-8-11.2h3.4l6.3 8.8 1 1.4 8.2 11.6h-3.4l-6.5-9.2z" fill="#fff"/>`,
+  tiktok:`<rect width="54" height="54" rx="14" fill="#000"/><path d="M34 13c.5 3.3 2.4 5.7 5.6 6.1v3.8c-1.9.2-3.6-.4-5.6-1.5v8.2c0 5.5-4.5 9.2-9.4 8.1-5.6-1.3-7.3-8.2-2.9-11.7 1.4-1.1 3.6-1.6 5.3-1.2v4.1c-.6-.2-1.3-.3-2-.1-1.9.5-2.5 2.7-1.2 4 1.2 1.2 3.6.6 3.8-1.4.1-.5.1-1 .1-1.5V13H34z" fill="#25F4EE"/><path d="M35 14c.5 3.3 2.4 5.7 5.6 6.1v3.8c-1.9.2-3.6-.4-5.6-1.5v8.2c0 5.5-4.5 9.2-9.4 8.1-5.6-1.3-7.3-8.2-2.9-11.7 1.4-1.1 3.6-1.6 5.3-1.2v4.1c-.6-.2-1.3-.3-2-.1-1.9.5-2.5 2.7-1.2 4 1.2 1.2 3.6.6 3.8-1.4.1-.5.1-1 .1-1.5V14H35z" fill="#FE2C55"/><path d="M34.5 13.5c.5 3.3 2.4 5.7 5.6 6.1v3.8c-1.9.2-3.6-.4-5.6-1.5v8.2c0 5.5-4.5 9.2-9.4 8.1-5.6-1.3-7.3-8.2-2.9-11.7 1.4-1.1 3.6-1.6 5.3-1.2v4.1c-.6-.2-1.3-.3-2-.1-1.9.5-2.5 2.7-1.2 4 1.2 1.2 3.6.6 3.8-1.4.1-.5.1-1 .1-1.5V13.5h2.4z" fill="#fff"/>`,
+  youtube:`<rect width="54" height="54" rx="14" fill="#FF0000"/><path d="M41 22.5c-.3-1.3-1.2-2.3-2.5-2.6C36.3 19.3 27 19.3 27 19.3s-9.3 0-11.5.6c-1.3.3-2.2 1.3-2.5 2.6-.5 2.3-.5 7-.5 7s0 4.7.5 7c.3 1.3 1.2 2.3 2.5 2.6 2.2.6 11.5.6 11.5.6s9.3 0 11.5-.6c1.3-.3 2.2-1.3 2.5-2.6.5-2.3.5-7 .5-7s0-4.7-.5-7z" fill="#fff"/><path d="M24 33.5l7.5-4.5L24 24.5v9z" fill="#FF0000"/>`,
+  camera:`<defs><linearGradient id="cam" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a3c"/><stop offset="1" stop-color="#1c1c1e"/></linearGradient></defs><rect width="54" height="54" rx="14" fill="url(#cam)"/><circle cx="27" cy="28" r="9" fill="none" stroke="#d8d8da" stroke-width="2.5"/><circle cx="27" cy="28" r="4.5" fill="#d8d8da"/><rect x="18" y="16" width="8" height="4" rx="1.5" fill="#d8d8da"/><circle cx="36" cy="19.5" r="1.6" fill="#f0c233"/>`,
+  chatgpt:`<rect width="54" height="54" rx="14" fill="#10A37F"/><path d="M27 14c-3.6 0-6.7 2.3-7.8 5.6-2.6.5-4.6 2.8-4.6 5.6 0 1.1.3 2.1.8 3-.5 1.6-.3 3.4.6 4.9 1.3 2.3 4 3.4 6.5 2.8 1.4 1.4 3.4 2.1 5.5 1.7 3.6 0 6.7-2.3 7.8-5.6 2.6-.5 4.6-2.8 4.6-5.6 0-1.1-.3-2.1-.8-3 .5-1.6.3-3.4-.6-4.9-1.3-2.3-4-3.4-6.5-2.8C31.1 14.7 29.1 14 27 14z" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M27 20l5 3v6l-5 3-5-3v-6l5-3z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>`,
+  wikipedia:`<rect width="54" height="54" rx="14" fill="#fff"/><text x="27" y="26" font-family="Georgia,serif" font-size="22" fill="#000" text-anchor="middle">W</text><text x="27" y="40" font-family="Georgia,serif" font-size="8" letter-spacing="1.5" fill="#54595d" text-anchor="middle">ABOUT</text>`,
+  photoshop:`<rect width="54" height="54" rx="14" fill="#001E36"/><rect x="6" y="6" width="42" height="42" rx="10" fill="none" stroke="#31A8FF" stroke-width="2"/><text x="27" y="35" font-family="Arial" font-weight="800" font-size="20" fill="#31A8FF" text-anchor="middle">Ps</text>`,
+  powerpoint:`<rect width="54" height="54" rx="14" fill="#fff"/><path d="M15 14h14c4.5 0 7.5 2.8 7.5 7s-3 7-7.5 7H22v12h-7V14z" fill="#D24726"/><text x="22" y="34" font-family="Arial" font-weight="800" font-size="18" fill="#fff" text-anchor="middle">P</text>`,
+  spotify:`<rect width="54" height="54" rx="14" fill="#1DB954"/><g fill="none" stroke="#000" stroke-width="2.8" stroke-linecap="round"><path d="M17 23c6-1.8 14-1.3 19 1.6"/><path d="M18 28c5-1.3 12-.9 16 1.4"/><path d="M19 32.5c4-1 9-.7 12 1"/></g>`,
+  skills:`<defs><linearGradient id="arc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b2fae"/><stop offset="1" stop-color="#1a1145"/></linearGradient></defs><rect width="54" height="54" rx="14" fill="url(#arc)"/><text x="27" y="33" font-size="24" text-anchor="middle">🕹️</text><rect x="10" y="42" width="34" height="3" rx="1.5" fill="#ff7ad9"/>`,
+  escapegoat:`__IMG__assets/photos/escapegoat-album.jpg`,
+  linkedin:`<rect width="54" height="54" rx="14" fill="#0A66C2"/><circle cx="18.5" cy="18.5" r="3" fill="#fff"/><rect x="15.5" y="23" width="6" height="17" fill="#fff"/><path d="M25 23h6v2.5c1-1.8 3-2.9 5.3-2.9 4.2 0 6.7 2.6 6.7 7.4V40h-6v-9c0-2.2-.8-3.6-2.8-3.6-1.6 0-2.5 1.1-2.9 2.1-.2.4-.3 1-.3 1.6V40h-6V23z" fill="#fff"/>`,
+  slack:`<rect width="54" height="54" rx="14" fill="#fff"/><path d="M22 30a3 3 0 11-3-3h3v3z" fill="#E01E5A"/><path d="M23.5 30a3 3 0 016 0v7.5a3 3 0 11-6 0V30z" fill="#E01E5A"/><path d="M30 22a3 3 0 11-3 3v-3h3z" fill="#36C5F0"/><path d="M30 23.5a3 3 0 010 6h-7.5a3 3 0 010-6H30z" fill="#36C5F0"/><path d="M32 32a3 3 0 116 0h-3v-3z" fill="#2EB67D"/><path d="M32 31.5a3 3 0 016 0v6a3 3 0 01-6 0v-6z" fill="#2EB67D"/><path d="M30 38a3 3 0 113 3v-3h-3z" fill="#ECB22E"/><path d="M30 36.5a3 3 0 010-6h7.5a3 3 0 010 6H30z" fill="#ECB22E"/>`,
+  messages:`<defs><linearGradient id="msg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BF675"/><stop offset="1" stop-color="#0CB12C"/></linearGradient></defs><rect width="54" height="54" rx="14" fill="url(#msg)"/><path d="M27 15c-7.7 0-14 5.2-14 11.6 0 3.6 2 6.8 5.1 8.9-.4 1.6-1.4 3.3-2.8 4.5 2.4-.2 4.7-1 6.6-2.2 1.6.5 3.3.8 5.1.8 7.7 0 14-5.2 14-11.8S34.7 15 27 15z" fill="#fff"/>`,
+  phone:`<defs><linearGradient id="ph" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BF675"/><stop offset="1" stop-color="#0CB12C"/></linearGradient></defs><rect width="54" height="54" rx="14" fill="url(#ph)"/><path d="M20 16c-1.5 0-3 1.2-3.4 3-1 4.5.6 10.5 4.7 14.6S30.5 38.4 35 37.4c1.8-.4 3-1.9 3-3.4 0-1-.5-1.9-1.4-2.4l-3.6-2c-.9-.5-2-.3-2.7.4l-1 1c-2-1.1-3.7-2.8-4.8-4.8l1-1c.7-.7.9-1.8.4-2.7l-2-3.6c-.5-.9-1.4-1.5-2.4-1.5h-1.1z" fill="#fff"/>`,
+  brands:`<defs><linearGradient id="br" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0c233"/><stop offset="1" stop-color="#c07800"/></linearGradient></defs><rect width="54" height="54" rx="14" fill="url(#br)"/><g fill="#1a1300"><rect x="15" y="15" width="10" height="10" rx="2"/><rect x="29" y="15" width="10" height="10" rx="2"/><rect x="15" y="29" width="10" height="10" rx="2"/><rect x="29" y="29" width="10" height="10" rx="2"/></g>`,
+};
+function icoMarkup(key){
+  const v=ICO[key]||'';
+  if(v.startsWith('__IMG__'))return `<img src="${v.slice(7)}" alt="">`;
+  return `<svg viewBox="0 0 54 54">${v}</svg>`;
+}
+
+const APPS = {
+  instagram:{label:'Creative',color:'#d6249f',title:'Creative Feed',sub:'Campaign work, ATL & BTL — the scroll-stopping stuff.',eyebrow:'Instagram · Creative'},
+  youtube:{label:'TVC',color:'#FF0000',title:'From brief to broadcast',sub:'Directing, scripting, producing — TVCs that air and convert.',eyebrow:'YouTube · Production & TVC'},
+  x:{label:'Copy',color:'#000',title:'Words that sell',sub:'Headlines, scripts & taglines — Arabic and English.',eyebrow:'X · Copywriting'},
+  tiktok:{label:'PR',color:'#000',title:'Public Relations',sub:'Earned media, influencer & cultural moments.',eyebrow:'TikTok · PR'},
+  camera:{label:'Photo',color:'#1c1c1e',title:'Stills that move people',sub:'Commercial, editorial & campaign photography across MENA.',eyebrow:'Camera · Photography'},
+  photoshop:{label:'Design',color:'#001E36',title:'Design & Artwork',sub:'Key visuals, branding systems & artwork.',eyebrow:'Photoshop · Design'},
+  chatgpt:{label:'AI',color:'#10A37F',title:'AI, running in production today',sub:'Among the first in MENA to deploy AI into real pipelines.',eyebrow:'ChatGPT · AI Integration'},
+  spotify:{label:'Music',color:'#1DB954',title:'Escapegoat',sub:'Original music, brand jingles & TVC scores. Press play.',eyebrow:'Spotify · Music'},
+  powerpoint:{label:'Strategy',color:'#D24726',title:'Data-informed. Culturally fluent.',sub:'Strategy & tactics built for the MENA consumer.',eyebrow:'PowerPoint · Strategy & Tactics'},
+  wikipedia:{label:'About',color:'#fff',title:'Head of Social. AI lead. Music producer.',sub:'Eighteen years of work that speaks for itself.',eyebrow:'Wikipedia · About'},
+  skills:{label:'Arcade',color:'#3b2fae',title:'Escapegoat Arcade',sub:'Retro games starring Escapegoat & Skippy. Insert coin — or just click.',eyebrow:'Game · Arcade'},
+  escapegoat:{label:'EscapegoatSounds',color:'#ff7ad9',title:'EscapegoatSounds',sub:'Original music, custom DJ tracks & lyrics — written, produced and sold by ZIZO.',eyebrow:'Escapegoat · Music Label'},
+  brands:{label:'Brands',color:'#e65100',title:'The brands',sub:'Every brand, one creative force. Tap any to open its storyboard.',eyebrow:'Library · Brands'},
+  linkedin:{label:'Resume',color:'#0A66C2',title:'AZ.Askar — the professional record',sub:'Abdelaziz Askar · experience, roles & the career timeline.',eyebrow:'LinkedIn · Resume'},
+  slack:{label:'Startups',color:'#4A154B',title:'Things I built myself',sub:'My own brands, studios & ventures.',eyebrow:'Slack · Startups & Projects'},
+  messages:{label:'Reviews',color:'#0CB12C',title:'What people say',sub:'Testimonials, awards & recognition.',eyebrow:'Messages · Testimonials & Awards'},
+  phone:{label:'Contact',color:'#0CB12C',title:"Let's make your brand impossible to ignore",sub:'Campaign, TVC, brand launch or AI system — start with a call.',eyebrow:'Phone · Contact'},
+};
+
+const BRANDS=[
+  {s:'Geely',n:'Geely',c:'#003DA5',t:'#fff',i:'G'},
+  {s:'Subway-Oman',n:'Subway Oman',c:'#009B3A',t:'#fff',i:'SO'},{s:'Audi',n:'Audi',c:'#BB0A30',t:'#fff',i:'A'},
+  {s:'Snapchat',n:'Snapchat',c:'#FFFC00',t:'#000',i:'S'},{s:'Warba-Bank',n:'Warba Bank',c:'#006341',t:'#fff',i:'WB'},
+  {s:'Kappa',n:'Kappa',c:'#FF0000',t:'#fff',i:'K'},{s:'EA-FC-Mobile',n:'EA FC Mobile',c:'#003087',t:'#fff',i:'EA'},
+  {s:'Molfix',n:'Molfix',c:'#00AEEF',t:'#fff',i:'M'},{s:'Carina',n:'Carina',c:'#8B1A1A',t:'#fff',i:'C'},
+  {s:'Bazooka-Candy',n:'Bazooka',c:'#E8192C',t:'#fff',i:'BC'},{s:'Hardees',n:"Hardee's",c:'#E31837',t:'#fff',i:'H'},
+  {s:'MTN',n:'MTN',c:'#FFCC00',t:'#000',i:'M'},{s:'American-Express',n:'Amex',c:'#016FD0',t:'#fff',i:'AE'},
+  {s:'URBEELS',n:'URBEELS',c:'#FF6B35',t:'#fff',i:'U'},{s:'AXE-Unilever',n:'AXE',c:'#1a1a1a',t:'#fff',i:'AX'},
+  {s:'Bershka',n:'Bershka',c:'#000',t:'#fff',i:'B'},{s:'Krispy-Kreme',n:'Krispy Kreme',c:'#007A3D',t:'#fff',i:'KK'},
+  {s:'Quooker',n:'Quooker',c:'#1A1A1A',t:'#fff',i:'Q'},{s:'Royal-Herbs',n:'Royal Herbs',c:'#2D6A2D',t:'#fff',i:'RH'},
+  {s:'Glow',n:'Glow',c:'#00C4B4',t:'#fff',i:'GL'},{s:'Delight-Parties',n:'Delight',c:'#F7931E',t:'#fff',i:'DP'},
+  {s:'Gourmet',n:'Gourmet',c:'#8B0000',t:'#fff',i:'GO'},{s:'Royal-Tulip-Hotel',n:'Royal Tulip',c:'#6B2D8B',t:'#fff',i:'RT'},
+  {s:'Tonic-International',n:'Tonic',c:'#222',t:'#fff',i:'T'},{s:'Septam-Foods',n:'Septam',c:'#C8960C',t:'#fff',i:'SF'},
+  {s:'Juicy-Drop',n:'Juicy Drop',c:'#FF4500',t:'#fff',i:'JD'},{s:'Decoys-Real-Estate',n:'Decoys',c:'#1A3A5C',t:'#fff',i:'D'},
+  {s:'No-Limits-Furniture',n:'No Limits',c:'#5B3A29',t:'#fff',i:'NL'},{s:'Lord-of-the-Wings',n:'Lord of Wings',c:'#C00000',t:'#fff',i:'LW'},
+  {s:'GDK',n:'GDK',c:'#D4A017',t:'#000',i:'GD'},{s:'Brew-Craft',n:'Brew',c:'#4A2C2A',t:'#fff',i:'BR'},
+  {s:'WallPost',n:'WallPost',c:'#1877F2',t:'#fff',i:'WP'},{s:'Fahel-Brand',n:'Fahel',c:'#2ECC71',t:'#fff',i:'F'},
+  {s:'Imagine-Studio',n:'Imagine',c:'#9B59B6',t:'#fff',i:'IS'},
+  {s:'ABtalks',n:'ABtalks',c:'#111',t:'#fff',i:'AB'},{s:'ACUD',n:'ACUD',c:'#1A3A5C',t:'#fff',i:'AC'},
+  {s:'Al-Siddiqi-Holding',n:'Al Siddiqi',c:'#7A1F2B',t:'#fff',i:'AS'},{s:'Almaza-Bay',n:'Almaza Bay',c:'#0E7C9E',t:'#fff',i:'AL'},
+  {s:'Bibliotheca-Alexandrina',n:'Bibliotheca Alex',c:'#2C5F8A',t:'#fff',i:'BA'},{s:'Biella',n:'Biella',c:'#5C4033',t:'#fff',i:'BI'},
+  {s:'Big-Baby-Pop',n:'Big Baby Pop',c:'#E84393',t:'#fff',i:'BP'},{s:'Bonny',n:'Bonny',c:'#F39C12',t:'#000',i:'BO'},
+  {s:'Burger-Pump',n:'Burger Pump',c:'#D35400',t:'#fff',i:'BU'},{s:'CAPA',n:'CAPA',c:'#34495E',t:'#fff',i:'CA'},
+  {s:'Chouchou',n:'Chouchou',c:'#C2185B',t:'#fff',i:'CH'},{s:'Defarm',n:'Defarm',c:'#27AE60',t:'#fff',i:'DF'},
+  {s:'Deraya',n:'Deraya',c:'#8E44AD',t:'#fff',i:'DR'},{s:'El-Gouna',n:'El Gouna',c:'#E67E22',t:'#fff',i:'EG'},
+  {s:'Eldib-Co',n:'Eldib & Co',c:'#1F3A5F',t:'#fff',i:'EC'},{s:'Em-Sherif-Cafe',n:'Em Sherif',c:'#00343D',t:'#fff',i:'ES'},
+  {s:'Emirgan-Sutis',n:'Emirgan Sutis',c:'#B5121B',t:'#fff',i:'EM'},{s:'Gillette-Venus',n:'Gillette Venus',c:'#00A4E4',t:'#fff',i:'GV'},
+  {s:'Hayat-Water',n:'Hayat Water',c:'#0077C8',t:'#fff',i:'HW'},{s:'Inside-Out-Art',n:'Inside Out',c:'#9B59B6',t:'#fff',i:'IO'},
+  {s:'Lifebox',n:'Lifebox',c:'#16A085',t:'#fff',i:'LB'},{s:'Mansour',n:'Mansour',c:'#1A1A1A',t:'#fff',i:'MA'},
+  {s:'Mayo-Clinic',n:'Mayo Clinic',c:'#0057B8',t:'#fff',i:'MC'},{s:'Medina',n:'Medina',c:'#006C5B',t:'#fff',i:'ME'},
+  {s:'Mooz',n:'Mooz',c:'#1565C0',t:'#fff',i:'MZ'},{s:'Mostique',n:'Mostique',c:'#2C3E50',t:'#fff',i:'MO'},
+  {s:'MTM',n:'MTM',c:'#444',t:'#fff',i:'MT'},{s:'Nineteen84',n:'Nineteen84',c:'#111',t:'#fff',i:'19'},
+  {s:'Noodle-House',n:'Noodle House',c:'#C8102E',t:'#fff',i:'NH'},{s:'One-Zaabeel',n:'One Zaabeel',c:'#0F1B2B',t:'#fff',i:'OZ'},
+  {s:'Polo-Ralph-Lauren',n:'Ralph Lauren',c:'#0B2545',t:'#fff',i:'RL'},{s:'Revitalash',n:'RevitaLash',c:'#5D3A6A',t:'#fff',i:'RV'},
+  {s:'Ring-Pop',n:'Ring Pop',c:'#E3170A',t:'#fff',i:'RP'},{s:'Steam-Cola',n:'Steam Cola',c:'#B71C1C',t:'#fff',i:'SC'},
+  {s:'The-Center',n:'The Center',c:'#37474F',t:'#fff',i:'TC'},{s:'The-G-Hotels',n:'The G Hotels',c:'#8D6E63',t:'#fff',i:'TG'},
+  {s:'Zooba',n:'Zooba',c:'#F4C20D',t:'#000',i:'ZO'},
+];
+const B=Object.fromEntries(BRANDS.map(b=>[b.s,b]));
+function brandLink(s){return 'clients/'+s+'/index.html';}
+// One source of truth for every brand logo: clients/<slug>/assets/logo.png.
+// Drop/replace that single file and it reflects on the home grid, cards AND the brand page.
+// Falls back to the coloured initials behind it when no logo file exists.
+function logoOverlay(b,radius){return `<img src="clients/${b.s}/assets/logo.png" alt="${b.n} logo" loading="lazy" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:2px;border-radius:${radius}">`;}
+
+const SKILLS=[['Creative Direction',85],['Social Strategy',92],['AI Integration',88],['Copywriting',80],['Photography',70],['Music Production',72],['Team Management',85],['Storyboarding',88]];
+const TRACKS=[['Elli Kan Kan','elli-kan-kan'],['La Bali','la-bali'],['Ya Ghayba','ya-ghayba'],['Escapegoat IV','track-04']];
+
+const GRID=['instagram','youtube','x','tiktok','camera','photoshop','chatgpt','spotify','escapegoat','powerpoint','wikipedia','skills','brands','linkedin','slack','messages'];
+const DOCK=['phone','instagram','spotify','messages'];
+
+function iconHTML(key,inDock){const a=APPS[key];return `<div class="app-icon" onclick="openApp('${key}')"><div class="app-icon-face">${icoMarkup(key)}</div>${inDock?'':`<span class="app-label">${a.label}</span>`}</div>`;}
+document.getElementById('appGrid').innerHTML=GRID.map(k=>iconHTML(k,false)).join('');
+document.getElementById('appDock').innerHTML=DOCK.map(k=>iconHTML(k,true)).join('');
+
+function feedPost(b,cap){return `<div class="feed-post"><div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};position:relative;overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">ZIZO · Creative</div></div></div><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div>`;}
+function tweet(txt,meta){return `<div class="tweet"><div class="tweet-av">AZ</div><div><div class="tweet-h"><b>ZIZO</b> <span>@zizo · ${meta}</span></div><div class="tweet-txt">${txt}</div><div class="tweet-meta">♡ &nbsp; ⟳ &nbsp; 💬</div></div></div>`;}
+function cardLink(b,meta){return `<a class="acard" href="${brandLink(b.s)}"><div class="acard-body" style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:${b.c};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div><div class="acard-name">${b.n}</div><div class="acard-meta">${meta}</div></div></div></a>`;}
+
+const SCREENS={
+  instagram:()=>[B['Bazooka-Candy'],B['Kappa'],B['Subway-Oman'],B['Molfix']].map(b=>feedPost(b,'Lead creative campaign. Tap to open the case study.')).join(''),
+  x:()=>'<div style="padding:10px 12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Headlines & scripts</div>'+tweet('"You earned the drive. We built the ride." — Geely UAE launch TVC. 🚗','Geely')+tweet('"Ramadan tastes different when it\'s made right." — Kappa Egypt.','Kappa')+tweet('"Taste the boldness. Every single bite." — Subway Oman.','Subway'),
+  tiktok:()=>[B['Snapchat'],B['MTN'],B['Royal-Herbs']].map(b=>cardLink(b,'PR · Influencer · Earned media')).join(''),
+  youtube:()=>'<div class="tabs"><span class="tab on" data-tb="ytP" data-tk="pf" onclick="tabShow(\'ytP\',\'pf\')">Portfolio</span><span class="tab" data-tb="ytP" data-tk="lr" onclick="tabShow(\'ytP\',\'lr\')">Land of Rebirth</span><span class="tab" data-tb="ytP" data-tk="sk" onclick="tabShow(\'ytP\',\'sk\')">Skippy</span><span class="tab" data-tb="ytP" data-tk="ec" onclick="tabShow(\'ytP\',\'ec\')">Escape Code</span></div><div data-ts="ytP" data-tk="pf">'+[B['Geely'],B['Audi'],B['EA-FC-Mobile'],B['Warba-Bank'],B['Molfix'],B['Hardees']].map(b=>cardLink(b,'TVC · Production')).join('')+'</div><div data-ts="ytP" data-tk="lr" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🌍 Land of Rebirth</div><div class="acard-meta">Original YouTube series · storytelling</div></div></div></div><div data-ts="ytP" data-tk="sk" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🐶 Learn English with Skippy</div><div class="acard-meta">Edutainment series for kids</div></div></div></div><div data-ts="ytP" data-tk="ec" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">💻 Escape Code</div><div class="acard-meta">Tech & creativity series</div></div></div></div>',
+  camera:()=>[B['Audi'],B['AXE-Unilever'],B['Kappa'],B['MTN'],B['Royal-Tulip-Hotel']].map(b=>cardLink(b,'Photography · Campaign')).join(''),
+  photoshop:()=>[B['Brew-Craft'],B['AXE-Unilever'],B['Imagine-Studio'],B['Bazooka-Candy']].map(b=>cardLink(b,'Design · Artwork · Branding')).join(''),
+  chatgpt:()=>'<div style="padding:10px 12px 2px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple2)">AI Automation Projects</div>'+[['🛋️ Furniture','Catalogs · visualization · leads'],['🏥 Medical','Patient comms · scheduling'],['🎚️ Music Production','Stems · mastering · release'],['🔐 Security','Monitoring · smart alerts']].map(p=>`<div class="acard"><div class="acard-body"><div class="acard-name">${p[0]}</div><div class="acard-meta">${p[1]}</div></div></div>`).join('')+cardLink(B['Warba-Bank'],'First AI-assisted TVC pitch · Kuwait'),
+  powerpoint:()=>[B['Snapchat'],B['Carina'],B['Krispy-Kreme'],B['Quooker']].map(b=>cardLink(b,'Strategy · Tactics')).join(''),
+  spotify:()=>'<div class="tabs"><span class="tab on" data-tb="musP" data-tk="eg" onclick="tabShow(\'musP\',\'eg\')">Escapegoat</span><span class="tab alt" data-tb="musP" data-tk="dj" onclick="tabShow(\'musP\',\'dj\')">Music Production</span></div><div data-ts="musP" data-tk="eg"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.jpg" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="font-size:15px;font-weight:800">Escapegoat Sounds</div><div style="font-size:11px;color:var(--m2)">ZIZO · 4 tracks</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join('')+'</div><div data-ts="musP" data-tk="dj" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
+  wikipedia:()=>'<div style="padding:14px;font-size:13px;font-weight:700">Abdelaziz Askar</div><div style="padding:0 14px 12px;font-size:11px;color:var(--m2);line-height:1.7">Head of Social & AI at Tonic International (Dubai). 18 years across Egypt, Qatar & the UAE — Nineteen84, Al Siddiqi, Deraya. Songwriter, photographer, AI pioneer.</div><a class="acard" href="about.html"><div class="acard-body"><div class="acard-name" style="color:var(--gold)">Full bio & achievements →</div></div></a>',
+  skills:()=>'<div style="height:100%;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:20px 18px;background:radial-gradient(circle at 50% 0%,#1a1145,#0b0714);font-family:monospace;text-align:center"><div><div style="font-size:24px;font-weight:900;color:#ff7ad9;letter-spacing:1px;text-shadow:0 0 14px rgba(255,122,217,.6)">ESCAPEGOAT</div><div style="font-size:12px;font-weight:800;color:var(--gold);letter-spacing:4px;margin-top:4px">★ ARCADE ★</div></div><button onclick="gameNav(\'play\')" style="background:#ff7ad9;color:#000;border:none;border-radius:8px;padding:13px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">▶ START GAME</button><button onclick="gameNav(\'skills\')" style="background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:8px;padding:12px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">📊 SKILLS</button><button onclick="showHome()" style="background:transparent;color:var(--m2);border:2px solid #333;border-radius:8px;padding:12px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">✕ EXIT GAME</button><div style="font-size:9px;color:var(--m2);letter-spacing:1px">GAME PLAYS ON THE BIG SCREEN →</div></div>',
+  linkedin:()=>'<a class="acard" href="about.html"><div class="acard-body"><div class="acard-name" style="color:var(--gold)">View full resume →</div><div class="acard-meta">Experience · roles · timeline</div></div></a>'+[['Head of Social & AI · Tonic International','2024 — present · Dubai'],['Music Producer · escapegoatsounds','2025 — present'],['Creative Content Director · Nineteen84','2018–2024 · Cairo'],['Social Media Specialist · Al Siddiqi Holding','2016–2017 · Doha'],['Digital Marketing · Deraya Real Estate','2015–2016 · Cairo']].map(r=>`<div class="acard"><div class="acard-body"><div class="acard-name">${r[0]}</div><div class="acard-meta">${r[1]}</div></div></div>`).join(''),
+  slack:()=>[B['Fahel-Brand'],B['Imagine-Studio'],B['URBEELS']].map(b=>cardLink(b,'Founded / co-created')).join(''),
+  messages:()=>[['Arnaud Veschera · CEO, Tonic International','"He changed how we collaborate daily."'],['Mohamed Shafei · Founder, Decoys Real Estate','"Pivotal in launching our brand as Egypt went digital."'],['Amina Rashad · Vice Chairman, Glow','"A creative edge that kept us top of mind."'],['Ismail Drouby · CEO, Delight Parties','"An invaluable asset to my growing brand."'],['Sherry ElKilany · WestworldX & Scuba Empire','"Creative judgment and a deep sense of ownership."'],['Sherif ElSorsy · Chairman, No Limits Furniture','"Made a real difference to our online presence."'],['Samo Roxa · Founder & Artist, URBEELS','"Narratives that keep audiences on the edge."'],['Mikey · Music Artist','"He lives the project with you."'],['Shehab Kassem · Chairman, Septam Foods','"Handles the entire creative spectrum, effortlessly."']].map(m=>`<div class="acard"><div class="acard-body"><div class="acard-meta">${m[0]}</div><div class="acard-name" style="font-weight:600;font-size:12px;margin-top:3px">${m[1]}</div></div></div>`).join(''),
+  escapegoat:()=>'<div class="tabs"><span class="tab on" data-tb="egS" data-tk="pl" onclick="tabShow(\'egS\',\'pl\')">🎧 Music Player</span><span class="tab alt" data-tb="egS" data-tk="mp" onclick="tabShow(\'egS\',\'mp\')">🎛️ Music Production</span></div><div data-ts="egS" data-tk="pl"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.jpg" alt="Escapegoat" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="font-size:15px;font-weight:800;color:#ff7ad9">EscapegoatSounds</div><div style="font-size:11px;color:var(--m2)">Music label · ZIZO</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join('')+'</div><div data-ts="egS" data-tk="mp" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
+  brands:()=>'<div style="padding:10px 14px;font-size:11px;color:var(--m2)">180+ brands handled since 2011 — 71 featured. Tap any to open its storyboard.</div>'+BRANDS.slice(0,12).map(b=>cardLink(b,b.s.replace(/-/g,' '))).join(''),
+  phone:()=>'<div style="padding:14px"><div class="acard" style="margin:0"><div class="acard-body"><div class="acard-meta">Email</div><div class="acard-name" style="font-size:12px">bananalover9119@gmail.com</div></div></div><a href="mailto:bananalover9119@gmail.com" style="display:block;margin-top:12px;background:var(--gold);color:#000;text-align:center;padding:13px;border-radius:12px;font-weight:700;font-size:13px">Send email →</a></div>',
+};
+document.getElementById('appScreens').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];const body=SCREENS[key]?SCREENS[key]():'<div style="padding:20px;color:var(--m2);font-size:12px">Coming soon.</div>';return `<div class="screen hidden app-screen" id="screen-${key}"><div class="app-topbar"><button class="back-btn" onclick="showHome()">‹</button><div class="mini-ico">${icoMarkup(key)}</div><span class="app-screen-title">${a.label}</span></div><div class="app-body">${body}</div></div>`;}).join('');
+
+function workCard(b,meta,role){return `<a class="work-card" href="${brandLink(b.s)}"><div class="wc-color" style="background:${b.c}"></div><div class="wc-dot" style="background:${b.c};color:${b.t};position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div class="wc-info"><div class="wc-meta">${meta}</div><div class="wc-title">${b.n}</div><div class="wc-role">${role}</div></div></a>`;}
+const PANELS={
+  instagram:()=>{
+    const cases=[
+      {b:B['Geely'],year:'2024',project:'Geely Coolray UAE — National Launch',role:'Creative Director',metric:'First AI-assisted TVC pitch',result:'ATL + TVC + OOH rolled out simultaneously across UAE. Managed full creative from concept to on-air — TVC direction, OOH design, digital rollout. The campaign used AI animatics to pitch before committing to production budget.',tags:['ATL','TVC','Automotive','OOH']},
+      {b:B['Kappa'],year:'2023',project:'Kappa Egypt — Ramadan Campaign',role:'Lead Creative',metric:'Full ATL creative suite',result:'Ramadan campaign spanning social, TVC and OOH for Kappa Egypt. Art direction, photography and copy — all in-house. Built the seasonal campaign calendar, produced the hero visuals and directed on-ground shoots.',tags:['Ramadan','ATL','Photography','Social']},
+      {b:B['Bazooka-Candy'],year:'2022',project:'Bazooka — Character Design & Mascot',role:'Creative Lead',metric:'Brand mascot system',result:'Designed and developed the Bazooka character universe for the MENA market — mascot design, personality guidelines, animation briefs and rollout across packaging, social and POS. Brought the brand to life beyond the product.',tags:['Character Design','Branding','FMCG','Social']},
+    ];
+    const caseHTML=cases.map(c=>`<div style="border:1px solid var(--b);border-top:3px solid ${c.b.c};border-radius:var(--r);overflow:hidden;margin-bottom:2px;background:var(--s1)">
+      <div style="padding:20px 22px 14px;display:flex;align-items:flex-start;gap:14px">
+        <div style="width:44px;height:44px;border-radius:12px;background:${c.b.c};color:${c.b.t};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;position:relative;overflow:hidden">${c.b.i}${logoOverlay(c.b,'12px')}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px">${c.b.n} · ${c.year}</div>
+          <div style="font-size:17px;font-weight:800;letter-spacing:-.4px;margin-bottom:3px;line-height:1.2">${c.project}</div>
+          <div style="font-size:11px;color:var(--m2)">${c.role} · <span style="color:var(--gold);font-weight:700">${c.metric}</span></div>
+        </div>
+      </div>
+      <div style="padding:0 22px 18px">
+        <p style="font-size:13px;color:var(--m2);line-height:1.7;margin-bottom:12px">${c.result}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:5px">${c.tags.map(t=>`<span style="font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--b);border-radius:99px;color:var(--m)">${t}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+    return '<div style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600">Featured Case Studies</div>'+caseHTML
+      +'<div style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--m);margin:28px 0 14px;font-weight:600">More Work</div>'
+      +'<div class="work-grid">'+[[B['Subway-Oman'],'BTL · Copy','Lead Creative'],[B['Molfix'],'TVC · Production','Lead Creative'],[B['Delight-Parties'],'Social · Photo','Creative Lead'],[B['Glow'],'Social · Design','Strategy']].map(x=>workCard(...x)).join('')+'</div>';
+  },
+  youtube:()=>'<div class="tabs in-panel"><span class="tab on" data-tb="ytB" data-tk="pf" onclick="tabShow(\'ytB\',\'pf\')">📺 Portfolio / Experience</span><span class="tab alt" data-tb="ytB" data-tk="lr" onclick="tabShow(\'ytB\',\'lr\')">🌍 Land of Rebirth</span><span class="tab alt" data-tb="ytB" data-tk="sk" onclick="tabShow(\'ytB\',\'sk\')">🐶 Learn English with Skippy</span><span class="tab alt" data-tb="ytB" data-tk="ec" onclick="tabShow(\'ytB\',\'ec\')">💻 Escape Code</span></div><div data-ts="ytB" data-tk="pf"><div class="work-grid">'+[[B['Geely'],'ATL · TVC · 2024','Creative Director'],[B['Audi'],'TVC · Photo','Creative Director'],[B['EA-FC-Mobile'],'TVC · 2024','Production Mgr'],[B['Warba-Bank'],'AI Animatics','Creative Director'],[B['Molfix'],'TVC · Production','Lead Creative'],[B['Hardees'],'TVC','Creative Director']].map(x=>workCard(...x)).join('')+'</div></div><div data-ts="ytB" data-tk="lr" style="display:none"><div class="proj-card" style="max-width:640px"><div class="proj-ico">🌍</div><div class="proj-name">Land of Rebirth</div><div class="proj-desc">An original YouTube series — storytelling, culture and rebirth narratives, written, directed and produced by ZIZO.</div></div></div><div data-ts="ytB" data-tk="sk" style="display:none"><div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start"><img src="assets/photos/skippy.png" style="width:220px;border-radius:14px" alt="Zizo & Skippy" onerror="this.style.display=\'none\'"><div class="proj-card g" style="flex:1;min-width:280px"><div class="proj-ico">🐶</div><div class="proj-name">Learn English with Skippy</div><div class="proj-desc">Edutainment for kids — Zizo and his dog Skippy teach English through fun episodes. Characters, scripts, songs and animation direction all original.</div></div></div></div><div data-ts="ytB" data-tk="ec" style="display:none"><div class="proj-card" style="max-width:640px"><div class="proj-ico">💻</div><div class="proj-name">Escape Code</div><div class="proj-desc">A tech-meets-creativity series — AI tools, creative coding and how modern creators escape the ordinary.</div></div></div>',
+  x:()=>['Hero Headline · TVC 30s|"You earned the drive.<br>We built the ride."|Geely UAE Launch','Social Caption · Ramadan|"Ramadan tastes different<br>when it\'s made right."|Kappa Egypt','BTL Tagline · QSR|"Taste the boldness.<br>Every single bite."|Subway Oman · SubSavers'].map(q=>{const p=q.split('|');return `<div class="quote-card"><div class="quote-eyebrow">${p[0]}</div><div class="quote-big">${p[1]}</div><div class="quote-src">${p[2]}</div></div>`;}).join(''),
+  tiktok:()=>'<div class="work-grid">'+[[B['Snapchat'],'Lead Gen · Gulf','PR Strategist'],[B['MTN'],'Social · Video','Director'],[B['Royal-Herbs'],'Influencer','Campaign Lead']].map(x=>workCard(...x)).join('')+'</div>',
+  camera:()=>'<div class="work-grid">'+[[B['Audi'],'Automotive · 2023','Photographer'],[B['AXE-Unilever'],'Commercial','Photographer'],[B['Kappa'],'Ramadan','Photographer'],[B['MTN'],'Social · Video','Director']].map(x=>workCard(...x)).join('')+'</div>',
+  photoshop:()=>'<div class="work-grid">'+[[B['Brew-Craft'],'Logo · Branding','Designer'],[B['AXE-Unilever'],'Key Visuals','Art Director'],[B['Imagine-Studio'],'Studio Work','Co-founder'],[B['Bazooka-Candy'],'Character Design','Lead Creative']].map(x=>workCard(...x)).join('')+'</div>',
+  chatgpt:()=>{const AI=[['furniture','🛋️','Furniture','AI that sells sofas while you sleep.','Built content-and-sales automation for the furniture trade: photoreal room visualisation, auto-generated catalogues, and lead pipelines that qualify, nurture and follow up on their own.',['Catalogues in hours, not weeks','Photoreal room & product visualisation','Lead capture → qualify → follow-up, hands-free']],['medical','🏥','Medical','Bedside manner, automated.','Automation for medical practices — patient communication, smart scheduling and content workflows that keep clinics responsive without burning out the front desk.',['24/7 patient comms & intake','Smart scheduling & reminders','Compliant content workflows']],['music','🎚️','Music Production','A studio engineer that never sleeps.','AI-assisted production pipelines — stem separation, mastering chains and release automation. The same systems that power the Escapegoat releases.',['Stem separation & cleanup','Automated mastering chains','Release & distribution automation']],['security','🔐','Security Systems','AI on watch, so humans don\'t have to.','Intelligent monitoring and alert automation — anomaly detection and smart alerts that only ping a human when it truly matters.',['Always-on monitoring','Anomaly detection & smart alerts','Noise filtered, signal surfaced']]];
+    return '<div style="font-size:15px;color:var(--m2);line-height:1.8;max-width:680px;margin-bottom:22px">Among the <span class="hl">first in MENA</span> to put AI into real production — not as a gimmick, as the <strong style="color:var(--text)">engine</strong>. Four systems I\'ve built and run:</div>'
+    +'<div class="tabs in-panel">'+AI.map((a,i)=>`<span class="tab ${i===0?'on':'alt'}" data-tb="aiSys" data-tk="${a[0]}" onclick="tabShow('aiSys','${a[0]}')">${a[1]} ${a[2]}</span>`).join('')+'</div>'
+    +AI.map((a,i)=>`<div data-ts="aiSys" data-tk="${a[0]}"${i?' style="display:none"':''}><div style="display:flex;gap:14px;align-items:center;margin-bottom:14px"><div style="font-size:40px">${a[1]}</div><div><div style="font-size:22px;font-weight:900;letter-spacing:-.5px">${a[2]}</div><div style="font-size:14px;color:var(--gold);font-weight:700">${a[3]}</div></div></div><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:680px;margin-bottom:16px">${a[4]}</p><div class="proj-grid">`+a[5].map(b=>`<div class="proj-card"><div class="proj-desc" style="color:var(--text)">✓ ${b}</div></div>`).join('')+`</div></div>`).join('')
+    +'<div style="margin-top:30px"><div style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--purple2);margin-bottom:12px">Proof on air</div><div class="work-grid">'+workCard(B['Warba-Bank'],'AI Animatics · 2024','First AI-assisted TVC pitch in MENA')+'</div></div>';},
+  powerpoint:()=>'<div class="work-grid">'+[[B['Snapchat'],'B2B · Lead Gen','Strategist'],[B['Carina'],'5-yr Partner','Brand Strategist'],[B['Quooker'],'Social · TVC','Strategist'],[B['Krispy-Kreme'],'Egypt Entry','Social Strategist']].map(x=>workCard(...x)).join('')+'</div>',
+  spotify:()=>'<div class="tabs in-panel"><span class="tab on" data-tb="musB" data-tk="eg" onclick="tabShow(\'musB\',\'eg\')">🐐 Escapegoat</span><span class="tab alt" data-tb="musB" data-tk="dj" onclick="tabShow(\'musB\',\'dj\')">🎛️ Music Production — for DJs</span></div><div data-ts="musB" data-tk="eg"><div style="display:flex;gap:24px;flex-wrap:wrap"><img src="assets/photos/escapegoat-album.jpg" style="width:240px;border-radius:14px" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="flex:1;min-width:280px">'+TRACKS.map((t,i)=>`<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--b)"><span style="color:var(--m);font-size:13px">${i+1}</span><div style="flex:1"><div style="font-weight:700;margin-bottom:6px">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3" style="width:100%;height:34px"></audio></div></div>`).join('')+'<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px">'+['FL Studio','Logic Pro','ElevenLabs','Suno','Sound Design'].map(t=>`<span style="padding:6px 14px;border:1px solid var(--b);border-radius:99px;font-size:12px;color:var(--m2)">${t}</span>`).join('')+'</div></div></div></div><div data-ts="musB" data-tk="dj" style="display:none"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">I <strong style="color:var(--text)">custom-make tracks and write the lyrics</strong> — built to order for DJs, and sold online as ready-to-play exclusives. Production, topline, hook, stems — the full package, one creator.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎛️</div><div class="proj-name">Custom DJ Tracks</div><div class="proj-desc">Made-to-order productions tailored to your set, your crowd, your BPM. Exclusive licensing available.</div></div><div class="proj-card"><div class="proj-ico">✍️</div><div class="proj-name">Lyrics & Toplines</div><div class="proj-desc">Original lyrics in Arabic and English — hooks, verses and toplines written and recorded.</div></div><div class="proj-card g"><div class="proj-ico">🛒</div><div class="proj-name">Online Catalog</div><div class="proj-desc">Ready-made tracks sold online — stems included, cleared for performance and release.</div></div><div class="proj-card g"><div class="proj-ico">🎧</div><div class="proj-name">Direct to DJs</div><div class="proj-desc">Work one-on-one: brief me, hear a demo, get the final master delivered fast.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Custom%20Track%20Inquiry" class="btn btn-gold" style="margin-top:26px">Order a Custom Track →</a></div>',
+  wikipedia:()=>'<div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start"><img src="assets/photos/img-12.jpg" style="width:220px;border-radius:14px" alt="Abdelaziz Askar"><div style="flex:1;min-width:300px"><div class="panel-stats" style="margin-bottom:24px"><div class="panel-stat"><div class="panel-stat-num">70+</div><div class="panel-stat-lbl">Brands</div></div><div class="panel-stat"><div class="panel-stat-num">18+</div><div class="panel-stat-lbl">Years</div></div><div class="panel-stat"><div class="panel-stat-num">3</div><div class="panel-stat-lbl">Countries</div></div><div class="panel-stat"><div class="panel-stat-num">200+</div><div class="panel-stat-lbl">Projects</div></div></div><p style="font-size:15px;color:var(--m2);line-height:1.8;margin-bottom:20px">Since 2007, building brand voices and crafting campaigns across Egypt, Qatar and the UAE — from PR at the Bibliotheca Alexandrina to Head of Social &amp; AI at Tonic International. Strategy first, craft always, now AI-accelerated.</p><a href="about.html" class="btn btn-gold">Full Bio & Achievements →</a></div></div>',
+  skills:()=>'<iframe id="gameFrame" src="game.html" style="width:100%;height:72vh;min-height:480px;border:2px solid var(--purple);border-radius:14px;background:#0b0714"></iframe><div style="margin-top:12px;font-size:11px;color:var(--m2)">🖱️ Drag the bone back to aim, release to fire. Smash every <b style="color:var(--text)">BRIEF</b> to clear the level — Skippy fetches your bones between shots.</div>',
+  linkedin:()=>'<div style="border-left:2px solid var(--b);padding-left:24px;margin-left:8px">'+[['2024 — present','Head of Social & Head of AI · Tonic International (Dubai)'],['2025 — present','Music Producer · escapegoatsounds'],['2018–2024','Creative Content Director · Nineteen84 (Cairo)'],['2016–2017','Social Media Specialist · Al Siddiqi Holding (Doha)'],['2015–2016','Digital Marketing / Content · Deraya Real Estate (Cairo)'],['2011–2014','Creative Content Specialist · Imagine Creative Studio (Alexandria)'],['2007–2009','PR Specialist · Bibliotheca Alexandrina']].map(e=>`<div style="position:relative;margin-bottom:28px"><div style="position:absolute;left:-31px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold)"></div><div style="font-size:11px;color:var(--gold);letter-spacing:.1em;margin-bottom:4px">${e[0]}</div><div style="font-size:15px;font-weight:700">${e[1]}</div></div>`).join('')+'</div><a href="about.html" class="btn btn-gold">Full Resume →</a>',
+  slack:()=>'<div class="work-grid">'+[[B['Fahel-Brand'],'Founded','Creator'],[B['Imagine-Studio'],'Photo · Design','Co-founder'],[B['URBEELS'],'Music · Events','Co-creator']].map(x=>workCard(...x)).join('')+'</div>',
+  messages:()=>{const T=[['Arnaud Veschera','Group CEO · Tonic International','"Working with Abdelaziz is an efficiency. He didn\'t just shorten our workflow — he genuinely changed how we collaborate daily.","person-arnaud.png'],['Mohamed Shafei','Founder · Decoys Real Estate','"He played a pivotal role launching our real estate brand in 2019 — right as the Egyptian market shifted heavily toward digital.","person-shafei.png'],['Amina Rashad','Vice Chairman / Founder · Glow','"Abdelaziz brought a creative edge to Glow and helped keep us at the top of our customers\' minds.","person-amina.png'],['Ismail Drouby','Founder & CEO · Delight Parties','"He didn\'t just launch our social — he built our inbound and outbound funnel, directed all brand photography and QA. An invaluable asset.","'],['Sherry ElKilany','Managing Partner · WestworldX & Scuba Empire','"Creative judgment and a deep sense of ownership. He approached our brands like someone who genuinely believed in what we were building.","person-sherry.png'],['Sherif ElSorsy','Chairman · No Limits Furniture','"Highly professional and creative — his grasp of social strategy made a real difference to our online presence.","'],['Samo Roxa','Founder & Artist · URBEELS','"Audacious details and spine-chilling narratives that keep audiences on the edge.","'],['Mikey','Music Artist','"Zizo has been an incredible partner and friend throughout my music journey. He doesn\'t just do the work — he lives the project with you.","'],['Shehab Kassem','Chairman · Septam Foods','"Rare to find someone who handles the entire creative spectrum effortlessly. The output is always impeccable — a multi-talented force.","']];
+    const ini=n=>n.split(' ').slice(0,2).map(w=>w[0]).join('');
+    return '<div class="proj-grid">'+T.map(t=>`<div class="proj-card g"><div style="display:flex;align-items:center;gap:12px;margin-bottom:12px"><div style="width:46px;height:46px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;position:relative;overflow:hidden;flex-shrink:0">${ini(t[0])}${t[3]?`<img src="assets/photos/${t[3]}" alt="${t[0]}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`:''}</div><div><div class="proj-name" style="font-size:14px">${t[0]}</div><div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple2)">${t[1]}</div></div></div><div class="proj-desc">${t[2]}</div><a href="tel:+201099197888" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:var(--s2);border:1px solid var(--b);color:var(--gold);border-radius:99px;padding:7px 14px;font-size:11px;font-weight:700;text-decoration:none">📞 Reference on request</a></div>`).join('')+'</div><a href="testimonials.html" class="btn btn-gold" style="margin-top:22px">Open the Reviews app →</a>';},
+  escapegoat:()=>'<div class="tabs in-panel"><span class="tab on" data-tb="egB" data-tk="pl" onclick="tabShow(\'egB\',\'pl\')">🎧 EscapegoatSounds — Music Player</span><span class="tab alt" data-tb="egB" data-tk="mp" onclick="tabShow(\'egB\',\'mp\')">🎛️ Music Production</span></div><div data-ts="egB" data-tk="pl"><div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start"><div style="width:260px;flex-shrink:0"><img src="assets/photos/escapegoat-album.jpg" style="width:100%;border-radius:16px" alt="EscapegoatSounds album art" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="margin-top:14px;padding:14px;background:var(--s1);border:1px solid #ff7ad9;border-radius:12px"><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff7ad9;margin-bottom:8px">The Label</div><div style="font-size:12px;color:var(--m2);line-height:1.7">Original releases, custom tracks and lyrics for DJs — written, produced and sold by ZIZO.</div></div></div><div style="flex:1;min-width:300px">'+TRACKS.map((t,i)=>`<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--b)"><span style="color:var(--m);font-size:13px">${i+1}</span><div style="flex:1"><div style="font-weight:700;margin-bottom:6px">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3" style="width:100%;height:34px"></audio></div></div>`).join('')+'</div></div></div><div data-ts="egB" data-tk="mp" style="display:none"><div class="tabs"><span class="tab on" data-tb="egMP" data-tk="dj" onclick="tabShow(\'egMP\',\'dj\')">🎧 For DJs</span><span class="tab alt" data-tb="egMP" data-tk="jingle" onclick="tabShow(\'egMP\',\'jingle\')">📺 Advertising Jingles</span></div><div data-ts="egMP" data-tk="dj"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">Tracks <span class="hl">tailored to your set</span>, not stitched from a preset. I write the lyrics, lay the topline and master the hook — <strong style="color:var(--text)">made to order, cleared to play</strong>, sold online as ready-to-spin exclusives.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎛️</div><div class="proj-name">Custom DJ Tracks</div><div class="proj-desc">Your crowd, your BPM, your vibe — exclusive licensing on request.</div></div><div class="proj-card"><div class="proj-ico">✍️</div><div class="proj-name">Lyrics & Toplines</div><div class="proj-desc">Arabic & English — hooks that hit, verses that stick, recorded.</div></div><div class="proj-card g"><div class="proj-ico">🛒</div><div class="proj-name">Online Catalog</div><div class="proj-desc">Ready-made tracks, stems included, cleared for release.</div></div><div class="proj-card g"><div class="proj-ico">🎧</div><div class="proj-name">Direct to DJs</div><div class="proj-desc">Brief me, hear a demo, get the master — fast.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Custom%20DJ%20Track%20Inquiry" class="btn btn-gold" style="margin-top:26px">Order a Custom Track →</a></div><div data-ts="egMP" data-tk="jingle" style="display:none"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">A <span class="hl">jingle is a brand you can hum</span>. I compose sticky audio logos and ad music for TVCs, radio and social — the kind that lodges in a head and won\'t let go. The <strong style="color:var(--text)">Juicy Drop earworm</strong> I wrote ran on air across MENA.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎵</div><div class="proj-name">Brand Jingles & Audio Logos</div><div class="proj-desc">Short, sticky, unmistakably yours — built to be remembered.</div></div><div class="proj-card"><div class="proj-ico">📺</div><div class="proj-name">TVC & Radio Scores</div><div class="proj-desc">Original scoring that lifts the film and sells the feeling.</div></div><div class="proj-card g"><div class="proj-ico">🗣️</div><div class="proj-name">AI Voice & VO</div><div class="proj-desc">ElevenLabs voiceovers and beds, mixed and mastered in-house.</div></div><div class="proj-card g"><div class="proj-ico">⚡</div><div class="proj-name">Fast Turnaround</div><div class="proj-desc">Concept to clearable master in days, not weeks.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Advertising%20Jingle%20Inquiry" class="btn btn-gold" style="margin-top:26px">Brief a Jingle →</a></div></div>',
+  brands:()=>'<div class="brands-grid">'+BRANDS.map(b=>`<a href="${brandLink(b.s)}" class="brand-tile"><div class="bt-dot" style="background:${b.c};color:${b.t};position:relative;overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><span class="bt-name">${b.n}</span></a>`).join('')+'</div>',
+  phone:()=>'<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--b);margin-bottom:28px">'+[['Email','bananalover9119@gmail.com'],['Location','Cairo · Remote · MENA'],['Open To','Full-time · Freelance · Retainer'],['Response','Within 24 hours']].map(c=>`<div style="background:var(--s1);padding:24px 20px"><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">${c[0]}</div><div style="font-size:13px;font-weight:600">${c[1]}</div></div>`).join('')+'</div><a href="mailto:bananalover9119@gmail.com" class="btn btn-gold" style="width:100%;justify-content:center;padding:16px">Send Me an Email →</a>',
+};
+document.getElementById('appPanels').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];const body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';return `<div class="panel-app" id="panel-${key}"><div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div><div class="panel-app-body">${body}</div></div>`;}).join('');
+
+(function(){const sl=document.querySelectorAll('.hero-slides img');if(!sl.length)return;const dots=document.querySelector('.hero-dots');sl.forEach((_,i)=>{const d=document.createElement('span');if(i===0)d.classList.add('on');d.onclick=()=>go(i);dots.appendChild(d);});let cur=0,timer;function go(i){sl[cur].classList.remove('on');dots.children[cur].classList.remove('on');cur=i;sl[cur].classList.add('on');dots.children[cur].classList.add('on');clearInterval(timer);timer=setInterval(()=>go((cur+1)%sl.length),3800);}timer=setInterval(()=>go((cur+1)%sl.length),3800);})();
+function startGame(){gameNav('play');}
+function gameNav(mode){openApp('skills');const f=document.getElementById('gameFrame');if(f){f.src='game.html#'+mode+'&t='+Math.random();f.onload=()=>{try{f.contentWindow.focus();}catch(_){}};}}
+function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?'':'none'});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle('on',b.dataset.tk===key));}
+function updateClock(){const now=new Date();const h=now.getHours().toString().padStart(2,'0');const m=now.getMinutes().toString().padStart(2,'0');const t=h+':'+m;['clockDisplay','lockTime'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t;});const d=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const mo=['January','February','March','April','May','June','July','August','September','October','November','December'];const ld=document.getElementById('lockDate');if(ld)ld.textContent=d[now.getDay()]+', '+mo[now.getMonth()]+' '+now.getDate();}
+updateClock();setInterval(updateClock,30000);
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('hidden',s.id!==id));}
+function unlockPhone(){showScreen('homeScreen');showPanel(null);}
+function showHome(){showScreen('homeScreen');showPanel(null);}
+function openApp(name){if(name==='wikipedia'){location.href='about.html';return;}const el=document.getElementById('screen-'+name);showScreen(el?'screen-'+name:'homeScreen');showPanel(name);}
+function showPanel(name){const def=document.getElementById('panelDefault');document.querySelectorAll('.panel-app').forEach(p=>p.classList.remove('active'));if(!name){def.style.display='grid';}else{def.style.display='none';const p=document.getElementById('panel-'+name);if(p)p.classList.add('active');else def.style.display='grid';}document.getElementById('contentPanel').scrollTop=0;}
+function applyHash(){const h=(location.hash||'').replace('#','');if(h==='home'){showHome();}else if(h.startsWith('app=')){openApp(h.slice(4));}}
+window.addEventListener('hashchange',applyHash);applyHash();
+window.addEventListener('message',e=>{if(e.data==='eg-exit')showHome();});
+</script>
+<script defer src="editor.js?v=3"></script>
+<script src="nda.js"></script>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIZO — [Page Title]</title>
+<style>
+  /* ─── BRAND TOKENS ─────────────────────────────────────── */
+  :root {
+    --bg:           #0a0a0a;
+    --surface:      #111111;
+    --surface-2:    #1a1a1a;
+    --border:       #2a2a2a;
+    --accent:       #f0c233;   /* gold from CV */
+    --accent-2:     #e8e8e8;
+    --text:         #f0ede8;
+    --text-muted:   #888888;
+    --font-display: 'Arial Black', 'Helvetica Neue', sans-serif;
+    --font-body:    'Helvetica Neue', Arial, sans-serif;
+    --max-w:        1200px;
+    --radius:       4px;
+  }
+
+  /* ─── RESET ─────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a  { color: inherit; text-decoration: none; }
+
+  /* ─── LAYOUT ────────────────────────────────────────────── */
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+  /* ─── NAVIGATION ────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex; align-items: center;
+  }
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--accent); }
+
+  /* ─── HERO ──────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: flex-end;
+    padding-bottom: 80px;
+    padding-top: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0a0a0a 40%, #1a1510 100%);
+  }
+  /* Drop your hero image here: */
+  .hero-bg-image {
+    position: absolute; inset: 0;
+    background-image: url('../photos/lifestyle/hero.jpg'); /* swap path */
+    background-size: cover; background-position: center top;
+    opacity: 0.35;
+  }
+  .hero-bg-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  .hero-title em { color: var(--accent); font-style: normal; }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: var(--radius);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+  }
+  .btn-primary:hover { background: #f8d060; }
+  .btn-ghost {
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
+
+  /* ─── SECTION ───────────────────────────────────────────── */
+  section { padding: 96px 0; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 48px;
+  }
+
+  /* ─── WORK GRID ─────────────────────────────────────────── */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+  }
+  .work-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    cursor: pointer;
+  }
+  .work-card:hover .work-card-overlay { opacity: 1; }
+  .work-card:hover img { transform: scale(1.04); }
+  .work-card img {
+    width: 100%; aspect-ratio: 16/10;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .work-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 24px;
+  }
+  .work-card-meta {
+    font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .work-card-title {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 900;
+  }
+  /* Grid spanning helpers */
+  .span-7 { grid-column: span 7; }
+  .span-5 { grid-column: span 5; }
+  .span-4 { grid-column: span 4; }
+  .span-6 { grid-column: span 6; }
+  .span-8 { grid-column: span 8; }
+  .span-12 { grid-column: span 12; }
+
+  /* ─── CASE STUDY LAYOUT (inner project page) ────────────── */
+  .case-header {
+    padding-top: 120px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .case-tags {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .tag {
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .tag.accent { border-color: var(--accent); color: var(--accent); }
+  .case-meta-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+  .case-meta-item .label {
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .case-meta-item .value {
+    font-size: 15px; font-weight: 600;
+  }
+
+  /* ─── PROCESS / BTS SECTION ─────────────────────────────── */
+  .process-steps {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 48px; font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+  }
+  .step-content h3 {
+    font-size: 20px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .step-content p { color: var(--text-muted); }
+
+  /* Sketch / BTS image grid */
+  .bts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 32px;
+  }
+  .bts-grid img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  }
+
+  /* ─── COPYWRITING BLOCK ─────────────────────────────────── */
+  .copy-block {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 32px 40px;
+    margin: 32px 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .copy-block .copy-label {
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .copy-block .copy-headline {
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 900;
+    line-height: 1.1; margin-bottom: 16px;
+  }
+  .copy-block .copy-body { color: var(--text-muted); }
+
+  /* ─── TEAM ROW ──────────────────────────────────────────── */
+  .team-row {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    margin-top: 32px;
+  }
+  .team-card {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--surface); padding: 16px 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .team-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--surface-2);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .team-name { font-weight: 600; font-size: 14px; }
+  .team-role { font-size: 12px; color: var(--text-muted); }
+
+  /* ─── AGENCY BADGE ──────────────────────────────────────── */
+  .agency-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 12px 20px;
+    border-radius: var(--radius);
+  }
+  .agency-badge img { height: 28px; }
+  .agency-badge .agency-name { font-weight: 700; font-size: 15px; }
+  .agency-badge .agency-type { font-size: 11px; color: var(--text-muted); }
+
+  /* ─── RESULTS BAR ───────────────────────────────────────── */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2px; margin-top: 32px;
+  }
+  .result-card {
+    background: var(--surface);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .result-number {
+    font-family: var(--font-display);
+    font-size: 48px; font-weight: 900;
+    color: var(--accent); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .result-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ─── FOOTER ────────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
+  }
+  .footer-inner {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-copy { font-size: 13px; color: var(--text-muted); }
+
+  /* ─── UTILITY ───────────────────────────────────────────── */
+  .divider {
+    height: 1px; background: var(--border);
+    margin: 64px 0;
+  }
+  .text-accent { color: var(--accent); }
+  .mt-8  { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-32 { margin-top: 32px; }
+  .mt-64 { margin-top: 64px; }
+
+  /* ─── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .work-grid { grid-template-columns: 1fr; }
+    .span-7,.span-5,.span-4,.span-6,.span-8,.span-12 { grid-column: span 1; }
+    .nav-links { display: none; }
+    .process-step { grid-template-columns: 40px 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════════ -->
+<nav>
+  <div class="container">
+    <a href="/index.html" class="nav-logo">ZZ<span>IO</span></a>
+    <ul class="nav-links">
+      <li><a href="/01_creative-content/index.html">Creative</a></li>
+      <li><a href="/02_production-music/index.html">Production</a></li>
+      <li><a href="/03_ai-automation/index.html">AI & Automation</a></li>
+      <li><a href="/contact.html" class="active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-image"></div>
+  <div class="hero-bg-grain"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">Creative / Social Media Director · AI Expert · Hybrid Producer</p>
+    <h1 class="hero-title">
+      Abdelaziz<br>
+      <em>Askar</em>
+    </h1>
+    <p class="hero-sub">
+      Turning insights into cultural momentum — across campaigns, tracks, and intelligent systems.
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#work" class="btn btn-primary">View Work</a>
+      <a href="/contact.html" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WORK GRID (example — replace cards) ═══════════════════ -->
+<section id="work">
+  <div class="container">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="work-grid">
+
+      <!-- Large card -->
+      <div class="work-card span-7">
+        <img src="path/to/thumb.jpg" alt="Project name">
+        <div class="work-card-overlay">
+          <p class="work-card-meta">ATL · MBC · 2025</p>
+          <p class="work-card-title">MBC CrossC Campaign</p>
+        </div>
+      </div>
+
+      <!-- Tall card -->
+      <div class="work-card span-5">
+        <img src="path/to/thumb.jpg" alt="Project name">
+        <div class="work-card-overlay">
+          <p class="work-card-meta">Brand Launch · Geely · 2025</p>
+          <p class="work-card-title">Geely Coolray UAE</p>
+        </div>
+      </div>
+
+      <!-- Three equal cards -->
+      <div class="work-card span-4">
+        <img src="path/to/thumb.jpg" alt="">
+        <div class="work-card-overlay">
+          <p class="work-card-meta">TVC · Molfix · 2023</p>
+          <p class="work-card-title">Molfix Production</p>
+        </div>
+      </div>
+      <div class="work-card span-4">
+        <img src="path/to/thumb.jpg" alt="">
+        <div class="work-card-overlay">
+          <p class="work-card-meta">BTL · Subway Oman · 2024</p>
+          <p class="work-card-title">SubSavers Regional</p>
+        </div>
+      </div>
+      <div class="work-card span-4">
+        <img src="path/to/thumb.jpg" alt="">
+        <div class="work-card-overlay">
+          <p class="work-card-meta">Influencer · Royal Herbs · 2021</p>
+          <p class="work-card-title">Healthy Living</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDY TEMPLATE (for individual project pages) ════ -->
+<!--
+  Copy everything below the <section class="hero"> block
+  into its own file: e.g. 01_creative-content/campaigns/ATL/mbc-crossc/index.html
+-->
+
+<section>
+  <div class="container">
+
+    <!-- Case header -->
+    <div class="case-header">
+      <div class="case-tags">
+        <span class="tag accent">ATL</span>
+        <span class="tag">MBC</span>
+        <span class="tag">YouTube + TV</span>
+        <span class="tag">2025</span>
+      </div>
+      <h1 class="section-title">MBC CrossC Campaign</h1>
+      <p style="color:var(--text-muted);max-width:640px;font-size:17px;line-height:1.7;">
+        Bridging traditional broadcast and digital social strategy — 3M+ online reach in 6 weeks.
+      </p>
+      <div class="case-meta-row">
+        <div class="case-meta-item"><p class="label">Agency</p><p class="value">Tonic International</p></div>
+        <div class="case-meta-item"><p class="label">Client</p><p class="value">MBC Group</p></div>
+        <div class="case-meta-item"><p class="label">Role</p><p class="value">Creative Director</p></div>
+        <div class="case-meta-item"><p class="label">Type</p><p class="value">ATL + BTL</p></div>
+        <div class="case-meta-item"><p class="label">Year</p><p class="value">2025</p></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Results -->
+    <p class="section-label">Impact</p>
+    <div class="results-grid">
+      <div class="result-card"><p class="result-number">3M+</p><p class="result-label">Online Views</p></div>
+      <div class="result-card"><p class="result-number">6wk</p><p class="result-label">Campaign Window</p></div>
+      <div class="result-card"><p class="result-number">ATL+BTL</p><p class="result-label">Channel Mix</p></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Agency + Team -->
+    <p class="section-label">Team</p>
+    <div class="agency-badge mt-16">
+      <img src="/00_brand-assets/logos/agency-logo.png" alt="">
+      <div>
+        <p class="agency-name">Tonic International</p>
+        <p class="agency-type">Full-Service Creative Agency</p>
+      </div>
+    </div>
+    <div class="team-row">
+      <div class="team-card">
+        <div class="team-avatar"><img src="" alt=""></div>
+        <div><p class="team-name">Abdelaziz Askar</p><p class="team-role">Creative Director</p></div>
+      </div>
+      <!-- Add more team cards -->
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Copywriting showcase -->
+    <p class="section-label">Copy</p>
+    <div class="copy-block mt-16">
+      <p class="copy-label">Hero Headline</p>
+      <p class="copy-headline">"Cross the gap. Own the moment."</p>
+      <p class="copy-body">Lead copy for the YouTube pre-roll, adapted for broadcast idents.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Process / BTS -->
+    <p class="section-label">Process</p>
+    <div class="process-steps mt-32">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h3>Brief & Strategy</h3>
+          <p>Aligning brand objectives with platform behaviours. Built the campaign architecture.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h3>Concepting & Sketches</h3>
+          <p>Mood boards, storyboard sketches, copy iterations — the ugly beautiful phase.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h3>Production</h3>
+          <p>Shoot, direct, edit, produce — all in-house.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h3>Launch & Measure</h3>
+          <p>Cross-channel rollout, real-time optimisation, result tracking.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BTS image grid -->
+    <div class="bts-grid">
+      <img src="sketches-process/sketch-01.jpg" alt="Sketch">
+      <img src="sketches-process/sketch-02.jpg" alt="Mood board">
+      <img src="behind-scenes/bts-01.jpg" alt="On set">
+      <img src="behind-scenes/bts-02.jpg" alt="On set">
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-inner">
+    <p class="footer-copy">© 2026 Abdelaziz Askar — ZIZO. All rights reserved.</p>
+    <a href="mailto:bananalover9119@gmail.com" class="btn btn-ghost" style="padding:10px 20px;font-size:12px;">
+      Let's Work →
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIZO — Client Registry · 70+ Brands</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="70+ global and regional brands worked with by ZIZO — Abdelaziz Askar. KFC, Geely, EA FC, Snapchat, Carina and more across Egypt, Qatar & UAE.">
+<meta property="og:title" content="ZIZO — Client Registry · 70+ Brands">
+<meta property="og:description" content="From KFC to EA FC. 70+ brands across MENA and beyond.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/photos/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090c; --surface:#111118; --surface2:#19191f; --border:#252532;
+  --accent:#f0c233; --text:#f3f0eb; --muted:#706c64; --muted2:#b5b0a6;
+  --font:'Inter','Helvetica Neue',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;padding:0 0 80px}
+
+/* ── SITE NAV ── */
+.site-nav{
+  height:60px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;border-bottom:1px solid var(--border);
+  background:rgba(5,5,6,.97);backdrop-filter:blur(20px);
+  position:sticky;top:0;z-index:200
+}
+.site-nav-logo{font-size:14px;font-weight:700;color:var(--muted2);display:flex;align-items:center;text-decoration:none}
+.site-nav-logo em{color:var(--accent);font-style:normal;font-size:19px;font-weight:900;letter-spacing:-.5px;margin-right:2px}
+.site-nav-divider{color:var(--muted);margin:0 7px;font-weight:300}
+.site-nav-back{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--muted2);display:flex;align-items:center;gap:6px;transition:color .2s;text-decoration:none}
+.site-nav-back:hover{color:var(--accent)}
+.site-nav-back::before{content:'←';font-size:14px}
+
+/* ── HEADER ── */
+header{
+  padding:52px 48px 44px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;gap:24px;
+}
+.logo{min-width:0}
+.logo-eyebrow{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600}
+.logo-eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--accent);margin-bottom:13px;border-radius:1px}
+.logo-name{font-size:clamp(34px,3.5vw,48px);font-weight:900;letter-spacing:-1.8px;color:var(--text);line-height:.9}
+.logo-name em{color:var(--accent);font-style:normal}
+.logo-sub{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);font-weight:600;border-left:2px solid var(--accent);padding-left:10px;margin-top:16px}
+.header-meta{text-align:right;flex-shrink:0}
+.header-meta .count{font-size:58px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-2px}
+.header-meta .count-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* ── TOOLBAR ── */
+.toolbar{
+  padding:12px 48px;
+  display:flex;align-items:center;gap:8px;
+  flex-wrap:nowrap;overflow-x:auto;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:60px;z-index:10;
+  background:rgba(8,8,10,.96);backdrop-filter:blur(16px);
+  scrollbar-width:none;-webkit-overflow-scrolling:touch
+}
+.toolbar::-webkit-scrollbar{display:none}
+.search-wrap{position:relative;flex:0 0 200px;margin-right:8px}
+.search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.3}
+#search{
+  width:100%;background:var(--surface);border:1px solid var(--border);
+  color:var(--text);padding:8px 12px 8px 34px;
+  font-size:12px;border-radius:6px;outline:none;font-family:var(--font);
+  transition:border-color .2s;
+}
+#search:focus{border-color:var(--accent)}
+.filter-btn{
+  padding:7px 14px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--border);background:transparent;color:var(--muted2);
+  border-radius:99px;cursor:pointer;transition:all .15s;white-space:nowrap;
+  font-family:var(--font);font-weight:600;flex-shrink:0
+}
+.filter-btn:hover{border-color:var(--muted2);color:var(--text)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
+
+/* ── GRID ── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:1px;background:var(--border);
+  margin:28px 48px 0;
+}
+
+/* ── CARD ── */
+.card{
+  background:var(--surface);position:relative;
+  transition:background .18s;overflow:hidden;cursor:pointer;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--accent);transform:scaleX(0);
+  transition:transform .32s cubic-bezier(.22,.68,0,1.2);
+  transform-origin:left;z-index:2
+}
+.card:hover{background:var(--surface2)}
+.card:hover::before{transform:scaleX(1)}
+.card.hidden{display:none}
+.card-logo{
+  height:148px;display:flex;align-items:center;justify-content:center;
+  border-bottom:1px solid var(--border);background:#fff;overflow:hidden;padding:0;
+}
+.card-logo img{width:100%;height:100%;object-fit:contain;padding:20px;box-sizing:border-box}
+.card-initials{
+  display:none;width:84px;height:84px;border-radius:14px;
+  align-items:center;justify-content:center;
+  font-weight:900;font-size:26px;letter-spacing:-1px;flex-shrink:0;font-family:var(--font);
+}
+.card-body{padding:18px 18px 48px}
+.card-name{font-size:14px;font-weight:700;margin-bottom:10px;line-height:1.2}
+.card-pills{display:flex;flex-wrap:wrap;gap:4px}
+.pill{
+  font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border:1px solid var(--border);border-radius:99px;
+  color:var(--muted);transition:color .15s;
+}
+.card:hover .pill{color:var(--muted2)}
+.card-link{
+  position:absolute;bottom:18px;right:16px;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:all .22s;
+  font-size:13px;color:#000;text-decoration:none;
+  transform:translateY(6px)
+}
+.card-link::after{content:'→'}
+.card:hover .card-link{opacity:1;transform:translateY(0)}
+
+/* ── EMPTY STATE ── */
+#empty{
+  display:none;padding:80px 48px;text-align:center;
+  color:var(--muted);font-size:14px;grid-column:1/-1;
+}
+
+/* ── LEGEND ── */
+.instructions{
+  margin:40px 48px 0;
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:20px 24px;font-size:13px;color:var(--muted2);line-height:1.8;
+}
+.instructions strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .5s ease,visibility .5s ease"><svg width="56" height="56" viewBox="0 0 64 64" style="animation:preloaderPulse 1.2s ease-in-out infinite"><rect width="64" height="64" rx="14" fill="#09090c" stroke="#252532" stroke-width="1"/><line x1="14" y1="18" x2="50" y2="18" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="18" x2="14" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/><line x1="14" y1="46" x2="50" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/></svg><div style="width:160px;height:2px;background:#252532;border-radius:1px;overflow:hidden"><div id="preloaderBar" style="height:100%;width:0;background:#f0c233;border-radius:1px;transition:width .4s ease"></div></div></div>
+<style>@keyframes preloaderPulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}</style>
+<script>(function(){const bar=document.getElementById('preloaderBar');let p=0;const t=setInterval(()=>{p=Math.min(p+Math.random()*18,90);bar.style.width=p+'%';},120);window.addEventListener('load',()=>{clearInterval(t);bar.style.width='100%';setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},400);});})();</script>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-logo"><em>ZIZO</em><span class="site-nav-divider">·</span>Abdelaziz Askar</a>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a href="about.html" class="site-nav-back" style="border:none">About</a>
+    <a href="contact.html" class="site-nav-back" style="border:none;color:var(--accent)">Contact</a>
+    <a href="index.html" class="site-nav-back">← Portfolio Home</a>
+  </div>
+</nav>
+
+<header>
+  <div class="logo">
+    <p class="logo-eyebrow">Creative Director · Social Media · AI</p>
+    <h1 class="logo-name"><em>ZIZO</em> — Abdelaziz Askar</h1>
+    <p class="logo-sub">Client Registry</p>
+  </div>
+  <div class="header-meta">
+    <p class="count">71</p>
+    <p class="count-label">Brands &amp; Clients</p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="6" cy="6" r="4.5" stroke="white" stroke-width="1.5"/>
+      <line x1="9.5" y1="9.5" x2="13" y2="13" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <input id="search" type="text" placeholder="Search clients...">
+  </div>
+  <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="5yr_partnership">5yr Partnership</button>
+    <button class="filter-btn" data-filter="ai_animatics">AI Animatics</button>
+    <button class="filter-btn" data-filter="atl">ATL</button>
+    <button class="filter-btn" data-filter="agency">Agency</button>
+    <button class="filter-btn" data-filter="btl">BTL</button>
+    <button class="filter-btn" data-filter="character_design">Character Design</button>
+    <button class="filter-btn" data-filter="copywriting">Copywriting</button>
+    <button class="filter-btn" data-filter="created_co-created">Created/Co-created</button>
+    <button class="filter-btn" data-filter="creative_direction">Creative Direction</button>
+    <button class="filter-btn" data-filter="creative_partner">Creative Partner</button>
+    <button class="filter-btn" data-filter="design">Design</button>
+    <button class="filter-btn" data-filter="egypt">Egypt</button>
+    <button class="filter-btn" data-filter="egypt_launch">Egypt Launch</button>
+    <button class="filter-btn" data-filter="events">Events</button>
+    <button class="filter-btn" data-filter="influencer">Influencer</button>
+    <button class="filter-btn" data-filter="jingle">Jingle</button>
+    <button class="filter-btn" data-filter="lead_creative">Lead Creative</button>
+    <button class="filter-btn" data-filter="lead_gen">Lead Gen</button>
+    <button class="filter-btn" data-filter="logos_&_branding">Logos & Branding</button>
+    <button class="filter-btn" data-filter="music">Music</button>
+    <button class="filter-btn" data-filter="photography">Photography</button>
+    <button class="filter-btn" data-filter="production">Production</button>
+    <button class="filter-btn" data-filter="production_management">Production Management</button>
+    <button class="filter-btn" data-filter="ramadan_campaign">Ramadan Campaign</button>
+    <button class="filter-btn" data-filter="social_media">Social Media</button>
+    <button class="filter-btn" data-filter="strategy">Strategy</button>
+    <button class="filter-btn" data-filter="tvc">TVC</button>
+    <button class="filter-btn" data-filter="videography">Videography</button>
+
+</div>
+
+<div class="grid" id="grid">
+  
+    <div class="card" data-cats="lead_creative_tvc_atl" data-name="geely">
+      <div class="card-logo">
+        <img src="clients/Geely/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Geely logo">
+        <div class="card-initials" style="background:#003DA5;color:#fff">G</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Geely</p>
+        <div class="card-pills"><span class="pill">Lead Creative</span><span class="pill">TVC</span><span class="pill">ATL</span></div>
+      </div>
+      <a class="card-link" href="clients/Geely/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="lead_creative_btl_copywriting" data-name="subway oman">
+      <div class="card-logo">
+        <img src="clients/Subway-Oman/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Subway Oman logo">
+        <div class="card-initials" style="background:#009B3A;color:#fff">SO</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Subway Oman</p>
+        <div class="card-pills"><span class="pill">Lead Creative</span><span class="pill">BTL</span><span class="pill">Copywriting</span></div>
+      </div>
+      <a class="card-link" href="clients/Subway-Oman/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_lead_creative_character_design" data-name="bazooka candy">
+      <div class="card-logo">
+        <img src="clients/Bazooka-Candy/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Bazooka Candy logo">
+        <div class="card-initials" style="background:#E8192C;color:#fff">BC</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Bazooka Candy</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Lead Creative</span><span class="pill">Character Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Bazooka-Candy/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="tvc_production_lead_creative" data-name="molfix">
+      <div class="card-logo">
+        <img src="clients/Molfix/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Molfix logo">
+        <div class="card-initials" style="background:#00AEEF;color:#fff">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Molfix</p>
+        <div class="card-pills"><span class="pill">TVC</span><span class="pill">Production</span><span class="pill">Lead Creative</span></div>
+      </div>
+      <a class="card-link" href="clients/Molfix/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_tvc_strategy" data-name="quooker">
+      <div class="card-logo">
+        <img src="clients/Quooker/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Quooker logo">
+        <div class="card-initials" style="background:#1A1A1A;color:#fff">Q</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Quooker</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">TVC</span><span class="pill">Strategy</span></div>
+      </div>
+      <a class="card-link" href="clients/Quooker/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_strategy_5yr_partnership" data-name="carina">
+      <div class="card-logo">
+        <img src="clients/Carina/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Carina logo">
+        <div class="card-initials" style="background:#8B1A1A;color:#fff">C</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Carina</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Strategy</span><span class="pill">5yr Partnership</span></div>
+      </div>
+      <a class="card-link" href="clients/Carina/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="lead_creative_ramadan_campaign_photography" data-name="kappa">
+      <div class="card-logo">
+        <img src="clients/Kappa/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Kappa logo">
+        <div class="card-initials" style="background:#FF0000;color:#fff">K</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Kappa</p>
+        <div class="card-pills"><span class="pill">Lead Creative</span><span class="pill">Ramadan Campaign</span><span class="pill">Photography</span></div>
+      </div>
+      <a class="card-link" href="clients/Kappa/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_strategy_egypt" data-name="krispy kreme">
+      <div class="card-logo">
+        <img src="clients/Krispy-Kreme/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Krispy Kreme logo">
+        <div class="card-initials" style="background:#007A3D;color:#fff">KK</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Krispy Kreme</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Strategy</span><span class="pill">Egypt</span></div>
+      </div>
+      <a class="card-link" href="clients/Krispy-Kreme/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="influencer_social_media_photography" data-name="royal herbs">
+      <div class="card-logo">
+        <img src="clients/Royal-Herbs/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Royal Herbs logo">
+        <div class="card-initials" style="background:#2D6A2D;color:#fff">RH</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Royal Herbs</p>
+        <div class="card-pills"><span class="pill">Influencer</span><span class="pill">Social Media</span><span class="pill">Photography</span></div>
+      </div>
+      <a class="card-link" href="clients/Royal-Herbs/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="tvc_creative_direction_ai_animatics" data-name="warba bank">
+      <div class="card-logo">
+        <img src="clients/Warba-Bank/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Warba Bank logo">
+        <div class="card-initials" style="background:#006341;color:#fff">WB</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Warba Bank</p>
+        <div class="card-pills"><span class="pill">TVC</span><span class="pill">Creative Direction</span><span class="pill">AI Animatics</span></div>
+      </div>
+      <a class="card-link" href="clients/Warba-Bank/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_lead_gen_strategy" data-name="snapchat">
+      <div class="card-logo">
+        <img src="clients/Snapchat/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Snapchat logo">
+        <div class="card-initials" style="background:#FFFC00;color:#000">S</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Snapchat</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Lead Gen</span><span class="pill">Strategy</span></div>
+      </div>
+      <a class="card-link" href="clients/Snapchat/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_design_strategy" data-name="glow">
+      <div class="card-logo">
+        <img src="clients/Glow/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Glow logo">
+        <div class="card-initials" style="background:#00C4B4;color:#fff">G</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Glow</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Design</span><span class="pill">Strategy</span></div>
+      </div>
+      <a class="card-link" href="clients/Glow/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_photography_videography_design" data-name="delight parties">
+      <div class="card-logo">
+        <img src="clients/Delight-Parties/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Delight Parties logo">
+        <div class="card-initials" style="background:#F7931E;color:#fff">DP</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Delight Parties</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Photography</span><span class="pill">Videography</span><span class="pill">Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Delight-Parties/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="strategy_social_media" data-name="bershka">
+      <div class="card-logo">
+        <img src="clients/Bershka/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Bershka logo">
+        <div class="card-initials" style="background:#000000;color:#fff">B</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Bershka</p>
+        <div class="card-pills"><span class="pill">Strategy</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Bershka/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="strategy_social_media" data-name="gourmet">
+      <div class="card-logo">
+        <img src="clients/Gourmet/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Gourmet logo">
+        <div class="card-initials" style="background:#8B0000;color:#fff">G</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Gourmet</p>
+        <div class="card-pills"><span class="pill">Strategy</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Gourmet/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="photography_videography" data-name="royal tulip hotel">
+      <div class="card-logo">
+        <img src="clients/Royal-Tulip-Hotel/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Royal Tulip Hotel logo">
+        <div class="card-initials" style="background:#6B2D8B;color:#fff">RT</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Royal Tulip Hotel</p>
+        <div class="card-pills"><span class="pill">Photography</span><span class="pill">Videography</span></div>
+      </div>
+      <a class="card-link" href="clients/Royal-Tulip-Hotel/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="photography_videography_logos_&_branding" data-name="axe / unilever">
+      <div class="card-logo">
+        <img src="clients/AXE-Unilever/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="AXE / Unilever logo">
+        <div class="card-initials" style="background:#000000;color:#fff">A/</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">AXE / Unilever</p>
+        <div class="card-pills"><span class="pill">Photography</span><span class="pill">Videography</span><span class="pill">Logos & Branding</span></div>
+      </div>
+      <a class="card-link" href="clients/AXE-Unilever/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="tvc_creative_direction_photography" data-name="audi">
+      <div class="card-logo">
+        <img src="clients/Audi/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Audi logo">
+        <div class="card-initials" style="background:#BB0A30;color:#fff">A</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Audi</p>
+        <div class="card-pills"><span class="pill">TVC</span><span class="pill">Creative Direction</span><span class="pill">Photography</span></div>
+      </div>
+      <a class="card-link" href="clients/Audi/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="tvc_production_management" data-name="ea fc mobile">
+      <div class="card-logo">
+        <img src="clients/EA-FC-Mobile/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="EA FC Mobile logo">
+        <div class="card-initials" style="background:#003087;color:#fff">EF</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">EA FC Mobile</p>
+        <div class="card-pills"><span class="pill">TVC</span><span class="pill">Production Management</span></div>
+      </div>
+      <a class="card-link" href="clients/EA-FC-Mobile/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="tvc_creative_direction" data-name="hardee's">
+      <div class="card-logo">
+        <img src="clients/Hardees/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Hardee's logo">
+        <div class="card-initials" style="background:#E31837;color:#fff">H</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Hardee's</p>
+        <div class="card-pills"><span class="pill">TVC</span><span class="pill">Creative Direction</span></div>
+      </div>
+      <a class="card-link" href="clients/Hardees/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_photography_videography" data-name="mtn">
+      <div class="card-logo">
+        <img src="clients/MTN/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="MTN logo">
+        <div class="card-initials" style="background:#FFCC00;color:#000">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">MTN</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Photography</span><span class="pill">Videography</span></div>
+      </div>
+      <a class="card-link" href="clients/MTN/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="agency_creative_partner" data-name="tonic international">
+      <div class="card-logo">
+        <img src="clients/Tonic-International/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Tonic International logo">
+        <div class="card-initials" style="background:#222222;color:#fff">TI</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Tonic International</p>
+        <div class="card-pills"><span class="pill">Agency</span><span class="pill">Creative Partner</span></div>
+      </div>
+      <a class="card-link" href="clients/Tonic-International/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="strategy_social_media" data-name="septam foods">
+      <div class="card-logo">
+        <img src="clients/Septam-Foods/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Septam Foods logo">
+        <div class="card-initials" style="background:#C8960C;color:#fff">SF</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Septam Foods</p>
+        <div class="card-pills"><span class="pill">Strategy</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Septam-Foods/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_jingle_strategy" data-name="juicy drop">
+      <div class="card-logo">
+        <img src="clients/Juicy-Drop/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Juicy Drop logo">
+        <div class="card-initials" style="background:#FF4500;color:#fff">JD</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Juicy Drop</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Jingle</span><span class="pill">Strategy</span></div>
+      </div>
+      <a class="card-link" href="clients/Juicy-Drop/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media" data-name="american express">
+      <div class="card-logo">
+        <img src="clients/American-Express/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="American Express logo">
+        <div class="card-initials" style="background:#016FD0;color:#fff">AE</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">American Express</p>
+        <div class="card-pills"><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/American-Express/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_strategy_egypt_launch" data-name="decoys real estate">
+      <div class="card-logo">
+        <img src="clients/Decoys-Real-Estate/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Decoys Real Estate logo">
+        <div class="card-initials" style="background:#1A3A5C;color:#fff">DR</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Decoys Real Estate</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Strategy</span><span class="pill">Egypt Launch</span></div>
+      </div>
+      <a class="card-link" href="clients/Decoys-Real-Estate/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_photography" data-name="no limits furniture">
+      <div class="card-logo">
+        <img src="clients/No-Limits-Furniture/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="No Limits Furniture logo">
+        <div class="card-initials" style="background:#5B3A29;color:#fff">NL</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">No Limits Furniture</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Photography</span></div>
+      </div>
+      <a class="card-link" href="clients/No-Limits-Furniture/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="photography_design" data-name="lord of the wings">
+      <div class="card-logo">
+        <img src="clients/Lord-of-the-Wings/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Lord of the Wings logo">
+        <div class="card-initials" style="background:#C00000;color:#fff">LO</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Lord of the Wings</p>
+        <div class="card-pills"><span class="pill">Photography</span><span class="pill">Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Lord-of-the-Wings/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="photography" data-name="gdk">
+      <div class="card-logo">
+        <img src="clients/GDK/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="GDK logo">
+        <div class="card-initials" style="background:#D4A017;color:#000">G</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">GDK</p>
+        <div class="card-pills"><span class="pill">Photography</span></div>
+      </div>
+      <a class="card-link" href="clients/GDK/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="logos_&_branding_design" data-name="brew">
+      <div class="card-logo">
+        <img src="clients/Brew-Craft/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Brew logo">
+        <div class="card-initials" style="background:#4A2C2A;color:#fff">B</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Brew</p>
+        <div class="card-pills"><span class="pill">Logos & Branding</span><span class="pill">Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Brew-Craft/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="copywriting_social_media" data-name="wallpost">
+      <div class="card-logo">
+        <img src="clients/WallPost/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="WallPost logo">
+        <div class="card-initials" style="background:#1877F2;color:#fff">W</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">WallPost</p>
+        <div class="card-pills"><span class="pill">Copywriting</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/WallPost/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="created_co-created" data-name="fahel brand">
+      <div class="card-logo">
+        <img src="clients/Fahel-Brand/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Fahel Brand logo">
+        <div class="card-initials" style="background:#2ECC71;color:#fff">FB</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Fahel Brand</p>
+        <div class="card-pills"><span class="pill">Created/Co-created</span></div>
+      </div>
+      <a class="card-link" href="clients/Fahel-Brand/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="created_co-created_photography_design" data-name="imagine studio">
+      <div class="card-logo">
+        <img src="clients/Imagine-Studio/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Imagine Studio logo">
+        <div class="card-initials" style="background:#9B59B6;color:#fff">IS</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Imagine Studio</p>
+        <div class="card-pills"><span class="pill">Created/Co-created</span><span class="pill">Photography</span><span class="pill">Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Imagine-Studio/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="created_co-created_music_events" data-name="urbeels">
+      <div class="card-logo">
+        <img src="clients/URBEELS/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="URBEELS logo">
+        <div class="card-initials" style="background:#FF6B35;color:#fff">U</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">URBEELS</p>
+        <div class="card-pills"><span class="pill">Created/Co-created</span><span class="pill">Music</span><span class="pill">Events</span></div>
+      </div>
+      <a class="card-link" href="clients/URBEELS/" title="Open folder"></a>
+    </div>
+
+    <div class="card" data-cats="content_social_media" data-name="abtalks">
+      <div class="card-logo">
+        <img src="clients/ABtalks/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="ABtalks logo">
+        <div class="card-initials" style="background:#111111;color:#fff">A</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">ABtalks</p>
+        <div class="card-pills"><span class="pill">Content</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/ABtalks/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_strategy" data-name="acud">
+      <div class="card-logo">
+        <img src="clients/ACUD/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="ACUD logo">
+        <div class="card-initials" style="background:#1A3A5C;color:#fff">A</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">ACUD</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Strategy</span></div>
+      </div>
+      <a class="card-link" href="clients/ACUD/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_f&b" data-name="al siddiqi holding">
+      <div class="card-logo">
+        <img src="clients/Al-Siddiqi-Holding/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Al Siddiqi Holding logo">
+        <div class="card-initials" style="background:#7A1F2B;color:#fff">AS</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Al Siddiqi Holding</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">F&B</span></div>
+      </div>
+      <a class="card-link" href="clients/Al-Siddiqi-Holding/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="hospitality_content" data-name="almaza bay">
+      <div class="card-logo">
+        <img src="clients/Almaza-Bay/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Almaza Bay logo">
+        <div class="card-initials" style="background:#0E7C9E;color:#fff">AB</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Almaza Bay</p>
+        <div class="card-pills"><span class="pill">Hospitality</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/Almaza-Bay/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="culture_content" data-name="bibliotheca alexandrina">
+      <div class="card-logo">
+        <img src="clients/Bibliotheca-Alexandrina/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Bibliotheca Alexandrina logo">
+        <div class="card-initials" style="background:#2C5F8A;color:#fff">BA</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Bibliotheca Alexandrina</p>
+        <div class="card-pills"><span class="pill">Culture</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/Bibliotheca-Alexandrina/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_social_media" data-name="biella">
+      <div class="card-logo">
+        <img src="clients/Biella/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Biella logo">
+        <div class="card-initials" style="background:#5C4033;color:#fff">B</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Biella</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Biella/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_character_design" data-name="big baby pop">
+      <div class="card-logo">
+        <img src="clients/Big-Baby-Pop/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Big Baby Pop logo">
+        <div class="card-initials" style="background:#E84393;color:#fff">BB</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Big Baby Pop</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Character Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Big-Baby-Pop/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fmcg_social_media" data-name="bonny">
+      <div class="card-logo">
+        <img src="clients/Bonny/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Bonny logo">
+        <div class="card-initials" style="background:#F39C12;color:#000">B</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Bonny</p>
+        <div class="card-pills"><span class="pill">FMCG</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Bonny/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_photography" data-name="burger pump">
+      <div class="card-logo">
+        <img src="clients/Burger-Pump/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Burger Pump logo">
+        <div class="card-initials" style="background:#D35400;color:#fff">BP</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Burger Pump</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Photography</span></div>
+      </div>
+      <a class="card-link" href="clients/Burger-Pump/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="branding_content" data-name="capa">
+      <div class="card-logo">
+        <img src="clients/CAPA/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="CAPA logo">
+        <div class="card-initials" style="background:#34495E;color:#fff">C</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">CAPA</p>
+        <div class="card-pills"><span class="pill">Branding</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/CAPA/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_social_media" data-name="chouchou">
+      <div class="card-logo">
+        <img src="clients/Chouchou/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Chouchou logo">
+        <div class="card-initials" style="background:#C2185B;color:#fff">C</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Chouchou</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Chouchou/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="branding_social_media" data-name="defarm">
+      <div class="card-logo">
+        <img src="clients/Defarm/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Defarm logo">
+        <div class="card-initials" style="background:#27AE60;color:#fff">D</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Defarm</p>
+        <div class="card-pills"><span class="pill">Branding</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Defarm/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_strategy" data-name="deraya">
+      <div class="card-logo">
+        <img src="clients/Deraya/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Deraya logo">
+        <div class="card-initials" style="background:#8E44AD;color:#fff">D</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Deraya</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Strategy</span></div>
+      </div>
+      <a class="card-link" href="clients/Deraya/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="hospitality_content" data-name="el gouna">
+      <div class="card-logo">
+        <img src="clients/El-Gouna/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="El Gouna logo">
+        <div class="card-initials" style="background:#E67E22;color:#fff">EG</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">El Gouna</p>
+        <div class="card-pills"><span class="pill">Hospitality</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/El-Gouna/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="corporate_content" data-name="eldib & co">
+      <div class="card-logo">
+        <img src="clients/Eldib-Co/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Eldib & Co logo">
+        <div class="card-initials" style="background:#1F3A5F;color:#fff">E&</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Eldib & Co</p>
+        <div class="card-pills"><span class="pill">Corporate</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/Eldib-Co/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_social_media" data-name="em sherif cafe">
+      <div class="card-logo">
+        <img src="clients/Em-Sherif-Cafe/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Em Sherif Cafe logo">
+        <div class="card-initials" style="background:#00343D;color:#fff">ES</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Em Sherif Cafe</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Em-Sherif-Cafe/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_social_media" data-name="emirgan sutis">
+      <div class="card-logo">
+        <img src="clients/Emirgan-Sutis/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Emirgan Sutis logo">
+        <div class="card-initials" style="background:#B5121B;color:#fff">ES</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Emirgan Sutis</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Emirgan-Sutis/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fmcg_social_media" data-name="gillette venus">
+      <div class="card-logo">
+        <img src="clients/Gillette-Venus/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Gillette Venus logo">
+        <div class="card-initials" style="background:#00A4E4;color:#fff">GV</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Gillette Venus</p>
+        <div class="card-pills"><span class="pill">FMCG</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Gillette-Venus/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fmcg_tvc" data-name="hayat water">
+      <div class="card-logo">
+        <img src="clients/Hayat-Water/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Hayat Water logo">
+        <div class="card-initials" style="background:#0077C8;color:#fff">HW</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Hayat Water</p>
+        <div class="card-pills"><span class="pill">FMCG</span><span class="pill">TVC</span></div>
+      </div>
+      <a class="card-link" href="clients/Hayat-Water/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="art_branding" data-name="inside out art">
+      <div class="card-logo">
+        <img src="clients/Inside-Out-Art/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Inside Out Art logo">
+        <div class="card-initials" style="background:#9B59B6;color:#fff">IO</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Inside Out Art</p>
+        <div class="card-pills"><span class="pill">Art</span><span class="pill">Branding</span></div>
+      </div>
+      <a class="card-link" href="clients/Inside-Out-Art/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fmcg_social_media" data-name="lifebox">
+      <div class="card-logo">
+        <img src="clients/Lifebox/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Lifebox logo">
+        <div class="card-initials" style="background:#16A085;color:#fff">L</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Lifebox</p>
+        <div class="card-pills"><span class="pill">FMCG</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Lifebox/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="corporate_content" data-name="mansour">
+      <div class="card-logo">
+        <img src="clients/Mansour/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Mansour logo">
+        <div class="card-initials" style="background:#1A1A1A;color:#fff">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Mansour</p>
+        <div class="card-pills"><span class="pill">Corporate</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/Mansour/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="healthcare_content" data-name="mayo clinic">
+      <div class="card-logo">
+        <img src="clients/Mayo-Clinic/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Mayo Clinic logo">
+        <div class="card-initials" style="background:#0057B8;color:#fff">MC</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Mayo Clinic</p>
+        <div class="card-pills"><span class="pill">Healthcare</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/Mayo-Clinic/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="branding_social_media" data-name="medina">
+      <div class="card-logo">
+        <img src="clients/Medina/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Medina logo">
+        <div class="card-initials" style="background:#006C5B;color:#fff">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Medina</p>
+        <div class="card-pills"><span class="pill">Branding</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Medina/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fmcg_character_design" data-name="mooz">
+      <div class="card-logo">
+        <img src="clients/Mooz/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Mooz logo">
+        <div class="card-initials" style="background:#1565C0;color:#fff">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Mooz</p>
+        <div class="card-pills"><span class="pill">FMCG</span><span class="pill">Character Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Mooz/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fashion_social_media" data-name="mostique">
+      <div class="card-logo">
+        <img src="clients/Mostique/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Mostique logo">
+        <div class="card-initials" style="background:#2C3E50;color:#fff">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Mostique</p>
+        <div class="card-pills"><span class="pill">Fashion</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Mostique/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="corporate_social_media" data-name="mtm">
+      <div class="card-logo">
+        <img src="clients/MTM/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="MTM logo">
+        <div class="card-initials" style="background:#444444;color:#fff">M</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">MTM</p>
+        <div class="card-pills"><span class="pill">Corporate</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/MTM/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_branding" data-name="nineteen84">
+      <div class="card-logo">
+        <img src="clients/Nineteen84/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Nineteen84 logo">
+        <div class="card-initials" style="background:#111111;color:#fff">N</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Nineteen84</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Branding</span></div>
+      </div>
+      <a class="card-link" href="clients/Nineteen84/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_social_media" data-name="the noodle house">
+      <div class="card-logo">
+        <img src="clients/Noodle-House/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="The Noodle House logo">
+        <div class="card-initials" style="background:#C8102E;color:#fff">TN</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">The Noodle House</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Noodle-House/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="luxury_hospitality" data-name="one zaabeel">
+      <div class="card-logo">
+        <img src="clients/One-Zaabeel/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="One Zaabeel logo">
+        <div class="card-initials" style="background:#0F1B2B;color:#fff">OZ</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">One Zaabeel</p>
+        <div class="card-pills"><span class="pill">Luxury</span><span class="pill">Hospitality</span></div>
+      </div>
+      <a class="card-link" href="clients/One-Zaabeel/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fashion_social_media" data-name="polo ralph lauren">
+      <div class="card-logo">
+        <img src="clients/Polo-Ralph-Lauren/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Polo Ralph Lauren logo">
+        <div class="card-initials" style="background:#0B2545;color:#fff">PR</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Polo Ralph Lauren</p>
+        <div class="card-pills"><span class="pill">Fashion</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Polo-Ralph-Lauren/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="beauty_social_media" data-name="revitalash">
+      <div class="card-logo">
+        <img src="clients/Revitalash/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="RevitaLash logo">
+        <div class="card-initials" style="background:#5D3A6A;color:#fff">R</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">RevitaLash</p>
+        <div class="card-pills"><span class="pill">Beauty</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Revitalash/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="social_media_character_design" data-name="ring pop">
+      <div class="card-logo">
+        <img src="clients/Ring-Pop/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Ring Pop logo">
+        <div class="card-initials" style="background:#E3170A;color:#fff">RP</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Ring Pop</p>
+        <div class="card-pills"><span class="pill">Social Media</span><span class="pill">Character Design</span></div>
+      </div>
+      <a class="card-link" href="clients/Ring-Pop/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="fmcg_tvc" data-name="steam cola">
+      <div class="card-logo">
+        <img src="clients/Steam-Cola/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Steam Cola logo">
+        <div class="card-initials" style="background:#B71C1C;color:#fff">SC</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Steam Cola</p>
+        <div class="card-pills"><span class="pill">FMCG</span><span class="pill">TVC</span></div>
+      </div>
+      <a class="card-link" href="clients/Steam-Cola/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="retail_social_media" data-name="the center">
+      <div class="card-logo">
+        <img src="clients/The-Center/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="The Center logo">
+        <div class="card-initials" style="background:#37474F;color:#fff">TC</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">The Center</p>
+        <div class="card-pills"><span class="pill">Retail</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/The-Center/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="hospitality_content" data-name="the g hotels">
+      <div class="card-logo">
+        <img src="clients/The-G-Hotels/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="The G Hotels logo">
+        <div class="card-initials" style="background:#8D6E63;color:#fff">TG</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">The G Hotels</p>
+        <div class="card-pills"><span class="pill">Hospitality</span><span class="pill">Content</span></div>
+      </div>
+      <a class="card-link" href="clients/The-G-Hotels/" title="Open folder"></a>
+    </div>
+    <div class="card" data-cats="f&b_social_media" data-name="zooba">
+      <div class="card-logo">
+        <img src="clients/Zooba/assets/logo.png"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Zooba logo">
+        <div class="card-initials" style="background:#F4C20D;color:#000">Z</div>
+      </div>
+      <div class="card-body">
+        <p class="card-name">Zooba</p>
+        <div class="card-pills"><span class="pill">F&B</span><span class="pill">Social Media</span></div>
+      </div>
+      <a class="card-link" href="clients/Zooba/" title="Open folder"></a>
+    </div>
+  <div id="empty">No clients match your search.</div>
+</div>
+
+<div class="instructions">
+  <strong>Adding a real logo:</strong> Drop <code>logo.png</code> or <code>logo.svg</code> into
+  <code>clients/[Client-Name]/assets/</code> — this page will show it automatically.<br>
+  <strong>Adding work:</strong> Drop screenshots into <code>clients/[Client-Name]/screenshots/</code>,
+  copy into <code>copywriting/</code>, finished files into <code>final-work/</code>.
+</div>
+
+<script src="brands-data.js?v=2"></script>
+<script>
+const cards = document.querySelectorAll('.card');
+const searchEl = document.getElementById('search');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const empty = document.getElementById('empty');
+let activeFilter = 'all';
+
+// ── group the registry by industry (headings inserted into the grid) ──
+function groupByIndustry(){
+  const grid = document.getElementById('grid');
+  const order = window.INDUSTRY_ORDER || [];
+  const map = window.BRAND_INDUSTRY || {};
+  const buckets = {};
+  cards.forEach(c => {
+    if (c.id === 'empty') return;
+    const link = c.querySelector('.card-link');
+    const mm = link && link.getAttribute('href').match(/clients\/([^\/]+)\//);
+    const slug = mm ? mm[1] : '';
+    const ind = map[slug] || 'Other / Agency';
+    c.dataset.industry = ind;
+    (buckets[ind] = buckets[ind] || []).push(c);
+  });
+  const inds = order.filter(i => buckets[i]).concat(Object.keys(buckets).filter(i => order.indexOf(i) < 0));
+  const heads = [];
+  inds.forEach(ind => {
+    const h = document.createElement('div');
+    h.className = 'ind-head'; h.dataset.ind = ind;
+    h.style.cssText = 'grid-column:1/-1;display:flex;align-items:baseline;gap:12px;padding:30px 4px 12px;border-bottom:1px solid var(--accent);margin-top:6px';
+    h.innerHTML = '<span style="font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">'+ind+'</span>'
+                + '<span style="font-size:11px;color:var(--muted)">'+buckets[ind].length+' brand'+(buckets[ind].length>1?'s':'')+'</span>';
+    grid.appendChild(h); heads.push(h);
+    buckets[ind].forEach(c => grid.appendChild(c));
+  });
+  if (empty) grid.appendChild(empty);
+  return heads;
+}
+const indHeads = groupByIndustry();
+
+function update() {
+  const q = searchEl.value.toLowerCase().trim();
+  let visible = 0;
+  cards.forEach(c => {
+    if (c.id === 'empty') return;
+    const nameMatch = !q || c.dataset.name.includes(q);
+    const catMatch  = activeFilter === 'all' || c.dataset.cats.includes(activeFilter);
+    const show = nameMatch && catMatch;
+    c.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  // hide an industry heading when none of its brands are visible
+  indHeads.forEach(h => {
+    const ind = h.dataset.ind;
+    const anyVisible = [...cards].some(c => c.id !== 'empty' && c.dataset.industry === ind && !c.classList.contains('hidden'));
+    h.style.display = anyVisible ? '' : 'none';
+  });
+  empty.style.display = visible === 0 ? 'block' : 'none';
+}
+
+searchEl.addEventListener('input', update);
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    update();
+  });
+});
+</script>
+<a href="index.html" id="zz-home-chip" style="position:fixed;top:14px;left:14px;z-index:99998;display:flex;align-items:center;gap:6px;background:rgba(10,10,10,.85);border:1px solid #333;color:#f0c233;border-radius:99px;padding:7px 14px;font:700 12px Inter,system-ui,sans-serif;text-decoration:none;backdrop-filter:blur(10px)">⌂ Home</a>
+<script src="editor.js?v=3"></script>
+<script src="nda.js"></script>
+</body>
+</html>

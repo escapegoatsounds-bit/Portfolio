@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fahel Brand â€” ZIZO Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0e10;--s1:#16161a;--s2:#1f1f24;--b:#2c2c33;--accent:#2ECC71;--text:#f4f2ed;--m:#9a958c;--m2:#c2bcb2;--font:'Inter',system-ui,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);height:56px;display:flex;align-items:center;padding:0 40px;gap:20px}
+.nl{font-size:18px;font-weight:900;letter-spacing:-.5px}.nl em{color:#f0c233;font-style:normal}
+.nb{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)}
+.nb:hover{color:#f0c233}
+.c{max-width:1100px;margin:0 auto;padding:0 40px}
+.hero{min-height:56vh;padding-top:56px;display:grid;grid-template-columns:1fr 360px;border-bottom:1px solid var(--b)}
+.ht{padding:64px 48px 64px 40px;display:flex;flex-direction:column;justify-content:flex-end}
+.he{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.hn{font-size:clamp(44px,6vw,80px);font-weight:900;line-height:.92;letter-spacing:-2.5px;margin-bottom:12px}
+.hr{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:24px}
+.hc{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:32px}
+.cp{font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--accent);border-radius:99px;color:var(--accent)}
+.hs{background:var(--s1);border-left:1px solid var(--b);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;padding:40px}
+.bc{width:100px;height:100px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px}
+section{padding:72px 0;border-bottom:1px solid var(--b);display:block}
+.sl{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.st{font-size:clamp(24px,3vw,40px);font-weight:900;line-height:1;letter-spacing:-1.2px;margin-bottom:20px}
+.mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--b);border:1px solid var(--b);border-radius:6px;overflow:hidden;margin-bottom:40px}
+.mi{background:var(--s1);padding:20px 18px}
+.ml{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--m);margin-bottom:5px}
+.mv{font-size:14px;font-weight:700}
+.br{background:var(--s1);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:28px 32px;margin-bottom:32px;font-size:15px;color:var(--m2);line-height:1.8}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:6px;overflow:hidden;margin-bottom:40px}
+.rc{background:var(--s1);padding:32px 20px;text-align:center}
+.rn{font-size:42px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-1.5px;margin-bottom:6px}
+.rl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--m2)}
+.dg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.dt{font-size:11px;padding:7px 16px;border:1px solid var(--b);border-radius:99px;color:var(--m2)}
+.desc{font-size:16px;color:var(--m2);line-height:1.85;max-width:680px;margin-bottom:32px}
+.ps{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--b);align-items:start}
+.ps:last-child{border-bottom:none}
+.pn{font-size:36px;font-weight:900;color:var(--b);line-height:1}
+.pt{font-size:16px;font-weight:700;margin-bottom:4px}
+.pb{font-size:13px;color:var(--m2);line-height:1.6}
+.btns{display:flex;gap:10px;flex-wrap:wrap;padding:48px 40px;border-top:1px solid var(--b)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:6px;transition:all .2s;font-family:var(--font)}
+.ba{background:var(--accent);color:#fff}
+.bg{border:1px solid var(--b);color:var(--m2)}
+.bg:hover{border-color:var(--m2);color:var(--text)}
+footer{padding:40px;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.fl{font-size:16px;font-weight:900}.fl em{color:#f0c233;font-style:normal}
+.fc{font-size:11px;color:var(--m)}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hs{display:none}.c{padding:0 20px}.btns{padding:32px 20px}}
+</style>
+</head>
+<body>
+<nav><a href="../../index.html" class="nl">ZI<em>ZO</em></a><a href="../../clients.html" class="nb">All Brands</a></nav>
+<div class="hero">
+  <div class="ht">
+    <p class="he">Co-creator &middot; 2020 &middot; Egypt</p>
+    <h1 class="hn">Fahel Brand</h1>
+    <p class="hr">Delivered by Abdelaziz Askar &mdash; ZIZO</p>
+    <div class="hc"><span class='cp'>Created & Co-created</span></div>
+  </div>
+  <div class="hs"><div class="bc">FB</div><div style="font-size:18px;font-weight:800;text-align:center">Fahel Brand</div><div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--m);text-align:center">Egypt Market</div></div>
+</div>
+<section><div class="c">
+  <p class="sl">Project Overview</p><h2 class="st">The Brief</h2>
+  <div class="br">Build a brand from nothing. Name, identity, tone, and market position. Ready to compete in the Egyptian market.</div>
+  <div class="mg">
+    <div class="mi"><div class="ml">Role</div><div class="mv">Co-creator</div></div>
+    <div class="mi"><div class="ml">Year</div><div class="mv">2020</div></div>
+    <div class="mi"><div class="ml">Region</div><div class="mv">Egypt</div></div>
+    <div class="mi"><div class="ml">Agency</div><div class="mv">ZIZO</div></div>
+  </div>
+  <h2 class="st">What Was Delivered</h2>
+  <p class="desc">Co-created the Fahel brand from concept to launch, developing the brand name, identity, positioning, and go-to-market strategy as a creative co-founder.</p>
+  <div class="dg"><span class='dt'>Brand Naming</span><span class='dt'>Identity Design</span><span class='dt'>Positioning</span><span class='dt'>Go-to-Market Strategy</span></div>
+</div></section>
+<section><div class="c">
+  <p class="sl">Impact</p><h2 class="st">Results</h2>
+  <div class="rg">
+    <div class="rc"><div class="rn">Brand</div><div class="rl">Built from 0</div></div>
+    <div class="rc"><div class="rn">Co-founder</div><div class="rl">Role</div></div>
+    <div class="rc"><div class="rn">Egypt</div><div class="rl">Market</div></div>
+  </div>
+</div></section>
+<section><div class="c">
+  <p class="sl">Process</p><h2 class="st">How It Came Together</h2>
+  <div class="ps"><div class="pn">01</div><div><div class="pt">Brief and Strategy</div><div class="pb">Aligned brand objectives with market insight and built the campaign architecture.</div></div></div>
+  <div class="ps"><div class="pn">02</div><div><div class="pt">Concept and Creative</div><div class="pb">Developed the big idea â€” mood boards, copy, visual direction, and creative rationale.</div></div></div>
+  <div class="ps"><div class="pn">03</div><div><div class="pt">Production and Execution</div><div class="pb">Brought the concept to life â€” directing, producing, and crafting every asset.</div></div></div>
+  <div class="ps"><div class="pn">04</div><div><div class="pt">Delivery and Performance</div><div class="pb">Delivered on time and on brand. Monitored and refined based on results.</div></div></div>
+</div></section>
+<div class="btns">
+  <a href="../../index.html" class="btn ba">Back to Portfolio</a>
+  <a href="../../clients.html" class="btn bg">All Brands</a>
+  <a href="mailto:bananalover9119@gmail.com" class="btn bg">Work Together</a>
+</div>
+<footer><span class="fl">ZI<em>ZO</em></span><p class="fc">&copy; 2026 Abdelaziz Askar &middot; ZIZO</p></footer>
+<a href="../../index.html" id="zz-home-chip" style="position:fixed;top:14px;left:14px;z-index:99998;display:flex;align-items:center;gap:6px;background:rgba(10,10,10,.85);border:1px solid #333;color:#f0c233;border-radius:99px;padding:7px 14px;font:700 12px Inter,system-ui,sans-serif;text-decoration:none;backdrop-filter:blur(10px)">⌂ Home</a>
+<script src="../../brands-data.js?v=2"></script>
+<script src="../../projects.js?v=2"></script>
+<script src="../../editor.js?v=2"></script>
+<script src="../../nda.js"></script>
+</body></html>
