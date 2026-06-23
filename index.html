@@ -252,6 +252,21 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
   .panel-app-body,.panel-default{padding-left:30px;padding-right:30px}
 }
 @media(max-width:520px){.mobile-wall{display:flex}}
+/* ── BRAND MANAGER ─────────────────────────────────────── */
+#brandMgr{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);display:none;flex-direction:column}
+#brandMgr.open{display:flex}
+.bm-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--b);flex-shrink:0}
+.bm-wrap{display:flex;flex:1;overflow:hidden;padding:20px 28px;gap:20px}
+.bm-list{width:190px;flex-shrink:0;overflow-y:auto;display:flex;flex-direction:column;gap:3px;padding-right:4px}
+.bm-item{padding:8px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--m2);transition:background .15s}
+.bm-item:hover,.bm-item.active{background:var(--s1);color:var(--text)}
+.bm-form{flex:1;overflow-y:auto;background:var(--s1);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:18px}
+.bm-field label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block}
+.bm-field input,.bm-field textarea,.bm-field select{width:100%;background:#111115;border:1px solid var(--b);border-radius:8px;color:var(--text);padding:10px 12px;font-size:14px;font-family:inherit;box-sizing:border-box}
+.bm-field textarea{resize:vertical;min-height:80px}
+.bm-checks{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.bm-check{padding:6px 12px;border:1px solid var(--b);border-radius:8px;cursor:pointer;font-size:12px;transition:border-color .15s,color .15s;user-select:none}
+.bm-check.on{border-color:var(--gold);color:var(--gold)}
 </style>
 </head>
 <body>
@@ -580,6 +595,8 @@ function brandLink(s){return 'clients/'+s+'/index.html';}
 // Drop/replace that single file and it reflects on the home grid, cards AND the brand page.
 // Falls back to the coloured initials behind it when no logo file exists.
 function logoOverlay(b,radius){return `<img src="clients/${b.s}/assets/logo.png" alt="${b.n} logo" loading="lazy" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:2px;border-radius:${radius}">`;}
+function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};}
+function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
 const SKILLS=[['Creative Direction',85],['Social Strategy',92],['AI Integration',88],['Copywriting',80],['Photography',70],['Music Production',72],['Team Management',85],['Storyboarding',88]];
 const TRACKS=[['Elli Kan Kan','elli-kan-kan'],['La Bali','la-bali'],['Ya Ghayba','ya-ghayba'],['Escapegoat IV','track-04']];
@@ -596,10 +613,10 @@ function tweet(txt,meta){return `<div class="tweet"><div class="tweet-av">AZ</di
 function cardLink(b,meta){return `<a class="acard" href="${brandLink(b.s)}"><div class="acard-body" style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:${b.c};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div><div class="acard-name">${b.n}</div><div class="acard-meta">${meta}</div></div></div></a>`;}
 
 const SCREENS={
-  instagram:()=>[B['Bazooka-Candy'],B['Kappa'],B['Subway-Oman'],B['Molfix']].map(b=>feedPost(b,'Lead creative campaign. Tap to open the case study.')).join(''),
+  instagram:()=>bcFilter('instagram').slice(0,6).map(b=>feedPost(b,bcGet(b.s).desc||'Lead creative campaign. Tap to open the case study.')).join(''),
   x:()=>'<div style="padding:10px 12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Headlines & scripts</div>'+tweet('"You earned the drive. We built the ride." — Geely UAE launch TVC. 🚗','Geely')+tweet('"Ramadan tastes different when it\'s made right." — Kappa Egypt.','Kappa')+tweet('"Taste the boldness. Every single bite." — Subway Oman.','Subway'),
-  tiktok:()=>[B['Snapchat'],B['MTN'],B['Royal-Herbs']].map(b=>cardLink(b,'PR · Influencer · Earned media')).join(''),
-  youtube:()=>'<div class="tabs"><span class="tab on" data-tb="ytP" data-tk="pf" onclick="tabShow(\'ytP\',\'pf\')">Portfolio</span><span class="tab" data-tb="ytP" data-tk="lr" onclick="tabShow(\'ytP\',\'lr\')">Land of Rebirth</span><span class="tab" data-tb="ytP" data-tk="sk" onclick="tabShow(\'ytP\',\'sk\')">Skippy</span><span class="tab" data-tb="ytP" data-tk="ec" onclick="tabShow(\'ytP\',\'ec\')">Escape Code</span></div><div data-ts="ytP" data-tk="pf">'+[B['Geely'],B['Audi'],B['EA-FC-Mobile'],B['Warba-Bank'],B['Molfix'],B['Hardees']].map(b=>cardLink(b,'TVC · Production')).join('')+'</div><div data-ts="ytP" data-tk="lr" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🌍 Land of Rebirth</div><div class="acard-meta">Original YouTube series · storytelling</div></div></div></div><div data-ts="ytP" data-tk="sk" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🐶 Learn English with Skippy</div><div class="acard-meta">Edutainment series for kids</div></div></div></div><div data-ts="ytP" data-tk="ec" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">💻 Escape Code</div><div class="acard-meta">Tech & creativity series</div></div></div></div>',
+  tiktok:()=>bcFilter('tiktok').map(b=>cardLink(b,(bcGet(b.s).tags||[]).join(' · ')||'Social · Campaign')).join(''),
+  youtube:()=>'<div class="tabs"><span class="tab on" data-tb="ytP" data-tk="pf" onclick="tabShow(\'ytP\',\'pf\')">Portfolio</span><span class="tab" data-tb="ytP" data-tk="lr" onclick="tabShow(\'ytP\',\'lr\')">Land of Rebirth</span><span class="tab" data-tb="ytP" data-tk="sk" onclick="tabShow(\'ytP\',\'sk\')">Skippy</span><span class="tab" data-tb="ytP" data-tk="ec" onclick="tabShow(\'ytP\',\'ec\')">Escape Code</span></div><div data-ts="ytP" data-tk="pf">'+bcFilter('youtube').map(b=>cardLink(b,(bcGet(b.s).tags||[]).join(' · ')||'TVC · Production')).join('')+'</div><div data-ts="ytP" data-tk="lr" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🌍 Land of Rebirth</div><div class="acard-meta">Original YouTube series · storytelling</div></div></div></div><div data-ts="ytP" data-tk="sk" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🐶 Learn English with Skippy</div><div class="acard-meta">Edutainment series for kids</div></div></div></div><div data-ts="ytP" data-tk="ec" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">💻 Escape Code</div><div class="acard-meta">Tech & creativity series</div></div></div></div>',
   camera:()=>[B['Audi'],B['AXE-Unilever'],B['Kappa'],B['MTN'],B['Royal-Tulip-Hotel']].map(b=>cardLink(b,'Photography · Campaign')).join(''),
   photoshop:()=>[B['Brew-Craft'],B['AXE-Unilever'],B['Imagine-Studio'],B['Bazooka-Candy']].map(b=>cardLink(b,'Design · Artwork · Branding')).join(''),
   chatgpt:()=>'<div style="padding:10px 12px 2px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple2)">AI Automation Projects</div>'+[['🛋️ Furniture','Catalogs · visualization · leads'],['🏥 Medical','Patient comms · scheduling'],['🎚️ Music Production','Stems · mastering · release'],['🔐 Security','Monitoring · smart alerts']].map(p=>`<div class="acard"><div class="acard-body"><div class="acard-name">${p[0]}</div><div class="acard-meta">${p[1]}</div></div></div>`).join('')+cardLink(B['Warba-Bank'],'First AI-assisted TVC pitch · Kuwait'),
@@ -664,7 +681,7 @@ const PANELS={
   messages:()=>{const T=[['Arnaud Veschera','Group CEO · Tonic International','"Working with Abdelaziz is an efficiency. He didn\'t just shorten our workflow — he genuinely changed how we collaborate daily."','AV'],['Mohamed Shafei','Founder · Decoys Real Estate','"He played a pivotal role launching our real estate brand — right as the Egyptian market shifted heavily toward digital."','MS'],['Amina Rashad','Vice Chairman · Glow','"Abdelaziz brought a creative edge to Glow and helped keep us at the top of our customers\' minds."','AR'],['Ismail Drouby','CEO · Delight Parties','"He built our inbound and outbound funnel, directed all brand photography and QA. An invaluable asset."','ID'],['Sherry ElKilany','Partner · WestworldX','"Creative judgment and a deep sense of ownership — he believed in what we were building."','SE'],['Sherif ElSorsy','Chairman · No Limits Furniture','"His grasp of social strategy made a real difference to our online presence."','SS'],['Samo Roxa','Founder · URBEELS','"Audacious details and spine-chilling narratives that keep audiences on the edge."','SR'],['Mikey','Music Artist','"He doesn\'t just do the work — he lives the project with you."','M'],['Shehab Kassem','Chairman · Septam Foods','"Rare to find someone who handles the entire creative spectrum effortlessly."','SK']];
     return T.map((t,i)=>{const right=i%2===0;return `<div style="display:flex;flex-direction:column;align-items:${right?'flex-end':'flex-start'};margin-bottom:18px"><div style="display:flex;align-items:flex-end;gap:8px;flex-direction:${right?'row-reverse':'row'}"><div style="width:32px;height:32px;border-radius:50%;background:${right?'#0a84ff':'#3a3a3c'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">${t[3]}</div><div style="max-width:75%"><div style="background:${right?'#0a84ff':'#3a3a3c'};color:#fff;border-radius:${right?'18px 18px 4px 18px':'18px 18px 18px 4px'};padding:12px 16px;font-size:14px;line-height:1.6">${t[2]}</div><div style="font-size:11px;color:#636366;margin-top:4px;text-align:${right?'right':'left'};padding:0 4px"><b style="color:#8e8e93">${t[0]}</b> · ${t[1]}</div></div></div></div>`}).join('')+'<div style="text-align:center;padding:20px 0"><div style="display:inline-flex;align-items:center;gap:8px;background:#1c1c1e;border:1px solid #38383a;border-radius:99px;padding:10px 20px;font-size:13px;color:#0a84ff;font-weight:600;cursor:pointer">📞 Reference on request</div></div>';},
   escapegoat:()=>'<div class="tabs in-panel"><span class="tab on" data-tb="egB" data-tk="pl" onclick="tabShow(\'egB\',\'pl\')">🎧 EscapegoatSounds — Music Player</span><span class="tab alt" data-tb="egB" data-tk="mp" onclick="tabShow(\'egB\',\'mp\')">🎛️ Music Production</span></div><div data-ts="egB" data-tk="pl"><div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start"><div style="width:260px;flex-shrink:0"><img src="assets/photos/escapegoat-album.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px" alt="EscapegoatSounds album art" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="margin-top:14px;padding:14px;background:var(--s1);border:1px solid #ff7ad9;border-radius:12px"><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff7ad9;margin-bottom:8px">The Label</div><div style="font-size:12px;color:var(--m2);line-height:1.7">Original releases, custom tracks and lyrics for DJs — written, produced and sold by ZIZO.</div></div></div><div style="flex:1;min-width:300px">'+TRACKS.map((t,i)=>`<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--b)"><span style="color:var(--m);font-size:13px">${i+1}</span><div style="flex:1"><div style="font-weight:700;margin-bottom:6px">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3" style="width:100%;height:34px"></audio></div></div>`).join('')+'</div></div></div><div data-ts="egB" data-tk="mp" style="display:none"><div class="tabs"><span class="tab on" data-tb="egMP" data-tk="dj" onclick="tabShow(\'egMP\',\'dj\')">🎧 For DJs</span><span class="tab alt" data-tb="egMP" data-tk="jingle" onclick="tabShow(\'egMP\',\'jingle\')">📺 Advertising Jingles</span></div><div data-ts="egMP" data-tk="dj"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">Tracks <span class="hl">tailored to your set</span>, not stitched from a preset. I write the lyrics, lay the topline and master the hook — <strong style="color:var(--text)">made to order, cleared to play</strong>, sold online as ready-to-spin exclusives.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎛️</div><div class="proj-name">Custom DJ Tracks</div><div class="proj-desc">Your crowd, your BPM, your vibe — exclusive licensing on request.</div></div><div class="proj-card"><div class="proj-ico">✍️</div><div class="proj-name">Lyrics & Toplines</div><div class="proj-desc">Arabic & English — hooks that hit, verses that stick, recorded.</div></div><div class="proj-card g"><div class="proj-ico">🛒</div><div class="proj-name">Online Catalog</div><div class="proj-desc">Ready-made tracks, stems included, cleared for release.</div></div><div class="proj-card g"><div class="proj-ico">🎧</div><div class="proj-name">Direct to DJs</div><div class="proj-desc">Brief me, hear a demo, get the master — fast.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Custom%20DJ%20Track%20Inquiry" class="btn btn-gold" style="margin-top:26px">Order a Custom Track →</a></div><div data-ts="egMP" data-tk="jingle" style="display:none"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">A <span class="hl">jingle is a brand you can hum</span>. I compose sticky audio logos and ad music for TVCs, radio and social — the kind that lodges in a head and won\'t let go. The <strong style="color:var(--text)">Juicy Drop earworm</strong> I wrote ran on air across MENA.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎵</div><div class="proj-name">Brand Jingles & Audio Logos</div><div class="proj-desc">Short, sticky, unmistakably yours — built to be remembered.</div></div><div class="proj-card"><div class="proj-ico">📺</div><div class="proj-name">TVC & Radio Scores</div><div class="proj-desc">Original scoring that lifts the film and sells the feeling.</div></div><div class="proj-card g"><div class="proj-ico">🗣️</div><div class="proj-name">AI Voice & VO</div><div class="proj-desc">ElevenLabs voiceovers and beds, mixed and mastered in-house.</div></div><div class="proj-card g"><div class="proj-ico">⚡</div><div class="proj-name">Fast Turnaround</div><div class="proj-desc">Concept to clearable master in days, not weeks.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Advertising%20Jingle%20Inquiry" class="btn btn-gold" style="margin-top:26px">Brief a Jingle →</a></div></div>',
-  brands:()=>'<div class="brands-grid">'+BRANDS.map(b=>`<a href="${brandLink(b.s)}" class="brand-tile"><div class="bt-banner-area"><div class="bt-banner-bg" style="background:${b.c}"></div><div class="bt-dot" style="background:${b.c};color:${b.t}">${b.i}${logoOverlay(b,'50%')}</div></div><span class="bt-name">${b.n}</span></a>`).join('')+'</div>',
+  brands:()=>'<button onclick="openBrandMgr()" style="display:flex;align-items:center;gap:8px;background:var(--s1);border:1px solid var(--b);border-radius:10px;color:var(--gold);padding:12px 20px;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:20px;width:100%">⚙ Manage Brands <span style="font-size:11px;color:var(--m2);font-weight:400;margin-left:auto">Edit logos · platforms · Vimeo IDs →</span></button><div class="brands-grid">'+BRANDS.map(b=>`<a href="${brandLink(b.s)}" class="brand-tile"><div class="bt-banner-area"><div class="bt-banner-bg" style="background:${b.c}"></div><div class="bt-dot" style="background:${b.c};color:${b.t}">${b.i}${logoOverlay(b,'50%')}</div></div><span class="bt-name">${b.n}</span></a>`).join('')+'</div>',
   phone:()=>'<div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--b);margin-bottom:28px">'+[['Email','bananalover9119@gmail.com'],['Location','Cairo · Remote · MENA'],['Open To','Full-time · Freelance · Retainer'],['Response','Within 24 hours']].map(c=>`<div style="background:var(--s1);padding:24px 20px"><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">${c[0]}</div><div style="font-size:13px;font-weight:600">${c[1]}</div></div>`).join('')+'</div><a href="mailto:bananalover9119@gmail.com" class="btn btn-gold" style="width:100%;justify-content:center;padding:16px">Send Me an Email →</a>',
 };
 const PLATFORM_CHROME={
@@ -802,7 +819,141 @@ function applyHash(){const h=(location.hash||'').replace('#','');if(h==='home'){
 window.addEventListener('hashchange',applyHash);applyHash();
 window.addEventListener('message',e=>{if(e.data==='eg-exit')showHome();});
 </script>
+<script src="brands-config.js"></script>
 <script defer src="editor.js?v=3"></script>
 <script src="nda.js"></script>
+
+<!-- ── BRAND MANAGER DRAWER ──────────────────────────────────── -->
+<div id="brandMgr">
+  <div class="bm-hdr">
+    <div>
+      <div style="font-size:18px;font-weight:800">Brand Manager</div>
+      <div style="font-size:12px;color:var(--m2);margin-top:2px">Changes save to this browser and reflect across every panel instantly</div>
+    </div>
+    <button onclick="closeBrandMgr()" style="background:none;border:1px solid var(--b);border-radius:8px;color:var(--m2);font-size:20px;cursor:pointer;padding:6px 14px;line-height:1">✕</button>
+  </div>
+  <div class="bm-wrap">
+    <div class="bm-list" id="bmBrandList"></div>
+    <div class="bm-form" id="bmForm" style="align-items:center;justify-content:center">
+      <div style="text-align:center;color:var(--m2)">
+        <div style="font-size:32px;margin-bottom:12px">👈</div>
+        <div style="font-size:14px">Select a brand from the list to edit it</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BM_PLATFORMS=[
+  {k:'instagram',l:'Instagram'},{k:'youtube',l:'YouTube'},{k:'tiktok',l:'TikTok'},
+  {k:'x',l:'X / Twitter'},{k:'camera',l:'Camera / Photo'},{k:'photoshop',l:'Photoshop'},
+  {k:'powerpoint',l:'Strategy'},{k:'chatgpt',l:'AI / ChatGPT'},{k:'spotify',l:'Spotify'},
+  {k:'slack',l:'Startups'},{k:'linkedin',l:'LinkedIn'},{k:'messages',l:'Testimonials'}
+];
+const BM_TAGS=['TVC','ATL','BTL','OOH','Social','Strategy','Photography','Production',
+  'Branding','Design','Automotive','FMCG','QSR','F&B','Banking','Gaming','Telecom',
+  'Healthcare','Real Estate','AI','Startup','Ramadan','Influencer','PR','Events','Character Design','Copy'];
+const BM_ROLES=['Creative Director','Lead Creative','Creative Lead','Art Director',
+  'Production Manager','Brand Strategist','Strategist','Campaign Lead','Director',
+  'Photographer','Designer','Co-founder','Founder','AI Consultant','Social Strategist'];
+
+let bmSlug=null;
+
+function openBrandMgr(){
+  document.getElementById('brandMgr').classList.add('open');
+  const list=document.getElementById('bmBrandList');
+  list.innerHTML=BRANDS.map(b=>`<div class="bm-item" id="bmi-${b.s}" onclick="bmSelect('${b.s}')">${b.n}</div>`).join('');
+}
+function closeBrandMgr(){document.getElementById('brandMgr').classList.remove('open');}
+
+function bmSelect(slug){
+  bmSlug=slug;
+  document.querySelectorAll('.bm-item').forEach(el=>el.classList.toggle('active',el.id==='bmi-'+slug));
+  const b=B[slug]||{s:slug,n:slug,c:'#333',t:'#fff',i:slug.slice(0,2).toUpperCase()};
+  const cfg=bcGet(slug);
+  const pts=cfg.platforms||[];
+  const tgs=cfg.tags||[];
+
+  document.getElementById('bmForm').style.cssText='display:flex;flex-direction:column;gap:18px;align-items:unset;justify-content:unset';
+  document.getElementById('bmForm').innerHTML=`
+    <div style="display:flex;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid var(--b)">
+      <div style="width:52px;height:52px;border-radius:12px;background:${b.c};color:${b.t};display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,'12px')}</div>
+      <div><div style="font-size:20px;font-weight:800">${b.n}</div><div style="font-size:12px;color:var(--m2)">slug: ${slug}</div></div>
+    </div>
+
+    <div class="bm-field">
+      <label>Platforms — controls which panels show this brand</label>
+      <div class="bm-checks" id="bmPlatforms">
+        ${BM_PLATFORMS.map(p=>`<div class="bm-check${pts.includes(p.k)?' on':''}" data-p="${p.k}" onclick="this.classList.toggle('on')">${p.l}</div>`).join('')}
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="bm-field">
+        <label>Role</label>
+        <select id="bmRole">
+          ${BM_ROLES.map(r=>`<option value="${r}"${cfg.role===r?' selected':''}>${r}</option>`).join('')}
+        </select>
+      </div>
+      <div class="bm-field">
+        <label>Year</label>
+        <input type="text" id="bmYear" value="${cfg.year||''}" placeholder="2024">
+      </div>
+    </div>
+
+    <div class="bm-field">
+      <label>Tags</label>
+      <div class="bm-checks" id="bmTags">
+        ${BM_TAGS.map(t=>`<div class="bm-check${tgs.includes(t)?' on':''}" data-t="${t}" onclick="this.classList.toggle('on')">${t}</div>`).join('')}
+      </div>
+    </div>
+
+    <div class="bm-field">
+      <label>Description (shown in panels and feed)</label>
+      <textarea id="bmDesc">${cfg.desc||''}</textarea>
+    </div>
+
+    <div class="bm-field">
+      <label>Vimeo Video ID — paste the number from the Vimeo URL</label>
+      <input type="text" id="bmVimeo" value="${cfg.vimeo||''}" placeholder="e.g. 123456789">
+    </div>
+
+    <div class="bm-field">
+      <label>Banner image URL</label>
+      <input type="text" id="bmBanner" value="${cfg.banner||''}" placeholder="assets/photos/banner-${slug.toLowerCase()}.jpg">
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:center;padding-top:4px">
+      <button id="bmSaveBtn" onclick="bmSave()" style="background:var(--gold);color:#000;border:none;border-radius:10px;padding:13px 28px;font-size:14px;font-weight:800;cursor:pointer">Save Changes</button>
+      <span id="bmStatus" style="font-size:13px;color:var(--m2)"></span>
+    </div>
+  `;
+}
+
+function bmSave(){
+  if(!bmSlug)return;
+  const platforms=[...document.querySelectorAll('#bmPlatforms .bm-check.on')].map(el=>el.dataset.p);
+  const tags=[...document.querySelectorAll('#bmTags .bm-check.on')].map(el=>el.dataset.t);
+  const update={
+    platforms,tags,
+    role:document.getElementById('bmRole').value,
+    year:document.getElementById('bmYear').value,
+    desc:document.getElementById('bmDesc').value,
+    vimeo:document.getElementById('bmVimeo').value,
+    banner:document.getElementById('bmBanner').value
+  };
+  window.BRAND_CONFIG[bmSlug]=Object.assign({},window.BRAND_CONFIG[bmSlug]||{},update);
+  try{
+    const ov=JSON.parse(localStorage.getItem('bc_overrides')||'{}');
+    ov[bmSlug]=update;
+    localStorage.setItem('bc_overrides',JSON.stringify(ov));
+  }catch(e){}
+  const btn=document.getElementById('bmSaveBtn');
+  const st=document.getElementById('bmStatus');
+  btn.textContent='Saved ✓';btn.style.background='#1DB954';
+  st.textContent='Changes reflected in all panels';
+  setTimeout(()=>{btn.textContent='Save Changes';btn.style.background='var(--gold)';st.textContent='';},2500);
+}
+</script>
 </body>
 </html>
