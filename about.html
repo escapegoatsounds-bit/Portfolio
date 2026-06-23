@@ -311,6 +311,7 @@ footer{border-top:1px solid var(--border);padding:48px 0}
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="index.html#app=escapegoat" style="color:#ff7ad9">Escapegoat</a></li>
       <li><a href="clients.html">Brands</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="contact.html" style="color:var(--accent)">Contact</a></li>
     </ul>
   </div>
@@ -363,6 +364,52 @@ footer{border-top:1px solid var(--border);padding:48px 0}
   </div>
   <div class="ab-dots" id="abDots"></div>
 </div>
+
+<!-- ══ VIDEO INTRO ══════════════════════════════════════════════ -->
+<!-- TO ADD YOUR VIDEO: replace the empty string in data-youtube="" with your YouTube video ID -->
+<!-- Example: data-youtube="dQw4w9WgXcQ" — just the ID, not the full URL -->
+<div class="video-intro-section" data-youtube="">
+  <style>
+  .video-intro-section{padding:48px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
+  .vis-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:center}
+  .vis-text .vis-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .vis-text h2{font-size:clamp(22px,2.8vw,34px);font-weight:900;letter-spacing:-.8px;line-height:1.1;margin-bottom:14px}
+  .vis-text p{font-size:15px;color:var(--muted2);line-height:1.8}
+  .vis-embed{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#000}
+  .vis-embed iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+  .vis-placeholder{
+    aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:linear-gradient(135deg,#111118,#19191f);position:relative;overflow:hidden;
+  }
+  .vis-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(240,194,51,.07) 0%,transparent 65%)}
+  .vis-ph-icon{font-size:48px;position:relative;z-index:1}
+  .vis-ph-title{font-size:16px;font-weight:800;position:relative;z-index:1}
+  .vis-ph-sub{font-size:12px;color:var(--muted2);position:relative;z-index:1;text-align:center;max-width:280px;line-height:1.6}
+  .vis-ph-badge{background:rgba(240,194,51,.12);border:1px solid rgba(240,194,51,.3);color:var(--accent);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;border-radius:99px;position:relative;z-index:1}
+  @media(max-width:860px){.vis-inner{grid-template-columns:1fr}}
+  </style>
+  <div class="vis-inner">
+    <div class="vis-text">
+      <div class="vis-label">Video Introduction</div>
+      <h2>About My Journey &amp; Philosophy</h2>
+      <p>A direct walkthrough of how I work, what drives my creative decisions, and why the brands I've built look and feel the way they do.</p>
+    </div>
+    <div class="vis-embed" id="aboutVideoEmbed"></div>
+  </div>
+</div>
+<script>
+(function(){
+  const sec = document.querySelector('.video-intro-section');
+  const yt = sec ? sec.dataset.youtube : '';
+  const embed = document.getElementById('aboutVideoEmbed');
+  if(!embed) return;
+  if(yt){
+    embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+  } else {
+    embed.innerHTML = `<div class="vis-placeholder"><div class="vis-ph-icon">🎬</div><div class="vis-ph-title">About / Philosophy Video</div><div class="vis-ph-sub">Record your walkthrough and paste the YouTube ID into the HTML</div><div class="vis-ph-badge">Coming Soon</div></div>`;
+  }
+})();
+</script>
 
 <!-- ══ TABS BAR ════════════════════════════════════════════════ -->
 <div class="tabs-bar">

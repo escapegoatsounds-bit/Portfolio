@@ -158,6 +158,7 @@ header{
   <a href="index.html" class="site-nav-logo"><em>ZIZO</em><span class="site-nav-divider">·</span>Abdelaziz Askar</a>
   <div style="display:flex;align-items:center;gap:20px">
     <a href="about.html" class="site-nav-back" style="border:none">About</a>
+    <a href="news.html" class="site-nav-back" style="border:none">News</a>
     <a href="contact.html" class="site-nav-back" style="border:none;color:var(--accent)">Contact</a>
     <a href="index.html" class="site-nav-back">← Portfolio Home</a>
   </div>
@@ -174,6 +175,49 @@ header{
     <p class="count-label">Brands &amp; Clients</p>
   </div>
 </header>
+
+<!-- ══ BRAND REEL VIDEO ═════════════════════════════════════════ -->
+<!-- TO ADD YOUR VIDEO: replace the empty string in data-youtube="" with your YouTube video ID -->
+<div class="brand-reel-section" data-youtube="">
+  <style>
+  .brand-reel-section{padding:36px 48px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:40px;background:var(--surface)}
+  .brs-text{flex:1;min-width:0}
+  .brs-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:600}
+  .brs-title{font-size:clamp(18px,2vw,26px);font-weight:900;letter-spacing:-.5px;margin-bottom:8px}
+  .brs-sub{font-size:13px;color:var(--muted2);line-height:1.7}
+  .brs-embed{flex:0 0 480px;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#000}
+  .brs-embed iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+  .brs-placeholder{
+    aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    background:linear-gradient(135deg,#111118,#19191f);position:relative;overflow:hidden;
+  }
+  .brs-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(240,194,51,.07) 0%,transparent 65%)}
+  .brs-ph-icon{font-size:36px;position:relative;z-index:1}
+  .brs-ph-title{font-size:13px;font-weight:800;position:relative;z-index:1}
+  .brs-ph-sub{font-size:11px;color:var(--muted2);position:relative;z-index:1;text-align:center;max-width:240px;line-height:1.5}
+  .brs-ph-badge{background:rgba(240,194,51,.12);border:1px solid rgba(240,194,51,.3);color:var(--accent);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:99px;position:relative;z-index:1}
+  @media(max-width:900px){.brand-reel-section{flex-direction:column}.brs-embed{flex:none;width:100%}}
+  </style>
+  <div class="brs-text">
+    <div class="brs-label">Brand Reel</div>
+    <div class="brs-title">70+ Brands — Here's the Story</div>
+    <div class="brs-sub">A walkthrough of the biggest campaigns, what we built, and what it delivered. From automotive to FMCG to luxury across Egypt, Qatar &amp; UAE.</div>
+  </div>
+  <div class="brs-embed" id="brandsVideoEmbed"></div>
+</div>
+<script>
+(function(){
+  const sec = document.querySelector('.brand-reel-section');
+  const yt = sec ? sec.dataset.youtube : '';
+  const embed = document.getElementById('brandsVideoEmbed');
+  if(!embed) return;
+  if(yt){
+    embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+  } else {
+    embed.innerHTML = `<div class="brs-placeholder"><div class="brs-ph-icon">🎬</div><div class="brs-ph-title">Brand Reel Walkthrough</div><div class="brs-ph-sub">Record your brand reel and paste the YouTube ID into the HTML</div><div class="brs-ph-badge">Coming Soon</div></div>`;
+  }
+})();
+</script>
 
 <div class="toolbar">
   <div class="search-wrap">
