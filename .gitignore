@@ -25,6 +25,8 @@ nda.js
 
 # Archives & personal files
 *.zip
+*.docx
+*.pdf
 "WhatsApp Image*"
 
 # Temp / system
