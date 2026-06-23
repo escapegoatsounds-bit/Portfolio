@@ -105,13 +105,28 @@ header{
 .card.hidden{display:none}
 .card-logo{
   height:148px;display:flex;align-items:center;justify-content:center;
-  border-bottom:1px solid var(--border);background:#fff;overflow:hidden;padding:0;
+  border-bottom:1px solid var(--border);overflow:hidden;padding:0;
+  position:relative;
 }
-.card-logo img{width:100%;height:100%;object-fit:contain;padding:20px;box-sizing:border-box}
+.card-logo::before{
+  content:'';position:absolute;inset:0;background:inherit;
+  filter:grayscale(1) brightness(.28) saturate(.3);
+  transition:filter .38s ease;
+}
+.card:hover .card-logo::before{filter:grayscale(0) brightness(.65) saturate(1)}
+.cl-ring{
+  width:86px;height:86px;border-radius:50%;
+  border:2.5px solid rgba(255,255,255,.62);
+  overflow:hidden;background:#fff;
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 4px 22px rgba(0,0,0,.55);
+}
+.cl-ring img{width:100%;height:100%;object-fit:contain;padding:8px;box-sizing:border-box;background:#fff}
 .card-initials{
-  display:none;width:84px;height:84px;border-radius:14px;
+  display:none;width:100%;height:100%;
   align-items:center;justify-content:center;
-  font-weight:900;font-size:26px;letter-spacing:-1px;flex-shrink:0;font-family:var(--font);
+  font-weight:900;font-size:26px;letter-spacing:-1px;font-family:var(--font);
 }
 .card-body{padding:18px 18px 48px}
 .card-name{font-size:14px;font-weight:700;margin-bottom:10px;line-height:1.2}
@@ -1263,6 +1278,26 @@ filterBtns.forEach(btn => {
     update();
   });
 });
+
+// ── BRAND CIRCLE LOGOS ──────────────────────────────────────
+(function(){
+  document.querySelectorAll('.card-logo').forEach(function(logo){
+    var ini = logo.querySelector('.card-initials');
+    if(!ini) return;
+    var color = ini.style.background || ini.style.backgroundColor || '#1a1a1a';
+    logo.style.background = color;
+    var ring = document.createElement('div');
+    ring.className = 'cl-ring';
+    while(logo.firstChild) ring.appendChild(logo.firstChild);
+    logo.appendChild(ring);
+    var img = ring.querySelector('img');
+    var ni  = ring.querySelector('.card-initials');
+    if(img && ni){
+      img.onerror = function(){ this.style.display='none'; ni.style.display='flex'; };
+    }
+  });
+})();
+// ────────────────────────────────────────────────────────────
 </script>
 <a href="index.html" id="zz-home-chip" style="position:fixed;top:14px;left:14px;z-index:99998;display:flex;align-items:center;gap:6px;background:rgba(10,10,10,.85);border:1px solid #333;color:#f0c233;border-radius:99px;padding:7px 14px;font:700 12px Inter,system-ui,sans-serif;text-decoration:none;backdrop-filter:blur(10px)">⌂ Home</a>
 <script src="editor.js?v=3"></script>
