@@ -353,7 +353,10 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
                     <div style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)">Spotify · escapegoat</div>
                     <div style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE</div>
                   </div>
-                  <div id="lockPlayBtn" style="color:rgba(255,255,255,.8);font-size:18px;line-height:1">▶</div>
+                  <div style="display:flex;gap:10px;align-items:center">
+                    <div id="lockPlayBtn" style="color:rgba(255,255,255,.8);font-size:18px;line-height:1">▶</div>
+                    <div onclick="event.stopPropagation();egNextTrack()" style="color:rgba(255,255,255,.4);font-size:13px;cursor:pointer;line-height:1" title="Next track">⏭</div>
+                  </div>
                 </div>
                 <div style="height:2px;background:rgba(255,255,255,.15);border-radius:2px;margin-bottom:6px;overflow:hidden">
                   <div id="lockProgress" style="height:100%;width:0%;background:#1DB954;border-radius:2px;transition:width .5s linear"></div>
@@ -631,11 +634,24 @@ function startGame(){gameNav('play');}
 function gameNav(mode){openApp('skills');const f=document.getElementById('gameFrame');if(f){f.src='game.html#'+mode+'&t='+Math.random();f.onload=()=>{try{f.contentWindow.focus();}catch(_){}};}}
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?'':'none'});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle('on',b.dataset.tk===key));}
 // ── ESCAPEGOAT MUSIC PLAYER ─────────────────────────────────
-const egAudio = new Audio('assets/tracks/escaPE.mp3');
-egAudio.loop = true;
+const EG_TRACKS = [
+  { src: 'assets/tracks/escaPE.mp3',              title: 'escaPE' },
+  { src: 'assets/tracks/elli-kan-instrumental.mp3', title: 'Elli Kan' },
+];
+let egIdx = 0;
+const egAudio = new Audio(EG_TRACKS[0].src);
 egAudio.volume = 0.22;
 egAudio.preload = 'none';
 let egPlaying = false;
+
+function egSetTrack(idx){
+  egIdx = idx;
+  const t = EG_TRACKS[egIdx];
+  egAudio.src = t.src;
+  const hs = document.getElementById('homePlayerStatus');
+  const ln = document.querySelector('#lockScreen .lock-notif-text b, #lockScreen .eg-track-name');
+  if(hs) hs.textContent = egPlaying ? t.title + ' — now playing' : 'Tap to play';
+}
 
 function toggleEgMusic(){
   if(egPlaying){
@@ -649,9 +665,23 @@ function toggleEgMusic(){
     egPlaying = true;
     document.getElementById('lockPlayBtn').textContent = '❚❚';
     document.getElementById('homePlayBtn').textContent = '❚❚';
-    document.getElementById('homePlayerStatus').textContent = 'Now playing…';
+    document.getElementById('homePlayerStatus').textContent = EG_TRACKS[egIdx].title + ' — now playing';
   }
 }
+
+function egNextTrack(){
+  const wasPlaying = egPlaying;
+  egAudio.pause();
+  egPlaying = false;
+  egSetTrack((egIdx + 1) % EG_TRACKS.length);
+  if(wasPlaying){ egAudio.play().catch(()=>{}); egPlaying = true;
+    document.getElementById('lockPlayBtn').textContent = '❚❚';
+    document.getElementById('homePlayBtn').textContent = '❚❚';
+    document.getElementById('homePlayerStatus').textContent = EG_TRACKS[egIdx].title + ' — now playing';
+  }
+}
+
+egAudio.addEventListener('ended', () => egNextTrack());
 
 egAudio.addEventListener('timeupdate', function(){
   const cur = egAudio.currentTime;
