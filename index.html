@@ -631,7 +631,7 @@ function startGame(){gameNav('play');}
 function gameNav(mode){openApp('skills');const f=document.getElementById('gameFrame');if(f){f.src='game.html#'+mode+'&t='+Math.random();f.onload=()=>{try{f.contentWindow.focus();}catch(_){}};}}
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?'':'none'});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle('on',b.dataset.tk===key));}
 // ── ESCAPEGOAT MUSIC PLAYER ─────────────────────────────────
-const egAudio = new Audio('assets/tracks/track-04.mp3');
+const egAudio = new Audio('assets/tracks/escaPE.mp3');
 egAudio.loop = true;
 egAudio.volume = 0.22;
 egAudio.preload = 'none';
