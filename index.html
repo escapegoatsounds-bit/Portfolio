@@ -253,29 +253,22 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
 </head>
 <body>
 
-<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .5s ease,visibility .5s ease">
-  <svg width="64" height="64" viewBox="0 0 64 64" style="animation:preloaderPulse 1.2s ease-in-out infinite">
-    <rect width="64" height="64" rx="14" fill="#09090c" stroke="#252532" stroke-width="1"/>
-    <line x1="14" y1="18" x2="50" y2="18" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
-    <line x1="50" y1="18" x2="14" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
-    <line x1="14" y1="46" x2="50" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
-  </svg>
-  <div style="width:200px;height:2px;background:#252532;border-radius:1px;overflow:hidden">
-    <div id="preloaderBar" style="height:100%;width:0;background:#f0c233;border-radius:1px;transition:width .4s ease"></div>
+<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s ease,visibility .6s ease">
+  <img src="assets/photos/escapegoat-logo.png" alt="Escapegoat Sounds" id="preloaderLogo" style="width:220px;max-width:60vw;opacity:0;transform:scale(.95);transition:opacity .5s ease,transform .5s ease">
+  <div style="width:160px;height:1px;background:#252532;border-radius:1px;overflow:hidden">
+    <div id="preloaderBar" style="height:100%;width:0;background:#ff7ad9;border-radius:1px;transition:width .4s ease"></div>
   </div>
-  <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#706c64;font-family:'Inter',system-ui,sans-serif">Loading Portfolio</div>
 </div>
-<style>
-@keyframes preloaderPulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}
-</style>
 <script>
 (function(){
+  const logo=document.getElementById('preloaderLogo');
   const bar=document.getElementById('preloaderBar');
+  setTimeout(()=>{logo.style.opacity='1';logo.style.transform='scale(1)';},60);
   let p=0;
   const t=setInterval(()=>{p=Math.min(p+Math.random()*18,90);bar.style.width=p+'%';},120);
   window.addEventListener('load',()=>{
     clearInterval(t);bar.style.width='100%';
-    setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},400);
+    setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},500);
   });
 })();
 </script>
@@ -286,21 +279,6 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
   <p>This portfolio is built as a <span class="gold">desktop-first phone experience</span>. Open it on a laptop or monitor for the full interface.</p>
 </div>
 
-<!-- ══ SPLASH SCREEN ═══════════════════════════════════════════ -->
-<div id="splash" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .7s ease">
-  <img src="assets/photos/escapegoat-logo.png" alt="Escapegoat Sounds" style="width:260px;max-width:70vw;opacity:0;transition:opacity .6s ease" id="splashLogo">
-  <div style="margin-top:24px;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.25);opacity:0;transition:opacity .6s ease .3s" id="splashSub">Portfolio</div>
-</div>
-<script>
-(function(){
-  const s=document.getElementById('splash');
-  const l=document.getElementById('splashLogo');
-  const sub=document.getElementById('splashSub');
-  setTimeout(()=>{l.style.opacity='1';sub.style.opacity='1';},80);
-  setTimeout(()=>{s.style.opacity='0';},2000);
-  setTimeout(()=>{s.style.display='none';},2750);
-})();
-</script>
 
 <nav>
   <a href="index.html" class="nav-logo"><em>ZIZO</em><span class="nav-divider">·</span>Abdelaziz Askar</a>
