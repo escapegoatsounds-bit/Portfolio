@@ -342,25 +342,45 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
               </div>
             </div>
             <!-- Spotify Now Playing — lock screen -->
-            <div style="width:100%;max-width:240px;margin-top:10px" onclick="event.stopPropagation();toggleEgMusic()">
+            <div style="width:100%;max-width:240px;margin-top:10px" onclick="event.stopPropagation()">
               <div style="background:rgba(255,255,255,.11);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:10px 12px">
+
+                <!-- track info -->
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                  <div style="width:30px;height:30px;border-radius:7px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">🎧</div>
+                  <div style="width:30px;height:30px;border-radius:7px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px">🎧</div>
                   <div style="flex:1;min-width:0">
-                    <div style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)">Spotify · escapegoat</div>
-                    <div style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE</div>
+                    <div style="font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)">escapegoat</div>
+                    <div id="lockTrackName" style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE</div>
                   </div>
-                  <div style="display:flex;gap:10px;align-items:center">
-                    <div id="lockPlayBtn" style="color:rgba(255,255,255,.8);font-size:18px;line-height:1">▶</div>
-                    <div onclick="event.stopPropagation();egNextTrack()" style="color:rgba(255,255,255,.4);font-size:13px;cursor:pointer;line-height:1" title="Next track">⏭</div>
-                  </div>
+                  <div onclick="egTogglePlaylist()" style="font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;padding:2px 4px;border-radius:4px" title="Playlist">☰</div>
                 </div>
-                <div style="height:2px;background:rgba(255,255,255,.15);border-radius:2px;margin-bottom:6px;overflow:hidden">
+
+                <!-- progress -->
+                <div style="height:2px;background:rgba(255,255,255,.15);border-radius:2px;margin-bottom:5px;overflow:hidden">
                   <div id="lockProgress" style="height:100%;width:0%;background:#1DB954;border-radius:2px;transition:width .5s linear"></div>
                 </div>
-                <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,.35)">
+                <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,.3);margin-bottom:8px">
                   <span id="lockCurrent">0:00</span><span id="lockDuration">—</span>
                 </div>
+
+                <!-- transport controls -->
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+                  <div onclick="egPrevTrack()" style="font-size:15px;color:rgba(255,255,255,.6);cursor:pointer">⏮</div>
+                  <div onclick="toggleEgMusic()" id="lockPlayBtn" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;color:#000">▶</div>
+                  <div onclick="egNextTrack()" style="font-size:15px;color:rgba(255,255,255,.6);cursor:pointer">⏭</div>
+                </div>
+
+                <!-- volume -->
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div onclick="egVolDown()" style="font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;width:18px;text-align:center">🔉</div>
+                  <div style="flex:1;height:2px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;cursor:pointer" onclick="egVolClick(event,this)">
+                    <div id="lockVolBar" style="height:100%;width:22%;background:rgba(255,255,255,.5);border-radius:2px;transition:width .15s"></div>
+                  </div>
+                  <div onclick="egVolUp()" style="font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;width:18px;text-align:center">🔊</div>
+                </div>
+
+                <!-- playlist panel -->
+                <div id="egPlaylist" style="display:none;margin-top:10px;border-top:1px solid rgba(255,255,255,.1);padding-top:8px"></div>
               </div>
             </div>
 
@@ -379,13 +399,31 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
             <div class="app-grid" id="appGrid"></div>
 
             <!-- Spotify mini player — home screen, above dock -->
-            <div style="margin:0 14px 8px;padding:7px 10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;gap:9px;cursor:pointer" onclick="toggleEgMusic()">
-              <div style="width:26px;height:26px;border-radius:6px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px">🎧</div>
-              <div style="flex:1;min-width:0">
-                <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE · escapegoat</div>
-                <div style="font-size:8px;color:rgba(255,255,255,.4)" id="homePlayerStatus">Tap to play</div>
+            <div style="margin:0 14px 8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 10px">
+              <!-- top row: art + title + play/next -->
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                <div style="width:26px;height:26px;border-radius:6px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px">🎧</div>
+                <div style="flex:1;min-width:0">
+                  <div id="homeTrackName" style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE</div>
+                  <div style="font-size:8px;color:rgba(255,255,255,.35)" id="homePlayerStatus">Tap to play</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div onclick="egPrevTrack()" style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer">⏮</div>
+                  <div onclick="toggleEgMusic()" id="homePlayBtn" style="font-size:16px;color:#1DB954;cursor:pointer;line-height:1">▶</div>
+                  <div onclick="egNextTrack()" style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer">⏭</div>
+                  <div onclick="egTogglePlaylist()" style="font-size:12px;color:rgba(255,255,255,.35);cursor:pointer">☰</div>
+                </div>
               </div>
-              <div id="homePlayBtn" style="font-size:16px;color:#1DB954;line-height:1">▶</div>
+              <!-- volume row -->
+              <div style="display:flex;align-items:center;gap:5px">
+                <div onclick="egVolDown()" style="font-size:10px;color:rgba(255,255,255,.35);cursor:pointer">🔉</div>
+                <div style="flex:1;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden;cursor:pointer" onclick="egVolClick(event,this)">
+                  <div id="homeVolBar" style="height:100%;width:22%;background:rgba(255,255,255,.4);border-radius:2px;transition:width .15s"></div>
+                </div>
+                <div onclick="egVolUp()" style="font-size:10px;color:rgba(255,255,255,.35);cursor:pointer">🔊</div>
+              </div>
+              <!-- playlist -->
+              <div id="egPlaylistHome" style="display:none;margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:6px"></div>
             </div>
 
             <div class="home-dock" id="appDock"></div>
@@ -632,63 +670,109 @@ function gameNav(mode){openApp('skills');const f=document.getElementById('gameFr
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?'':'none'});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle('on',b.dataset.tk===key));}
 // ── ESCAPEGOAT MUSIC PLAYER ─────────────────────────────────
 const EG_TRACKS = [
-  { src: 'assets/tracks/escaPE.mp3',              title: 'escaPE' },
+  { src: 'assets/tracks/escaPE.mp3',               title: 'escaPE' },
   { src: 'assets/tracks/elli-kan-instrumental.mp3', title: 'Elli Kan' },
 ];
-let egIdx = 0;
+let egIdx = 0, egPlaying = false, egVol = 0.22;
 const egAudio = new Audio(EG_TRACKS[0].src);
-egAudio.volume = 0.22;
+egAudio.volume = egVol;
 egAudio.preload = 'none';
-let egPlaying = false;
 
-function egSetTrack(idx){
-  egIdx = idx;
+function egUI(){
   const t = EG_TRACKS[egIdx];
-  egAudio.src = t.src;
+  const playIcon = egPlaying ? '❚❚' : '▶';
+  // lock screen
+  const lp = document.getElementById('lockPlayBtn');
+  if(lp){ lp.textContent = playIcon; lp.style.fontSize = egPlaying ? '10px' : '14px'; }
+  const ln = document.getElementById('lockTrackName');
+  if(ln) ln.textContent = t.title;
+  // home screen
+  const hp = document.getElementById('homePlayBtn');
+  if(hp) hp.textContent = playIcon;
+  const hn = document.getElementById('homeTrackName');
+  if(hn) hn.textContent = t.title;
   const hs = document.getElementById('homePlayerStatus');
-  const ln = document.querySelector('#lockScreen .lock-notif-text b, #lockScreen .eg-track-name');
-  if(hs) hs.textContent = egPlaying ? t.title + ' — now playing' : 'Tap to play';
+  if(hs) hs.textContent = egPlaying ? 'Now playing' : 'Tap to play';
+  // volume bars
+  const vPct = (egVol / 1 * 100).toFixed(0) + '%';
+  const lv = document.getElementById('lockVolBar');
+  const hv = document.getElementById('homeVolBar');
+  if(lv) lv.style.width = vPct;
+  if(hv) hv.style.width = vPct;
+  // playlist panels
+  egRenderPlaylist();
+}
+
+function egRenderPlaylist(){
+  const html = EG_TRACKS.map((t,i)=>`
+    <div onclick="egPlayIdx(${i})" style="display:flex;align-items:center;gap:7px;padding:4px 0;cursor:pointer;opacity:${i===egIdx?'1':'.5'}">
+      <div style="font-size:9px;color:#1DB954">${i===egIdx?'▶':' '}</div>
+      <div style="font-size:9px;color:#fff;font-weight:${i===egIdx?'700':'400'}">${t.title}</div>
+    </div>`).join('');
+  const lpl = document.getElementById('egPlaylist');
+  const hpl = document.getElementById('egPlaylistHome');
+  if(lpl && lpl.style.display!=='none') lpl.innerHTML = html;
+  if(hpl && hpl.style.display!=='none') hpl.innerHTML = html;
+}
+
+function egTogglePlaylist(){
+  const lpl = document.getElementById('egPlaylist');
+  const hpl = document.getElementById('egPlaylistHome');
+  const open = lpl && lpl.style.display !== 'none';
+  if(lpl){ lpl.style.display = open ? 'none' : 'block'; if(!open) lpl.innerHTML=''; }
+  if(hpl){ hpl.style.display = open ? 'none' : 'block'; if(!open) hpl.innerHTML=''; }
+  egRenderPlaylist();
+}
+
+function egPlayIdx(i){
+  const wasPlaying = egPlaying;
+  egAudio.pause(); egPlaying = false;
+  egIdx = i; egAudio.src = EG_TRACKS[i].src;
+  if(wasPlaying){ egAudio.play().catch(()=>{}); egPlaying = true; }
+  egUI();
 }
 
 function toggleEgMusic(){
-  if(egPlaying){
-    egAudio.pause();
-    egPlaying = false;
-    document.getElementById('lockPlayBtn').textContent = '▶';
-    document.getElementById('homePlayBtn').textContent = '▶';
-    document.getElementById('homePlayerStatus').textContent = 'Tap to play';
-  } else {
-    egAudio.play().catch(()=>{});
-    egPlaying = true;
-    document.getElementById('lockPlayBtn').textContent = '❚❚';
-    document.getElementById('homePlayBtn').textContent = '❚❚';
-    document.getElementById('homePlayerStatus').textContent = EG_TRACKS[egIdx].title + ' — now playing';
-  }
+  if(egPlaying){ egAudio.pause(); egPlaying = false; }
+  else { egAudio.play().catch(()=>{}); egPlaying = true; }
+  egUI();
 }
 
 function egNextTrack(){
-  const wasPlaying = egPlaying;
-  egAudio.pause();
-  egPlaying = false;
-  egSetTrack((egIdx + 1) % EG_TRACKS.length);
-  if(wasPlaying){ egAudio.play().catch(()=>{}); egPlaying = true;
-    document.getElementById('lockPlayBtn').textContent = '❚❚';
-    document.getElementById('homePlayBtn').textContent = '❚❚';
-    document.getElementById('homePlayerStatus').textContent = EG_TRACKS[egIdx].title + ' — now playing';
-  }
+  const was = egPlaying;
+  egAudio.pause(); egPlaying = false;
+  egIdx = (egIdx + 1) % EG_TRACKS.length;
+  egAudio.src = EG_TRACKS[egIdx].src;
+  if(was){ egAudio.play().catch(()=>{}); egPlaying = true; }
+  egUI();
 }
 
-egAudio.addEventListener('ended', () => egNextTrack());
+function egPrevTrack(){
+  const was = egPlaying;
+  egAudio.pause(); egPlaying = false;
+  egIdx = (egIdx - 1 + EG_TRACKS.length) % EG_TRACKS.length;
+  egAudio.src = EG_TRACKS[egIdx].src;
+  if(was){ egAudio.play().catch(()=>{}); egPlaying = true; }
+  egUI();
+}
 
+function egVolUp(){ egVol = Math.min(1, egVol + 0.1); egAudio.volume = egVol; egUI(); }
+function egVolDown(){ egVol = Math.max(0, egVol - 0.1); egAudio.volume = egVol; egUI(); }
+function egVolClick(e, bar){
+  const rect = bar.getBoundingClientRect();
+  egVol = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+  egAudio.volume = egVol; egUI();
+}
+
+egAudio.addEventListener('ended', egNextTrack);
 egAudio.addEventListener('timeupdate', function(){
-  const cur = egAudio.currentTime;
-  const dur = egAudio.duration || 0;
-  const pct = dur ? (cur / dur * 100).toFixed(1) : 0;
+  const cur = egAudio.currentTime, dur = egAudio.duration || 0;
+  const pct = dur ? (cur/dur*100).toFixed(1) : 0;
   const fmt = t => Math.floor(t/60)+':'+(Math.floor(t%60)+'').padStart(2,'0');
   const prog = document.getElementById('lockProgress');
   const lc = document.getElementById('lockCurrent');
   const ld = document.getElementById('lockDuration');
-  if(prog) prog.style.width = pct + '%';
+  if(prog) prog.style.width = pct+'%';
   if(lc) lc.textContent = fmt(cur);
   if(ld && dur) ld.textContent = fmt(dur);
 });
