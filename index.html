@@ -344,6 +344,26 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
                 <div class="lock-notif-text">"Brought a creative edge that <strong>kept us top of mind</strong>."</div>
               </div>
             </div>
+            <!-- Spotify Now Playing — lock screen -->
+            <div style="width:100%;max-width:240px;margin-top:10px" onclick="event.stopPropagation();toggleEgMusic()">
+              <div style="background:rgba(255,255,255,.11);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:10px 12px">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+                  <div style="width:30px;height:30px;border-radius:7px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">🎧</div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)">Spotify · escapegoat</div>
+                    <div style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE</div>
+                  </div>
+                  <div id="lockPlayBtn" style="color:rgba(255,255,255,.8);font-size:18px;line-height:1">▶</div>
+                </div>
+                <div style="height:2px;background:rgba(255,255,255,.15);border-radius:2px;margin-bottom:6px;overflow:hidden">
+                  <div id="lockProgress" style="height:100%;width:0%;background:#1DB954;border-radius:2px;transition:width .5s linear"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,.35)">
+                  <span id="lockCurrent">0:00</span><span id="lockDuration">—</span>
+                </div>
+              </div>
+            </div>
+
             <div style="flex:1"></div>
             <div style="text-align:center"><div class="lock-pill"></div><div class="lock-unlock-text">tap to unlock</div></div>
           </div>
@@ -357,6 +377,17 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
               <div class="widget-title">Social Media & Creative Director · MENA</div>
             </div>
             <div class="app-grid" id="appGrid"></div>
+
+            <!-- Spotify mini player — home screen, above dock -->
+            <div style="margin:0 14px 8px;padding:7px 10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;display:flex;align-items:center;gap:9px;cursor:pointer" onclick="toggleEgMusic()">
+              <div style="width:26px;height:26px;border-radius:6px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px">🎧</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">escaPE · escapegoat</div>
+                <div style="font-size:8px;color:rgba(255,255,255,.4)" id="homePlayerStatus">Tap to play</div>
+              </div>
+              <div id="homePlayBtn" style="font-size:16px;color:#1DB954;line-height:1">▶</div>
+            </div>
+
             <div class="home-dock" id="appDock"></div>
           </div>
         </div>
@@ -599,6 +630,43 @@ document.getElementById('appPanels').innerHTML=Object.keys(APPS).map(key=>{const
 function startGame(){gameNav('play');}
 function gameNav(mode){openApp('skills');const f=document.getElementById('gameFrame');if(f){f.src='game.html#'+mode+'&t='+Math.random();f.onload=()=>{try{f.contentWindow.focus();}catch(_){}};}}
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?'':'none'});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle('on',b.dataset.tk===key));}
+// ── ESCAPEGOAT MUSIC PLAYER ─────────────────────────────────
+const egAudio = new Audio('assets/tracks/track-04.mp3');
+egAudio.loop = true;
+egAudio.volume = 0.22;
+egAudio.preload = 'none';
+let egPlaying = false;
+
+function toggleEgMusic(){
+  if(egPlaying){
+    egAudio.pause();
+    egPlaying = false;
+    document.getElementById('lockPlayBtn').textContent = '▶';
+    document.getElementById('homePlayBtn').textContent = '▶';
+    document.getElementById('homePlayerStatus').textContent = 'Tap to play';
+  } else {
+    egAudio.play().catch(()=>{});
+    egPlaying = true;
+    document.getElementById('lockPlayBtn').textContent = '❚❚';
+    document.getElementById('homePlayBtn').textContent = '❚❚';
+    document.getElementById('homePlayerStatus').textContent = 'Now playing…';
+  }
+}
+
+egAudio.addEventListener('timeupdate', function(){
+  const cur = egAudio.currentTime;
+  const dur = egAudio.duration || 0;
+  const pct = dur ? (cur / dur * 100).toFixed(1) : 0;
+  const fmt = t => Math.floor(t/60)+':'+(Math.floor(t%60)+'').padStart(2,'0');
+  const prog = document.getElementById('lockProgress');
+  const lc = document.getElementById('lockCurrent');
+  const ld = document.getElementById('lockDuration');
+  if(prog) prog.style.width = pct + '%';
+  if(lc) lc.textContent = fmt(cur);
+  if(ld && dur) ld.textContent = fmt(dur);
+});
+// ────────────────────────────────────────────────────────────
+
 function updateClock(){const now=new Date();const h=now.getHours().toString().padStart(2,'0');const m=now.getMinutes().toString().padStart(2,'0');const t=h+':'+m;['clockDisplay','lockTime'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t;});const d=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const mo=['January','February','March','April','May','June','July','August','September','October','November','December'];const ld=document.getElementById('lockDate');if(ld)ld.textContent=d[now.getDay()]+', '+mo[now.getMonth()]+' '+now.getDate();}
 updateClock();setInterval(updateClock,30000);
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('hidden',s.id!==id));}
