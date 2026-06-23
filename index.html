@@ -253,22 +253,25 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
 </head>
 <body>
 
-<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s ease,visibility .6s ease">
-  <img src="assets/photos/escapegoat-logo.png" alt="Escapegoat Sounds" id="preloaderLogo" style="width:220px;max-width:60vw;opacity:0;transform:scale(.95);transition:opacity .5s ease,transform .5s ease">
-  <div style="width:160px;height:1px;background:#252532;border-radius:1px;overflow:hidden">
-    <div id="preloaderBar" style="height:100%;width:0;background:#ff7ad9;border-radius:1px;transition:width .4s ease"></div>
+<style>
+@keyframes egSpin{to{transform:rotate(360deg)}}
+@keyframes egFadeIn{to{opacity:1;transform:scale(1)}}
+</style>
+<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease">
+  <div style="position:relative;width:260px;height:260px;display:flex;align-items:center;justify-content:center">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;animation:egSpin 1.8s linear infinite" viewBox="0 0 260 260">
+      <circle cx="130" cy="130" r="120" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+      <circle cx="130" cy="130" r="120" fill="none" stroke="#ff7ad9" stroke-width="2" stroke-linecap="round"
+        stroke-dasharray="180 580" stroke-dashoffset="0"/>
+    </svg>
+    <img src="assets/photos/escapegoat-logo.png" alt="Escapegoat Sounds" id="preloaderLogo"
+      style="width:200px;height:200px;object-fit:contain;opacity:0;transform:scale(.92);animation:egFadeIn .6s ease .1s forwards">
   </div>
 </div>
 <script>
 (function(){
-  const logo=document.getElementById('preloaderLogo');
-  const bar=document.getElementById('preloaderBar');
-  setTimeout(()=>{logo.style.opacity='1';logo.style.transform='scale(1)';},60);
-  let p=0;
-  const t=setInterval(()=>{p=Math.min(p+Math.random()*18,90);bar.style.width=p+'%';},120);
   window.addEventListener('load',()=>{
-    clearInterval(t);bar.style.width='100%';
-    setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},500);
+    setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},600);
   });
 })();
 </script>
