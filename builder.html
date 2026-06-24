@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/photos/escapegoat-logo.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZIZO Storyboard Builder</title>
@@ -133,7 +134,8 @@ function buildHTML(forExport){
     return `<img src="assets/${name}" alt="${esc(label)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="ph" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center">${esc(label)}</span>`;
   };
   const tmpl=`<!DOCTYPE html><html lang="en"><head>
-    <meta name="robots" content="noindex, nofollow"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(v.brand)} — ZIZO Case Study</title>
+    <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/photos/escapegoat-logo.png"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(v.brand)} — ZIZO Case Study</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#070707;--s1:#111;--s2:#181818;--b:#222;--gold:#f0c233;--text:#f2f0eb;--m:#666;--m2:#999;--accent:${v.color};--ontext:${v.ontext};--font:'Inter',system-ui,sans-serif}
@@ -191,7 +193,8 @@ footer{padding:48px 0;text-align:center}
 </style></head><body>
 <nav><a href="../../index.html" class="nav-logo">ZI<em>ZO</em></a><a href="../../index.html" class="nav-back">&larr; All Brands</a></nav>
 <header class="hero">
-    <meta name="robots" content="noindex, nofollow"><div class="wrap hero-in"><div class="hero-badge">${esc(v.initials)}</div><div><div class="hero-eyebrow">${esc(v.role)} &middot; ${esc(v.year)}</div><h1>${esc(v.brand)}</h1><div class="hero-tags">${tags}</div></div></div></header>
+    <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/photos/escapegoat-logo.png"><div class="wrap hero-in"><div class="hero-badge">${esc(v.initials)}</div><div><div class="hero-eyebrow">${esc(v.role)} &middot; ${esc(v.year)}</div><h1>${esc(v.brand)}</h1><div class="hero-tags">${tags}</div></div></div></header>
 <div class="wrap"><div class="meta-strip">
 <div class="meta-cell"><div class="meta-lbl">Role</div><div class="meta-val">${esc(v.role)}</div></div>
 <div class="meta-cell"><div class="meta-lbl">Year</div><div class="meta-val">${esc(v.year)}</div></div>
