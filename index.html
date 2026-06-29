@@ -593,10 +593,12 @@ const BRANDS=[
 ];
 const B=Object.fromEntries(BRANDS.map(b=>[b.s,b]));
 function brandLink(s){return 'clients/'+s+'/index.html';}
-// One source of truth for every brand logo: clients/<slug>/assets/logo.png.
-// Drop/replace that single file and it reflects on the home grid, cards AND the brand page.
-// Falls back to the coloured initials behind it when no logo file exists.
-function logoOverlay(b,radius){return `<img src="clients/${b.s}/assets/logo.png" alt="${b.n} logo" loading="lazy" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:2px;border-radius:${radius}">`;}
+// logoOverlay: prefers brand.logo (from projects.json, set after fetch), falls back to clients/ path.
+// onload: darkens parent bg so PNG logos are visible on any background color.
+function logoOverlay(b,radius){
+  const src=b.logo||`clients/${b.s}/assets/logo.png`;
+  return `<img src="${src}" alt="${b.n} logo" loading="lazy" onload="this.parentNode.style.background='#111';this.parentNode.style.color='transparent'" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:4px;border-radius:${radius}">`;
+}
 function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};}
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
@@ -752,6 +754,12 @@ buildAppPanels();
   let store;
   try{ const r=await fetch('projects.json?t='+Date.now()); if(!r.ok)return; store=await r.json(); }catch(e){return;}
 
+  // Enrich BRANDS (B) with custom logo paths from projects.json so logoOverlay uses them
+  Object.entries(store).forEach(([slug,bd])=>{
+    const logo=bd.brand&&bd.brand.logo;
+    if(logo&&B[slug]) B[slug].logo=logo;
+  });
+
   // Buckets: panelKey → [{b, v/m/a, proj, slug}]
   const vids={}, imgs={}, arts={}, socialLinks={};
   function detectSocPlat(url){
@@ -808,63 +816,54 @@ buildAppPanels();
   function vidLink(v){return v.source==='drive'?'https://drive.google.com/file/d/'+v.id+'/view':'https://vimeo.com/'+v.id;}
   function vidPlatformLabel(v){return v.source==='drive'?'Google Drive':'Vimeo';}
   function vidPlatformColor(v){return v.source==='drive'?'#4285f4':'#00adef';}
-  function vimeoThumb(b,v,proj,aspect){
-    const isVertical=aspect==='9/16';
+  function vimeoEmbed(b,v,proj,aspect){
+    const src=vidSrc(v);
     const link=vidLink(v);
     const label=v.label||proj.name||b.n;
+    const logoAvatar=`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
     return `<div style="margin-bottom:18px;padding:0 14px">
-      <a href="${link}" target="_blank" rel="noopener" style="display:block;width:100%;aspect-ratio:${aspect};background:linear-gradient(145deg,#111,#1a1a1a);border-radius:10px;overflow:hidden;position:relative;text-decoration:none;border:1px solid rgba(255,255,255,.07)" onclick="event.stopPropagation()">
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
-          <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .2s">▶</div>
-          <div style="text-align:center;padding:0 20px">
-            <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">${label}</div>
-            <div style="font-size:10px;color:${vidPlatformColor(v)};font-weight:600;letter-spacing:.05em">${vidPlatformLabel(v)} · tap to watch</div>
-          </div>
-        </div>
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(${b.c.replace('#','').match(/.{2}/g).map(h=>parseInt(h,16)).join(',')},0.15) 0%,transparent 70%)"></div>
-      </a>
+      <div style="width:100%;aspect-ratio:${aspect};border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#000;position:relative">
+        <iframe src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
       <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
-        <div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n}${proj.date?' · '+proj.date:''}</div></div>
-      </div></div>`;
+        ${logoAvatar}
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:#fff">${label}</div>
+          <div style="font-size:11px;color:#aaa">${b.n}${proj.date?' · '+proj.date:''} · <a href="${link}" target="_blank" rel="noopener" style="color:${vidPlatformColor(v)};text-decoration:none">${vidPlatformLabel(v)} ↗</a></div>
+        </div>
+      </div>
+    </div>`;
   }
 
   // YouTube
   if(vids.youtube&&vids.youtube.length){
-    const html=sectionHdr('📹 From Campaigns')+vids.youtube.map(({b,v,proj})=>vimeoThumb(b,v,proj,'16/9')).join('');
+    const html=sectionHdr('📹 From Campaigns')+vids.youtube.map(({b,v,proj})=>vimeoEmbed(b,v,proj,'16/9')).join('');
     inject('screen-youtube',html); inject('panel-youtube',html);
   }
 
-  // TikTok
+  // TikTok — actual iframe player (same as YouTube but vertical when needed)
   if(vids.tiktok&&vids.tiktok.length){
-    const html=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>`
-      <div style="border-bottom:1px solid #1a1a1a;padding:10px 0">
-        <div style="display:flex;gap:10px;padding:0 14px;align-items:center;margin-bottom:8px">
-          <div style="width:38px;height:38px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
-          <div><div style="font-size:13px;font-weight:700">${b.n}</div><div style="font-size:11px;color:rgba(255,255,255,.4)">${v.label||proj.name||''}</div></div>
-        </div>
-        <div style="padding:0 14px"><a href="${vidLink(v)}" target="_blank" rel="noopener" style="display:block;width:100%;aspect-ratio:${v.orientation==='vertical'?'9/16':'16/9'};background:linear-gradient(145deg,#111,#1a1a1a);border-radius:8px;overflow:hidden;position:relative;text-decoration:none;border:1px solid rgba(255,255,255,.07)">
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
-            <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:20px">▶</div>
-            <div style="font-size:10px;color:${vidPlatformColor(v)};font-weight:600;letter-spacing:.05em">${vidPlatformLabel(v)} · tap to watch</div>
-          </div>
-        </a></div>
-      </div>`).join('');
+    const html=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>vimeoEmbed(b,v,proj,v.orientation==='vertical'?'9/16':'16/9')).join('');
     inject('screen-tiktok',html); inject('panel-tiktok',html);
   }
 
-  // Instagram: photos
+  // Instagram: photos — keep src relative (absolute /path breaks GitHub Pages subdirectory)
   if(imgs.instagram&&imgs.instagram.length){
     const html=sectionHdr('📸 Campaign Photos')+imgs.instagram.map(({b,m,proj})=>{
-      const src=/^(https?:|\/\/)/.test(m.src)?m.src:'/'+m.src.replace(/^\//,'');
-      return `<div class="feed-post">
-        <div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div>
-        <div><div class="feed-user">${b.n}</div><div class="feed-sub">ZIZO · ${proj.name||'Campaign'}</div></div></div>
-        <a href="${brandLink(b.s)}" class="feed-img" style="height:220px;display:block;overflow:hidden;background:#111">
-          <img src="${src}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentNode.style.background='linear-gradient(135deg,${b.c},#000)'">
+      const src=/^(https?:|\/\/)/.test(m.src)?m.src:m.src.replace(/^\//,'');
+      return `<div style="border-bottom:1px solid #262626;padding-bottom:0;margin-bottom:0">
+        <div style="padding:10px 14px;display:flex;align-items:center;gap:10px">
+          <div style="width:32px;height:32px;border-radius:50%;background:${b.c};overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};position:relative">${b.i}${logoOverlay(b,'50%')}</div>
+          <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${b.n}</div><div style="font-size:11px;color:#8e8e93">ZIZO · ${proj.name||'Campaign'}</div></div>
+          <div style="color:#fff;font-size:18px;letter-spacing:3px">···</div>
+        </div>
+        <a href="${brandLink(b.s)}" style="display:block;width:100%;aspect-ratio:1/1;overflow:hidden;background:#111;text-decoration:none">
+          <img src="${src}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.parentNode.style.background='linear-gradient(135deg,${b.c}88,#050505)'">
         </a>
-        <div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div>
-        <div class="feed-cap"><b>${b.n}</b> ${proj.name||''}</div>
+        <div style="padding:10px 14px 14px">
+          <div style="display:flex;gap:14px;margin-bottom:8px;align-items:center"><span style="font-size:24px;cursor:pointer;color:#fff">♡</span><span style="font-size:22px;cursor:pointer;color:#fff">💬</span><span style="font-size:22px;cursor:pointer;color:#fff;transform:rotate(-30deg);display:inline-block">✈</span><span style="margin-left:auto;font-size:22px;cursor:pointer;color:#fff">🔖</span></div>
+          <div style="font-size:13px;color:#fff;line-height:1.5"><span style="font-weight:700">${b.n}</span> ${proj.name||''}</div>
+        </div>
       </div>`;}).join('');
     inject('screen-instagram',html); inject('panel-instagram',html);
   }

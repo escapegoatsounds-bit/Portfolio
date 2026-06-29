@@ -48,6 +48,28 @@
   },
   "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(5)>div:nth-child(2)>div:nth-child(1)": {
    "html": "8"
+  },
+  "body>div:nth-child(6)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(5)>div:nth-child(2)>div:nth-child(1)": {
+   "html": "8+"
+  },
+  "body>div:nth-child(6)>div:nth-child(2)>div:nth-child(2)>div:nth-child(13)>div:nth-child(2)>div:nth-child(2)>a:nth-child(2)>div:nth-child(1)>div:nth-child(2)": {
+   "html": "Subway",
+   "adds": []
+  },
+  "body>div:nth-child(6)>div:nth-child(2)>div:nth-child(2)>div:nth-child(13)>div:nth-child(2)>div:nth-child(2)>a:nth-child(1)>div:nth-child(1)>div:nth-child(2)>img:nth-child(1)": {
+   "img": "assets/photos/Untitled_design__5_.png"
+  },
+  "body>div:nth-child(11)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "img": "assets/photos/Untitled_design__8_.png"
+  },
+  "body>div:nth-child(11)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)": {
+   "html": "<br>"
+  },
+  "body>div:nth-child(11)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)": {
+   "html": "\n      <div style=\"width:52px;height:52px;border-radius:12px;background:#FFFC00;color:#000;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;position:relative;overflow:hidden\" class=\"\">S</div>\n      <div><div style=\"font-size:20px;font-weight:800\" class=\"\">Snapchat</div><div style=\"font-size:12px;color:var(--m2)\">slug: Snapchat</div></div>\n    "
+  },
+  "body>div:nth-child(6)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>p:nth-child(1)": {
+   "html": "Social Media Director · Creative Director · AI content specialist"
   }
  },
  "about.html": {
@@ -83,6 +105,21 @@
  "clients.html": {
   "body>div:nth-child(3)>div:nth-child(32)>div:nth-child(1)>img:nth-child(1)": {
    "w": "56%"
+  },
+  "body>header:nth-child(5)>div:nth-child(2)>p:nth-child(1)": {
+   "html": "Creative Director � Social Media � AI content specialist"
+  },
+  "body>header:nth-child(5)>div:nth-child(2)>h1:nth-child(2)": {
+   "html": "<em class=\"\">ZIZO</em>&nbsp; Abdelaziz Askar"
+  },
+  "body>header:nth-child(5)>div:nth-child(2)>h1:nth-child(2)>em:nth-child(1)": {
+   "html": "Portfolio"
+  },
+  "body>div:nth-child(9)>div:nth-child(3)>button:nth-child(4)": {
+   "html": "🔓 NDA OFF"
+  },
+  "body>div:nth-child(9)>div:nth-child(63)>div:nth-child(2)>p:nth-child(1)": {
+   "html": "Delight Pastries"
   }
  },
  "clients/Bazooka-Candy/index.html": {
@@ -167,6 +204,14 @@
   },
   "body>section:nth-child(5)>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div:nth-child(2)": {
    "html": "Tonic International"
+  }
+ },
+ "clients/Geely/": {
+  "body>section:nth-child(5)>div:nth-child(1)>div:nth-child(4)>div:nth-child(4)>div:nth-child(2)": {
+   "html": "Tonic International"
+  },
+  "body>section:nth-child(5)>div:nth-child(1)>div:nth-child(4)>div:nth-child(1)>div:nth-child(2)": {
+   "html": "Ai Producer"
   }
  }
 }

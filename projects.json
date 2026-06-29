@@ -6,6 +6,7 @@
     "client": "Geely",
     "date": "2025",
     "role": "Production Manager",
+    "agency": "",
     "status": "Live",
     "deliverables": "TVC, Social Media Launch",
     "desc": "Brand: Geely\n\nIndustry: Automotive\n\nMarket: UAE\n\nPrimary Role: Creative Director / AI Creative Specialist\n\nThe Brand:\nGeely entered the UAE market in 2024, aiming to establish themselves as a new, technologically advanced automotive brand.\n\nThe Challenge:\nThe objective was to win the pitch and present a very clear direction for a TVC for their new electric cars, creating something culturally appealing that showcases how they are technologically superior in their price range.\n\nThe Work:\nWe developed concepts centered around friendships and staying up-to-date. The execution involved creating two fully ready animatics for two distinct electric car projects to secure the pitch and guide the launch campaign.\n\nDeliverables & Technical Specs:\n\nMedia Types: TVCs, Animatics, Launch Campaign\n\nKey Assets: Two fully ready animatics, Two TVCs produced for the launch.\n\nImpact & Outcomes:\nThe brief was approved, leading to the successful creation of the launch campaign and the production of two TVCs that effectively introduced Geely's electric cars into the UAE market.",
@@ -38,27 +39,32 @@
      {
       "id": "1205307505",
       "label": "Coolray Animatic",
-      "orientation": "horizontal"
+      "orientation": "horizontal",
+      "source": "vimeo"
      },
      {
       "id": "1205309338",
       "label": "Ex5 Animatic",
-      "orientation": "horizontal"
+      "orientation": "horizontal",
+      "source": "vimeo"
      },
      {
       "id": "1205310616",
       "label": "Ramadan Campaign",
-      "orientation": "horizontal"
+      "orientation": "horizontal",
+      "source": "vimeo"
      },
      {
       "id": "1205310638",
       "label": "Coolray SM Launch",
-      "orientation": "horizontal"
+      "orientation": "horizontal",
+      "source": "vimeo"
      },
      {
       "id": "1205310491",
       "label": "Geely Ex5 SM Launch",
-      "orientation": "horizontal"
+      "orientation": "horizontal",
+      "source": "vimeo"
      }
     ],
     "types": [
@@ -69,6 +75,7 @@
      "YouTube"
     ],
     "articles": [],
+    "briefs": [],
     "type": "AI Production"
    }
   ],
@@ -79,7 +86,8 @@
    "market": "UAE",
    "summary": "Geely is China's largest privately-owned automotive manufacturer, operating brands including Geely Auto, Volvo, and Polestar. Their Coolray and Emgrand SUV range marks Geely's ambitious expansion into the MENA automotive market.",
    "industry": "Automotive",
-   "website": ""
+   "website": "",
+   "logo": "assets/photos/Untitled_design__6_.png"
   },
   "active": 0
  },
@@ -205,7 +213,8 @@
    "services": "Social Media",
    "website": "",
    "summary": "Challenge: Developing an engaging animated Ramadan calendar campaign while ensuring precise motion timing and accurate product representation for the regional market.\nSolution: Directed the design and animation optimization process, refining motion speeds and sandwich sizing to align perfectly with brand guidelines and elevate the festive promotional rollout.",
-   "cover": ""
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__4_.png"
   },
   "projects": [
    {
@@ -213,6 +222,7 @@
     "client": "Subway Oman",
     "date": "2023",
     "role": "Creative Director",
+    "agency": "",
     "status": "Delivered",
     "deliverables": "",
     "desc": "Challenge: Overcoming severe brand resistance and consumer boycotts by navigating a highly sensitive geopolitical climate that heavily impacted multinational fast food chains.\nSolution: Executed a comprehensive localization strategy that deeply integrated authentic Omani cultural elements into digital campaigns, shifting the brand narrative from a global franchise to a community integrated entity.\nDeliverables: Culturally tailored social media calendars, localized visual assets, and animated regional promotional content.\nAchievements: Successfully mitigated negative sentiment, stabilized audience engagement metrics, and reestablished brand trust within the local demographic.",
@@ -314,17 +324,686 @@
      {
       "id": "1205331558",
       "label": "Social Media post",
-      "orientation": "vertical"
+      "orientation": "vertical",
+      "source": "vimeo"
      },
      {
-      "id": "",
-      "label": "",
-      "orientation": "horizontal"
+      "id": "https://www.instagram.com/reel/DOI86y6iA8w/",
+      "label": "Social Media",
+      "orientation": "vertical",
+      "source": "vimeo"
+     },
+     {
+      "id": "https://www.instagram.com/reel/DN5ibduiJK_/",
+      "label": "Social Media",
+      "orientation": "vertical",
+      "source": "vimeo"
      }
     ],
     "types": [],
     "platforms": [],
-    "articles": []
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Audi": {
+  "brand": {
+   "industry": "Automotive",
+   "market": "UAE",
+   "since": "2021",
+   "services": "TVC, Social",
+   "website": "https://www.audi-dubai.com/me/web/en.html",
+   "summary": "Al Nabooda Automobiles is the exclusive and authorized dealer for Audi in Dubai and the Northern Emirates, a partnership they have maintained since 1976.\nOperations: They manage a vast network of premium showrooms and service centers. This includes operating one of the largest Audi terminals globally, which is located on Sheikh Zayed Road in Dubai.\nScope: Their business covers new car sales, the Audi Approved :plus pre-owned program, fleet sales, and comprehensive aftersales maintenance services.",
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__8_.png"
+  },
+  "projects": [
+   {
+    "name": "Audi A5",
+    "client": "Audi",
+    "date": "2024",
+    "role": "Social Strategist",
+    "agency": "Tonic International",
+    "status": "",
+    "deliverables": "TVC. Youtube",
+    "desc": "Overview: Al Nabooda Automobiles is the exclusive and authorized dealer for Audi in Dubai and the Northern Emirates, a partnership they have maintained since 1976.\nOperations: They manage a vast network of premium showrooms and service centers. This includes operating one of the largest Audi terminals globally, which is located on Sheikh Zayed Road in Dubai.\nScope: Their business covers new car sales, the Audi Approved :plus pre-owned program, fleet sales, and comprehensive aftersales maintenance services.",
+    "cover": "assets/photos/Screenshot_2026-06-29_093554.png",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-img6-img7-minimal-lines-p__83305.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__pencil-hand-drawn-doodle-sketches-free-lines-unfin__83287.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-img6-img7-pencil-hand-dra__83301.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83275.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83278.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83273.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-create-a-scanned-image-oa__83315.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-phone-photo-of-sketchbook__83316.png"
+     }
+    ],
+    "vimeo": [
+     {
+      "id": "1E5WbK1CikyACazjLd0iH0fx86x1_kw9z",
+      "label": "Audi A5",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "13soz5uQTNnmTODT50ZpvohmLvyewXasP",
+      "label": "Audi A5",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1InUEywCCbBz7IEXRPZwjglWLU8mJPbAo",
+      "label": "Audi A8",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1RJbpbDJIPgMEWfO8lVirhd6YT3Bxcq6W",
+      "label": "Audi Etron",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "16d8O6xBFLqKLImFedgogeRzdhuWjSyg5",
+      "label": "Premium Campaign",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1VywGUoSQQI5WjDvTPTjFMWr38RbyZnSF",
+      "label": "Etron Hero TVC",
+      "orientation": "horizontal",
+      "source": "drive"
+     }
+    ],
+    "types": [
+     "TVC",
+     "Social Media",
+     "Campaign"
+    ],
+    "platforms": [
+     "YouTube",
+     "Facebook",
+     "Instagram"
+    ],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Snapchat": {
+  "brand": {
+   "industry": "Technology",
+   "market": "MENA, Turkey",
+   "since": "2021",
+   "services": "Social Media",
+   "website": "",
+   "summary": "Challenge: Expanding regional adoption and driving continuous engagement for Snapchat’s AR filters across a highly diverse, multi-lingual demographic.",
+   "cover": "",
+   "logo": "assets/photos/snapchat-logo-snapchat-icon-transparent-free-png.webp"
+  },
+  "projects": [
+   {
+    "name": "",
+    "client": "Snapchat",
+    "date": "2021",
+    "role": "",
+    "agency": "Nineteen84 Management",
+    "status": "Delivered",
+    "deliverables": "Weekly Campaign",
+    "desc": "Solution: Engineered and executed a high-volume, multi-regional digital campaign consisting of dynamic motion graphics and promotional social media assets.\nDeliverables: Weekly promotional content localized and deployed simultaneously across six key languages: Arabic, Hebrew, Turkish, Urdu, Italian, and Greek (for the Cyprus market).\nAchievements: Established a scalable creative pipeline that successfully resonated with distinct cultural sectors, driving sustained regional interaction with the filter ecosystem.",
+    "cover": "assets/photos/Screenshot_2026-06-29_091542.png",
+    "analytics": {
+     "reach": "2700000",
+     "duration": "2 years",
+     "audience": "Gen Z"
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_091913.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_091844.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_091824.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_091542.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_091520.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_091515.png"
+     }
+    ],
+    "vimeo": [
+     {
+      "id": "14KRuERH_ctuqSMbmt7RS-LmChzQrJ94M",
+      "label": "",
+      "orientation": "vertical",
+      "source": "drive"
+     },
+     {
+      "id": "1_5s-nsLqTztwXzFygk4jT2L3DT294_HZ",
+      "label": "",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "",
+      "label": "",
+      "orientation": "horizontal",
+      "source": "vimeo"
+     }
+    ],
+    "types": [],
+    "platforms": [],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Molfix": {
+  "brand": {
+   "industry": "FMCG",
+   "market": "North Africa",
+   "since": "2020",
+   "services": "Social Media, TVC",
+   "website": "https://www.molfix.com/",
+   "summary": "Molfix is a prominent global baby care brand manufactured by the Turkish fast moving consumer goods corporation Hayat Holding.\nOperations: They maintain a massive distribution and manufacturing footprint across the Middle East and North Africa, including major operational facilities in Egypt to secure local supply chains.\nScope: The brand specializes in baby diapers, wet wipes, and infant hygiene products, competing aggressively through localized marketing and value driven pricing strategies.",
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__9_.png"
+  },
+  "projects": [
+   {
+    "name": "North Africa TVC",
+    "client": "Molfix",
+    "date": "2022",
+    "role": "Creative Director",
+    "agency": "",
+    "status": "",
+    "deliverables": "",
+    "desc": "Developing a unified, cross regional baby care campaign capable of resonating across diverse cultural landscapes in North Africa, the Arab region, and Turkey without losing emotional impact.\nSolution: Conceptualized and directed a universal campaign strategy anchored by four distinct hero assets. The creative leveraged universally relatable, witty maternal insights translated into localized rhymes, ensuring emotional connectivity regardless of nationality.\nDeliverables: 4 localized hero video assets, translated and culturally adapted for pan Arab and Turkish markets.\nAchievements: Successfully deployed a highly scalable, cross border campaign that maximized regional engagement and maintained brand consistency across diverse linguistic demographics.\nIn this project I was the creative lead, creating the copy, managing production and handling PPMs and budgeting.\nWe have also managed their social media channels for 3 consecutive years, ",
+    "cover": "assets/photos/Copy_of_Abdelaziz_Askar_Portfolio__4_.png",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/Copy_of_Abdelaziz_Askar_Portfolio__3_.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Copy_of_Abdelaziz_Askar_Portfolio__2_.png"
+     }
+    ],
+    "vimeo": [
+     {
+      "id": "1WjRHnwxL-ErnICEwweKC2Mm2dlgOwFVf",
+      "label": "Hero 1",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1nveneYFtwA_dc5zKKJnZ-2geXzUTpbgY",
+      "label": "Hero 2",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1TaWCkfWrmBpqGEiuMxx1z173g6aIx1xM",
+      "label": "Hero 3",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1zzyMS9aJmGOXINMCrPmjmyhUIqZOhvBb",
+      "label": "Hero 4",
+      "orientation": "horizontal",
+      "source": "drive"
+     }
+    ],
+    "types": [
+     "Social Media",
+     "TVC",
+     "Campaign",
+     "Copy",
+     "Film"
+    ],
+    "platforms": [
+     "Instagram",
+     "TikTok",
+     "Facebook",
+     "YouTube"
+    ],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Warba-Bank": {
+  "brand": {
+   "industry": "Banking",
+   "market": "Kuwait",
+   "since": "2024",
+   "services": "TVC, Youtube",
+   "website": "https://www.warbabank.com/",
+   "summary": "Established in 2010, Warba Bank is a leading Kuwaiti Islamic financial institution offering a comprehensive suite of Sharia compliant retail, corporate, and investment banking services. The bank is widely recognized for its aggressive digital transformation strategy and focus on modern, youth oriented financial technologies.",
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__11_.png"
+  },
+  "projects": [
+   {
+    "name": "Bajer Campaign",
+    "client": "Warba Bank",
+    "date": "2025",
+    "role": "AI Consultant",
+    "agency": "Tonic International",
+    "status": "Delivered",
+    "deliverables": "TVC, Animatic",
+    "desc": "Challenge: Launching a new youth focused mobile application for financial management and capturing the attention of a demographic that typically ignores traditional banking communications.\nSolution: Conceptualized and pitched a culturally resonant TVC and accompanying animatics. Leveraged the local Kuwaiti dialect and sharp humor to break through conventional financial marketing noise and engage the youth audience directly.\nDeliverables: One TVC pitch, localized animatics, and creative copy tailored in the Kuwaiti dialect.\nAchievements: Successfully repositioned a traditional banking product into an accessible and engaging digital tool for the Kuwaiti youth market.",
+    "cover": "assets/photos/Screenshot_2026-06-29_100212.png",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [],
+    "vimeo": [
+     {
+      "id": "1FI6jwe3jtdLxWaEiX8B6iEK3XwPEQRlP",
+      "label": "AI Animatic ",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1uZV7403rimCXZX2RGLHJCtub-NH-forx",
+      "label": "Hero TVC",
+      "orientation": "horizontal",
+      "source": "drive"
+     }
+    ],
+    "types": [
+     "TVC",
+     "Social Media",
+     "Campaign",
+     "Copy",
+     "Strategy",
+     "AI Production"
+    ],
+    "platforms": [
+     "YouTube"
+    ],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Lifebox": {
+  "brand": {
+   "industry": "Technology",
+   "market": "Egypt",
+   "since": "2010",
+   "services": "Branding",
+   "website": "",
+   "summary": "Lifebox is an advanced integrated automotive and residential security ecosystem. The platform equips vehicles with a comprehensive 360 degree sensory and visual monitoring system that synchronizes seamlessly with home security networks.\nChallenge: Translating a highly technical, dual ecosystem security concept into a streamlined, trustworthy, and accessible brand identity from the ground up.",
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__12_.png"
+  },
+  "projects": [
+   {
+    "name": "Branding",
+    "client": "Lifebox",
+    "date": "2010",
+    "role": "Designer",
+    "agency": "Freelance / Direct",
+    "status": "Delivered",
+    "deliverables": "Brandbook",
+    "desc": "Lifebox is an advanced integrated automotive and residential security ecosystem. The platform equips vehicles with a comprehensive 360 degree sensory and visual monitoring system that synchronizes seamlessly with home security networks, effectively bridging the gap between mobile and domestic surveillance.",
+    "cover": "assets/photos/Gemini_Generated_Image_l7gdy7l7gdy7l7gd.png",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/Gemini_Generated_Image_l7gdy7l7gdy7l7gd.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Gemini_Generated_Image_na6ilwna6ilwna6i.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Untitled_design__12_.png"
+     }
+    ],
+    "vimeo": [],
+    "types": [
+     "Branding"
+    ],
+    "platforms": [],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Krispy-Kreme": {
+  "brand": {
+   "industry": "F&B",
+   "market": "Egypt",
+   "since": "2021",
+   "services": "PR and Social Media",
+   "website": "",
+   "summary": "Overview: Krispy Kreme is a globally recognized American doughnut company and coffeehouse chain, famous for its signature Original Glazed doughnuts.\nChallenge: Executing a highly anticipated, massive scale market entry into Egypt, requiring a launch campaign that matched the immense local hype and translated the global brand experience into a localized phenomenon.\nSolution: Engineered a strategic 7 day launch rollout, officially kicking off on August 19, 2021. Each day was meticulously dedicated to a highly specific mix of influencers, public figures, and the general public. This precise audience segmentation created immense online buzz and flawlessly managed the massive crowds, resulting in one of the most attended and successful franchise launches in Egypt.\nDeliverables: Comprehensive 7 day launch strategy, localized digital rollout, and influencer and public figure engagement pipeline.\nAchievements: Successfully managed extreme online buzz and massive physical footfall, orchestrating one of the highest performing franchise market entries in the region.",
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__13_.png"
+  },
+  "projects": [
+   {
+    "name": "",
+    "client": "Krispy Kreme",
+    "date": "",
+    "role": "",
+    "agency": "",
+    "status": "",
+    "deliverables": "",
+    "desc": "Overview: Krispy Kreme is a globally recognized American doughnut company and coffeehouse chain, famous for its signature Original Glazed doughnuts.\nChallenge: Executing a highly anticipated, massive scale market entry into Egypt, requiring a launch campaign that matched the immense local hype and translated the global brand experience into a localized phenomenon.\nSolution: Engineered a strategic 7 day launch rollout, officially kicking off on August 19, 2021. Each day was meticulously dedicated to a highly specific mix of influencers, public figures, and the general public. This precise audience segmentation created immense online buzz and flawlessly managed the massive crowds, resulting in one of the most attended and successful franchise launches in Egypt.\nDeliverables: Comprehensive 7 day launch strategy, localized digital rollout, and influencer and public figure engagement pipeline.\nAchievements: Successfully managed extreme online buzz and massive physical footfall, orchestrating one of the highest performing franchise market entries in the region.",
+    "cover": "assets/photos/KrispyKremeEgypt-14.jpg",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [],
+    "vimeo": [
+     {
+      "id": "196OTBXMb0jO66c63dM0DyKeJcWBayWN6",
+      "label": "Egypt Launch Coverage",
+      "orientation": "horizontal",
+      "source": "drive"
+     }
+    ],
+    "types": [
+     "PR",
+     "Social Media",
+     "Campaign",
+     "Events",
+     "Strategy"
+    ],
+    "platforms": [
+     "Instagram",
+     "Facebook",
+     "YouTube"
+    ],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
+ },
+ "Delight-Parties": {
+  "brand": {
+   "industry": "F&B",
+   "market": "Egypt",
+   "since": "2012",
+   "services": "Digitasl Marketing, Photography, Videography",
+   "website": "",
+   "summary": "Overview: A prominent local Egyptian pastry and dessert brand experiencing high operational demand during peak cultural seasons and special occasions.\nDeliverables: End to end digital marketing strategy, continuous social media content pipeline, and a fully operational call center infrastructure.\nAchievements: Scaled digital traffic to increase overall sales by 29 percent, successfully managed extreme order surges during Ramadan, and utilized centralized data to optimize production forecasting, drastically reducing operational waste.",
+   "cover": "",
+   "logo": "assets/photos/Untitled_design__16_.png"
+  },
+  "projects": [
+   {
+    "name": "",
+    "client": "Delight Parties",
+    "date": "",
+    "role": "",
+    "agency": "",
+    "status": "",
+    "deliverables": "",
+    "desc": "Overview: A prominent local Egyptian pastry and dessert brand experiencing high operational demand during peak cultural seasons and special occasions.\nChallenge: Transitioning a traditional brick and mortar pastry operation into a digitally optimized ecosystem while managing severe seasonal volume spikes and inefficient production forecasting.\nSolution: Served as an in house Marketing Executive for 18 months, engineering the digital infrastructure from scratch. Launched and managed all social media channels, executed high conversion content creation, and conceptualized and deployed a centralized call center to intercept and organize massive seasonal order volumes.\nDeliverables: End to end digital marketing strategy, continuous social media content pipeline, and a fully operational call center infrastructure.\nAchievements: Scaled digital traffic to increase overall sales by 29 percent, successfully managed extreme order surges during Ramadan, and utilized centralized data to optimize production forecasting, drastically reducing operational waste.",
+    "cover": "assets/photos/Screenshot_2026-06-29_112057.png",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_112057.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_112003.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_111855.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_111845.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_111835.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_111808.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_111800.png"
+     }
+    ],
+    "vimeo": [
+     {
+      "id": "1oGYEvo05X5qpHDdyjnF03NGU4k6Zq4oi",
+      "label": "Social Media 1",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1IP9D9VNtYRDfCqwadQUMLBi41LAsPViy",
+      "label": "Social Media 2",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "14Fi2AmJCLQqG4o6MlG_Pqo-qNmcCadYD",
+      "label": "Social Media 3",
+      "orientation": "horizontal",
+      "source": "drive"
+     },
+     {
+      "id": "1n_ZrvsoOXFeOIbFeL1tezCf0kyloo1pC",
+      "label": "Social Media 4",
+      "orientation": "horizontal",
+      "source": "drive"
+     }
+    ],
+    "types": [],
+    "platforms": [],
+    "articles": [],
+    "briefs": []
    }
   ],
   "active": 0
