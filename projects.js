@@ -18,7 +18,8 @@
   const YEARS_FULL  = [''].concat([...Array(21)].map((_,i)=>String(2025-i)));
   const YEARS_SINCE = [''].concat([...Array(19)].map((_,i)=>String(2025-i)));
   const IND_OPTS    = ['','Automotive','FMCG','QSR','F&B','Banking','Gaming','Telecom','Healthcare','Real Estate','Retail','Luxury','Beauty','Fashion','Sports','Travel','Technology','E-commerce','Education','Startup','Non-profit'];
-  const PROJ_SELECTS = {type:PROJ_TYPES, role:PROJ_ROLES, status:PROJ_STATUS, date:YEARS_FULL};
+  const AGENCY_OPTS  = ['','Tonic International','Nineteen84 Management','Al Siddiqi Holding','Eldib Co.','Mansour Group','CAPA','Freelance / Direct','Other'];
+  const PROJ_SELECTS = {type:PROJ_TYPES, role:PROJ_ROLES, status:PROJ_STATUS, date:YEARS_FULL, agency:AGENCY_OPTS};
   const BRAND_SELECTS= {industry:IND_OPTS, since:YEARS_SINCE};
 
   function absPath(p){ return /^(https?:|data:|\/)/.test(p) ? p : '/' + p; }
@@ -44,6 +45,7 @@
     ['client','Client', brandName],
     ['date','Year',''],
     ['role','Your Role',''],
+    ['agency','Agency',''],
     ['status','Status',''],
     ['deliverables','Deliverables','e.g. 3 TVCs · 20 posts · KV'],
   ];
