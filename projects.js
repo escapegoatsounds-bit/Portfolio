@@ -54,7 +54,7 @@
     p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; p.articles=[]; p.briefs=[]; return p;
   }
   function defaults(){
-    const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover='';
+    const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover=''; b.logo='';
     return { brand:b, projects:[ Object.assign(blankProject(),{name:''}) ], active:0 };
   }
   let DATA = defaults();
@@ -96,6 +96,7 @@
     BRAND_FIELDS.forEach(f=>{ if(d.brand[f[0]]==null) d.brand[f[0]]=''; });
     if(d.brand.summary==null) d.brand.summary='';
     if(d.brand.cover==null) d.brand.cover='';
+    if(d.brand.logo==null) d.brand.logo='';
     if(!d.brand.industry) d.brand.industry=industry;
     if(!Array.isArray(d.projects)||!d.projects.length) d.projects=[Object.assign(blankProject(),{name:''})];
     d.projects=d.projects.map(p=>{ const np=blankProject(); Object.assign(np,p);
@@ -482,9 +483,43 @@
     bar.append(addP,addV); w.append(bar); return w;
   }
 
+  function applyBrandCircle(){
+    const bc=document.querySelector('.bc'); if(!bc) return;
+    // Remove white background override — use brand accent color from CSS
+    bc.style.background=''; bc.style.overflow='hidden';
+    const img=bc.querySelector('img');
+    if(img){
+      const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):'';
+      if(logoSrc){ img.src=logoSrc; img.onerror=null; }
+      img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:10%';
+      img.onerror=function(){ this.style.display='none'; };
+    }
+  }
+
   function renderBrand(){
     const sec=el('div'); sec.innerHTML='<p class="zp-sl">Brand Level</p><h2 class="zp-h">Brand Profile</h2>';
     const card=el('div'); card.className='zp-card'; const grid=el('div'); grid.className='zp-grid';
+
+    // Logo upload row at the top of the brand card
+    const logoRow=el('div'); logoRow.style.cssText='grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid #2c2c33;margin-bottom:4px';
+    const logoPreview=el('div'); logoPreview.style.cssText='width:64px;height:64px;border-radius:50%;background:var(--accent,#f0c233);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff';
+    if(DATA.brand.logo){
+      const pi=el('img'); pi.src=absPath(DATA.brand.logo); pi.style.cssText='width:100%;height:100%;object-fit:contain;padding:10%';
+      pi.onerror=()=>{ pi.style.display='none'; };
+      logoPreview.appendChild(pi);
+    } else { logoPreview.textContent=brandName.slice(0,2).toUpperCase(); }
+    const logoMeta=el('div'); logoMeta.style.cssText='display:flex;flex-direction:column;gap:6px';
+    const logoTitle=el('div'); logoTitle.style.cssText='font-size:13px;font-weight:700'; logoTitle.textContent='Brand Logo';
+    const logoHint=el('div'); logoHint.className='zp-hint'; logoHint.textContent=DATA.brand.logo?'Logo set — click to replace':'No logo yet — upload a PNG/SVG';
+    const logoBtn=el('button'); logoBtn.className='zp-add'; logoBtn.textContent='📷 Upload Logo';
+    logoBtn.onclick=()=>pick('image/*',f=>{ toast('Uploading logo…'); uploadFile(f).then(pth=>{ DATA.brand.logo=pth; persist(false); render(); applyBrandCircle(); toast('✅ Logo updated'); }).catch(()=>toast('Upload failed — is editor server running?')); });
+    if(DATA.brand.logo){
+      const rmBtn=el('button'); rmBtn.style.cssText='background:none;border:1px solid #5a2330;color:#ff7a90;border-radius:6px;padding:5px 12px;font-size:11px;cursor:pointer;margin-left:6px';
+      rmBtn.textContent='Remove'; rmBtn.onclick=()=>{ DATA.brand.logo=''; persist(false); render(); applyBrandCircle(); };
+      logoMeta.append(logoTitle,logoHint,el('div').appendChild(logoBtn)&&logoBtn); logoMeta.lastChild.appendChild(rmBtn);
+    } else { logoMeta.append(logoTitle,logoHint,logoBtn); }
+    logoRow.append(logoPreview,logoMeta); grid.append(logoRow);
+
     BRAND_FIELDS.forEach(f=>{ const opts=BRAND_SELECTS[f[0]]; const e=opts?selectField(opts,DATA.brand[f[0]],v=>DATA.brand[f[0]]=v):field('input',DATA.brand[f[0]],f[2],v=>DATA.brand[f[0]]=v); grid.append(labeled(f[1],e)); });
     grid.append(labeled('Summary', field('textarea',DATA.brand.summary,'Short brand summary — who they are and what you did for them.',v=>DATA.brand.summary=v), true));
     card.append(grid); sec.append(card); root.append(sec);
@@ -584,7 +619,7 @@
     if(section) section.style.display=anyVisible?'':'none';
   }
 
-  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyHeroCover(); applyAnalytics(); }
+  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyHeroCover(); applyAnalytics(); applyBrandCircle(); }
   function mount(){
     if(!root.parentNode){
       const hero=document.querySelector('.hero')||document.querySelector('nav');
