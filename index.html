@@ -739,9 +739,7 @@ buildAppPanels();
   let store;
   try{ const r=await fetch('projects.json?t='+Date.now()); if(!r.ok)return; store=await r.json(); }catch(e){return;}
 
-  const platMap={'YouTube':'youtube','Instagram':'instagram','TikTok':'tiktok','X / Twitter':'x','LinkedIn':'linkedin','Facebook':'instagram','Snapchat':'tiktok'};
-
-  // Buckets: panelKey → [{b, item, proj, slug}]
+  // Buckets: panelKey → [{b, v/m/a, proj, slug}]
   const vids={}, imgs={}, arts={}, socialLinks={};
   function detectSocPlat(url){
     if(!url) return '';
@@ -753,37 +751,44 @@ buildAppPanels();
     if(/facebook\.com\//.test(url)) return 'instagram';
     return '';
   }
+  function push(bucket,key,item){ (bucket[key]=bucket[key]||[]).push(item); }
+
   Object.entries(store).forEach(([slug,bd])=>{
-    const b=B[slug]; if(!b) return;
+    // Fall back to a minimal brand object if slug isn't in the BRANDS array
+    const b=B[slug]||{s:slug,n:(bd.brand&&bd.brand.name)||slug.replace(/-/g,' '),c:'#f0c233',t:'#000',i:slug.slice(0,2).toUpperCase()};
     (bd.projects||[]).forEach(proj=>{
-      const platforms=Array.isArray(proj.platforms)?proj.platforms:[];
-      platforms.forEach(plat=>{
-        const key=platMap[plat]; if(!key) return;
-        if(['youtube','tiktok'].includes(key))
-          (proj.vimeo||[]).filter(v=>v.id).forEach(v=>(vids[key]=vids[key]||[]).push({b,v,proj,slug}));
-        if(['instagram'].includes(key))
-          (proj.media||[]).filter(m=>m.src&&(m.kind==='img'||!m.kind)).forEach(m=>(imgs[key]=imgs[key]||[]).push({b,m,proj,slug}));
-        if(['x','linkedin','instagram'].includes(key))
-          (proj.articles||[]).filter(a=>(a.body||a.title)&&!a.socialUrl).forEach(a=>(arts[key]=arts[key]||[]).push({b,a,proj,slug}));
+      // ── Videos → YouTube (horizontal) and TikTok (vertical) — always, no platform checkbox needed
+      (proj.vimeo||[]).filter(v=>v.id).forEach(v=>{
+        const isVert=v.orientation==='vertical';
+        push(vids,'youtube',{b,v,proj,slug});        // always appears in YouTube
+        if(isVert) push(vids,'tiktok',{b,v,proj,slug}); // verticals also in TikTok
       });
-      // Social URLs: route to detected platform feed regardless of platform selection
+      // ── Photos → Instagram — always
+      (proj.media||[]).filter(m=>m.src&&(m.kind==='img'||!m.kind)).forEach(m=>push(imgs,'instagram',{b,m,proj,slug}));
+      // ── Articles with body text → X and LinkedIn — always; also Instagram if has image
+      (proj.articles||[]).filter(a=>(a.body||a.title)&&!a.socialUrl).forEach(a=>{
+        push(arts,'x',{b,a,proj,slug});
+        push(arts,'linkedin',{b,a,proj,slug});
+        if(a.body) push(arts,'instagram',{b,a,proj,slug});
+      });
+      // ── Social post URLs → detected platform — always
       (proj.articles||[]).filter(a=>a.socialUrl).forEach(a=>{
         const key=detectSocPlat(a.socialUrl); if(!key) return;
-        (socialLinks[key]=socialLinks[key]||[]).push({b,a,proj,slug});
+        push(socialLinks,key,{b,a,proj,slug});
       });
     });
   });
 
   function inject(id,html){
     if(!html) return;
-    // For panels: use a dedicated feed target inside the chrome wrapper (avoids prepending outside the chrome)
+    // Panels: use dedicated feed div inside the chrome wrapper
     const feedEl=document.getElementById(id+'-feed');
     if(feedEl){const sec=document.createElement('div');sec.className='dyn-content';sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);return;}
+    // Screens: prepend dynamic content at the top of the app body
     const wrap=document.getElementById(id); if(!wrap) return;
     const body=wrap.querySelector('.app-body,.panel-app-body'); if(!body) return;
     const sec=document.createElement('div'); sec.className='dyn-content';
-    // Screens: append after existing static content
-    sec.innerHTML=html; body.appendChild(sec);
+    sec.innerHTML=html; body.insertBefore(sec,body.firstChild);
   }
   function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
   function vidSrc(v){return v.source==='drive'?'https://drive.google.com/file/d/'+v.id+'/preview':'https://player.vimeo.com/video/'+v.id+'?color=f0c233&title=0&byline=0&portrait=0&dnt=1';}
