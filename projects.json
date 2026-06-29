@@ -3,14 +3,13 @@
   "projects": [
    {
     "name": "Geely UAE Launch",
-    "type": "AI Production",
     "client": "Geely",
     "date": "2025",
     "role": "Production Manager",
     "status": "Live",
     "deliverables": "TVC, Social Media Launch",
     "desc": "Brand: Geely\n\nIndustry: Automotive\n\nMarket: UAE\n\nPrimary Role: Creative Director / AI Creative Specialist\n\nThe Brand:\nGeely entered the UAE market in 2024, aiming to establish themselves as a new, technologically advanced automotive brand.\n\nThe Challenge:\nThe objective was to win the pitch and present a very clear direction for a TVC for their new electric cars, creating something culturally appealing that showcases how they are technologically superior in their price range.\n\nThe Work:\nWe developed concepts centered around friendships and staying up-to-date. The execution involved creating two fully ready animatics for two distinct electric car projects to secure the pitch and guide the launch campaign.\n\nDeliverables & Technical Specs:\n\nMedia Types: TVCs, Animatics, Launch Campaign\n\nKey Assets: Two fully ready animatics, Two TVCs produced for the launch.\n\nImpact & Outcomes:\nThe brief was approved, leading to the successful creation of the launch campaign and the production of two TVCs that effectively introduced Geely's electric cars into the UAE market.",
-    "cover": "",
+    "cover": "assets/photos/Screenshot_2026-06-29_035000.png",
     "analytics": {
      "reach": "80K",
      "duration": "2 Months",
@@ -61,17 +60,30 @@
       "label": "Geely Ex5 SM Launch",
       "orientation": "horizontal"
      }
-    ]
+    ],
+    "types": [
+     "AI Production",
+     "Social Media"
+    ],
+    "platforms": [
+     "YouTube"
+    ],
+    "type": "AI Production"
    }
   ],
   "brand": {
    "since": "",
    "services": "",
-   "cover": "",
+   "cover": "assets/photos/Screenshot_2026-06-29_034917.png",
    "market": "UAE",
    "summary": "Geely is China's largest privately-owned automotive manufacturer, operating brands including Geely Auto, Volvo, and Polestar. Their Coolray and Emgrand SUV range marks Geely's ambitious expansion into the MENA automotive market.",
-   "industry": "Automotive"
+   "industry": "Automotive",
+   "website": ""
   },
   "active": 0
+ },
+ "_test": {
+  "brand": {},
+  "projects": []
  }
 }
