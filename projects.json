@@ -323,19 +323,7 @@
     "vimeo": [
      {
       "id": "1205331558",
-      "label": "Social Media post",
-      "orientation": "vertical",
-      "source": "vimeo"
-     },
-     {
-      "id": "https://www.instagram.com/reel/DOI86y6iA8w/",
-      "label": "Social Media",
-      "orientation": "vertical",
-      "source": "vimeo"
-     },
-     {
-      "id": "https://www.instagram.com/reel/DN5ibduiJK_/",
-      "label": "Social Media",
+      "label": "Ramadan Animated Calendar",
       "orientation": "vertical",
       "source": "vimeo"
      }
@@ -977,25 +965,25 @@
     "vimeo": [
      {
       "id": "1oGYEvo05X5qpHDdyjnF03NGU4k6Zq4oi",
-      "label": "Social Media 1",
+      "label": "Digital Marketing Campaign",
       "orientation": "horizontal",
       "source": "drive"
      },
      {
       "id": "1IP9D9VNtYRDfCqwadQUMLBi41LAsPViy",
-      "label": "Social Media 2",
+      "label": "Ramadan Content Series",
       "orientation": "horizontal",
       "source": "drive"
      },
      {
       "id": "14Fi2AmJCLQqG4o6MlG_Pqo-qNmcCadYD",
-      "label": "Social Media 3",
+      "label": "Brand Campaign Reel",
       "orientation": "horizontal",
       "source": "drive"
      },
      {
       "id": "1n_ZrvsoOXFeOIbFeL1tezCf0kyloo1pC",
-      "label": "Social Media 4",
+      "label": "Seasonal Promotion",
       "orientation": "horizontal",
       "source": "drive"
      }
