@@ -885,9 +885,11 @@ buildAppPanels();
     inject('screen-tiktok',html); inject('panel-tiktok',html);
   }
 
-  // Instagram: photos — keep src relative (absolute /path breaks GitHub Pages subdirectory)
+  // Instagram: photos — max 2 per brand, 12 total so feed is varied not flooded
   if(imgs.instagram&&imgs.instagram.length){
-    const html=sectionHdr('📸 Campaign Photos')+imgs.instagram.map(({b,m,proj})=>{
+    const _seen={},_cap=[];
+    for(const item of imgs.instagram){const k=item.b.s;if((_seen[k]||0)<2&&_cap.length<12){_cap.push(item);_seen[k]=(_seen[k]||0)+1;}}
+    const html=sectionHdr('📸 Campaign Photos')+_cap.map(({b,m,proj})=>{
       const src=/^(https?:|\/\/)/.test(m.src)?m.src:m.src.replace(/^\//,'');
       return `<div style="border-bottom:1px solid #262626;padding-bottom:0;margin-bottom:0">
         <div style="padding:10px 14px;display:flex;align-items:center;gap:10px">
@@ -896,7 +898,7 @@ buildAppPanels();
           <div style="color:#fff;font-size:18px;letter-spacing:3px">···</div>
         </div>
         <a href="${brandLink(b.s)}" style="display:block;width:100%;aspect-ratio:1/1;overflow:hidden;background:#111;text-decoration:none">
-          <img src="${src}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.parentNode.style.background='linear-gradient(135deg,${b.c}88,#050505)'">
+          <img src="${src}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,${b.c}88,#050505)';this.parentNode.innerHTML+='<div style=\\'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.5\\'><div style=\\'width:80px;height:80px;border-radius:16px;background:${b.c};display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:${b.t}\\'>${b.i}</div></div>'">
         </a>
         <div style="padding:10px 14px 14px">
           <div style="display:flex;gap:14px;margin-bottom:8px;align-items:center"><span style="font-size:24px;cursor:pointer;color:#fff">♡</span><span style="font-size:22px;cursor:pointer;color:#fff">💬</span><span style="font-size:22px;cursor:pointer;color:#fff;transform:rotate(-30deg);display:inline-block">✈</span><span style="margin-left:auto;font-size:22px;cursor:pointer;color:#fff">🔖</span></div>
