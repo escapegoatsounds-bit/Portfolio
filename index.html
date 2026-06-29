@@ -610,7 +610,7 @@ function iconHTML(key,inDock){const a=APPS[key];return `<div class="app-icon" on
 document.getElementById('appGrid').innerHTML=GRID.map(k=>iconHTML(k,false)).join('');
 document.getElementById('appDock').innerHTML=DOCK.map(k=>iconHTML(k,true)).join('');
 
-function feedPost(b,cap){return `<div class="feed-post"><div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};position:relative;overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">ZIZO · Creative</div></div></div><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div>`;}
+function feedPost(b,cap){return `<div class="feed-post"><div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">ZIZO · Creative</div></div></div><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div>`;}
 function tweet(txt,meta){return `<div class="tweet"><div class="tweet-av">AZ</div><div><div class="tweet-h"><b>ZIZO</b> <span>@zizo · ${meta}</span></div><div class="tweet-txt">${txt}</div><div class="tweet-meta">♡ &nbsp; ⟳ &nbsp; 💬</div></div></div>`;}
 function cardLink(b,meta){return `<a class="acard" href="${brandLink(b.s)}"><div class="acard-body" style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:${b.c};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div><div class="acard-name">${b.n}</div><div class="acard-meta">${meta}</div></div></div></a>`;}
 
@@ -626,16 +626,30 @@ const SCREENS={
   spotify:()=>'<div class="tabs"><span class="tab on" data-tb="musP" data-tk="eg" onclick="tabShow(\'musP\',\'eg\')">Escapegoat</span><span class="tab alt" data-tb="musP" data-tk="dj" onclick="tabShow(\'musP\',\'dj\')">Music Production</span></div><div data-ts="musP" data-tk="eg"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.jpg" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="font-size:15px;font-weight:800">Escapegoat Sounds</div><div style="font-size:11px;color:var(--m2)">ZIZO · 4 tracks</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join('')+'</div><div data-ts="musP" data-tk="dj" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
   wikipedia:()=>'<div style="padding:14px;font-size:13px;font-weight:700">Abdelaziz Askar</div><div style="padding:0 14px 12px;font-size:11px;color:var(--m2);line-height:1.7">Head of Social & AI at Tonic International (Dubai). 18 years across Egypt, Qatar & the UAE — Nineteen84, Al Siddiqi, Deraya. Songwriter, photographer, AI pioneer.</div><a class="acard" href="about.html"><div class="acard-body"><div class="acard-name" style="color:var(--gold)">Full bio & achievements →</div></div></a>',
   skills:()=>'<div style="height:100%;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:20px 18px;background:radial-gradient(circle at 50% 0%,#1a1145,#0b0714);font-family:monospace;text-align:center"><div><div style="font-size:24px;font-weight:900;color:#ff7ad9;letter-spacing:1px;text-shadow:0 0 14px rgba(255,122,217,.6)">ESCAPEGOAT</div><div style="font-size:12px;font-weight:800;color:var(--gold);letter-spacing:4px;margin-top:4px">★ ARCADE ★</div></div><button onclick="gameNav(\'play\')" style="background:#ff7ad9;color:#000;border:none;border-radius:8px;padding:13px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">▶ START GAME</button><button onclick="gameNav(\'skills\')" style="background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:8px;padding:12px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">📊 SKILLS</button><button onclick="showHome()" style="background:transparent;color:var(--m2);border:2px solid #333;border-radius:8px;padding:12px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">✕ EXIT GAME</button><div style="font-size:9px;color:var(--m2);letter-spacing:1px">GAME PLAYS ON THE BIG SCREEN →</div></div>',
-  linkedin:()=>'<a class="acard" href="about.html"><div class="acard-body"><div class="acard-name" style="color:var(--gold)">View full resume →</div><div class="acard-meta">Experience · roles · timeline</div></div></a>'+[['Head of Social & AI · Tonic International','2024 — present · Dubai'],['Music Producer · escapegoatsounds','2025 — present'],['Creative Content Director · Nineteen84','2018–2024 · Cairo'],['Social Media Specialist · Al Siddiqi Holding','2016–2017 · Doha'],['Digital Marketing · Deraya Real Estate','2015–2016 · Cairo']].map(r=>`<div class="acard"><div class="acard-body"><div class="acard-name">${r[0]}</div><div class="acard-meta">${r[1]}</div></div></div>`).join(''),
+  linkedin:()=>{
+    const exp=[
+      ['Head of Social & AI','Tonic International · Dubai · 2024–Present','Directed Geely Coolray national launch — full ATL, TVC direction, OOH. Built the first AI-animated TVC pitch in MENA for Warba Bank.'],
+      ['Creative Content Director','Nineteen84 · Cairo · 2018–2024','50+ brands, team of 12. Kappa, Subway Oman, Molfix, AXE, Snapchat Gulf, MTN. Full ATL campaigns and TVC direction.'],
+      ['Social Media Specialist','Al Siddiqi Holding · Doha · 2016–2017','In-house social lead for 8+ brands simultaneously across Qatar.'],
+      ['Digital Marketing & Content','Deraya Real Estate · Cairo · 2015–2016','Built brand\'s digital presence as Egypt shifted to digital-first.'],
+      ['Creative Content Specialist','Imagine Creative Studio · Alexandria · 2011–2014','Co-founded creative studio. Photography, design, branding, video.'],
+      ['PR Specialist','Bibliotheca Alexandrina · Alexandria · 2007–2009','PR & communications for international cultural events.']
+    ];
+    return '<div style="padding:10px 12px 4px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">EXPERIENCE · 18 YEARS</div>'
+      +exp.map(e=>`<div class="acard"><div class="acard-body"><div class="acard-name">${e[0]}</div><div class="acard-meta" style="margin-bottom:5px">${e[1]}</div><div style="font-size:10.5px;color:var(--m2);line-height:1.5">${e[2]}</div></div></div>`).join('')
+      +'<div style="padding:14px 12px 4px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">SKILLS</div>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:5px;padding:0 12px 14px">'+['Creative Direction','Social Strategy','AI Production','Photography','Music Production','Brand Strategy','Copywriting','Team Leadership'].map(s=>`<span style="font-size:9.5px;padding:3px 9px;background:var(--s2);border:1px solid var(--b);border-radius:99px;color:var(--m2)">${s}</span>`).join('')+'</div>';
+  },
   slack:()=>[B['Fahel-Brand'],B['Imagine-Studio'],B['URBEELS']].map(b=>cardLink(b,'Founded / co-created')).join(''),
   messages:()=>[['Arnaud Veschera · CEO, Tonic International','"He changed how we collaborate daily."'],['Mohamed Shafei · Founder, Decoys Real Estate','"Pivotal in launching our brand as Egypt went digital."'],['Amina Rashad · Vice Chairman, Glow','"A creative edge that kept us top of mind."'],['Ismail Drouby · CEO, Delight Parties','"An invaluable asset to my growing brand."'],['Sherry ElKilany · WestworldX & Scuba Empire','"Creative judgment and a deep sense of ownership."'],['Sherif ElSorsy · Chairman, No Limits Furniture','"Made a real difference to our online presence."'],['Samo Roxa · Founder & Artist, URBEELS','"Narratives that keep audiences on the edge."'],['Mikey · Music Artist','"He lives the project with you."'],['Shehab Kassem · Chairman, Septam Foods','"Handles the entire creative spectrum, effortlessly."']].map(m=>`<div class="acard"><div class="acard-body"><div class="acard-meta">${m[0]}</div><div class="acard-name" style="font-weight:600;font-size:12px;margin-top:3px">${m[1]}</div></div></div>`).join(''),
   escapegoat:()=>'<div class="tabs"><span class="tab on" data-tb="egS" data-tk="pl" onclick="tabShow(\'egS\',\'pl\')">🎧 Music Player</span><span class="tab alt" data-tb="egS" data-tk="mp" onclick="tabShow(\'egS\',\'mp\')">🎛️ Music Production</span></div><div data-ts="egS" data-tk="pl"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.jpg" alt="Escapegoat" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="font-size:15px;font-weight:800;color:#ff7ad9">EscapegoatSounds</div><div style="font-size:11px;color:var(--m2)">Music label · ZIZO</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join('')+'</div><div data-ts="egS" data-tk="mp" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
   brands:()=>'<div style="padding:10px 14px;font-size:11px;color:var(--m2)">180+ brands handled since 2011 — 71 featured. Tap any to open its storyboard.</div>'+BRANDS.slice(0,12).map(b=>cardLink(b,b.s.replace(/-/g,' '))).join(''),
   phone:()=>'<div style="padding:14px"><div class="acard" style="margin:0"><div class="acard-body"><div class="acard-meta">Email</div><div class="acard-name" style="font-size:12px">bananalover9119@gmail.com</div></div></div><a href="mailto:bananalover9119@gmail.com" style="display:block;margin-top:12px;background:var(--gold);color:#000;text-align:center;padding:13px;border-radius:12px;font-weight:700;font-size:13px">Send email →</a></div>',
 };
-document.getElementById('appScreens').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];const body=SCREENS[key]?SCREENS[key]():'<div style="padding:20px;color:var(--m2);font-size:12px">Coming soon.</div>';return `<div class="screen hidden app-screen" id="screen-${key}"><div class="app-topbar"><button class="back-btn" onclick="showHome()">‹</button><div class="mini-ico">${icoMarkup(key)}</div><span class="app-screen-title">${a.label}</span></div><div class="app-body">${body}</div></div>`;}).join('');
+function buildAppScreens(){document.getElementById('appScreens').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];const body=SCREENS[key]?SCREENS[key]():'<div style="padding:20px;color:var(--m2);font-size:12px">Coming soon.</div>';return `<div class="screen hidden app-screen" id="screen-${key}"><div class="app-topbar"><button class="back-btn" onclick="showHome()">‹</button><div class="mini-ico">${icoMarkup(key)}</div><span class="app-screen-title">${a.label}</span></div><div class="app-body">${body}</div></div>`;}).join('');}
+buildAppScreens();
 
-function workCard(b,meta,role){return `<a class="work-card" href="${brandLink(b.s)}"><div class="wc-color" style="background:${b.c}"></div><div class="wc-dot" style="background:${b.c};color:${b.t};position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div class="wc-info"><div class="wc-meta">${meta}</div><div class="wc-title">${b.n}</div><div class="wc-role">${role}</div></div></a>`;}
+function workCard(b,meta,role){const _t=(bcGet(b.s).title)||b.n;return `<a class="work-card" href="${brandLink(b.s)}"><div class="wc-color" style="background:${b.c}"></div><div class="wc-dot" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div class="wc-info"><div class="wc-meta">${meta}</div><div class="wc-title">${_t}</div><div class="wc-role">${role}</div></div></a>`;}
 const PANELS={
   instagram:()=>{
     const cases=[
@@ -678,7 +692,28 @@ const PANELS={
   spotify:()=>'<div class="tabs in-panel"><span class="tab on" data-tb="musB" data-tk="eg" onclick="tabShow(\'musB\',\'eg\')">🐐 Escapegoat</span><span class="tab alt" data-tb="musB" data-tk="dj" onclick="tabShow(\'musB\',\'dj\')">🎛️ Music Production — for DJs</span></div><div data-ts="musB" data-tk="eg"><div style="display:flex;gap:24px;flex-wrap:wrap"><img src="assets/photos/escapegoat-album.jpg" style="width:240px;height:240px;object-fit:cover;border-radius:14px" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="flex:1;min-width:280px">'+TRACKS.map((t,i)=>`<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--b)"><span style="color:var(--m);font-size:13px">${i+1}</span><div style="flex:1"><div style="font-weight:700;margin-bottom:6px">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3" style="width:100%;height:34px"></audio></div></div>`).join('')+'<div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px">'+['FL Studio','Logic Pro','ElevenLabs','Suno','Sound Design'].map(t=>`<span style="padding:6px 14px;border:1px solid var(--b);border-radius:99px;font-size:12px;color:var(--m2)">${t}</span>`).join('')+'</div></div></div></div><div data-ts="musB" data-tk="dj" style="display:none"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">I <strong style="color:var(--text)">custom-make tracks and write the lyrics</strong> — built to order for DJs, and sold online as ready-to-play exclusives. Production, topline, hook, stems — the full package, one creator.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎛️</div><div class="proj-name">Custom DJ Tracks</div><div class="proj-desc">Made-to-order productions tailored to your set, your crowd, your BPM. Exclusive licensing available.</div></div><div class="proj-card"><div class="proj-ico">✍️</div><div class="proj-name">Lyrics & Toplines</div><div class="proj-desc">Original lyrics in Arabic and English — hooks, verses and toplines written and recorded.</div></div><div class="proj-card g"><div class="proj-ico">🛒</div><div class="proj-name">Online Catalog</div><div class="proj-desc">Ready-made tracks sold online — stems included, cleared for performance and release.</div></div><div class="proj-card g"><div class="proj-ico">🎧</div><div class="proj-name">Direct to DJs</div><div class="proj-desc">Work one-on-one: brief me, hear a demo, get the final master delivered fast.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Custom%20Track%20Inquiry" class="btn btn-gold" style="margin-top:26px">Order a Custom Track →</a></div>',
   wikipedia:()=>'<div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start"><img src="assets/photos/img-12.jpg" style="width:220px;border-radius:14px" alt="Abdelaziz Askar"><div style="flex:1;min-width:300px"><div class="panel-stats" style="margin-bottom:24px"><div class="panel-stat"><div class="panel-stat-num">70+</div><div class="panel-stat-lbl">Brands</div></div><div class="panel-stat"><div class="panel-stat-num">18+</div><div class="panel-stat-lbl">Years</div></div><div class="panel-stat"><div class="panel-stat-num">3</div><div class="panel-stat-lbl">Countries</div></div><div class="panel-stat"><div class="panel-stat-num">200+</div><div class="panel-stat-lbl">Projects</div></div></div><p style="font-size:15px;color:var(--m2);line-height:1.8;margin-bottom:20px">Since 2007, building brand voices and crafting campaigns across Egypt, Qatar and the UAE — from PR at the Bibliotheca Alexandrina to Head of Social &amp; AI at Tonic International. Strategy first, craft always, now AI-accelerated.</p><a href="about.html" class="btn btn-gold">Full Bio & Achievements →</a></div></div>',
   skills:()=>'<iframe id="gameFrame" src="game.html" style="width:100%;height:72vh;min-height:480px;border:2px solid var(--purple);border-radius:14px;background:#0b0714"></iframe><div style="margin-top:12px;font-size:11px;color:var(--m2)">🖱️ Drag the bone back to aim, release to fire. Smash every <b style="color:var(--text)">BRIEF</b> to clear the level — Skippy fetches your bones between shots.</div>',
-  linkedin:()=>'<div style="border-left:2px solid var(--b);padding-left:24px;margin-left:8px">'+[['2024 — present','Head of Social & Head of AI · Tonic International (Dubai)'],['2025 — present','Music Producer · escapegoatsounds'],['2018–2024','Creative Content Director · Nineteen84 (Cairo)'],['2016–2017','Social Media Specialist · Al Siddiqi Holding (Doha)'],['2015–2016','Digital Marketing / Content · Deraya Real Estate (Cairo)'],['2011–2014','Creative Content Specialist · Imagine Creative Studio (Alexandria)'],['2007–2009','PR Specialist · Bibliotheca Alexandrina']].map(e=>`<div style="position:relative;margin-bottom:28px"><div style="position:absolute;left:-31px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--gold)"></div><div style="font-size:11px;color:var(--gold);letter-spacing:.1em;margin-bottom:4px">${e[0]}</div><div style="font-size:15px;font-weight:700">${e[1]}</div></div>`).join('')+'</div><a href="about.html" class="btn btn-gold">Full Resume →</a>',
+  linkedin:()=>{
+    const exp=[
+      {p:'2024 — Present',t:'Head of Social & Head of AI',c:'Tonic International',l:'Dubai, UAE',d:'Leading social media strategy and AI integration across all client accounts at one of the Gulf\'s top creative agencies. Directed the Geely Coolray national launch — full ATL campaign, TVC direction, OOH design and digital rollout. Built the first AI-animated TVC pitch in MENA for Warba Bank.',tags:['ATL','TVC','AI Production','Gulf']},
+      {p:'2018 — 2024',t:'Creative Content Director',c:'Nineteen84',l:'Cairo, Egypt',d:'Six years leading creative output for one of Egypt\'s most prolific content agencies. Managed a team of 12 across social, ATL and digital — 50+ brands including Kappa, Subway Oman, Molfix, AXE/Unilever, Snapchat Gulf and MTN.',tags:['Team Leadership','ATL','Social','Photography']},
+      {p:'2016 — 2017',t:'Social Media Specialist',c:'Al Siddiqi Holding',l:'Doha, Qatar',d:'In-house social lead for a multi-brand holding group in Qatar — 8+ brands simultaneously. Content calendars, campaign strategy and reporting frameworks built from the ground up.',tags:['Social','Qatar','Multi-brand']},
+      {p:'2015 — 2016',t:'Digital Marketing & Content',c:'Deraya Real Estate',l:'Cairo, Egypt',d:'Led digital and content strategy as Egypt\'s real estate market shifted toward digital-first. Built the brand\'s online presence from scratch.',tags:['Digital','Real Estate','Content']},
+      {p:'2011 — 2014',t:'Creative Content Specialist',c:'Imagine Creative Studio',l:'Alexandria, Egypt',d:'Co-founded and ran a creative studio — photography, graphic design, branding and video production for regional clients.',tags:['Photography','Design','Branding']},
+      {p:'2007 — 2009',t:'PR Specialist',c:'Bibliotheca Alexandrina',l:'Alexandria, Egypt',d:'First professional role — PR and communications at one of Egypt\'s most iconic cultural institutions. The foundation of 18 years in the industry.',tags:['PR','Communications']}
+    ];
+    const skills=[
+      ['Creative Direction','ATL · TVC · OOH · Campaigns'],
+      ['Social Media Strategy','Instagram · TikTok · YouTube · Snapchat'],
+      ['AI Production','Midjourney · ElevenLabs · GPT-4 · Suno'],
+      ['Photography','Commercial · Editorial · Campaign'],
+      ['Music Production','FL Studio · Logic Pro · Original releases'],
+      ['Brand Strategy','Positioning · Voice · Identity'],
+      ['Team Leadership','Creative teams up to 12'],
+      ['Copywriting','Arabic & English · TVC · Social · Print']
+    ];
+    const expHTML=exp.map(e=>`<div style="position:relative;padding-left:20px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid #2a3040"><div style="position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:#0a66c2"></div><div style="font-size:11px;color:#5b9bd5;letter-spacing:.04em;margin-bottom:3px">${e.p}</div><div style="font-size:16px;font-weight:700;margin-bottom:2px">${e.t}</div><div style="font-size:13px;color:#9ab0c0;margin-bottom:9px">${e.c} · ${e.l}</div><p style="font-size:13px;color:#b0b8c8;line-height:1.65;margin-bottom:9px">${e.d}</p><div style="display:flex;flex-wrap:wrap;gap:5px">${e.tags.map(t=>`<span style="font-size:10px;padding:2px 9px;background:#252c34;border:1px solid #3a4450;border-radius:99px;color:#8899aa">${t}</span>`).join('')}</div></div>`).join('');
+    return `<div style="background:#1d2226;border-top:6px solid #1b1f23;padding:18px 18px 4px"><div style="font-size:15px;font-weight:700;margin-bottom:20px">Experience</div>${expHTML}</div><div style="background:#1d2226;border-top:6px solid #1b1f23;padding:18px 18px 36px"><div style="font-size:15px;font-weight:700;margin-bottom:16px">Skills &amp; Expertise</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${skills.map(s=>`<div style="background:#252a30;border-radius:8px;padding:10px 12px;border:1px solid #2a3040"><div style="font-size:13px;font-weight:700;margin-bottom:3px;color:#fff">${s[0]}</div><div style="font-size:11px;color:#7a8896">${s[1]}</div></div>`).join('')}</div></div>`;
+  },
   slack:()=>'<div class="work-grid">'+[[B['Fahel-Brand'],'Founded','Creator'],[B['Imagine-Studio'],'Photo · Design','Co-founder'],[B['URBEELS'],'Music · Events','Co-creator']].map(x=>workCard(...x)).join('')+'</div>',
   messages:()=>{const T=[['Arnaud Veschera','Group CEO · Tonic International','"Working with Abdelaziz is an efficiency. He didn\'t just shorten our workflow — he genuinely changed how we collaborate daily."','AV'],['Mohamed Shafei','Founder · Decoys Real Estate','"He played a pivotal role launching our real estate brand — right as the Egyptian market shifted heavily toward digital."','MS'],['Amina Rashad','Vice Chairman · Glow','"Abdelaziz brought a creative edge to Glow and helped keep us at the top of our customers\' minds."','AR'],['Ismail Drouby','CEO · Delight Parties','"He built our inbound and outbound funnel, directed all brand photography and QA. An invaluable asset."','ID'],['Sherry ElKilany','Partner · WestworldX','"Creative judgment and a deep sense of ownership — he believed in what we were building."','SE'],['Sherif ElSorsy','Chairman · No Limits Furniture','"His grasp of social strategy made a real difference to our online presence."','SS'],['Samo Roxa','Founder · URBEELS','"Audacious details and spine-chilling narratives that keep audiences on the edge."','SR'],['Mikey','Music Artist','"He doesn\'t just do the work — he lives the project with you."','M'],['Shehab Kassem','Chairman · Septam Foods','"Rare to find someone who handles the entire creative spectrum effortlessly."','SK']];
     return T.map((t,i)=>{const right=i%2===0;return `<div style="display:flex;flex-direction:column;align-items:${right?'flex-end':'flex-start'};margin-bottom:18px"><div style="display:flex;align-items:flex-end;gap:8px;flex-direction:${right?'row-reverse':'row'}"><div style="width:32px;height:32px;border-radius:50%;background:${right?'#0a84ff':'#3a3a3c'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">${t[3]}</div><div style="max-width:75%"><div style="background:${right?'#0a84ff':'#3a3a3c'};color:#fff;border-radius:${right?'18px 18px 4px 18px':'18px 18px 18px 4px'};padding:12px 16px;font-size:14px;line-height:1.6">${t[2]}</div><div style="font-size:11px;color:#636366;margin-top:4px;text-align:${right?'right':'left'};padding:0 4px"><b style="color:#8e8e93">${t[0]}</b> · ${t[1]}</div></div></div></div>`}).join('')+'<div style="text-align:center;padding:20px 0"><div style="display:inline-flex;align-items:center;gap:8px;background:#1c1c1e;border:1px solid #38383a;border-radius:99px;padding:10px 20px;font-size:13px;color:#0a84ff;font-weight:600;cursor:pointer">📞 Reference on request</div></div>';},
@@ -690,11 +725,12 @@ const PLATFORM_CHROME={
   youtube:b=>`<div style="background:#0f0f0f;color:#fff;margin:-32px -68px -52px"><div style="padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #3f3f3f"><div style="flex:1;background:#282828;border:1px solid #3f3f3f;border-radius:20px 0 0 20px;padding:7px 14px;color:#aaa;font-size:13px">🔍 Abdelaziz Askar · Creative Reel</div><div style="background:#3f3f3f;border-radius:0 20px 20px 0;padding:7px 12px;color:#aaa;cursor:pointer">🔍</div></div><div style="display:flex;gap:8px;padding:10px 12px;overflow-x:auto;scrollbar-width:none">${['All','TVC','ATL','Campaign','Production','Strategy'].map((c,i)=>`<div style="background:${i===0?'#fff':'#272727'};color:${i===0?'#0f0f0f':'#fff'};border-radius:8px;padding:6px 12px;font-size:12px;white-space:nowrap;flex-shrink:0;cursor:pointer">${c}</div>`).join('')}</div><div style="padding:0 12px 52px">${b}</div></div>`,
   x:b=>`<div style="background:#000;color:#fff;margin:-32px -68px -52px"><div style="height:90px;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)"></div><div style="padding:0 16px"><div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:-44px;margin-bottom:10px"><div style="width:68px;height:68px;border-radius:50%;background:#1d1d1d;border:4px solid #000;display:flex;align-items:center;justify-content:center;font-size:26px">🎨</div><div style="border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:7px 18px;font-size:13px;font-weight:700;cursor:pointer">Follow</div></div><div style="font-size:20px;font-weight:900;margin-bottom:2px">Abdelaziz Askar</div><div style="font-size:14px;color:#71767b;margin-bottom:8px">@ZizoAskar</div><div style="font-size:14px;color:#e7e9ea;margin-bottom:10px;line-height:1.5">Creative Director · Social Media · AI · Escapegoat 🎵 Cairo → Dubai</div><div style="display:flex;gap:16px;font-size:13px;color:#71767b;margin-bottom:12px"><span><b style="color:#fff">847</b> Following</span><span><b style="color:#fff">23.4K</b> Followers</span></div></div><div style="display:flex;border-bottom:1px solid #2f3336"><div style="flex:1;padding:14px;text-align:center;font-size:15px;font-weight:700;border-bottom:2px solid #1d9bf0;cursor:pointer">Posts</div><div style="flex:1;padding:14px;text-align:center;font-size:15px;color:#71767b;cursor:pointer">Replies</div><div style="flex:1;padding:14px;text-align:center;font-size:15px;color:#71767b;cursor:pointer">Media</div></div><div style="padding:14px 16px 52px">${b}</div></div>`,
   tiktok:b=>`<div style="background:#010101;color:#fff;margin:-32px -68px -52px"><div style="padding:10px 16px;display:flex;justify-content:center;gap:28px;border-bottom:1px solid #1a1a1a;position:sticky;top:0;background:#010101;z-index:2"><span style="font-size:15px;font-weight:600;color:rgba(255,255,255,.45);cursor:pointer">Following</span><span style="font-size:15px;font-weight:700;border-bottom:2px solid #fff;padding-bottom:6px">For You</span><span style="font-size:15px;font-weight:600;color:rgba(255,255,255,.45);cursor:pointer">LIVE</span></div><div style="padding:14px 14px 52px">${b}</div></div>`,
-  linkedin:b=>`<div style="background:#1b1f23;color:#fff;margin:-32px -68px -52px"><div style="height:110px;background:linear-gradient(135deg,#0a66c2,#1e4080)"></div><div style="padding:0 16px"><div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:-52px;margin-bottom:12px"><div style="width:90px;height:90px;border-radius:50%;border:4px solid #1b1f23;background:#0a66c2;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900">AZ</div><div style="display:flex;gap:8px;padding-bottom:4px"><div style="border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:6px 16px;font-size:13px;font-weight:700;cursor:pointer">Message</div><div style="background:#0a66c2;border-radius:16px;padding:6px 16px;font-size:13px;font-weight:700;cursor:pointer">Connect</div></div></div><div style="margin-bottom:14px"><div style="font-size:22px;font-weight:700;margin-bottom:4px">Abdelaziz Askar</div><div style="font-size:15px;color:#ccc;margin-bottom:4px">Head of Social & AI · Creative Director · Music Producer</div><div style="font-size:13px;color:#a0a0a0">Tonic International · MENA 🌍</div><div style="font-size:13px;color:#8896a0;margin-top:4px">500+ connections</div></div></div><div style="background:#1d2226;border-top:1px solid #3a3a3a;padding:14px 16px"><div style="font-size:15px;font-weight:700;margin-bottom:6px">About</div><div style="font-size:14px;color:#ccc;line-height:1.7">Since 2007, building brand voices across Egypt, Qatar and the UAE. Among the first in MENA to deploy AI into real creative production.</div></div><div style="background:#1d2226;border-top:6px solid #1b1f23;padding:14px 16px"><div style="font-size:15px;font-weight:700;margin-bottom:14px">Experience</div><div style="padding-bottom:52px">${b}</div></div></div>`,
+  linkedin:b=>`<div style="background:#1b1f23;color:#fff;margin:-32px -68px -52px"><div style="height:110px;background:linear-gradient(135deg,#0a66c2,#1e4080)"></div><div style="padding:0 16px"><div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:-52px;margin-bottom:12px"><div style="width:90px;height:90px;border-radius:50%;border:4px solid #1b1f23;background:#0a66c2;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900">AZ</div><div style="display:flex;gap:8px;padding-bottom:4px"><div style="border:1px solid rgba(255,255,255,.4);border-radius:16px;padding:6px 16px;font-size:13px;font-weight:700;cursor:pointer">Message</div><div style="background:#0a66c2;border-radius:16px;padding:6px 16px;font-size:13px;font-weight:700;cursor:pointer">Connect</div></div></div><div style="margin-bottom:14px"><div style="font-size:22px;font-weight:700;margin-bottom:4px">Abdelaziz Askar</div><div style="font-size:15px;color:#ccc;margin-bottom:4px">Head of Social & AI · Creative Director · Music Producer</div><div style="font-size:13px;color:#a0a0a0">Tonic International · MENA 🌍</div><div style="font-size:13px;color:#8896a0;margin-top:4px">500+ connections</div></div></div><div style="background:#1d2226;border-top:1px solid #3a3a3a;padding:14px 16px"><div style="font-size:15px;font-weight:700;margin-bottom:6px">About</div><div style="font-size:14px;color:#ccc;line-height:1.7">Since 2007, building brand voices across Egypt, Qatar and the UAE. Among the first in MENA to deploy AI into real creative production.</div></div>${b}</div>`,
   messages:b=>`<div style="background:#000;color:#fff;margin:-32px -68px -52px"><div style="background:#1c1c1e;border-bottom:1px solid #38383a;padding:12px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:2"><span style="color:#0a84ff;font-size:18px;cursor:pointer">‹</span><div style="width:36px;height:36px;border-radius:50%;background:#0a84ff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800">AZ</div><div style="flex:1"><div style="font-size:14px;font-weight:700">Client Reviews</div><div style="font-size:11px;color:#8e8e93">9 testimonials</div></div><span style="color:#0a84ff;font-size:20px;cursor:pointer">ℹ</span></div><div style="padding:16px 16px 52px">${b}</div></div>`,
   spotify:b=>`<div style="background:#121212;color:#fff;margin:-32px -68px -52px"><div style="padding:70px 20px 20px;background:linear-gradient(to bottom,#5e2d8c 0%,#121212 100%)"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;font-weight:700">Artist</div><div style="font-size:42px;font-weight:900;letter-spacing:-1.5px;margin-bottom:8px">Escapegoat</div><div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px">125,439 monthly listeners</div><div style="display:flex;gap:12px;align-items:center"><div style="width:52px;height:52px;border-radius:50%;background:#1DB954;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer">▶</div><div style="border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:7px 18px;font-size:13px;font-weight:700;cursor:pointer">Follow</div></div></div><div style="padding:0 20px 52px">${b}</div></div>`,
 };
-document.getElementById('appPanels').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];let body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';if(PLATFORM_CHROME[key])body=PLATFORM_CHROME[key](body);const noHdr=!!PLATFORM_CHROME[key]||key==='instagram';return `<div class="panel-app" id="panel-${key}">${noHdr?'':`<div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div>`}<div class="panel-app-body" style="${noHdr?'padding:0':''}">${body}</div></div>`;}).join('');
+function buildAppPanels(){document.getElementById('appPanels').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];let body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';if(PLATFORM_CHROME[key])body=PLATFORM_CHROME[key](body);const noHdr=!!PLATFORM_CHROME[key]||key==='instagram';return `<div class="panel-app" id="panel-${key}">${noHdr?'':`<div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div>`}<div class="panel-app-body" style="">${body}</div></div>`;}).join('');}
+buildAppPanels();
 
 (function(){const sl=document.querySelectorAll('.hero-slides img');if(!sl.length)return;const dots=document.querySelector('.hero-dots');sl.forEach((_,i)=>{const d=document.createElement('span');if(i===0)d.classList.add('on');d.onclick=()=>go(i);dots.appendChild(d);});let cur=0,timer;function go(i){sl[cur].classList.remove('on');dots.children[cur].classList.remove('on');cur=i;sl[cur].classList.add('on');dots.children[cur].classList.add('on');clearInterval(timer);timer=setInterval(()=>go((cur+1)%sl.length),3800);}timer=setInterval(()=>go((cur+1)%sl.length),3800);})();
 function startGame(){gameNav('play');}
@@ -851,9 +887,13 @@ const BM_PLATFORMS=[
   {k:'powerpoint',l:'Strategy'},{k:'chatgpt',l:'AI / ChatGPT'},{k:'spotify',l:'Spotify'},
   {k:'slack',l:'Startups'},{k:'linkedin',l:'LinkedIn'},{k:'messages',l:'Testimonials'}
 ];
-const BM_TAGS=['TVC','ATL','BTL','OOH','Social','Strategy','Photography','Production',
-  'Branding','Design','Automotive','FMCG','QSR','F&B','Banking','Gaming','Telecom',
-  'Healthcare','Real Estate','AI','Startup','Ramadan','Influencer','PR','Events','Character Design','Copy'];
+const BM_TAG_GROUPS=[
+  {l:'Work Type',t:['TVC','ATL','BTL','OOH','Social','Campaign','Photography','Production','Copy','Branding','Design','Strategy']},
+  {l:'Channels',t:['Instagram','Facebook','TikTok','YouTube','Snapchat','X/Twitter','LinkedIn','WhatsApp','Google Ads','TV/Broadcast']},
+  {l:'Industry',t:['Automotive','FMCG','QSR','F&B','Banking','Gaming','Telecom','Healthcare','Real Estate','Retail','Luxury','Beauty','Fashion','Sports','Travel','Technology','E-commerce']},
+  {l:'Campaign Type',t:['AI','Startup','Ramadan','Influencer','PR','Events','Character Design']}
+];
+const BM_TAGS=BM_TAG_GROUPS.flatMap(g=>g.t);
 const BM_ROLES=['Creative Director','Lead Creative','Creative Lead','Art Director',
   'Production Manager','Brand Strategist','Strategist','Campaign Lead','Director',
   'Photographer','Designer','Co-founder','Founder','AI Consultant','Social Strategist'];
@@ -883,7 +923,12 @@ function bmSelect(slug){
     </div>
 
     <div class="bm-field">
-      <label>Platforms — controls which panels show this brand</label>
+      <label>Project Title — displayed on work cards (leave blank to use brand name)</label>
+      <input type="text" id="bmTitle" value="${cfg.title||''}" placeholder="${b.n}">
+    </div>
+
+    <div class="bm-field">
+      <label>Navigator Panels — uncheck to remove, check a different one to move</label>
       <div class="bm-checks" id="bmPlatforms">
         ${BM_PLATFORMS.map(p=>`<div class="bm-check${pts.includes(p.k)?' on':''}" data-p="${p.k}" onclick="this.classList.toggle('on')">${p.l}</div>`).join('')}
       </div>
@@ -898,14 +943,14 @@ function bmSelect(slug){
       </div>
       <div class="bm-field">
         <label>Year</label>
-        <input type="text" id="bmYear" value="${cfg.year||''}" placeholder="2024">
+        <select id="bmYear">${[''].concat([...Array(21)].map((_,i)=>String(2025-i))).map(y=>`<option value="${y}"${(cfg.year||'')===y?' selected':''}>${y||'— year —'}</option>`).join('')}</select>
       </div>
     </div>
 
     <div class="bm-field">
       <label>Tags</label>
-      <div class="bm-checks" id="bmTags">
-        ${BM_TAGS.map(t=>`<div class="bm-check${tgs.includes(t)?' on':''}" data-t="${t}" onclick="this.classList.toggle('on')">${t}</div>`).join('')}
+      <div id="bmTags">
+        ${BM_TAG_GROUPS.map((g,gi)=>`<div style="font-size:10px;color:var(--m2);letter-spacing:.1em;text-transform:uppercase;margin:${gi?'10px':'2px'} 0 5px">${g.l}</div><div class="bm-checks">${g.t.map(t=>`<div class="bm-check${tgs.includes(t)?' on':''}" data-t="${t}" onclick="this.classList.toggle('on')">${t}</div>`).join('')}</div>`).join('')}
       </div>
     </div>
 
@@ -914,10 +959,6 @@ function bmSelect(slug){
       <textarea id="bmDesc">${cfg.desc||''}</textarea>
     </div>
 
-    <div class="bm-field">
-      <label>Vimeo Video ID — paste the number from the Vimeo URL</label>
-      <input type="text" id="bmVimeo" value="${cfg.vimeo||''}" placeholder="e.g. 123456789">
-    </div>
 
     <div class="bm-field">
       <label>Banner image URL</label>
@@ -925,22 +966,39 @@ function bmSelect(slug){
     </div>
 
     <div style="display:flex;gap:10px;align-items:center;padding-top:4px">
-      <button id="bmSaveBtn" onclick="bmSave()" style="background:var(--gold);color:#000;border:none;border-radius:10px;padding:13px 28px;font-size:14px;font-weight:800;cursor:pointer">Save Changes</button>
+      <button id="bmSaveBtn" onclick="bmSave()" style="background:var(--gold);color:#000;border:none;border-radius:10px;padding:13px 28px;font-size:14px;font-weight:800;cursor:pointer">Save & Deploy</button>
       <span id="bmStatus" style="font-size:13px;color:var(--m2)"></span>
     </div>
   `;
+  const videos=Array.isArray(cfg.vimeo)?cfg.vimeo:(cfg.vimeo?[{id:cfg.vimeo,label:''}]:[]);
+  videos.forEach(v=>bmAddVimeo(v.id||'',v.label||'',v.orientation||'horizontal'));
+  if(!videos.length)bmAddVimeo();
+}
+
+function bmAddVimeo(id='',label='',orientation='horizontal'){
+  const list=document.getElementById('bmVimeoList');
+  const row=document.createElement('div');
+  row.className='bm-vrow';
+  row.style.cssText='display:flex;gap:6px;align-items:center';
+  row.innerHTML=`<input class="bm-vid" type="text" value="${id}" placeholder="Vimeo ID (e.g. 123456789)" style="flex:1;background:#111115;border:1px solid var(--b);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px;font-family:inherit"><input class="bm-vlabel" type="text" value="${label}" placeholder="Label (e.g. Hero TVC)" style="flex:1.5;background:#111115;border:1px solid var(--b);border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px;font-family:inherit"><select class="bm-vorient" title="Orientation" style="background:#111115;border:1px solid var(--b);border-radius:8px;color:var(--text);padding:8px 6px;font-size:12px;font-family:inherit;flex-shrink:0;cursor:pointer"><option value="horizontal"${orientation==='horizontal'?' selected':''}>↔ H</option><option value="vertical"${orientation==='vertical'?' selected':''}>↕ V</option></select><button type="button" onclick="this.parentNode.remove()" style="background:none;border:1px solid var(--b);border-radius:6px;color:var(--m2);font-size:14px;cursor:pointer;padding:5px 9px;flex-shrink:0">✕</button>`;
+  list.appendChild(row);
 }
 
 function bmSave(){
   if(!bmSlug)return;
   const platforms=[...document.querySelectorAll('#bmPlatforms .bm-check.on')].map(el=>el.dataset.p);
   const tags=[...document.querySelectorAll('#bmTags .bm-check.on')].map(el=>el.dataset.t);
+  const vimeo=[...document.querySelectorAll('#bmVimeoList .bm-vrow')].map(r=>({
+    id:r.querySelector('.bm-vid').value.trim(),
+    label:r.querySelector('.bm-vlabel').value.trim(),
+    orientation:r.querySelector('.bm-vorient').value
+  })).filter(v=>v.id);
   const update={
-    platforms,tags,
+    platforms,tags,vimeo,
+    title:document.getElementById('bmTitle').value.trim(),
     role:document.getElementById('bmRole').value,
     year:document.getElementById('bmYear').value,
     desc:document.getElementById('bmDesc').value,
-    vimeo:document.getElementById('bmVimeo').value,
     banner:document.getElementById('bmBanner').value
   };
   window.BRAND_CONFIG[bmSlug]=Object.assign({},window.BRAND_CONFIG[bmSlug]||{},update);
@@ -949,11 +1007,31 @@ function bmSave(){
     ov[bmSlug]=update;
     localStorage.setItem('bc_overrides',JSON.stringify(ov));
   }catch(e){}
+  // Live-rebuild all panels and screens
+  const activePanel=document.querySelector('.panel-app.active')?.id?.replace('panel-','');
+  buildAppScreens();
+  buildAppPanels();
+  showPanel(activePanel||null);
+  // Persist to file via editor server
   const btn=document.getElementById('bmSaveBtn');
   const st=document.getElementById('bmStatus');
-  btn.textContent='Saved ✓';btn.style.background='#1DB954';
-  st.textContent='Changes reflected in all panels';
-  setTimeout(()=>{btn.textContent='Save Changes';btn.style.background='var(--gold)';st.textContent='';},2500);
+  btn.textContent='Deploying…';btn.disabled=true;
+  fetch('/save-brands-config',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({config:window.BRAND_CONFIG})})
+  .then(r=>r.ok?r.json():null)
+  .then(j=>{
+    btn.disabled=false;
+    if(!j){ btn.textContent='Saved locally ✓'; btn.style.background='#f0a500'; st.textContent='Server off — browser only'; }
+    else if(j.pushed && j.gitMsg!=='nothing to commit'){ btn.textContent='✅ Deployed'; btn.style.background='#1DB954'; st.textContent='Saved & pushed to GitHub Pages'; }
+    else if(j.pushed){ btn.textContent='✅ Saved'; btn.style.background='#1DB954'; st.textContent='No changes to push'; }
+    else { btn.textContent='⚠️ Saved'; btn.style.background='#f0a500'; st.textContent='Push failed: '+j.gitMsg; }
+    setTimeout(()=>{btn.textContent='Save & Deploy';btn.style.background='var(--gold)';st.textContent='';},4000);
+  })
+  .catch(()=>{
+    btn.disabled=false; btn.textContent='Saved locally ✓'; btn.style.background='#f0a500';
+    st.textContent='Server off — browser only';
+    setTimeout(()=>{btn.textContent='Save & Deploy';btn.style.background='var(--gold)';st.textContent='';},3000);
+  });
 }
 </script>
 </body>

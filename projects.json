@@ -1,118 +1,77 @@
 {
- "Bazooka-Candy": {
-  "brand": {
-   "industry": "FMCG",
-   "market": "",
-   "since": "2024",
-   "services": "Social Media+TVC",
-   "summary": "",
-   "cover": ""
-  },
+ "Geely": {
   "projects": [
    {
-    "name": "Mooz Character",
-    "type": "Character Design",
-    "client": "Bazooka Candy",
-    "date": "Mar 2025",
-    "role": "Ai content creator",
-    "status": "Delivered",
-    "desc": "Mooz Project Brief\n\nProject Overview\nThe Mooz project is a strategic branding initiative focused on Bazooka Candy, centered on the development of a digital-first brand mascot. Unlike a static logo, Mooz was conceptualized as an extroverted, approachable personality designed to function as an active influencer within the social media ecosystem.",
+    "name": "Geely UAE Launch",
+    "type": "AI Production",
+    "client": "Geely",
+    "date": "2025",
+    "role": "Production Manager",
+    "status": "Live",
+    "deliverables": "TVC, Social Media Launch",
+    "desc": "Brand: Geely\n\nIndustry: Automotive\n\nMarket: UAE\n\nPrimary Role: Creative Director / AI Creative Specialist\n\nThe Brand:\nGeely entered the UAE market in 2024, aiming to establish themselves as a new, technologically advanced automotive brand.\n\nThe Challenge:\nThe objective was to win the pitch and present a very clear direction for a TVC for their new electric cars, creating something culturally appealing that showcases how they are technologically superior in their price range.\n\nThe Work:\nWe developed concepts centered around friendships and staying up-to-date. The execution involved creating two fully ready animatics for two distinct electric car projects to secure the pitch and guide the launch campaign.\n\nDeliverables & Technical Specs:\n\nMedia Types: TVCs, Animatics, Launch Campaign\n\nKey Assets: Two fully ready animatics, Two TVCs produced for the launch.\n\nImpact & Outcomes:\nThe brief was approved, leading to the successful creation of the launch campaign and the production of two TVCs that effectively introduced Geely's electric cars into the UAE market.",
     "cover": "",
     "analytics": {
-     "reach": "",
-     "duration": "",
-     "audience": ""
+     "reach": "80K",
+     "duration": "2 Months",
+     "audience": "Youth"
     },
     "chartType": "bar",
     "chartData": [
      {
       "label": "Reach",
-      "value": 60,
+      "value": "800000",
       "color": "#f0c233"
      },
      {
       "label": "Engagement",
-      "value": 25,
+      "value": "130000",
       "color": "#8b5cf6"
      },
      {
       "label": "Conversion",
-      "value": 15,
+      "value": "",
       "color": "#2ecc71"
      }
     ],
-    "media": [
+    "media": [],
+    "vimeo": [
      {
-      "kind": "img",
-      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image__69813.png"
+      "id": "1205307505",
+      "label": "Coolray Animatic",
+      "orientation": "horizontal"
      },
      {
-      "kind": "img",
-      "src": "assets/photos/freepik__replace-product-with-chews-__40598.png"
+      "id": "1205307505",
+      "label": "Ex5 Animatic",
+      "orientation": "horizontal"
      },
      {
-      "kind": "img",
-      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image-medium-l__69763.jpeg"
+      "id": "1205307505",
+      "label": "Ramadan Campaign",
+      "orientation": "horizontal"
      },
      {
-      "kind": "img",
-      "src": "assets/photos/Gemini_Generated_Image_fysrp2fysrp2fysr.png"
+      "id": "1205307505",
+      "label": "Coolray SM Launch",
+      "orientation": "horizontal"
      },
      {
-      "kind": "img",
-      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image__98869.png"
-     },
-     {
-      "kind": "img",
-      "src": "assets/photos/freepik__generate-9-different-angles-of-this-image-extreme-__98825.png"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_they-all-look-and-wave-towards-the-camera_kling_1080p_16-9_24fps_69779.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_opening-cut-medium-shot-on-the-gray-cratered-surfa_veo3_1_1080p_16-9_24fps_98861.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_dancing-moose-character_minimax_768p_16-9_24fps_53801.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_the-moose-offering-the-bear-a-peice-of-candy-the-b_veo3_1_720p_16-9_24fps_69806.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_camera-close-up-at-the-bear-as-he-takes-the-candy-_veo3_1_720p_16-9_24fps_69809.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_a-stylish-anthropomorphic-moose-dj-energetically-m_kling_1080p_16-9_24fps_69824.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_a-closeup-reaction-shot-of-a-teenage-boy-sitting-o_seedance_720p_1-1_24fps_69772.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_a-cool-moose-character-saying-advice-while-looking_omnihuman_1080p_16-9_25fps_53816.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/creation_2252534113.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_a-stylish-anthropomorphic-moose-with-muscular-huma_kling_1080p_16-9_24fps_98826.mp4"
-     },
-     {
-      "kind": "video",
-      "src": "assets/videos/freepik_a-stylized-celebrity-moose-character-wearing-cool-_minimax_768p_16-9_24fps_69822.mp4"
+      "id": "1205307505",
+      "label": "Geely Ex5 SM Launch",
+      "orientation": "horizontal"
      }
     ]
    }
   ],
+  "brand": {
+   "since": "",
+   "services": "",
+   "cover": "",
+   "market": "UAE",
+   "summary": "Geely is China's largest privately-owned automotive manufacturer, operating brands including Geely Auto, Volvo, and Polestar. Their Coolray and Emgrand SUV range marks Geely's ambitious expansion into the MENA automotive market.",
+   "industry": "Automotive"
+  },
   "active": 0
  }
 }
