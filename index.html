@@ -1108,7 +1108,7 @@ function highlightKW(root){
   root.dataset.kwDone='1';
   const KW=['Creative Director','Social Media Director','Head of Social & AI','Art Director','Content Director','Creative Content Director','Campaign Lead','Brand Director','Co-founder','Production Manager','Brand Strategist','200\\+','18 years','50\\+ brands','team of 12','5 markets','TVCs?','campaigns?','strategy','photography','copywriting','music production','AI integration','AI content','AI animatics','AI workflows','hand-coded','MENA','Tonic International','Nineteen84','co-founded'];
   const re=new RegExp('('+KW.join('|')+')','gi');
-  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|MARK|INPUT|TEXTAREA)$/.test(p.tagName)||!re.test(n.textContent))return NodeFilter.FILTER_SKIP;re.lastIndex=0;return NodeFilter.FILTER_ACCEPT;}});
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|MARK|INPUT|TEXTAREA)$/.test(p.tagName)||p.closest('.panel-hint,.btn,.bm-trigger-btn,.panel-stat,.panel-eyebrow,.hero-dots,.pd-hero-badge,nav')||!re.test(n.textContent))return NodeFilter.FILTER_SKIP;re.lastIndex=0;return NodeFilter.FILTER_ACCEPT;}});
   const nodes=[];let node;while((node=walker.nextNode()))nodes.push(node);
   nodes.forEach(tn=>{
     const frag=document.createDocumentFragment();let last=0;re.lastIndex=0;let m;
