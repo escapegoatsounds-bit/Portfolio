@@ -254,7 +254,46 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
   nav{padding:0 20px}.nav-links{display:none}
   .panel-app-body,.panel-default{padding-left:30px;padding-right:30px}
 }
-@media(max-width:520px){.mobile-wall{display:flex}}
+/* ── MOBILE — phone-only experience ──────────────────────── */
+@media(max-width:600px){
+  /* Kill the "desktop only" wall — mobile gets the real thing */
+  .mobile-wall{display:none!important}
+
+  /* Hide right content panel entirely on mobile */
+  #contentPanel{display:none!important}
+
+  /* Single-column layout, phone column fills screen */
+  .layout{grid-template-columns:1fr;height:auto;overflow:visible}
+  .phone-col{
+    min-height:calc(100svh - 60px);
+    padding:20px 16px 40px;
+    border-right:none;
+    border-bottom:none;
+    justify-content:flex-start;
+    padding-top:32px
+  }
+
+  /* Scale phone to fit — keep the 340:724 aspect ratio */
+  .phone{
+    width:min(320px,calc(100vw - 32px));
+    aspect-ratio:340/724;
+    height:auto!important;
+    transform:none!important;   /* no 3-D tilt on real phones */
+    border-radius:46px
+  }
+  .phone:hover{transform:none!important}
+  .phone-screen{border-radius:40px}
+
+  /* Compact hint text above the phone */
+  .phone-hint{max-width:100%;margin-bottom:4px}
+  .phone-hint .ph-big{font-size:15px}
+  .phone-hint .ph-sub{font-size:11px}
+
+  /* Tighter nav on mobile */
+  nav{padding:0 16px}
+  .btn-talk,.nav-links{display:none!important}
+  .nav-logo span:not(:first-child){display:none}
+}
 /* ── BRAND MANAGER ─────────────────────────────────────── */
 #brandMgr{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);display:none;flex-direction:column}
 #brandMgr.open{display:flex}
