@@ -51,7 +51,7 @@
     const p={}; PROJ_FIELDS.forEach(f=>p[f[0]]=''); p.client=brandName; p.desc='';
     p.cover=''; p.analytics={reach:'',duration:'',audience:''}; p.chartType='bar';
     p.chartData=[{label:'Reach',value:60,color:PALETTE[0]},{label:'Engagement',value:25,color:PALETTE[1]},{label:'Conversion',value:15,color:PALETTE[2]}];
-    p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; p.articles=[]; return p;
+    p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; p.articles=[]; p.briefs=[]; return p;
   }
   function defaults(){
     const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover='';
@@ -85,7 +85,7 @@
     }
   }
   function load(){
-    return fetch('/projects.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+    return fetch('../../projects.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
       .then(store=>{
         if(store && store[SLUG]) DATA = normalize(store[SLUG]);
         else { try{ const ls=localStorage.getItem(KEY); if(ls) DATA=normalize(JSON.parse(ls)); }catch(_){} }
@@ -103,10 +103,13 @@
       if(!Array.isArray(np.chartData)||!np.chartData.length) np.chartData=blankProject().chartData;
       if(!Array.isArray(np.media)) np.media=[];
       if(!Array.isArray(np.articles)) np.articles=[];
+      if(!Array.isArray(np.briefs)) np.briefs=[];
       // migrate old single-object format to array
       if(Array.isArray(p.vimeo)) np.vimeo=p.vimeo;
-      else if(p.vimeo && p.vimeo.id) np.vimeo=[{id:p.vimeo.id,label:p.vimeo.label||'',orientation:p.vimeo.orientation||'horizontal'}];
+      else if(p.vimeo && p.vimeo.id) np.vimeo=[{id:p.vimeo.id,label:p.vimeo.label||'',orientation:p.vimeo.orientation||'horizontal',source:'vimeo'}];
       else np.vimeo=[];
+      // ensure source field on all vimeo entries (backward compat)
+      np.vimeo=np.vimeo.map(v=>v.source?v:{...v,source:'vimeo'});
       np.types = Array.isArray(p.types) ? p.types : (p.type ? [p.type] : []);
       np.platforms = Array.isArray(p.platforms) ? p.platforms : [];
       np.chartType=p.chartType==='pie'?'pie':'bar';
@@ -259,88 +262,195 @@
     return w;
   }
 
-  function vimeoEmbed(v){
-    const url='https://player.vimeo.com/video/'+v.id+'?color=f0c233&title=0&byline=0&portrait=0&dnt=1';
+  function videoEmbed(v){
+    const isDrive=v.source==='drive';
+    const src=isDrive
+      ?'https://drive.google.com/file/d/'+v.id+'/preview'
+      :'https://player.vimeo.com/video/'+v.id+'?color=f0c233&title=0&byline=0&portrait=0&dnt=1';
     if(v.orientation==='vertical'){
-      return '<div style="display:flex;justify-content:center;background:#000;padding:20px 0"><div style="width:min(320px,80%);aspect-ratio:9/16;position:relative"><iframe src="'+url+'" width="100%" height="100%" style="position:absolute;inset:0;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe></div></div>';
+      return '<div style="display:flex;justify-content:center;background:#000;padding:20px 0"><div style="width:min(320px,80%);aspect-ratio:9/16;position:relative"><iframe src="'+src+'" width="100%" height="100%" style="position:absolute;inset:0;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe></div></div>';
     }
-    return '<div style="width:100%;aspect-ratio:16/9;position:relative;background:#000"><iframe src="'+url+'" width="100%" height="100%" style="position:absolute;inset:0;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe></div>';
+    return '<div style="width:100%;aspect-ratio:16/9;position:relative;background:#000"><iframe src="'+src+'" width="100%" height="100%" style="position:absolute;inset:0;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe></div>';
   }
 
   function vimeoSection(p){
     if(!Array.isArray(p.vimeo)) p.vimeo=[];
     const vids=p.vimeo; const w=el('div'); w.className='zp-card';
-    w.innerHTML='<div class="zp-sl">Campaign Videos</div><div style="font-size:18px;font-weight:800;margin-bottom:14px">Vimeo</div>';
+    w.innerHTML='<div class="zp-sl">Campaign Videos</div><div style="font-size:18px;font-weight:800;margin-bottom:4px">Videos</div><div class="zp-hint" style="margin-bottom:14px">Paste a Vimeo or Google Drive video URL — auto-detected, embedded in YouTube / TikTok feeds.</div>';
 
-    // Preview: tabs if multiple, single if one
     const active=vids.filter(v=>v.id);
     if(active.length===1){
       const prev=el('div'); prev.style.marginBottom='14px';
-      prev.innerHTML=vimeoEmbed(active[0]); w.append(prev);
+      prev.innerHTML=videoEmbed(active[0]); w.append(prev);
     } else if(active.length>1){
       const tabBar=el('div'); tabBar.style.cssText='display:flex;border-bottom:1px solid #2c2c33;margin-bottom:0;background:#080808;border-radius:8px 8px 0 0;overflow:hidden';
       const panels=el('div'); panels.style.marginBottom='14px';
       active.forEach((v,i)=>{
         const tb=el('button'); tb.style.cssText='padding:8px 16px;background:none;border:none;border-bottom:2px solid '+(i===0?'#f0c233':'transparent')+';color:'+(i===0?'#f0c233':'#666')+';font-size:12px;font-weight:'+(i===0?'700':'400')+';cursor:pointer;font-family:inherit';
         tb.textContent=v.label||('Video '+(i+1));
-        const pan=el('div'); pan.style.display=i===0?'block':'none'; pan.innerHTML=vimeoEmbed(v);
+        const pan=el('div'); pan.style.display=i===0?'block':'none'; pan.innerHTML=videoEmbed(v);
         tb.onclick=()=>{ Array.from(tabBar.children).forEach((b,j)=>{ b.style.borderBottomColor=j===i?'#f0c233':'transparent'; b.style.color=j===i?'#f0c233':'#666'; b.style.fontWeight=j===i?'700':'400'; }); Array.from(panels.children).forEach((d,j)=>d.style.display=j===i?'block':'none'); };
         tabBar.append(tb); panels.append(pan);
       });
       w.append(tabBar,panels);
     }
 
-    // Editable rows
     const list=el('div'); list.style.cssText='display:flex;flex-direction:column;gap:8px';
-    function addRow(v, idx){
-      const row=el('div'); row.style.cssText='display:grid;grid-template-columns:1fr 1.5fr auto auto;gap:8px;align-items:center;background:#0d0d0f;border:1px solid #2c2c33;border-radius:8px;padding:10px';
-      const idI=el('input'); idI.value=v.id||''; idI.placeholder='Vimeo ID'; idI.style.cssText='background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px;width:100%';
-      idI.oninput=()=>{
-        const raw=idI.value.trim();
-        const m=raw.match(/vimeo\.com\/(?:video\/)?(\d+)/)||raw.match(/^(\d+)$/);
-        const id=m?m[1]:raw;
-        if(id!==raw){ idI.value=id; }
-        vids[idx].id=id; persist(false);
-      };
-      idI.onblur=()=>{ if(vids[idx].id) render(); };
-      const lblI=el('input'); lblI.value=v.label||''; lblI.placeholder='Label (e.g. Hero TVC)'; lblI.style.cssText=idI.style.cssText;
+    function parseVideoUrl(raw){
+      const vm=raw.match(/vimeo\.com\/(?:video\/)?(\d+)/)||raw.match(/^(\d+)$/);
+      if(vm) return {id:vm[1],source:'vimeo'};
+      const dm=raw.match(/drive\.google\.com\/file\/d\/([^/?]+)/)||raw.match(/drive\.google\.com\/open\?id=([^&]+)/);
+      if(dm) return {id:dm[1],source:'drive'};
+      return null;
+    }
+    function addRow(v,idx){
+      const row=el('div'); row.style.cssText='background:#0d0d0f;border:1px solid #2c2c33;border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px';
+      const urlWrap=el('div'); urlWrap.style.cssText='display:flex;flex-direction:column;gap:3px';
+      const urlI=el('input');
+      urlI.value=v.id?(v.source==='drive'?'https://drive.google.com/file/d/'+v.id+'/view':'https://vimeo.com/'+v.id):'';
+      urlI.placeholder='Paste Vimeo or Google Drive video URL';
+      urlI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
+      const badge=el('div'); badge.style.cssText='font-size:11px;font-weight:600;padding-left:2px;min-height:14px';
+      function refreshBadge(){ const s=vids[idx].source; badge.style.color=s==='drive'?'#4285f4':'#00adef'; badge.textContent=vids[idx].id?(s==='drive'?'↳ Google Drive video':'↳ Vimeo video'):''; }
+      refreshBadge();
+      urlI.oninput=()=>{ const p=parseVideoUrl(urlI.value.trim()); if(p){vids[idx].id=p.id;vids[idx].source=p.source;}else{vids[idx].id=urlI.value.trim();vids[idx].source='vimeo';} refreshBadge(); persist(false); };
+      urlI.onblur=()=>{ if(vids[idx].id) render(); };
+      urlWrap.append(urlI,badge);
+      const metaRow=el('div'); metaRow.style.cssText='display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center';
+      const lblI=el('input'); lblI.value=v.label||''; lblI.placeholder='Label (e.g. Hero TVC)'; lblI.style.cssText='background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px;width:100%';
       lblI.oninput=()=>{ vids[idx].label=lblI.value; persist(false); };
       const orSel=el('select'); orSel.style.cssText='background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px;cursor:pointer';
       [['horizontal','↔ H'],['vertical','↕ V']].forEach(([val,txt])=>{ const o=el('option'); o.value=val; o.textContent=txt; if((v.orientation||'horizontal')===val)o.selected=true; orSel.append(o); });
       orSel.onchange=()=>{ vids[idx].orientation=orSel.value; persist(false); render(); };
       const rm=el('button'); rm.textContent='✕'; rm.style.cssText='background:none;border:1px solid #3a3a44;border-radius:6px;color:#888;padding:8px 10px;cursor:pointer;font-size:13px';
       rm.onclick=()=>{ vids.splice(idx,1); persist(false); render(); };
-      row.append(idI,lblI,orSel,rm); list.append(row);
+      metaRow.append(lblI,orSel,rm); row.append(urlWrap,metaRow); list.append(row);
     }
     vids.forEach((v,i)=>addRow(v,i));
     const addBtn=el('button'); addBtn.textContent='＋ Add Video'; addBtn.style.cssText='background:#0d0d0f;border:1px dashed #3a3a44;border-radius:8px;color:var(--gold,#f0c233);padding:10px;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px;width:100%';
-    addBtn.onclick=()=>{ vids.push({id:'',label:'',orientation:'horizontal'}); persist(false); render(); };
+    addBtn.onclick=()=>{ vids.push({id:'',label:'',orientation:'horizontal',source:'vimeo'}); persist(false); render(); };
     w.append(list,addBtn); return w;
   }
 
   function articlesSection(p){
     if(!Array.isArray(p.articles)) p.articles=[];
     const arts=p.articles; const w=el('div'); w.className='zp-card';
-    w.innerHTML='<div class="zp-sl">Articles & Posts</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Written Content</div><div class="zp-hint" style="margin-bottom:14px">Posts, articles, captions — auto-appear in X, LinkedIn, Instagram feeds based on the platforms selected above.</div>';
+    w.innerHTML='<div class="zp-sl">Articles & Posts</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Written Content</div><div class="zp-hint" style="margin-bottom:14px">Paste a social post URL to pull it into the feed — or write copy manually. Both auto-appear in the right platform feed.</div>';
     const list=el('div'); list.style.cssText='display:flex;flex-direction:column;gap:10px';
+    function detectSocPlat(url){
+      if(!url) return '';
+      if(/instagram\.com\/(p|reel|tv)\//.test(url)) return 'Instagram';
+      if(/tiktok\.com\/@[^/]+\/video\//.test(url)) return 'TikTok';
+      if(/(twitter|x)\.com\/[^/]+\/status\//.test(url)) return 'X / Twitter';
+      if(/linkedin\.com\/(posts|feed\/update|pulse)\//.test(url)) return 'LinkedIn';
+      if(/youtube\.com\/watch|youtu\.be\//.test(url)) return 'YouTube';
+      if(/facebook\.com\//.test(url)) return 'Facebook';
+      return '';
+    }
     function addRow(a,idx){
       const row=el('div'); row.style.cssText='background:#0d0d0f;border:1px solid #2c2c33;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px';
+      // Social post URL (routes to detected platform feed)
+      const socialWrap=el('div'); socialWrap.style.cssText='display:flex;flex-direction:column;gap:4px';
+      const socialI=el('input'); socialI.value=a.socialUrl||''; socialI.placeholder='🔗 Paste social post URL — Instagram, TikTok, X, LinkedIn, YouTube (auto-routes to feed)';
+      socialI.style.cssText='width:100%;background:#080808;border:1px solid #3a3a44;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
+      const socialBadge=el('div'); socialBadge.style.cssText='font-size:11px;font-weight:600;min-height:16px;padding-left:2px';
+      function updateBadge(url){
+        const plat=detectSocPlat(url);
+        socialBadge.style.color=plat?'#f0c233':'#888';
+        socialBadge.textContent=plat?'↳ Routes to '+plat+' feed':url?'↳ Platform not recognised':'';
+      }
+      updateBadge(a.socialUrl||'');
+      socialI.oninput=()=>{ const plat=detectSocPlat(socialI.value); arts[idx].socialUrl=socialI.value; arts[idx].socialPlatform=plat; updateBadge(socialI.value); persist(false); };
+      socialWrap.append(socialI,socialBadge);
+      // Title (optional — use when you also want to add copy)
       const titleI=el('input'); titleI.value=a.title||''; titleI.placeholder='Headline / title (optional)';
       titleI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
       titleI.oninput=()=>{ arts[idx].title=titleI.value; persist(false); };
-      const bodyI=el('textarea'); bodyI.value=a.body||''; bodyI.placeholder='Post copy / article body…';
-      bodyI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px;min-height:80px;resize:vertical;line-height:1.5';
+      // Body copy
+      const bodyI=el('textarea'); bodyI.value=a.body||''; bodyI.placeholder='Post copy / article body (for text-only posts without a URL)…';
+      bodyI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px;min-height:70px;resize:vertical;line-height:1.5';
       bodyI.oninput=()=>{ arts[idx].body=bodyI.value; persist(false); };
-      const linkI=el('input'); linkI.value=a.link||''; linkI.placeholder='Link URL (optional)';
+      // External link (optional)
+      const linkI=el('input'); linkI.value=a.link||''; linkI.placeholder='External article link (optional)';
       linkI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
       linkI.oninput=()=>{ arts[idx].link=linkI.value; persist(false); };
       const rm=el('button'); rm.textContent='✕ Remove'; rm.style.cssText='align-self:flex-end;background:none;border:1px solid #3a3a44;border-radius:6px;color:#888;padding:5px 12px;font-size:11px;cursor:pointer';
       rm.onclick=()=>{ arts.splice(idx,1); persist(false); render(); };
-      row.append(titleI,bodyI,linkI,rm); list.append(row);
+      row.append(socialWrap,titleI,bodyI,linkI,rm); list.append(row);
     }
     arts.forEach((a,i)=>addRow(a,i));
     const addBtn=el('button'); addBtn.textContent='＋ Add Article / Post'; addBtn.style.cssText='background:#0d0d0f;border:1px dashed #3a3a44;border-radius:8px;color:var(--gold,#f0c233);padding:10px;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px;width:100%';
-    addBtn.onclick=()=>{ arts.push({title:'',body:'',link:''}); persist(false); render(); };
+    addBtn.onclick=()=>{ arts.push({title:'',body:'',link:'',socialUrl:'',socialPlatform:''}); persist(false); render(); };
+    w.append(list,addBtn); return w;
+  }
+
+  // ── Brief / Presentation modal ───────────────────────────────────────────
+  function openBriefModal(title,canvaUrl,embedUrl){
+    let modal=document.getElementById('zz-brief-modal');
+    if(!modal){
+      modal=document.createElement('div'); modal.id='zz-brief-modal';
+      modal.style.cssText='position:fixed;inset:0;z-index:99999;display:none;flex-direction:column;background:#07070a';
+      modal.innerHTML='<div style="display:flex;align-items:center;gap:12px;padding:12px 20px;background:#111118;border-bottom:1px solid #2c2c33;flex-shrink:0"><button id="zzBMclose" style="background:none;border:1px solid #3a3a44;border-radius:6px;color:#aaa;padding:6px 14px;font-size:15px;cursor:pointer;font-family:inherit">✕</button><span id="zzBMtitle" style="font-size:15px;font-weight:800;color:#fff;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span><a id="zzBMlink" href="#" target="_blank" rel="noopener" style="font-size:11px;color:#f0c233;text-decoration:none;font-weight:700;border:1px solid rgba(240,194,51,.3);border-radius:6px;padding:6px 14px;white-space:nowrap;flex-shrink:0">Open in Canva ↗</a></div><div style="flex:1;position:relative"><iframe id="zzBMframe" src="" style="position:absolute;inset:0;width:100%;height:100%;border:none" allowfullscreen allow="fullscreen;autoplay"></iframe></div>';
+      document.body.appendChild(modal);
+      document.getElementById('zzBMclose').onclick=()=>{modal.style.display='none';document.getElementById('zzBMframe').src='';};
+    }
+    document.getElementById('zzBMtitle').textContent=title;
+    document.getElementById('zzBMlink').href=canvaUrl;
+    document.getElementById('zzBMframe').src=embedUrl||canvaUrl;
+    modal.style.display='flex';
+  }
+  window.openBriefModal=openBriefModal;
+
+  function briefsSection(p){
+    if(!Array.isArray(p.briefs)) p.briefs=[];
+    const briefs=p.briefs; const w=el('div'); w.className='zp-card';
+    w.innerHTML='<div class="zp-sl">Creative Briefs</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Presentations & Briefs</div><div class="zp-hint" style="margin-bottom:14px">Paste a Canva share link — opens as a full-screen professional brief presenter on the brand page.</div>';
+
+    function canvaEmbed(url){ const m=url.match(/canva\.com\/design\/([^/?]+)/); return m?'https://www.canva.com/design/'+m[1]+'/view?embed':''; }
+
+    // Preview cards for existing briefs with valid URLs
+    const readyBriefs=briefs.filter(b=>b.canvaUrl&&b.canvaUrl.includes('canva.com'));
+    if(readyBriefs.length){
+      const previews=el('div'); previews.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px';
+      readyBriefs.forEach(b=>{
+        const card=el('div'); card.style.cssText='background:linear-gradient(135deg,#1a0d2e,#0d0d14);border:1px solid #3a2a5a;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:border-color .2s';
+        card.onmouseover=()=>card.style.borderColor='#7b2d8b';
+        card.onmouseout=()=>card.style.borderColor='#3a2a5a';
+        const ico=el('div'); ico.style.cssText='width:44px;height:44px;background:linear-gradient(135deg,#7b2d8b,#3d1a6e);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px';
+        ico.textContent='📋';
+        const info=el('div');
+        info.innerHTML='<div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:3px">'+(b.title||'Creative Brief')+'</div><div style="font-size:10px;color:#888;letter-spacing:.05em">Canva Presentation</div>';
+        const btn=el('button'); btn.textContent='▶ Present Brief';
+        btn.style.cssText='background:linear-gradient(135deg,#7b2d8b,#3d1a6e);border:none;border-radius:8px;color:#fff;padding:9px 14px;font-size:12px;font-weight:800;cursor:pointer;width:100%;letter-spacing:.04em';
+        btn.onclick=()=>openBriefModal(b.title||'Creative Brief',b.canvaUrl,canvaEmbed(b.canvaUrl));
+        card.append(ico,info,btn); previews.append(card);
+      });
+      w.append(previews);
+    }
+
+    // Edit rows
+    const list=el('div'); list.style.cssText='display:flex;flex-direction:column;gap:8px';
+    function addRow(b,idx){
+      const row=el('div'); row.style.cssText='background:#0d0d0f;border:1px solid #2c2c33;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px';
+      const titleI=el('input'); titleI.value=b.title||''; titleI.placeholder='Brief title (e.g. "Ramadan 2024 Campaign Brief")';
+      titleI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
+      titleI.oninput=()=>{ briefs[idx].title=titleI.value; persist(false); };
+      const urlWrap=el('div'); urlWrap.style.cssText='display:flex;flex-direction:column;gap:3px';
+      const urlI=el('input'); urlI.value=b.canvaUrl||''; urlI.placeholder='Canva share URL — https://www.canva.com/design/...';
+      urlI.style.cssText='width:100%;background:#080808;border:1px solid #3a3a44;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
+      const badge=el('div'); badge.style.cssText='font-size:11px;font-weight:600;padding-left:2px;min-height:14px';
+      function refreshBadge(){ const ok=canvaEmbed(urlI.value); badge.style.color=ok?'#f0c233':'#888'; badge.textContent=ok?'↳ Canva presentation detected':urlI.value?'↳ Not a Canva link':''; }
+      refreshBadge();
+      urlI.oninput=()=>{ briefs[idx].canvaUrl=urlI.value; refreshBadge(); persist(false); };
+      urlWrap.append(urlI,badge);
+      const rm=el('button'); rm.textContent='✕ Remove'; rm.style.cssText='align-self:flex-end;background:none;border:1px solid #3a3a44;border-radius:6px;color:#888;padding:5px 12px;font-size:11px;cursor:pointer';
+      rm.onclick=()=>{ briefs.splice(idx,1); persist(false); render(); };
+      row.append(titleI,urlWrap,rm); list.append(row);
+    }
+    briefs.forEach((b,i)=>addRow(b,i));
+    const addBtn=el('button'); addBtn.textContent='＋ Add Brief / Presentation';
+    addBtn.style.cssText='background:#0d0d0f;border:1px dashed #3a3a44;border-radius:8px;color:var(--gold,#f0c233);padding:10px;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px;width:100%';
+    addBtn.onclick=()=>{ briefs.push({title:'',canvaUrl:''}); persist(false); render(); };
     w.append(list,addBtn); return w;
   }
 
@@ -405,6 +515,7 @@
     // gallery first so it's immediately visible, then analytics
     wrap.append(vimeoSection(p));
     wrap.append(articlesSection(p));
+    wrap.append(briefsSection(p));
     wrap.append(mediaGallery(p));
     wrap.append(analyticsRow(p));
     wrap.append(chartBlock(p));

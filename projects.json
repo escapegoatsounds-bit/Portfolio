@@ -51,7 +51,7 @@
       "orientation": "horizontal"
      },
      {
-      "id": "1205307505",
+      "id": "1205310638",
       "label": "Coolray SM Launch",
       "orientation": "horizontal"
      },
@@ -68,12 +68,13 @@
     "platforms": [
      "YouTube"
     ],
+    "articles": [],
     "type": "AI Production"
    }
   ],
   "brand": {
-   "since": "",
-   "services": "",
+   "since": "2025",
+   "services": "TVC, AI production",
    "cover": "assets/photos/Screenshot_2026-06-29_034917.png",
    "market": "UAE",
    "summary": "Geely is China's largest privately-owned automotive manufacturer, operating brands including Geely Auto, Volvo, and Polestar. Their Coolray and Emgrand SUV range marks Geely's ambitious expansion into the MENA automotive market.",
@@ -85,5 +86,247 @@
  "_test": {
   "brand": {},
   "projects": []
+ },
+ "ACUD": {
+  "brand": {
+   "industry": "Real Estate",
+   "market": "Egypt",
+   "since": "2022",
+   "services": "Social media",
+   "website": "https://acud.eg/",
+   "summary": "ACUD (Administrative Capital for Urban Development) is the state-owned enterprise responsible for the planning, development, and management of Egypt’s New Capital.  Founded in 2016, ACUD serves as the primary developer and operator for this massive urban project, which is designed to be a \"smart\" and sustainable city",
+   "cover": ""
+  },
+  "projects": [
+   {
+    "name": "",
+    "client": "ACUD",
+    "date": "2022",
+    "role": "Lead Creative",
+    "status": "Delivered",
+    "deliverables": "Linkedin and SM management",
+    "desc": "By 2022, ACUD transitioned from mere construction updates to a narrative of national realization, tackling the skepticism inherent in selling a desert megaproject by shifting from transactional real estate marketing to high-production documentary-style storytelling. Their strategy centered on humanizing the vast, clinical expanse of the New Administrative Capital by anchoring its identity in Egyptian culture, utilizing cinematic visuals and high-status influencers to transform the city from a perceived \"government complex\" into a tangible, aspirational vision of the future. This pivotal branding pivot effectively synthesized the project's complex \"Smart City\" ambitions with a sense of national pride, successfully cultivating a narrative of inevitability that muted early criticism and primed the public for the massive digital and infrastructural integration that would define the city’s next phase.",
+    "cover": "",
+    "analytics": {
+     "reach": "51.45 million",
+     "duration": "1 year",
+     "audience": "Public"
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": "54000000",
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": "140000",
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": "",
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042058.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042050.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042045.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042039.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042028.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042713.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042709.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042705.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042657.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042652.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042645.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_042639.png"
+     }
+    ],
+    "vimeo": [],
+    "types": [
+     "Social Media",
+     "Copy",
+     "PR",
+     "Branding"
+    ],
+    "platforms": [
+     "LinkedIn",
+     "Facebook",
+     "YouTube",
+     "Instagram"
+    ]
+   }
+  ],
+  "active": 0
+ },
+ "Subway-Oman": {
+  "brand": {
+   "industry": "F&B",
+   "market": "Oman",
+   "since": "2023",
+   "services": "Social Media",
+   "website": "",
+   "summary": "Challenge: Developing an engaging animated Ramadan calendar campaign while ensuring precise motion timing and accurate product representation for the regional market.\nSolution: Directed the design and animation optimization process, refining motion speeds and sandwich sizing to align perfectly with brand guidelines and elevate the festive promotional rollout.",
+   "cover": ""
+  },
+  "projects": [
+   {
+    "name": "",
+    "client": "Subway Oman",
+    "date": "2023",
+    "role": "Creative Director",
+    "status": "Delivered",
+    "deliverables": "",
+    "desc": "Challenge: Overcoming severe brand resistance and consumer boycotts by navigating a highly sensitive geopolitical climate that heavily impacted multinational fast food chains.\nSolution: Executed a comprehensive localization strategy that deeply integrated authentic Omani cultural elements into digital campaigns, shifting the brand narrative from a global franchise to a community integrated entity.\nDeliverables: Culturally tailored social media calendars, localized visual assets, and animated regional promotional content.\nAchievements: Successfully mitigated negative sentiment, stabilized audience engagement metrics, and reestablished brand trust within the local demographic.",
+    "cover": "assets/photos/Screenshot_2026-06-29_050439.png",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4C_JEbNIIOZmVideo_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4C0toIyjoDHDVideo_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4C5JMoS6v5l7Video_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4DGQtNnlob-WVideo_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4DAHBpyDOwjqVideo_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4C-41wRIuCkOVideo_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4C24u2GEIZZ6Video_by_subwayoman.mp4"
+     },
+     {
+      "kind": "video",
+      "src": "assets/videos/Video_by_subwayoman.mp4C8RpzW2KsB4Video_by_subwayoman.mp4"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_051051.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_051042.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_051027.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_051013.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_050950.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_050509.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_050502.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_050454.png"
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/Screenshot_2026-06-29_050448.png"
+     }
+    ],
+    "vimeo": [
+     {
+      "id": "1205331558",
+      "label": "Social Media post",
+      "orientation": "vertical"
+     },
+     {
+      "id": "",
+      "label": "",
+      "orientation": "horizontal"
+     }
+    ],
+    "types": [],
+    "platforms": [],
+    "articles": []
+   }
+  ],
+  "active": 0
  }
 }
