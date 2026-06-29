@@ -787,14 +787,27 @@ buildAppPanels();
   }
   function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
   function vidSrc(v){return v.source==='drive'?'https://drive.google.com/file/d/'+v.id+'/preview':'https://player.vimeo.com/video/'+v.id+'?color=f0c233&title=0&byline=0&portrait=0&dnt=1';}
+  function vidLink(v){return v.source==='drive'?'https://drive.google.com/file/d/'+v.id+'/view':'https://vimeo.com/'+v.id;}
+  function vidPlatformLabel(v){return v.source==='drive'?'Google Drive':'Vimeo';}
+  function vidPlatformColor(v){return v.source==='drive'?'#4285f4':'#00adef';}
   function vimeoThumb(b,v,proj,aspect){
+    const isVertical=aspect==='9/16';
+    const link=vidLink(v);
+    const label=v.label||proj.name||b.n;
     return `<div style="margin-bottom:18px;padding:0 14px">
-      <div style="width:100%;aspect-ratio:${aspect};background:#000;border-radius:10px;overflow:hidden;margin-bottom:8px">
-        <iframe src="${vidSrc(v)}" width="100%" height="100%" style="border:none;display:block" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
+      <a href="${link}" target="_blank" rel="noopener" style="display:block;width:100%;aspect-ratio:${aspect};background:linear-gradient(145deg,#111,#1a1a1a);border-radius:10px;overflow:hidden;position:relative;text-decoration:none;border:1px solid rgba(255,255,255,.07)" onclick="event.stopPropagation()">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .2s">▶</div>
+          <div style="text-align:center;padding:0 20px">
+            <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">${label}</div>
+            <div style="font-size:10px;color:${vidPlatformColor(v)};font-weight:600;letter-spacing:.05em">${vidPlatformLabel(v)} · tap to watch</div>
+          </div>
+        </div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(${b.c.replace('#','').match(/.{2}/g).map(h=>parseInt(h,16)).join(',')},0.15) 0%,transparent 70%)"></div>
+      </a>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
         <div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff">${v.label||proj.name||b.n}</div><div style="font-size:11px;color:#aaa">${b.n}${proj.date?' · '+proj.date:''}</div></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n}${proj.date?' · '+proj.date:''}</div></div>
       </div></div>`;
   }
 
@@ -812,9 +825,12 @@ buildAppPanels();
           <div style="width:38px;height:38px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
           <div><div style="font-size:13px;font-weight:700">${b.n}</div><div style="font-size:11px;color:rgba(255,255,255,.4)">${v.label||proj.name||''}</div></div>
         </div>
-        <div style="padding:0 14px"><div style="width:100%;aspect-ratio:${v.orientation==='vertical'?'9/16':'16/9'};background:#000;border-radius:8px;overflow:hidden">
-          <iframe src="${vidSrc(v)}" width="100%" height="100%" style="border:none;display:block" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe>
-        </div></div>
+        <div style="padding:0 14px"><a href="${vidLink(v)}" target="_blank" rel="noopener" style="display:block;width:100%;aspect-ratio:${v.orientation==='vertical'?'9/16':'16/9'};background:linear-gradient(145deg,#111,#1a1a1a);border-radius:8px;overflow:hidden;position:relative;text-decoration:none;border:1px solid rgba(255,255,255,.07)">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+            <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:20px">▶</div>
+            <div style="font-size:10px;color:${vidPlatformColor(v)};font-weight:600;letter-spacing:.05em">${vidPlatformLabel(v)} · tap to watch</div>
+          </div>
+        </a></div>
       </div>`).join('');
     inject('screen-tiktok',html); inject('panel-tiktok',html);
   }

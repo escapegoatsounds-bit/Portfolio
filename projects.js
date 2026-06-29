@@ -278,17 +278,25 @@
     const vids=p.vimeo; const w=el('div'); w.className='zp-card';
     w.innerHTML='<div class="zp-sl">Campaign Videos</div><div style="font-size:18px;font-weight:800;margin-bottom:4px">Videos</div><div class="zp-hint" style="margin-bottom:14px">Paste a Vimeo or Google Drive video URL — auto-detected, embedded in YouTube / TikTok feeds.</div>';
 
+    function videoCard(v){
+      const isDrive=v.source==='drive';
+      const link=isDrive?'https://drive.google.com/file/d/'+v.id+'/view':'https://vimeo.com/'+v.id;
+      const platLabel=isDrive?'Google Drive':'Vimeo';
+      const platColor=isDrive?'#4285f4':'#00adef';
+      const aspect=v.orientation==='vertical'?'9/16':'16/9';
+      return '<a href="'+link+'" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:'+aspect+';background:linear-gradient(145deg,#111,#1c1c20);border-radius:10px;text-decoration:none;border:1px solid #2c2c33;margin-bottom:14px"><div style="text-align:center"><div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 10px">▶</div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">'+(v.label||'Video')+'</div><div style="font-size:10px;color:'+platColor+';font-weight:600;letter-spacing:.05em">'+platLabel+' · click to watch</div></div></a>';
+    }
+
     const active=vids.filter(v=>v.id);
     if(active.length===1){
-      const prev=el('div'); prev.style.marginBottom='14px';
-      prev.innerHTML=videoEmbed(active[0]); w.append(prev);
+      const prev=el('div'); prev.innerHTML=videoCard(active[0]); w.append(prev);
     } else if(active.length>1){
       const tabBar=el('div'); tabBar.style.cssText='display:flex;border-bottom:1px solid #2c2c33;margin-bottom:0;background:#080808;border-radius:8px 8px 0 0;overflow:hidden';
       const panels=el('div'); panels.style.marginBottom='14px';
       active.forEach((v,i)=>{
         const tb=el('button'); tb.style.cssText='padding:8px 16px;background:none;border:none;border-bottom:2px solid '+(i===0?'#f0c233':'transparent')+';color:'+(i===0?'#f0c233':'#666')+';font-size:12px;font-weight:'+(i===0?'700':'400')+';cursor:pointer;font-family:inherit';
         tb.textContent=v.label||('Video '+(i+1));
-        const pan=el('div'); pan.style.display=i===0?'block':'none'; pan.innerHTML=videoEmbed(v);
+        const pan=el('div'); pan.style.display=i===0?'block':'none'; pan.innerHTML=videoCard(v);
         tb.onclick=()=>{ Array.from(tabBar.children).forEach((b,j)=>{ b.style.borderBottomColor=j===i?'#f0c233':'transparent'; b.style.color=j===i?'#f0c233':'#666'; b.style.fontWeight=j===i?'700':'400'; }); Array.from(panels.children).forEach((d,j)=>d.style.display=j===i?'block':'none'); };
         tabBar.append(tb); panels.append(pan);
       });
