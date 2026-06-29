@@ -731,6 +731,147 @@ const PLATFORM_CHROME={
 function buildAppPanels(){document.getElementById('appPanels').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];let body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';if(PLATFORM_CHROME[key])body=PLATFORM_CHROME[key](body);const noHdr=!!PLATFORM_CHROME[key]||key==='instagram';return `<div class="panel-app" id="panel-${key}">${noHdr?'':`<div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div>`}<div class="panel-app-body" style="">${body}</div></div>`;}).join('');}
 buildAppPanels();
 
+// ── Dynamic content from projects.json ──────────────────────────────────────
+// Reads saved campaign data and injects videos, photos, articles into the
+// phone screens (SCREENS) and desktop panels (PANELS) automatically based
+// on which platforms are selected in each project tab.
+(async function loadProjectsContent(){
+  let store;
+  try{ const r=await fetch('/projects.json?t='+Date.now()); if(!r.ok)return; store=await r.json(); }catch(e){return;}
+
+  const platMap={'YouTube':'youtube','Instagram':'instagram','TikTok':'tiktok','X / Twitter':'x','LinkedIn':'linkedin','Facebook':'instagram','Snapchat':'tiktok'};
+
+  // Buckets: panelKey → [{b, item, proj, slug}]
+  const vids={}, imgs={}, arts={};
+  Object.entries(store).forEach(([slug,bd])=>{
+    const b=B[slug]; if(!b) return;
+    (bd.projects||[]).forEach(proj=>{
+      const platforms=Array.isArray(proj.platforms)?proj.platforms:[];
+      platforms.forEach(plat=>{
+        const key=platMap[plat]; if(!key) return;
+        if(['youtube','tiktok'].includes(key))
+          (proj.vimeo||[]).filter(v=>v.id).forEach(v=>(vids[key]=vids[key]||[]).push({b,v,proj,slug}));
+        if(['instagram'].includes(key))
+          (proj.media||[]).filter(m=>m.src&&(m.kind==='img'||!m.kind)).forEach(m=>(imgs[key]=imgs[key]||[]).push({b,m,proj,slug}));
+        if(['x','linkedin','instagram'].includes(key))
+          (proj.articles||[]).filter(a=>a.body||a.title).forEach(a=>(arts[key]=arts[key]||[]).push({b,a,proj,slug}));
+      });
+    });
+  });
+
+  function inject(id,html){
+    if(!html) return;
+    const wrap=document.getElementById(id); if(!wrap) return;
+    const body=wrap.querySelector('.app-body,.panel-app-body'); if(!body) return;
+    const sec=document.createElement('div'); sec.className='dyn-content';
+    sec.innerHTML=html; body.insertBefore(sec,body.firstChild);
+  }
+  function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
+  function vimeoThumb(b,v,proj,aspect){
+    return `<div style="margin-bottom:18px;padding:0 14px">
+      <div style="width:100%;aspect-ratio:${aspect};background:#000;border-radius:10px;overflow:hidden;margin-bottom:8px">
+        <iframe src="https://player.vimeo.com/video/${v.id}?color=f0c233&title=0&byline=0&portrait=0&dnt=1" width="100%" height="100%" style="border:none;display:block" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff">${v.label||proj.name||b.n}</div><div style="font-size:11px;color:#aaa">${b.n}${proj.date?' · '+proj.date:''}</div></div>
+      </div></div>`;
+  }
+
+  // YouTube
+  if(vids.youtube&&vids.youtube.length){
+    const html=sectionHdr('📹 From Campaigns')+vids.youtube.map(({b,v,proj})=>vimeoThumb(b,v,proj,'16/9')).join('');
+    inject('screen-youtube',html); inject('panel-youtube',html);
+  }
+
+  // TikTok
+  if(vids.tiktok&&vids.tiktok.length){
+    const html=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>`
+      <div style="border-bottom:1px solid #1a1a1a;padding:10px 0">
+        <div style="display:flex;gap:10px;padding:0 14px;align-items:center;margin-bottom:8px">
+          <div style="width:38px;height:38px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
+          <div><div style="font-size:13px;font-weight:700">${b.n}</div><div style="font-size:11px;color:rgba(255,255,255,.4)">${v.label||proj.name||''}</div></div>
+        </div>
+        <div style="padding:0 14px"><div style="width:100%;aspect-ratio:${v.orientation==='vertical'?'9/16':'16/9'};background:#000;border-radius:8px;overflow:hidden">
+          <iframe src="https://player.vimeo.com/video/${v.id}?color=f0c233&title=0&byline=0&portrait=0&dnt=1" width="100%" height="100%" style="border:none;display:block" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe>
+        </div></div>
+      </div>`).join('');
+    inject('screen-tiktok',html); inject('panel-tiktok',html);
+  }
+
+  // Instagram: photos
+  if(imgs.instagram&&imgs.instagram.length){
+    const html=sectionHdr('📸 Campaign Photos')+imgs.instagram.map(({b,m,proj})=>{
+      const src=/^(https?:|\/\/)/.test(m.src)?m.src:'/'+m.src.replace(/^\//,'');
+      return `<div class="feed-post">
+        <div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div>
+        <div><div class="feed-user">${b.n}</div><div class="feed-sub">ZIZO · ${proj.name||'Campaign'}</div></div></div>
+        <a href="${brandLink(b.s)}" class="feed-img" style="height:220px;display:block;overflow:hidden;background:#111">
+          <img src="${src}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentNode.style.background='linear-gradient(135deg,${b.c},#000)'">
+        </a>
+        <div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div>
+        <div class="feed-cap"><b>${b.n}</b> ${proj.name||''}</div>
+      </div>`;}).join('');
+    inject('screen-instagram',html); inject('panel-instagram',html);
+  }
+
+  // Instagram: articles as captions
+  if(arts.instagram&&arts.instagram.length){
+    const html=arts.instagram.map(({b,a,proj})=>`<div class="feed-post">
+      <div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div>
+      <div><div class="feed-user">${b.n}</div><div class="feed-sub">ZIZO · Post</div></div></div>
+      <div style="padding:12px 14px 4px;font-size:13px;line-height:1.6;color:var(--m2)">
+        ${a.title?'<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">'+a.title+'</div>':''}${a.body}
+        ${a.link?'<div style="margin-top:4px"><a href="'+a.link+'" style="color:var(--gold);font-size:12px">'+a.link+'</a></div>':''}
+      </div>
+      <div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div>
+    </div>`).join('');
+    // append to existing IG section if any
+    ['screen-instagram','panel-instagram'].forEach(id=>{
+      const w=document.getElementById(id); if(!w) return;
+      const body=w.querySelector('.app-body,.panel-app-body'); if(!body) return;
+      let dyn=body.querySelector('.dyn-content');
+      if(dyn) dyn.innerHTML+=html;
+      else { const s=document.createElement('div'); s.className='dyn-content'; s.innerHTML=html; body.insertBefore(s,body.firstChild); }
+    });
+  }
+
+  // X / Twitter: articles
+  if(arts.x&&arts.x.length){
+    const html=sectionHdr('📰 Campaign Posts')+arts.x.map(({b,a})=>`
+      <div style="border-bottom:1px solid #2f3336;padding:14px 16px">
+        <div style="display:flex;gap:10px">
+          <div style="width:38px;height:38px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;gap:6px;align-items:baseline;margin-bottom:3px"><span style="font-weight:700;font-size:14px">${b.n}</span><span style="color:#71767b;font-size:12px">@ZIZO · Campaign</span></div>
+            ${a.title?'<div style="font-size:11px;color:#1d9bf0;font-weight:600;margin-bottom:4px">'+a.title+'</div>':''}
+            <div style="font-size:15px;color:#e7e9ea;line-height:1.5;margin-bottom:6px">${a.body}</div>
+            ${a.link?'<div style="border:1px solid #2f3336;border-radius:8px;padding:8px 10px;margin-bottom:6px"><a href="'+a.link+'" style="color:#1d9bf0;font-size:12px">'+a.link+'</a></div>':''}
+            <div style="display:flex;gap:20px;color:#71767b;font-size:13px"><span>💬</span><span>🔁</span><span>♡</span></div>
+          </div>
+        </div>
+      </div>`).join('');
+    inject('screen-x',html); inject('panel-x',html);
+  }
+
+  // LinkedIn: articles
+  if(arts.linkedin&&arts.linkedin.length){
+    const html=sectionHdr('📋 Campaign Posts')+arts.linkedin.map(({b,a})=>`
+      <div class="acard">
+        <div class="acard-body">
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+            <div style="width:36px;height:36px;background:${b.c};border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'6px')}</div>
+            <div><div style="font-size:13px;font-weight:700">${b.n}</div><div class="acard-meta">ZIZO · Campaign</div></div>
+          </div>
+          ${a.title?'<div style="font-size:14px;font-weight:700;margin-bottom:6px">'+a.title+'</div>':''}
+          <div style="font-size:13px;color:var(--m2);line-height:1.6">${a.body}</div>
+          ${a.link?'<div style="margin-top:6px"><a href="'+a.link+'" style="color:var(--gold);font-size:12px">Read more →</a></div>':''}
+        </div>
+      </div>`).join('');
+    inject('screen-linkedin',html); inject('panel-linkedin',html);
+  }
+})();
+
 (function(){const sl=document.querySelectorAll('.hero-slides img');if(!sl.length)return;const dots=document.querySelector('.hero-dots');sl.forEach((_,i)=>{const d=document.createElement('span');if(i===0)d.classList.add('on');d.onclick=()=>go(i);dots.appendChild(d);});let cur=0,timer;function go(i){sl[cur].classList.remove('on');dots.children[cur].classList.remove('on');cur=i;sl[cur].classList.add('on');dots.children[cur].classList.add('on');clearInterval(timer);timer=setInterval(()=>go((cur+1)%sl.length),3800);}timer=setInterval(()=>go((cur+1)%sl.length),3800);})();
 function startGame(){gameNav('play');}
 function gameNav(mode){openApp('skills');const f=document.getElementById('gameFrame');if(f){f.src='game.html#'+mode+'&t='+Math.random();f.onload=()=>{try{f.contentWindow.focus();}catch(_){}};}}

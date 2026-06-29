@@ -51,7 +51,7 @@
     const p={}; PROJ_FIELDS.forEach(f=>p[f[0]]=''); p.client=brandName; p.desc='';
     p.cover=''; p.analytics={reach:'',duration:'',audience:''}; p.chartType='bar';
     p.chartData=[{label:'Reach',value:60,color:PALETTE[0]},{label:'Engagement',value:25,color:PALETTE[1]},{label:'Conversion',value:15,color:PALETTE[2]}];
-    p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; return p;
+    p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; p.articles=[]; return p;
   }
   function defaults(){
     const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover='';
@@ -102,6 +102,7 @@
       np.analytics=Object.assign({reach:'',duration:'',audience:''},p.analytics||{});
       if(!Array.isArray(np.chartData)||!np.chartData.length) np.chartData=blankProject().chartData;
       if(!Array.isArray(np.media)) np.media=[];
+      if(!Array.isArray(np.articles)) np.articles=[];
       // migrate old single-object format to array
       if(Array.isArray(p.vimeo)) np.vimeo=p.vimeo;
       else if(p.vimeo && p.vimeo.id) np.vimeo=[{id:p.vimeo.id,label:p.vimeo.label||'',orientation:p.vimeo.orientation||'horizontal'}];
@@ -317,6 +318,32 @@
     w.append(list,addBtn); return w;
   }
 
+  function articlesSection(p){
+    if(!Array.isArray(p.articles)) p.articles=[];
+    const arts=p.articles; const w=el('div'); w.className='zp-card';
+    w.innerHTML='<div class="zp-sl">Articles & Posts</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Written Content</div><div class="zp-hint" style="margin-bottom:14px">Posts, articles, captions — auto-appear in X, LinkedIn, Instagram feeds based on the platforms selected above.</div>';
+    const list=el('div'); list.style.cssText='display:flex;flex-direction:column;gap:10px';
+    function addRow(a,idx){
+      const row=el('div'); row.style.cssText='background:#0d0d0f;border:1px solid #2c2c33;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px';
+      const titleI=el('input'); titleI.value=a.title||''; titleI.placeholder='Headline / title (optional)';
+      titleI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
+      titleI.oninput=()=>{ arts[idx].title=titleI.value; persist(false); };
+      const bodyI=el('textarea'); bodyI.value=a.body||''; bodyI.placeholder='Post copy / article body…';
+      bodyI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px;min-height:80px;resize:vertical;line-height:1.5';
+      bodyI.oninput=()=>{ arts[idx].body=bodyI.value; persist(false); };
+      const linkI=el('input'); linkI.value=a.link||''; linkI.placeholder='Link URL (optional)';
+      linkI.style.cssText='width:100%;background:#080808;border:1px solid #2c2c33;border-radius:6px;color:#f4f2ed;padding:8px 10px;font-size:13px';
+      linkI.oninput=()=>{ arts[idx].link=linkI.value; persist(false); };
+      const rm=el('button'); rm.textContent='✕ Remove'; rm.style.cssText='align-self:flex-end;background:none;border:1px solid #3a3a44;border-radius:6px;color:#888;padding:5px 12px;font-size:11px;cursor:pointer';
+      rm.onclick=()=>{ arts.splice(idx,1); persist(false); render(); };
+      row.append(titleI,bodyI,linkI,rm); list.append(row);
+    }
+    arts.forEach((a,i)=>addRow(a,i));
+    const addBtn=el('button'); addBtn.textContent='＋ Add Article / Post'; addBtn.style.cssText='background:#0d0d0f;border:1px dashed #3a3a44;border-radius:8px;color:var(--gold,#f0c233);padding:10px;font-size:13px;font-weight:700;cursor:pointer;margin-top:4px;width:100%';
+    addBtn.onclick=()=>{ arts.push({title:'',body:'',link:''}); persist(false); render(); };
+    w.append(list,addBtn); return w;
+  }
+
   function mediaGallery(p){
     const w=el('div'); w.className='zp-card';
     w.innerHTML='<div class="zp-sl">Gallery</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Photos &amp; Videos</div><div class="zp-hint" style="margin-bottom:14px">The main event — drop the campaign films and stills here.</div>';
@@ -377,6 +404,7 @@
     wrap.append(typesCard);
     // gallery first so it's immediately visible, then analytics
     wrap.append(vimeoSection(p));
+    wrap.append(articlesSection(p));
     wrap.append(mediaGallery(p));
     wrap.append(analyticsRow(p));
     wrap.append(chartBlock(p));
