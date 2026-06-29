@@ -598,8 +598,9 @@ function brandLink(s){return 'clients/'+s+'/index.html';}
 // logoOverlay: prefers brand.logo (from projects.json, set after fetch), falls back to clients/ path.
 // onload: darkens parent bg so PNG logos are visible on any background color.
 function logoOverlay(b,radius){
-  const src=b.logo||`clients/${b.s}/assets/logo.png`;
-  return `<img src="${src}" alt="${b.n} logo" loading="lazy" onload="this.parentNode.style.background='#0e0e0e';this.parentNode.style.color='transparent'" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:${radius}">`;
+  const src=b.logo||`assets/logos/${b.s}.png`;
+  const fb=`clients/${b.s}/assets/logo.png`;
+  return `<img src="${src}" alt="${b.n} logo" loading="lazy" onload="this.parentNode.style.background='#0e0e0e';this.parentNode.style.color='transparent'" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${fb}';}else{this.remove();}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:${radius}">`;
 }
 function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};}
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
