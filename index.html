@@ -987,7 +987,7 @@ buildAppPanels();
             <div><div style="font-size:13px;font-weight:700">${b.n}</div><div class="acard-meta">Abdelaziz Askar · Campaign</div></div>
           </div>
           ${a.title?'<div style="font-size:14px;font-weight:700;margin-bottom:6px">'+a.title+'</div>':''}
-          <div style="font-size:13px;color:var(--m2);line-height:1.6">${a.body}</div>
+          <div style="font-size:13px;color:var(--m2);line-height:1.6">${(a.body||'').replace(/<[^>]+>/g,'').trim()}</div>
           ${a.link?'<div style="margin-top:6px"><a href="'+a.link+'" style="color:var(--gold);font-size:12px">Read more →</a></div>':''}
         </div>
       </div>`).join('');
@@ -1008,14 +1008,14 @@ buildAppPanels();
           <div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · ${proj.name||'Campaign'}</div></div>
           <span style="margin-left:auto;font-size:9px;padding:2px 8px;background:${col}22;color:${col};border:1px solid ${col}44;border-radius:99px;font-weight:700;flex-shrink:0">${name}</span>
         </div>
-        ${(a.title||a.body)?`<div style="padding:2px 14px 8px;font-size:13px;color:var(--m2);line-height:1.5">${a.title?'<div style="font-weight:700;color:#fff;margin-bottom:2px">'+(a.title||'')+'</div>':''}${a.body?'<div>'+(a.body||'').slice(0,160)+((a.body||'').length>160?'…':'')+'</div>':''}</div>`:''}
+        ${(a.title||a.body)?`<div style="padding:2px 14px 8px;font-size:13px;color:var(--m2);line-height:1.5">${a.title?'<div style="font-weight:700;color:#fff;margin-bottom:2px">'+(a.title||'')+'</div>':''}${a.body?'<div>'+((a.body||'').replace(/<[^>]+>/g,'').trim().slice(0,160))+((a.body||'').replace(/<[^>]+>/g,'').length>160?'…':'')+'</div>':''}</div>`:''}
         <a href="${a.socialUrl}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;margin:0 14px 12px;padding:10px 14px;background:${col}15;border:1px solid ${col}33;border-radius:8px;text-decoration:none">
           <span style="font-size:18px;flex-shrink:0;color:${col}">${icon}</span>
           <div><div style="font-size:12px;font-weight:700;color:${col}">${name} Post</div><div style="font-size:10px;color:var(--m2)">View original →</div></div>
         </a>
         <div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div>
       </div>`).join('');
-    inject('screen-'+key,html); inject('panel-'+key,html);
+    inject('panel-'+key,html); // social link previews go to panel only — phone screens show real content (photos/videos)
   });
 })();
 
