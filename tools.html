@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/photos/escapegoat-logo.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills & Tools — Abdelaziz Askar · ZIZO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0e10;--s1:#16161a;--s2:#1f1f24;--b:#2c2c33;--text:#f4f2ed;--m:#9a958c;--m2:#c2bcb2;--gold:#f0c233;--font:'Inter',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);height:56px;display:flex;align-items:center;padding:0 40px;gap:20px}
+.nl{font-size:18px;font-weight:900;letter-spacing:-.5px}.nl em{color:var(--gold);font-style:normal}
+.nb{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);transition:color .2s}.nb:hover{color:var(--gold)}.nb.on{color:var(--gold)}
+
+/* HERO */
+.hero{padding:120px 40px 80px;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:end}
+.hero-left{}
+.hero-eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.hero-h{font-size:clamp(48px,7vw,88px);font-weight:900;letter-spacing:-3px;line-height:.9;margin-bottom:24px}
+.hero-sub{font-size:15px;color:var(--m2);line-height:1.8;max-width:500px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b);border:1px solid var(--b);border-radius:8px;overflow:hidden}
+.stat{background:var(--s1);padding:24px 20px}
+.stat-n{font-size:36px;font-weight:900;color:var(--gold);letter-spacing:-1.5px;line-height:1}
+.stat-l{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--m);margin-top:4px}
+
+/* LAYOUT */
+.c{max-width:1160px;margin:0 auto;padding:0 40px}
+.section{padding:80px 0;border-bottom:1px solid var(--b)}
+.sl{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.st{font-size:clamp(28px,3.5vw,44px);font-weight:900;letter-spacing:-1.5px;margin-bottom:48px}
+
+/* CATEGORY BLOCK */
+.cat-block{margin-bottom:52px}
+.cat-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--b)}
+.cat-pip{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.cat-name{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--m2)}
+.cat-count{font-size:10px;color:var(--m);margin-left:auto}
+
+/* TOOL GRID */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.tool-card{background:var(--s1);border:1px solid var(--b);border-radius:10px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;transition:border-color .18s,transform .18s}
+.tool-card:hover{border-color:var(--gold);transform:translateY(-1px)}
+
+/* TOOL ICON */
+.ticon{width:50px;height:50px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;overflow:hidden;font-size:13px;font-weight:900;color:#fff;letter-spacing:-1px}
+.ticon img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:10px;z-index:2}
+.ticon-abbr{position:relative;z-index:1;font-size:12px;font-weight:900;line-height:1;text-align:center}
+
+/* TOOL BODY */
+.tbody{flex:1;min-width:0}
+.tname{font-size:13.5px;font-weight:800;margin-bottom:1px;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.tlevel{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m)}
+.tsince{font-size:11px;color:var(--gold);font-weight:600;margin-bottom:7px}
+.tbar{height:3px;background:var(--b);border-radius:2px;margin-bottom:7px;overflow:hidden}
+.tbarfill{height:100%;width:0;border-radius:2px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.tctx{font-size:11px;color:var(--m);line-height:1.5}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--gold) 0%,rgba(240,194,51,.2) 100%);border-radius:2px}
+.tl-item{position:relative;padding-left:32px;margin-bottom:48px}
+.tl-dot{position:absolute;left:-7px;top:6px;width:16px;height:16px;border-radius:50%;border:2px solid var(--gold);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.tl-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.tl-year{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.tl-title{font-size:18px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
+.tl-desc{font-size:13px;color:var(--m2);line-height:1.75;margin-bottom:10px;max-width:640px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:5px}
+.tl-tag{font-size:10.5px;padding:3px 10px;border:1px solid var(--b);border-radius:99px;color:var(--m2);background:var(--s1)}
+
+/* FOOTER */
+footer{padding:40px;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.fl{font-size:16px;font-weight:900}.fl em{color:var(--gold);font-style:normal}
+.fc{font-size:11px;color:var(--m)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:100px 20px 60px;gap:36px}
+  .hero-stats{max-width:360px}
+  .c{padding:0 20px}
+  .tool-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:540px){.tool-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nl">ZI<em>ZO</em></a>
+  <a href="index.html" class="nb">Work</a>
+  <a href="clients.html" class="nb">Brands</a>
+  <a href="about.html" class="nb">About</a>
+  <a href="tools.html" class="nb on">Skills</a>
+  <a href="news.html" class="nb">News</a>
+  <a href="contact.html" class="nb">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Skills, Software & Tools · 20 Years in the Making</div>
+    <h1 class="hero-h">Tools of<br>the trade.</h1>
+    <p class="hero-sub">Every software, platform, and AI system I've mastered — and the timeline of how each one became part of the workflow. From fine arts fundamentals to generative AI production pipelines.</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">20+</div><div class="stat-l">Years experience</div></div>
+    <div class="stat"><div class="stat-n">35+</div><div class="stat-l">Tools mastered</div></div>
+    <div class="stat"><div class="stat-n">180+</div><div class="stat-l">Brands served</div></div>
+    <div class="stat"><div class="stat-n">7</div><div class="stat-l">Markets · UAE KSA EG QA KW UK US</div></div>
+  </div>
+</div>
+
+<!-- SOFTWARE SECTION -->
+<section class="section">
+<div class="c">
+  <p class="sl">Software & Platforms</p>
+  <h2 class="st">What I use to build.</h2>
+  <div id="tool-cats"></div>
+</div>
+</section>
+
+<!-- TIMELINE SECTION -->
+<section class="section">
+<div class="c">
+  <p class="sl">Learning Journey · 2004 — 2026</p>
+  <h2 class="st">How I got here.</h2>
+  <div class="timeline" id="timeline"></div>
+</div>
+</section>
+
+<footer>
+  <span class="fl">ZI<em>ZO</em></span>
+  <p class="fc">© 2026 Abdelaziz Askar · ZIZO</p>
+</footer>
+
+<script>
+// ── TOOLS DATA ──────────────────────────────────────────────────────────────
+const CATS = [
+  {
+    name: 'Adobe Creative Suite', color: '#FF0000', pip: '#FF3333',
+    tools: [
+      {name:'Photoshop',    abbr:'Ps', bg:'#001d34', ic:'#31A8FF', si:'adobephotoshop',  pct:98, since:'2004', level:'Expert',   ctx:'Fine Arts university — 20+ years of daily use across brand design, retouching & campaign KVs'},
+      {name:'Illustrator',  abbr:'Ai', bg:'#330b00', ic:'#FF9A00', si:'adobeillustrator',pct:96, since:'2004', level:'Expert',   ctx:'University & professional brand identity. Logos, icons, print layouts, campaign artwork'},
+      {name:'InDesign',     abbr:'Id', bg:'#1c0010', ic:'#FF3366', si:'adobeindesign',   pct:82, since:'2005', level:'Advanced', ctx:'Print production, brand kits, pitch decks & multi-page publications'},
+      {name:'After Effects',abbr:'Ae', bg:'#1a013f', ic:'#9999FF', si:'adobeaftereffects',pct:80,since:'2011', level:'Advanced', ctx:'Motion graphics, animatics, title design & TVC pre-viz at Imagine Studio'},
+      {name:'Premiere Pro', abbr:'Pr', bg:'#1a013f', ic:'#9999FF', si:'adobepremierepro',pct:85, since:'2014', level:'Advanced', ctx:'TVC editing, social video & full campaign video production at Nineteen84'},
+      {name:'Adobe Firefly',abbr:'Ff', bg:'#3d1a00', ic:'#FF6A00', si:'adobefirefly',   pct:72, since:'2024', level:'Advanced', ctx:'AI-assisted design acceleration & generative fill at Tonic International'},
+    ]
+  },
+  {
+    name: 'Generative AI & Automation', color: '#6C3AFF', pip: '#8B5CF6',
+    tools: [
+      {name:'ChatGPT / GPT-4', abbr:'GPT', bg:'#0d0d0d', ic:'#19c37d', si:'openai',        pct:95, since:'2023', level:'Expert',   ctx:'Deployed for creative copy, strategy briefs, pitch decks & AI workflow automation at Tonic'},
+      {name:'Midjourney',      abbr:'MJ',  bg:'#000',    ic:'#fff',    si:'midjourney',     pct:92, since:'2023', level:'Expert',   ctx:'Campaign concepts, pitch visuals, mood boards & creative presentations'},
+      {name:'Runway ML',       abbr:'RW',  bg:'#0a0a0a', ic:'#fff',    si:'runway',         pct:85, since:'2024', level:'Advanced', ctx:'AI video generation, inpainting & motion effects at Tonic International Dubai'},
+      {name:'ElevenLabs',      abbr:'EL',  bg:'#0f0f0f', ic:'#F5A623', si:'elevenlabs',     pct:90, since:'2024', level:'Expert',   ctx:'AI voiceovers, lip-sync production & multilingual audio for TVCs & social'},
+      {name:'Suno AI',         abbr:'SN',  bg:'#0f0a00', ic:'#E9B52E', si:'sunoai',         pct:92, since:'2024', level:'Expert',   ctx:'Full commercial-grade music production for Escapegoat — no engineering team needed'},
+      {name:'DALL-E',          abbr:'DL',  bg:'#0d0d0d', ic:'#19c37d', si:'openai',         pct:80, since:'2023', level:'Advanced', ctx:'Storyboard mockups, concept art & rapid visual ideation'},
+      {name:'Adobe Firefly',   abbr:'Ff',  bg:'#3d1a00', ic:'#FF6A00', si:'adobefirefly',   pct:72, since:'2024', level:'Advanced', ctx:'Generative fill, text-to-image & AI-enhanced design inside Creative Cloud'},
+      {name:'Stable Diffusion',abbr:'SD',  bg:'#0a1020', ic:'#7c9fff', si:'',               pct:70, since:'2023', level:'Advanced', ctx:'Custom model workflows & fine-tuned brand-consistent image generation'},
+    ]
+  },
+  {
+    name: 'Video & Post-Production', color: '#DA0F3F', pip: '#EF4444',
+    tools: [
+      {name:'DaVinci Resolve',abbr:'DR', bg:'#0a0a14', ic:'#f5a623', si:'davinciresolve',  pct:78, since:'2020', level:'Advanced',    ctx:'Color grading, professional finishing & post-production at Nineteen84'},
+      {name:'Final Cut Pro',  abbr:'FC', bg:'#1a0a00', ic:'#FF7A00', si:'apple',           pct:65, since:'2022', level:'Intermediate', ctx:'Fast-turnaround social video edits & quick delivery timelines'},
+    ]
+  },
+  {
+    name: 'Design & Prototyping', color: '#0ACF83', pip: '#10B981',
+    tools: [
+      {name:'Figma',    abbr:'Fg', bg:'#1a0a1a', ic:'#A259FF', si:'figma',  pct:82, since:'2020', level:'Advanced', ctx:'UI designs, team presentation layouts, wireframes & collaborative creative briefs'},
+      {name:'Canva Pro',abbr:'Ca', bg:'#0a1a20', ic:'#00C4CC', si:'canva',  pct:95, since:'2018', level:'Expert',   ctx:'Team-wide content production, social templates & rapid campaign asset delivery'},
+    ]
+  },
+  {
+    name: 'Music & Audio Production', color: '#1DB954', pip: '#22C55E',
+    tools: [
+      {name:'FL Studio', abbr:'FL', bg:'#001a0a', ic:'#F99B1C', si:'flstudio',   pct:78, since:'2024', level:'Advanced',    ctx:'Beat production, arrangement & sound design for Escapegoat releases'},
+      {name:'Logic Pro',  abbr:'LP', bg:'#1a0a00', ic:'#FF7A00', si:'apple',     pct:65, since:'2024', level:'Intermediate', ctx:'Recording, mixing & final mastering for commercial-grade music output'},
+    ]
+  },
+  {
+    name: 'Social Media & Marketing Platforms', color: '#0061FF', pip: '#3B82F6',
+    tools: [
+      {name:'Meta Business Suite',         abbr:'Me', bg:'#001a40', ic:'#0081FB', si:'meta',        pct:93, since:'2016', level:'Expert',   ctx:'Multi-brand campaign management, paid social & analytics — 8+ years'},
+      {name:'TikTok Studio',               abbr:'Tt', bg:'#1a000a', ic:'#FE2C55', si:'tiktok',      pct:90, since:'2020', level:'Expert',   ctx:'Short-form content strategy, trend analysis & TikTok-first production'},
+      {name:'YouTube Studio',              abbr:'Yt', bg:'#1a0000', ic:'#FF0000', si:'youtube',     pct:82, since:'2018', level:'Advanced', ctx:'Channel management, analytics, content optimization & YouTube campaign strategy'},
+      {name:'LinkedIn Campaign Manager',   abbr:'Li', bg:'#001a30', ic:'#0A66C2', si:'linkedin',    pct:78, since:'2018', level:'Advanced', ctx:'B2B strategy, lead generation campaigns & professional content management'},
+      {name:'Snapchat for Business',       abbr:'Sc', bg:'#1a1a00', ic:'#FFFC00', si:'snapchat',    pct:75, since:'2018', level:'Advanced', ctx:'Snap Ads, AR lens campaigns & Snapchat-first strategy for brands'},
+      {name:'Instagram Insights',          abbr:'Ig', bg:'#1a0020', ic:'#E1306C', si:'instagram',   pct:95, since:'2016', level:'Expert',   ctx:'Full-funnel Instagram strategy — organic, paid, Reels & influencer campaigns'},
+      {name:'Google Analytics',            abbr:'GA', bg:'#001a10', ic:'#E37400', si:'googleanalytics', pct:75, since:'2015', level:'Advanced', ctx:'Campaign performance tracking, audience analysis & data-driven reporting'},
+    ]
+  },
+];
+
+// ── TIMELINE DATA ──────────────────────────────────────────────────────────
+const TL = [
+  {year:'2004',title:'Fine Arts begins',
+   desc:'Enrolled at Alexandria University — Bachelor of Fine Arts, Computer Graphics Communication. First serious exposure to Adobe Creative Suite as a professional discipline. Design fundamentals, typography, visual communication.',
+   tags:['Photoshop','Illustrator','InDesign','Fine Arts','Typography']},
+  {year:'2009',title:'Graduated & entered the industry',
+   desc:'BFA completed. First professional design and photography work in Alexandria. Built client brand identities, print materials and corporate photography portfolios.',
+   tags:['Brand Identity','Photography','Print Production','Commercial Design']},
+  {year:'2011',title:'Co-founded Imagine Creative Studio',
+   desc:'Co-created a photography and design studio in Alexandria. Expanded into motion graphics and video production — learned After Effects from scratch to produce animated brand content.',
+   tags:['After Effects','Commercial Photography','Video Production','Motion Graphics']},
+  {year:'2014',title:'Digital & social shift',
+   desc:'Marketing & Call Center PM role. First immersion in digital marketing — content calendars, social platform management, campaign analytics and data reporting tools.',
+   tags:['Digital Marketing','Social Media','Google Analytics','Campaign Management']},
+  {year:'2016',title:'Multi-brand management — Qatar',
+   desc:'Al Siddiqi Holding, Doha. Managing social media for 5 hospitality brands simultaneously. Mastered Meta Business Suite, multi-account workflows and content production at volume.',
+   tags:['Meta Business Suite','Community Management','Multi-Brand','Qatar Market']},
+  {year:'2018',title:'Creative Director — Nineteen84',
+   desc:'Six years leading creative output at one of Egypt\'s top agencies. Adopted Premiere Pro, DaVinci Resolve, Figma and Canva Pro at professional scale. Managing a team of 12 across design, social and production.',
+   tags:['Premiere Pro','DaVinci Resolve','Figma','Canva Pro','Team Leadership']},
+  {year:'2020',title:'TikTok & short-form mastery',
+   desc:'TikTok\'s rise reshaped the entire content industry. Built deep expertise in short-form video production, trend strategy, viral content architecture and vertical-first editing.',
+   tags:['TikTok Studio','Short-Form Video','Reels','Vertical Production']},
+  {year:'2022',title:'AI early adopter — MENA',
+   desc:'Among the first creative professionals in the region to integrate generative AI into professional production. Midjourney and ChatGPT fundamentally changed how pitches were built — faster, richer, more concept-led.',
+   tags:['Midjourney','ChatGPT','Prompt Engineering','Generative AI']},
+  {year:'2023',title:'AI goes fully professional',
+   desc:'Built structured AI workflows using GPT-4, DALL-E, and Stable Diffusion. Integrated AI into actual client deliverables — not as a gimmick, as the production engine. Reduced concepting time by 40%.',
+   tags:['GPT-4','DALL-E','Stable Diffusion','Workflow Automation','40% Faster']},
+  {year:'2024 · Feb',title:'Tonic International — Head of AI',
+   desc:'Moved to Tonic International Dubai as Head of Social Media & AI Integration. Deployed Runway ML, ElevenLabs and Adobe Firefly at agency scale. Directed the first AI-animated TVC pitch in the MENA region for Warba Bank.',
+   tags:['Runway ML','ElevenLabs','Adobe Firefly','AI Production','Dubai']},
+  {year:'2024 · Oct',title:'Escapegoat — music production',
+   desc:'Applied the same one-man-studio AI philosophy to music. FL Studio, Logic Pro and Suno AI — commercial-grade music production, mixing and mastering without an engineering team. Full distribution on YouTube & Anghami.',
+   tags:['Suno AI','FL Studio','Logic Pro','Music Production','@EscapegoatSounds']},
+];
+
+// ── RENDER TOOLS ────────────────────────────────────────────────────────────
+function renderTools() {
+  const wrap = document.getElementById('tool-cats');
+  wrap.innerHTML = CATS.map(cat => `
+    <div class="cat-block">
+      <div class="cat-hd">
+        <div class="cat-pip" style="background:${cat.pip}"></div>
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-count">${cat.tools.length} tools</div>
+      </div>
+      <div class="tool-grid">
+        ${cat.tools.map(t => `
+          <div class="tool-card">
+            <div class="ticon" style="background:${t.bg}">
+              ${t.si ? `<img src="https://cdn.simpleicons.org/${t.si}/ffffff" alt="${t.name}" onerror="this.style.display='none'">` : ''}
+              <div class="ticon-abbr" style="color:${t.ic}">${t.abbr}</div>
+            </div>
+            <div class="tbody">
+              <div class="tname">
+                <span>${t.name}</span>
+                <span class="tlevel">${t.level}</span>
+              </div>
+              <div class="tsince">Since ${t.since}</div>
+              <div class="tbar"><div class="tbarfill" data-pct="${t.pct}" style="background:linear-gradient(90deg,${t.ic},${t.ic}aa)"></div></div>
+              <div class="tctx">${t.ctx}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── RENDER TIMELINE ──────────────────────────────────────────────────────────
+function renderTimeline() {
+  document.getElementById('timeline').innerHTML = TL.map(e => `
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">${e.year}</div>
+      <div class="tl-title">${e.title}</div>
+      <div class="tl-desc">${e.desc}</div>
+      <div class="tl-tags">${e.tags.map(t => `<span class="tl-tag">${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+// ── ANIMATE BARS ON SCROLL ──────────────────────────────────────────────────
+function animateBars() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.tbarfill').forEach(bar => {
+          bar.style.width = bar.dataset.pct + '%';
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.2});
+  document.querySelectorAll('.cat-block').forEach(b => obs.observe(b));
+}
+
+renderTools();
+renderTimeline();
+requestAnimationFrame(() => setTimeout(animateBars, 100));
+</script>
+</body>
+</html>
