@@ -1,328 +1,257 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZIZO — Get In Touch · Abdelaziz Askar</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Contact — Abdelaziz Askar · ZIZO</title>
 <link rel="icon" href="assets/photos/escapegoat-logo.png">
-<meta name="description" content="Get in touch with Abdelaziz Askar — ZIZO. Creative Director, Head of Social & AI. Available for campaigns, TVCs, brand launches and AI systems.">
-<meta property="og:title" content="Contact ZIZO — Abdelaziz Askar">
-<meta property="og:description" content="Available for campaigns, TVCs, brand launches and AI systems across MENA.">
-<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#09090c; --s1:#111118; --s2:#19191f; --b:#252532;
-  --gold:#f0c233; --gold2:#ffe566; --gold-a:rgba(240,194,51,.08);
-  --purple:#8b5cf6; --purple2:#a78bfa;
-  --text:#f3f0eb; --m:#706c64; --m2:#b5b0a6;
-  --font:'Inter',system-ui,-apple-system,sans-serif;
-  --r:10px;
-}
+:root{--bg:#080808;--s1:#111114;--s2:#18181c;--b:#2c2c33;--gold:#f0c233;--text:#f4f2ed;--m:#9a958c;--m2:#c2bcb2;--font:'Inter',system-ui,sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh}
 a{color:inherit;text-decoration:none}
-button{cursor:pointer;font-family:var(--font)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);height:56px;display:flex;align-items:center;padding:0 40px;gap:20px}
+.nl{font-size:18px;font-weight:900;letter-spacing:-.5px}.nl em{color:var(--gold);font-style:normal}
+.nb{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);transition:color .2s}.nb:hover{color:var(--gold)}
+.page{max-width:1100px;margin:0 auto;padding:120px 40px 80px}
+.contact-hero{display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:center;margin-bottom:80px}
+.contact-photo{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4}
+.contact-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.contact-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.5) 0%,transparent 50%);pointer-events:none}
+.contact-eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.contact-name{font-size:clamp(42px,5vw,72px);font-weight:900;line-height:.9;letter-spacing:-2.5px;margin-bottom:16px}
+.contact-role{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:28px;line-height:1.6}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.tag{font-size:11px;padding:5px 13px;border:1px solid var(--b);border-radius:99px;color:var(--m2)}
+.contact-cards{display:flex;flex-direction:column;gap:10px}
+.ccard{display:flex;align-items:center;gap:16px;background:var(--s1);border:1px solid var(--b);border-radius:14px;padding:16px 20px;transition:border-color .2s,background .2s}
+.ccard:hover{border-color:var(--gold);background:var(--s2)}
+.ccard-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ccard-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--m);margin-bottom:3px}
+.ccard-value{font-size:14px;font-weight:700;color:var(--text)}
+.ccard-sub{font-size:11px;color:var(--m2);margin-top:2px}
+.divider{border:none;border-top:1px solid var(--b);margin:36px 0}
+.cta-block{background:var(--s1);border:1px solid var(--b);border-radius:20px;padding:48px 40px;text-align:center}
+.cta-block h2{font-size:clamp(26px,3vw,42px);font-weight:900;letter-spacing:-1px;margin-bottom:12px}
+.cta-block p{font-size:14px;color:var(--m2);line-height:1.75;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:#000;border:none;border-radius:10px;padding:14px 28px;font:800 12px var(--font);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s}
+.btn-gold:hover{opacity:.85}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--b);border-radius:10px;padding:14px 28px;font:700 12px var(--font);letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s}
+.btn-outline:hover{border-color:var(--m2)}
+footer{border-top:1px solid var(--b);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--m)}
+.fl{font-size:15px;font-weight:900}.fl em{color:var(--gold);font-style:normal}
 
-/* NAV */
-nav{
-  height:60px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 44px;border-bottom:1px solid var(--b);
-  background:rgba(5,5,6,.97);backdrop-filter:blur(20px);
-  position:sticky;top:0;z-index:100
-}
-.nav-logo{font-size:14px;font-weight:700;letter-spacing:-.3px;color:var(--m2);display:flex;align-items:center}
-.nav-logo em{color:var(--gold);font-style:normal;font-size:19px;font-weight:900;letter-spacing:-.5px;margin-right:2px}
-.nav-divider{color:var(--m);font-weight:300;font-size:14px;margin:0 7px}
-.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
-.nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--m2);transition:color .2s;font-weight:500}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:9px 20px;background:var(--gold);color:#000;border-radius:var(--r);transition:filter .2s,transform .15s}
-.nav-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+/* Form */
+.form-section{margin-top:60px}
+.form-section h2{font-size:clamp(26px,3vw,42px);font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.form-section p{font-size:14px;color:var(--m2);margin-bottom:36px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-full{grid-column:1/-1}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-group label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--m2)}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:#0d0d0f;border:1px solid var(--b);border-radius:10px;
+  color:var(--text);font:500 14px var(--font);padding:13px 16px;outline:none;
+  transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:10px;background-color:#0d0d0f;cursor:pointer;padding-right:36px}
+.form-group select option{background:#0d0d0f}
+.form-group textarea{min-height:120px;resize:vertical;line-height:1.6}
+.form-submit{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+.form-note{font-size:11px;color:var(--m);line-height:1.5}
+.success-msg{display:none;background:#0d1f0d;border:1px solid #2a5c2a;border-radius:12px;padding:16px 20px;font-size:13px;color:#6fcf6f;margin-top:12px}
 
-/* HERO */
-.contact-hero{
-  padding:80px 44px 60px;
-  background:radial-gradient(ellipse at 50% 0%, rgba(240,194,51,.07) 0%, transparent 60%);
-  border-bottom:1px solid var(--b);text-align:center
+@media(max-width:800px){
+  .contact-hero{grid-template-columns:1fr;gap:40px}
+  .contact-photo{max-width:280px;margin:0 auto}
+  .page{padding:90px 20px 60px}
+  nav,footer{padding-left:20px;padding-right:20px}
+  .cta-block{padding:32px 20px}
+  .form-grid{grid-template-columns:1fr}
+  .form-full{grid-column:1}
 }
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);
-  margin-bottom:24px
-}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:24px;height:1px;background:var(--gold);opacity:.5}
-.hero-h1{font-size:clamp(42px,6vw,74px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:20px}
-.hero-h1 em{color:var(--gold);font-style:normal}
-.hero-sub{font-size:16px;color:var(--m2);font-weight:400;max-width:520px;margin:0 auto 28px;line-height:1.65}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.hero-tag{
-  padding:6px 14px;background:var(--s2);border:1px solid var(--b);
-  border-radius:99px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--m2);font-weight:500
-}
-
-/* MAIN GRID */
-.contact-grid{
-  display:grid;grid-template-columns:1fr 420px;gap:0;
-  max-width:1140px;margin:0 auto;padding:60px 44px;
-  align-items:start;gap:60px
-}
-@media(max-width:860px){
-  .contact-grid{grid-template-columns:1fr;padding:40px 24px;gap:40px}
-  nav{padding:0 20px}.nav-links{display:none}
-  .contact-hero{padding:48px 24px 40px}
-}
-
-/* FORM */
-.form-section h2{
-  font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px
-}
-.form-section .form-intro{font-size:14px;color:var(--m2);margin-bottom:32px;line-height:1.6}
-.contact-form{display:flex;flex-direction:column;gap:18px}
-.field label{
-  display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  font-weight:600;color:var(--m2);margin-bottom:7px
-}
-.field input,.field select,.field textarea{
-  width:100%;background:var(--s1);border:1px solid var(--b);
-  border-radius:var(--r);padding:13px 16px;
-  color:var(--text);font-family:var(--font);font-size:14px;
-  transition:border-color .2s,box-shadow .2s;outline:none;resize:vertical
-}
-.field input::placeholder,.field textarea::placeholder{color:var(--m)}
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,194,51,.1)
-}
-.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23706c64' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
-.field select option{background:var(--s1);color:var(--text)}
-.submit-btn{
-  padding:16px 32px;background:var(--gold);color:#000;
-  border:none;border-radius:var(--r);font:700 14px/1 var(--font);
-  letter-spacing:.04em;cursor:pointer;
-  transition:filter .2s,transform .15s;
-  align-self:flex-start;margin-top:4px
-}
-.submit-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.form-success{
-  display:none;padding:20px;background:rgba(240,194,51,.08);
-  border:1px solid rgba(240,194,51,.25);border-radius:var(--r);
-  color:var(--gold);font-weight:600;text-align:center;margin-top:16px
-}
-
-/* INFO PANEL */
-.info-panel{display:flex;flex-direction:column;gap:20px}
-.info-card{
-  background:var(--s1);border:1px solid var(--b);
-  border-radius:14px;padding:24px;
-}
-.info-card h3{
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:700;color:var(--m);margin-bottom:16px
-}
-.info-link{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 0;font-size:14px;font-weight:500;color:var(--m2);
-  transition:color .2s;border-bottom:1px solid var(--b)
-}
-.info-link:last-child{border-bottom:none}
-.info-link:hover{color:var(--gold)}
-.info-link .il-icon{font-size:18px;width:24px;text-align:center}
-.info-link .il-label{font-size:11px;color:var(--m);display:block;margin-top:1px;letter-spacing:.04em}
-
-.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.social-item{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 12px;background:var(--s2);border:1px solid var(--b);
-  border-radius:10px;font-size:13px;font-weight:600;
-  transition:background .2s,border-color .2s,color .2s;color:var(--m2)
-}
-.social-item:hover{background:var(--b);border-color:var(--gold);color:var(--text)}
-.social-icon{font-size:20px}
-
-.regions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.region-tag{
-  padding:6px 14px;background:var(--s2);border:1px solid var(--b);
-  border-radius:99px;font-size:12px;font-weight:600;color:var(--m2)
-}
-
-.avail-dot{
-  display:inline-block;width:8px;height:8px;border-radius:50%;
-  background:#2ecc71;margin-right:8px;
-  box-shadow:0 0 6px rgba(46,204,113,.6);animation:pulse-dot 2s ease infinite
-}
-@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
-.avail-text{font-size:14px;color:var(--m2);line-height:1.7}
-
-/* FOOTER */
-footer{
-  border-top:1px solid var(--b);padding:32px 44px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--s1)
-}
-.footer-brand{font-size:13px;font-weight:700;color:var(--m)}
-.footer-brand em{color:var(--gold);font-style:normal}
-.footer-copy{font-size:11px;color:var(--m);letter-spacing:.06em}
-@media(max-width:640px){footer{flex-direction:column;gap:12px;padding:24px;text-align:center}}
 </style>
 </head>
 <body>
-<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#09090c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .5s ease,visibility .5s ease"><svg width="56" height="56" viewBox="0 0 64 64" style="animation:preloaderPulse 1.2s ease-in-out infinite"><rect width="64" height="64" rx="14" fill="#09090c" stroke="#252532" stroke-width="1"/><line x1="14" y1="18" x2="50" y2="18" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="18" x2="14" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/><line x1="14" y1="46" x2="50" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/></svg><div style="width:160px;height:2px;background:#252532;border-radius:1px;overflow:hidden"><div id="preloaderBar" style="height:100%;width:0;background:#f0c233;border-radius:1px;transition:width .4s ease"></div></div></div>
-<style>@keyframes preloaderPulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}</style>
-<script>(function(){const bar=document.getElementById('preloaderBar');let p=0;const t=setInterval(()=>{p=Math.min(p+Math.random()*18,90);bar.style.width=p+'%';},120);window.addEventListener('load',()=>{clearInterval(t);bar.style.width='100%';setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},400);});})();</script>
 
 <nav>
-  <a href="index.html" class="nav-logo"><em>ZIZO</em><span class="nav-divider">·</span>Abdelaziz Askar</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Work</a></li>
-    <li><a href="clients.html">Clients</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" style="color:var(--gold)">Contact</a></li>
-  </ul>
-  <a href="mailto:bananalover9119@gmail.com" class="nav-cta">Let's Talk →</a>
+  <a href="index.html" class="nl">ZI<em>ZO</em></a>
+  <a href="index.html" class="nb">← Back to portfolio</a>
 </nav>
 
-<!-- HERO -->
-<section class="contact-hero">
-  <div class="hero-eyebrow">Let's Build Something</div>
-  <h1 class="hero-h1">Get In <em>Touch</em></h1>
-  <p class="hero-sub">Whether it's a campaign, brand identity, studio shoot, or AI creative system — I'd love to hear about your project.</p>
-  <div class="hero-tags">
-    <span class="hero-tag">Social Media Strategy</span>
-    <span class="hero-tag">Creative Direction</span>
-    <span class="hero-tag">TVC &amp; Film</span>
-    <span class="hero-tag">AI Content</span>
-    <span class="hero-tag">Brand Identity</span>
-    <span class="hero-tag">Studio Photography</span>
+<div class="page">
+  <div class="contact-hero">
+
+    <div class="contact-photo">
+      <img src="assets/photos/WhatsApp_Image_2026-03-22_at_06.38.10.jpeg"
+           alt="Abdelaziz Askar"
+           onerror="this.src='assets/photos/studio-standing.jpg'">
+    </div>
+
+    <div>
+      <p class="contact-eyebrow">Creative Director &middot; Social Media &middot; AI</p>
+      <h1 class="contact-name">Abdelaziz<br>Askar</h1>
+      <p class="contact-role">ZIZO &mdash; Head of Social &amp; AI<br>Tonic International &middot; Dubai, UAE</p>
+
+      <div class="tags">
+        <span class="tag">📍 Dubai, UAE</span>
+        <span class="tag">🇪🇬 Egypt</span>
+        <span class="tag">18+ years</span>
+        <span class="tag">MENA market</span>
+      </div>
+
+      <div class="contact-cards">
+
+        <a href="tel:+01099197988" class="ccard">
+          <div class="ccard-icon" style="background:#0d1f0d">📞</div>
+          <div>
+            <div class="ccard-label">Phone &amp; WhatsApp</div>
+            <div class="ccard-value">+010 9919 7988</div>
+            <div class="ccard-sub">Available on WhatsApp</div>
+          </div>
+        </a>
+
+        <a href="mailto:Escapegoatssounds@gmail.com" class="ccard">
+          <div class="ccard-icon" style="background:#0d0d1f">✉️</div>
+          <div>
+            <div class="ccard-label">Work Email</div>
+            <div class="ccard-value">Escapegoatssounds@gmail.com</div>
+            <div class="ccard-sub">Campaigns, TVC, brand launches, AI</div>
+          </div>
+        </a>
+
+        <a href="mailto:azaskar@yahoo.com" class="ccard">
+          <div class="ccard-icon" style="background:#1f0d0d">📧</div>
+          <div>
+            <div class="ccard-label">Personal Email</div>
+            <div class="ccard-value">azaskar@yahoo.com</div>
+            <div class="ccard-sub">General enquiries</div>
+          </div>
+        </a>
+
+      </div>
+
+      <hr class="divider">
+
+      <div class="cta-btns" style="justify-content:flex-start">
+        <a href="mailto:Escapegoatssounds@gmail.com" class="btn-gold">✉ Send email</a>
+        <a href="tel:+01099197988" class="btn-outline">📞 Call / WhatsApp</a>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<!-- GRID -->
-<div class="contact-grid">
+  <div class="cta-block">
+    <h2>Let's build something<br>worth remembering</h2>
+    <p>Campaign, TVC direction, brand launch, social strategy, or AI integration — reach out and let's talk about what your brand needs.</p>
+    <div class="cta-btns">
+      <a href="mailto:Escapegoatssounds@gmail.com" class="btn-gold">✉ Send an email</a>
+      <a href="tel:+01099197988" class="btn-outline">📞 Call / WhatsApp</a>
+      <a href="index.html" class="btn-outline">← View portfolio</a>
+    </div>
+  </div>
 
-  <!-- FORM -->
+  <!-- Contact Form -->
   <div class="form-section">
-    <h2>Send a Message</h2>
-    <p class="form-intro">Fill out the form and I'll get back to you within 24 hours.</p>
-    <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
-      <div class="field">
-        <label>Your Name</label>
-        <input type="text" name="name" placeholder="Full name" required>
+    <h2>Send a message</h2>
+    <p>Fill in the details below and I'll get back to you within 24 hours.</p>
+
+    <form id="contactForm" novalidate>
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="cf-name">Full Name *</label>
+          <input type="text" id="cf-name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-email">Email Address *</label>
+          <input type="email" id="cf-email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-phone">Phone Number <span style="color:var(--m)">(for callback)</span></label>
+          <input type="tel" id="cf-phone" placeholder="+971 or +20 ...">
+        </div>
+
+        <div class="form-group">
+          <label for="cf-service">Service Needed *</label>
+          <select id="cf-service" required>
+            <option value="">— Select a service —</option>
+            <option>TVC &amp; Campaign Production</option>
+            <option>Social Media Strategy &amp; Management</option>
+            <option>Brand Identity &amp; Design</option>
+            <option>OOH &amp; Print</option>
+            <option>Photography</option>
+            <option>AI Integration &amp; Automation</option>
+            <option>Events &amp; Activations</option>
+            <option>Copywriting &amp; Scripting</option>
+            <option>Brand Launch</option>
+            <option>Music Production</option>
+            <option>Consultation / Strategy Session</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group form-full">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" placeholder="Tell me about your brand, the project, timeline, and budget if you have one..."></textarea>
+        </div>
+
+        <div class="form-submit form-full">
+          <button type="submit" class="btn-gold" style="border:none;cursor:pointer">✉ Send Message</button>
+          <p class="form-note">Hitting Send opens your email client with everything pre-filled.<br>No data is stored on this site.</p>
+        </div>
+
       </div>
-      <div class="field">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="you@example.com" required>
-      </div>
-      <div class="field">
-        <label>What are you looking for?</label>
-        <select name="subject">
-          <option value="Social Media Strategy">Social Media Strategy</option>
-          <option value="Creative Direction">Creative Direction</option>
-          <option value="TVC / Film">TVC / Film</option>
-          <option value="AI Content">AI Content</option>
-          <option value="Brand Identity">Brand Identity</option>
-          <option value="Photography / Studio">Photography / Studio</option>
-          <option value="Collaboration">Collaboration</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Message</label>
-        <textarea name="message" rows="5" placeholder="Tell me about your project, timeline, and goals…" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Send Message →</button>
     </form>
-    <div class="form-success" id="form-success">
-      ✅ Message sent! I'll get back to you within 24 hours.
+
+    <div class="success-msg" id="successMsg">
+      ✅ Your email client should have opened with the message ready to send. If not, email <a href="mailto:Escapegoatssounds@gmail.com" style="color:var(--gold)">Escapegoatssounds@gmail.com</a> directly.
     </div>
   </div>
 
-  <!-- INFO PANEL -->
-  <div class="info-panel">
-
-    <div class="info-card">
-      <h3>Direct Contact</h3>
-      <a href="mailto:bananalover9119@gmail.com" class="info-link">
-        <span class="il-icon">📧</span>
-        <span>
-          bananalover9119@gmail.com
-          <span class="il-label">Email — fastest response</span>
-        </span>
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" class="info-link">
-        <span class="il-icon">📸</span>
-        <span>
-          @zizo.creative
-          <span class="il-label">Instagram DMs welcome</span>
-        </span>
-      </a>
-    </div>
-
-    <div class="info-card">
-      <h3>Find Me Online</h3>
-      <div class="social-grid">
-        <a href="https://www.instagram.com/" target="_blank" class="social-item">
-          <span class="social-icon">📸</span> Instagram
-        </a>
-        <a href="https://www.linkedin.com/in/abdel-aziz-askar/" target="_blank" class="social-item">
-          <span class="social-icon">💼</span> LinkedIn
-        </a>
-        <a href="https://www.youtube.com/" target="_blank" class="social-item">
-          <span class="social-icon">▶️</span> YouTube
-        </a>
-        <a href="https://www.tiktok.com/" target="_blank" class="social-item">
-          <span class="social-icon">🎵</span> TikTok
-        </a>
-        <a href="#" class="social-item" style="grid-column:1/-1;background:rgba(240,194,51,.06);border-color:rgba(240,194,51,.2);color:var(--gold)">
-          <span class="social-icon">🐐</span> Escapegoat Studio
-        </a>
-      </div>
-    </div>
-
-    <div class="info-card">
-      <h3>Availability</h3>
-      <p class="avail-text">
-        <span class="avail-dot"></span>
-        Currently available for new projects and collaborations.
-      </p>
-      <div class="regions">
-        <span class="region-tag">🇪🇬 Egypt</span>
-        <span class="region-tag">🇶🇦 Qatar</span>
-        <span class="region-tag">🇦🇪 UAE</span>
-        <span class="region-tag">🌍 MENA+</span>
-      </div>
-    </div>
-
-  </div>
 </div>
 
-<!-- FOOTER -->
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const phone   = document.getElementById('cf-phone').value.trim();
+  const service = document.getElementById('cf-service').value;
+  const msg     = document.getElementById('cf-msg').value.trim();
+
+  if(!name || !email || !service){
+    alert('Please fill in your name, email, and the service you need.');
+    return;
+  }
+
+  const subject = encodeURIComponent('Portfolio enquiry — ' + service + (name ? ' from ' + name : ''));
+  const body = encodeURIComponent(
+    'Hi Abdelaziz,\n\n'
+    + 'Name: ' + name + '\n'
+    + 'Email: ' + email + '\n'
+    + (phone ? 'Phone: ' + phone + '\n' : '')
+    + 'Service needed: ' + service + '\n\n'
+    + (msg ? 'Message:\n' + msg + '\n\n' : '')
+    + '---\nSent via zizo-portfolio contact form'
+  );
+
+  window.location.href = 'mailto:Escapegoatssounds@gmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById('successMsg').style.display = 'block';
+});
+</script>
+
 <footer>
-  <div class="footer-brand"><em>ZIZO</em> — Abdelaziz Askar</div>
-  <div class="footer-copy">© 2026 · Creative Director · Social Media · AI Creative</div>
+  <span class="fl">ZI<em>ZO</em></span>
+  <span>Abdelaziz Askar &mdash; Social Media Director · Creative Director · AI · Dubai</span>
+  <a href="index.html" style="color:var(--gold)">Back to portfolio →</a>
 </footer>
 
-<script>
-function handleSubmit(e){
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const name = data.get('name');
-  const email = data.get('email');
-  const subject = data.get('subject');
-  const message = data.get('message');
-  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nSubject: ' + subject + '\n\n' + message);
-  const mailto = 'mailto:bananalover9119@gmail.com?subject=' + encodeURIComponent('[Portfolio] ' + subject) + '&body=' + body;
-  window.location.href = mailto;
-  setTimeout(() => {
-    form.reset();
-    document.getElementById('form-success').style.display = 'block';
-    setTimeout(() => { document.getElementById('form-success').style.display = 'none'; }, 5000);
-  }, 500);
-}
-</script>
-<script src="editor.js?v=3"></script>
 </body>
 </html>

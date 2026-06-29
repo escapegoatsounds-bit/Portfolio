@@ -35,21 +35,23 @@
     ['market','Market / Region','e.g. Egypt · GCC'],
     ['since','Working Together Since','e.g. 2021'],
     ['services','Services','e.g. Social, TVC, Photography'],
+    ['website','Brand Website','e.g. https://brand.com'],
   ];
+  const DELIV_TYPES   = ['TVC','Social Media','Campaign','Photography','OOH','Branding','Strategy','AI Production','Events','PR','Copy','Music','Film'];
+  const SOCIAL_PLATFORMS = ['Instagram','TikTok','Facebook','YouTube','Snapchat','X / Twitter','LinkedIn','WhatsApp','Pinterest','Threads'];
   const PROJ_FIELDS = [
     ['name','Project Name','e.g. Ramadan 2024 Campaign'],
-    ['type','Type',''],
     ['client','Client', brandName],
     ['date','Year',''],
     ['role','Your Role',''],
     ['status','Status',''],
-    ['deliverables','Deliverables','e.g. TVC · OOH · Social'],
+    ['deliverables','Deliverables','e.g. 3 TVCs · 20 posts · KV'],
   ];
   function blankProject(){
     const p={}; PROJ_FIELDS.forEach(f=>p[f[0]]=''); p.client=brandName; p.desc='';
     p.cover=''; p.analytics={reach:'',duration:'',audience:''}; p.chartType='bar';
     p.chartData=[{label:'Reach',value:60,color:PALETTE[0]},{label:'Engagement',value:25,color:PALETTE[1]},{label:'Conversion',value:15,color:PALETTE[2]}];
-    p.media=[]; p.vimeo=[]; return p;
+    p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; return p;
   }
   function defaults(){
     const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover='';
@@ -104,6 +106,8 @@
       if(Array.isArray(p.vimeo)) np.vimeo=p.vimeo;
       else if(p.vimeo && p.vimeo.id) np.vimeo=[{id:p.vimeo.id,label:p.vimeo.label||'',orientation:p.vimeo.orientation||'horizontal'}];
       else np.vimeo=[];
+      np.types = Array.isArray(p.types) ? p.types : (p.type ? [p.type] : []);
+      np.platforms = Array.isArray(p.platforms) ? p.platforms : [];
       np.chartType=p.chartType==='pie'?'pie':'bar';
       return np; });
     d.active=d.active||0; return d;
@@ -145,6 +149,10 @@
   #zz-proj .zp-seg{display:inline-flex;border:1px solid var(--b,#2c2c33);border-radius:99px;overflow:hidden}
   #zz-proj .zp-segbtn{background:transparent;color:var(--m2,#c2bcb2);border:none;padding:8px 16px;font:700 12px Inter,sans-serif;cursor:pointer}
   #zz-proj .zp-segbtn.on{background:var(--accent,#f0c233);color:#000}
+  #zz-proj .zp-chip{padding:6px 14px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid var(--b,#2c2c33);background:transparent;color:var(--m2,#c2bcb2);cursor:pointer;transition:all .15s;font-family:inherit}
+  #zz-proj .zp-chip:hover{border-color:var(--m2,#c2bcb2);color:var(--text,#f4f2ed)}
+  #zz-proj .zp-chip.on{background:var(--accent,#f0c233);border-color:var(--accent,#f0c233);color:#000}
+  #zz-proj .zp-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
   #zz-proj-toast{position:fixed;bottom:70px;right:18px;z-index:99999;background:var(--accent,#f0c233);color:#000;
     padding:10px 18px;border-radius:10px;font:700 13px Inter,sans-serif;opacity:0;transition:opacity .3s;pointer-events:none}
   #zz-proj-toast.show{opacity:1}`;
@@ -235,6 +243,21 @@
     return w;
   }
 
+  function chipPicker(options, selected, onChange){
+    const w=el('div'); w.className='zp-chips';
+    options.forEach(opt=>{
+      const c=el('button'); c.type='button'; c.className='zp-chip'+(selected.includes(opt)?' on':''); c.textContent=opt;
+      c.onclick=()=>{
+        const i=selected.indexOf(opt);
+        if(i>-1) selected.splice(i,1); else selected.push(opt);
+        c.className='zp-chip'+(selected.includes(opt)?' on':'');
+        onChange(selected);
+      };
+      w.append(c);
+    });
+    return w;
+  }
+
   function vimeoEmbed(v){
     const url='https://player.vimeo.com/video/'+v.id+'?color=f0c233&title=0&byline=0&portrait=0&dnt=1';
     if(v.orientation==='vertical'){
@@ -260,7 +283,7 @@
         const tb=el('button'); tb.style.cssText='padding:8px 16px;background:none;border:none;border-bottom:2px solid '+(i===0?'#f0c233':'transparent')+';color:'+(i===0?'#f0c233':'#666')+';font-size:12px;font-weight:'+(i===0?'700':'400')+';cursor:pointer;font-family:inherit';
         tb.textContent=v.label||('Video '+(i+1));
         const pan=el('div'); pan.style.display=i===0?'block':'none'; pan.innerHTML=vimeoEmbed(v);
-        tb.onclick=()=>{ tabBar.querySelectorAll('button').forEach((b,j)=>{ b.style.borderBottomColor=j===i?'#f0c233':'transparent'; b.style.color=j===i?'#f0c233':'#666'; b.style.fontWeight=j===i?'700':'400'; }); panels.querySelectorAll('div').forEach((d,j)=>d.style.display=j===i?'block':'none'); };
+        tb.onclick=()=>{ Array.from(tabBar.children).forEach((b,j)=>{ b.style.borderBottomColor=j===i?'#f0c233':'transparent'; b.style.color=j===i?'#f0c233':'#666'; b.style.fontWeight=j===i?'700':'400'; }); Array.from(panels.children).forEach((d,j)=>d.style.display=j===i?'block':'none'); };
         tabBar.append(tb); panels.append(pan);
       });
       w.append(tabBar,panels);
@@ -315,7 +338,6 @@
   }
 
   function renderBrand(){
-    root.append(coverBanner(()=>DATA.brand.cover, v=>DATA.brand.cover=v, brandName, (DATA.brand.industry||'')+(DATA.brand.market?' · '+DATA.brand.market:'')));
     const sec=el('div'); sec.innerHTML='<p class="zp-sl">Brand Level</p><h2 class="zp-h">Brand Profile</h2>';
     const card=el('div'); card.className='zp-card'; const grid=el('div'); grid.className='zp-grid';
     BRAND_FIELDS.forEach(f=>{ const opts=BRAND_SELECTS[f[0]]; const e=opts?selectField(opts,DATA.brand[f[0]],v=>DATA.brand[f[0]]=v):field('input',DATA.brand[f[0]],f[2],v=>DATA.brand[f[0]]=v); grid.append(labeled(f[1],e)); });
@@ -333,12 +355,26 @@
 
     const p=DATA.projects[DATA.active];
     // project cover
-    wrap.append(coverBanner(()=>p.cover, v=>p.cover=v, (p.name&&p.name.trim())?p.name:'This project', [p.type,p.date].filter(Boolean).join(' · ')));
+    wrap.append(coverBanner(()=>p.cover, v=>p.cover=v, (p.name&&p.name.trim())?p.name:'This project', [(p.types||[]).join(' · '),p.date].filter(Boolean).join(' · ')));
     // template fields
     const card=el('div'); card.className='zp-card'; const grid=el('div'); grid.className='zp-grid';
     PROJ_FIELDS.forEach(f=>{ const opts=PROJ_SELECTS[f[0]]; const e=opts?selectField(opts,p[f[0]],v=>p[f[0]]=v):field('input',p[f[0]],f[2],v=>p[f[0]]=v); grid.append(labeled(f[1],e)); });
     grid.append(labeled('Description', field('textarea',p.desc,'What was the brief, what did you make, what was the result?',v=>p.desc=v), true));
     card.append(grid); wrap.append(card);
+    // types & platforms multi-picker
+    const typesCard=el('div'); typesCard.className='zp-card';
+    typesCard.innerHTML='<div class="zp-sl">Deliverable Types</div>';
+    const platSection=el('div');
+    function rebuildPlatSection(){
+      platSection.innerHTML='';
+      if((p.types||[]).includes('Social Media')){
+        const lbl=el('label'); lbl.textContent='Platforms'; lbl.style.marginTop='14px';
+        platSection.append(lbl, chipPicker(SOCIAL_PLATFORMS, p.platforms=p.platforms||[], v=>{ p.platforms=v; persist(false); }));
+      }
+    }
+    typesCard.append(chipPicker(DELIV_TYPES, p.types=p.types||[], v=>{ p.types=v; persist(false); rebuildPlatSection(); }));
+    typesCard.append(platSection); rebuildPlatSection();
+    wrap.append(typesCard);
     // gallery first so it's immediately visible, then analytics
     wrap.append(vimeoSection(p));
     wrap.append(mediaGallery(p));
@@ -352,7 +388,28 @@
     wrap.append(bar); root.append(wrap);
   }
 
-  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); }
+  function applyHeroCover(){
+    const hero=document.querySelector('.hero');
+    if(!hero) return;
+    const p=DATA.projects[DATA.active]||{};
+    const cover=p.cover||DATA.brand.cover||'';
+    if(cover){
+      const src=/^(https?:|\/\/)/.test(cover)?cover:('/'+cover.replace(/^\//,''));
+      hero.style.backgroundImage='linear-gradient(to right,rgba(0,0,0,.82) 0%,rgba(0,0,0,.42) 55%,rgba(0,0,0,.65) 100%),url('+src+')';
+      hero.style.backgroundSize='cover';
+      hero.style.backgroundPosition='center';
+      hero.style.backgroundRepeat='no-repeat';
+      // make right panel semi-transparent so cover shows through
+      const hs=hero.querySelector('.hs');
+      if(hs) hs.style.background='rgba(0,0,0,.35)';
+    } else {
+      hero.style.backgroundImage='';
+      const hs=hero.querySelector('.hs');
+      if(hs) hs.style.background='';
+    }
+  }
+
+  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyHeroCover(); }
   function mount(){
     if(!root.parentNode){
       const hero=document.querySelector('.hero')||document.querySelector('nav');
