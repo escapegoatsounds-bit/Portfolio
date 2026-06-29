@@ -878,9 +878,12 @@ buildAppPanels();
     const logoAvatar=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
     const videoCard=({b,v,proj},padding)=>{
       const src=vidSrc(v);const label=v.label||proj.name||b.n;const link=vidLink(v);
+      const isVert=v.orientation==='vertical';
+      const aspect=isVert?'9/16':'16/9';
+      const maxW=isVert?'320px':'100%';
       return `<div style="margin-bottom:22px;padding:0 ${padding}">
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></div>
-        <div style="width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
+        <div style="width:100%;max-width:${maxW};aspect-ratio:${aspect};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
           <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
         <div style="margin-top:8px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#00adef;text-decoration:none">Open on Vimeo ↗</a></div>
