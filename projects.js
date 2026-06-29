@@ -556,7 +556,35 @@
     }
   }
 
-  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyHeroCover(); }
+  function applyAnalytics(){
+    const p=DATA.projects[DATA.active]||DATA.projects[0]||{};
+    const a=p.analytics||{};
+    const rg=document.querySelector('.rg');
+    if(!rg) return;
+    const section=rg.closest('section');
+    const fields=[
+      {key:'reach', label:'Achievement'},
+      {key:'duration', label:'Duration'},
+      {key:'audience', label:'Audience'}
+    ];
+    const boxes=rg.querySelectorAll('.rc');
+    let anyVisible=false;
+    fields.forEach((f,i)=>{
+      const box=boxes[i]; if(!box) return;
+      const val=(a[f.key]||'').trim();
+      if(val){
+        box.style.display='';
+        const rn=box.querySelector('.rn'); if(rn) rn.textContent=val;
+        const rl=box.querySelector('.rl'); if(rl) rl.textContent=f.label;
+        anyVisible=true;
+      } else {
+        box.style.display='none';
+      }
+    });
+    if(section) section.style.display=anyVisible?'':'none';
+  }
+
+  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyHeroCover(); applyAnalytics(); }
   function mount(){
     if(!root.parentNode){
       const hero=document.querySelector('.hero')||document.querySelector('nav');
