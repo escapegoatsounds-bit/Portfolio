@@ -1124,6 +1124,18 @@ updateClock();setInterval(updateClock,30000);
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('hidden',s.id!==id));}
 function unlockPhone(){showScreen('homeScreen');showPanel(null);}
 function showHome(){showScreen('homeScreen');showPanel(null);}
+// Route mouse-wheel events into the active app's scrollable body
+// (needed because #appScreens is height:0 and overflow:hidden ancestors swallow wheel events)
+(function(){
+  const ps=document.querySelector('.phone-screen');
+  if(!ps)return;
+  ps.addEventListener('wheel',function(e){
+    const body=document.querySelector('.screen:not(.hidden) .app-body');
+    if(!body)return;
+    body.scrollTop+=e.deltaY;
+    e.preventDefault();
+  },{passive:false});
+})();
 function openApp(name){if(name==='wikipedia'){location.href='about.html';return;}const el=document.getElementById('screen-'+name);showScreen(el?'screen-'+name:'homeScreen');showPanel(name);}
 function showPanel(name){const def=document.getElementById('panelDefault');document.querySelectorAll('.panel-app').forEach(p=>p.classList.remove('active'));if(!name){def.style.display='grid';setTimeout(()=>highlightKW(def),50);}else{def.style.display='none';const p=document.getElementById('panel-'+name);if(p){p.classList.add('active');setTimeout(()=>highlightKW(p),50);}else def.style.display='grid';}document.getElementById('contentPanel').scrollTop=0;}
 function highlightKW(root){
