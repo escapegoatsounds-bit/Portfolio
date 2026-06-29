@@ -248,18 +248,6 @@
     ]
   },
   {
-    "slug": "MTN",
-    "name": "MTN",
-    "color": "#FFCC00",
-    "text": "#000",
-    "domain": "mtn.com",
-    "category": [
-      "Social Media",
-      "Photography",
-      "Videography"
-    ]
-  },
-  {
     "slug": "Tonic-International",
     "name": "Tonic International",
     "color": "#222222",
@@ -271,11 +259,11 @@
     ]
   },
   {
-    "slug": "Septam-Foods",
-    "name": "Septam Foods",
+    "slug": "Delight-Pastries",
+    "name": "Delight Pastries",
     "color": "#C8960C",
     "text": "#fff",
-    "domain": "septam.com",
+    "domain": "",
     "category": [
       "Strategy",
       "Social Media"
@@ -291,16 +279,6 @@
       "Social Media",
       "Jingle",
       "Strategy"
-    ]
-  },
-  {
-    "slug": "American-Express",
-    "name": "American Express",
-    "color": "#016FD0",
-    "text": "#fff",
-    "domain": "americanexpress.com",
-    "category": [
-      "Social Media"
     ]
   },
   {
@@ -367,16 +345,6 @@
     "category": [
       "Copywriting",
       "Social Media"
-    ]
-  },
-  {
-    "slug": "Fahel-Brand",
-    "name": "Fahel Brand",
-    "color": "#2ECC71",
-    "text": "#fff",
-    "domain": "fahel.com",
-    "category": [
-      "Created/Co-created"
     ]
   },
   {

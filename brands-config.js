@@ -185,24 +185,6 @@ window.BRAND_CONFIG = {
     "banner": "",
     "vimeo": []
   },
-  "MTN": {
-    "platforms": [
-      "instagram",
-      "tiktok",
-      "camera"
-    ],
-    "role": "Director",
-    "year": "2022",
-    "tags": [
-      "Social",
-      "Video",
-      "Photography",
-      "Telecom"
-    ],
-    "desc": "Brand video direction and campaign photography for MTN.",
-    "banner": "",
-    "vimeo": []
-  },
   "Royal-Herbs": {
     "platforms": [
       "instagram",
@@ -361,20 +343,6 @@ window.BRAND_CONFIG = {
       "Real Estate"
     ],
     "desc": "Built the Decoys brand from scratch as Egypt shifted to digital-first real estate.",
-    "banner": "",
-    "vimeo": []
-  },
-  "Fahel-Brand": {
-    "platforms": [
-      "slack"
-    ],
-    "role": "Founder",
-    "year": "2020",
-    "tags": [
-      "Startup",
-      "Founded"
-    ],
-    "desc": "Founded and built the Fahel brand.",
     "banner": "",
     "vimeo": []
   },
