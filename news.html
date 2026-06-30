@@ -293,5 +293,127 @@ fetch('feed.json')
       '<p style="color:var(--muted)">Could not load feed. Make sure feed.json exists.</p>';
   });
 </script>
+
+<!-- ── My Everyday composer (edit mode only) ──────────────────────────── -->
+<style>
+#me-composer{max-width:840px;margin:0 auto 32px;padding:0 48px;display:none}
+body.ze-on #me-composer{display:block}
+.mec-card{background:var(--s1,#111114);border:1px solid var(--accent,#f0c233);border-radius:14px;padding:22px 24px;margin-top:24px}
+.mec-h{font-size:18px;font-weight:800;margin-bottom:4px}
+.mec-sub{font-size:12px;color:var(--muted,#9a958c);margin-bottom:16px}
+.mec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:12px}
+.mec-card label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2,#c2bcb2);margin-bottom:5px}
+.mec-card input,.mec-card textarea,.mec-card select{width:100%;background:#0d0d0f;border:1px solid var(--border,#2c2c33);border-radius:8px;color:var(--text,#f4f2ed);font:500 14px Inter,sans-serif;padding:9px 11px;outline:none}
+.mec-card input:focus,.mec-card textarea:focus,.mec-card select:focus{border-color:var(--accent,#f0c233)}
+.mec-card textarea{min-height:80px;resize:vertical;line-height:1.6}
+.mec-full{grid-column:1/-1}
+.mec-btn{background:var(--accent,#f0c233);color:#000;border:none;border-radius:8px;padding:10px 18px;font:700 12px Inter,sans-serif;letter-spacing:.05em;cursor:pointer}
+.mec-ghost{background:transparent;border:1px dashed var(--accent,#f0c233);color:var(--accent,#f0c233);border-radius:8px;padding:9px 14px;font:700 12px Inter,sans-serif;cursor:pointer}
+.mec-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.mec-list{margin-top:18px;border-top:1px solid var(--border,#2c2c33);padding-top:14px}
+.mec-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #1c1c22}
+.mec-item .t{flex:1;font-size:13px;font-weight:600;color:#e7e7e7}
+.mec-item .d{font-size:11px;color:var(--muted,#9a958c)}
+.mec-mini{background:#26262c;color:#fff;border:none;border-radius:6px;padding:5px 9px;font:700 11px Inter,sans-serif;cursor:pointer}
+.mec-mini.on{background:var(--accent,#f0c233);color:#000}
+.mec-save{background:var(--accent,#f0c233);color:#000;border:none;border-radius:8px;padding:11px 22px;font:800 12px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:16px}
+</style>
+<div id="me-composer"></div>
+
+<script src="brands-config.js"></script>
+<script src="editor.js?v=3"></script>
+<script>
+/* My Everyday post composer — mounts inside #me-composer when edit mode is on. */
+(function(){
+  let FEED = [];
+  let dirty = false;
+  const host = document.getElementById('me-composer');
+
+  function load(){ return fetch('feed.json?t='+Date.now()).then(r=>r.ok?r.json():[]).then(d=>{ FEED=Array.isArray(d)?d:[]; }).catch(()=>{ FEED=[]; }); }
+  function nextId(){ return (FEED.reduce((m,p)=>Math.max(m,+p.id||0),0))+1; }
+  function ytId(u){ if(!u)return''; const m=String(u).match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/); return m?m[1]:(/^[\w-]{11}$/.test(u)?u:''); }
+
+  function render(){
+    if(!host) return;
+    host.innerHTML='';
+    const card=document.createElement('div'); card.className='mec-card';
+    card.innerHTML='<div class="mec-h">📣 New Post — My Everyday</div><div class="mec-sub">Add an update, a video, or an image. Saves to feed.json and publishes to GitHub.</div>';
+
+    const grid=document.createElement('div'); grid.className='mec-grid';
+    grid.innerHTML=
+      '<div><label>Type</label><select id="mec-type"><option value="text">✏️ Post</option><option value="video">🎬 Video</option><option value="image">🖼 Image</option></select></div>'+
+      '<div><label>Date</label><input id="mec-date" type="date"></div>'+
+      '<div class="mec-full"><label>Title</label><input id="mec-title" placeholder="What\'s the headline?"></div>'+
+      '<div class="mec-full"><label>Body</label><textarea id="mec-body" placeholder="Write the update…"></textarea></div>'+
+      '<div class="mec-full"><label>Tags (comma separated)</label><input id="mec-tags" placeholder="work, behind-the-scenes"></div>'+
+      '<div class="mec-full" id="mec-media-wrap"></div>';
+    card.append(grid);
+
+    const mediaWrap=grid.querySelector('#mec-media-wrap');
+    function renderMedia(){
+      const t=card.querySelector('#mec-type').value;
+      if(t==='video'){ mediaWrap.innerHTML='<label>YouTube URL or ID (optional)</label><input id="mec-yt" placeholder="https://youtu.be/… or 11-char ID">'; }
+      else if(t==='image'){ mediaWrap.innerHTML='<label>Image</label><div class="mec-row"><button class="mec-ghost" id="mec-img-btn">📷 Upload Image</button><span class="d" id="mec-img-name">No image yet</span><input type="hidden" id="mec-thumb"></div>';
+        mediaWrap.querySelector('#mec-img-btn').onclick=()=>{ const i=document.createElement('input'); i.type='file'; i.accept='image/*'; i.onchange=()=>{ if(!i.files[0])return; const fd=i.files[0]; mediaWrap.querySelector('#mec-img-name').textContent='Uploading…'; fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{ mediaWrap.querySelector('#mec-thumb').value=j.path; mediaWrap.querySelector('#mec-img-name').textContent='✅ '+j.path.split('/').pop(); }).catch(()=>mediaWrap.querySelector('#mec-img-name').textContent='Upload failed'); }; i.click(); };
+      } else { mediaWrap.innerHTML=''; }
+    }
+    card.querySelector('#mec-type').onchange=renderMedia; renderMedia();
+    card.querySelector('#mec-date').value=new Date().toISOString().slice(0,10);
+
+    const row=document.createElement('div'); row.className='mec-row';
+    const pinned=document.createElement('label'); pinned.style.cssText='display:flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;font-size:13px;color:#ccc;margin:0';
+    pinned.innerHTML='<input type="checkbox" id="mec-pin" style="width:auto"> 📌 Pin to top';
+    const addBtn=document.createElement('button'); addBtn.className='mec-btn'; addBtn.textContent='＋ Add to feed';
+    addBtn.onclick=()=>{
+      const t=card.querySelector('#mec-type').value;
+      const title=card.querySelector('#mec-title').value.trim();
+      const body=card.querySelector('#mec-body').value.trim();
+      if(!title&&!body){ alert('Add a title or body first.'); return; }
+      const post={ id:nextId(), type:t, pinned:card.querySelector('#mec-pin').checked,
+        date:card.querySelector('#mec-date').value||new Date().toISOString().slice(0,10),
+        title:title, body:body,
+        tags:card.querySelector('#mec-tags').value.split(',').map(s=>s.trim()).filter(Boolean) };
+      if(t==='video') post.youtube=ytId((card.querySelector('#mec-yt')||{}).value||'');
+      if(t==='image') post.thumb=(card.querySelector('#mec-thumb')||{}).value||'';
+      FEED.unshift(post); dirty=true; render();
+    };
+    row.append(pinned,addBtn); card.append(row);
+
+    // Existing posts list
+    const list=document.createElement('div'); list.className='mec-list';
+    list.innerHTML='<div class="mec-sub" style="margin-bottom:8px">'+FEED.length+' post'+(FEED.length===1?'':'s')+' in feed</div>';
+    FEED.forEach((p,i)=>{
+      const it=document.createElement('div'); it.className='mec-item';
+      const lbl=p.type==='video'?'🎬':p.type==='image'?'🖼':'✏️';
+      it.innerHTML='<span>'+lbl+'</span><div class="t">'+(p.title||'(untitled)')+'<div class="d">'+(p.date||'')+'</div></div>';
+      const pin=document.createElement('button'); pin.className='mec-mini'+(p.pinned?' on':''); pin.textContent='📌'; pin.title='Pin/unpin';
+      pin.onclick=()=>{ p.pinned=!p.pinned; dirty=true; render(); };
+      const up=document.createElement('button'); up.className='mec-mini'; up.textContent='↑'; up.title='Move up';
+      up.onclick=()=>{ if(i>0){ [FEED[i-1],FEED[i]]=[FEED[i],FEED[i-1]]; dirty=true; render(); } };
+      const del=document.createElement('button'); del.className='mec-mini'; del.textContent='✕'; del.title='Delete';
+      del.onclick=()=>{ if(confirm('Delete "'+(p.title||'this post')+'"?')){ FEED.splice(i,1); dirty=true; render(); } };
+      it.append(pin,up,del); list.append(it);
+    });
+    card.append(list);
+
+    const save=document.createElement('button'); save.className='mec-save'; save.textContent=dirty?'💾 Save & Publish':'✓ Up to date';
+    save.onclick=()=>{
+      save.disabled=true; save.textContent='Publishing…';
+      fetch('/save-feed',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({posts:FEED})})
+        .then(r=>r.ok?r.json():Promise.reject())
+        .then(j=>{ save.textContent=j.pushed?'✅ Published':'💾 Saved'; dirty=false; setTimeout(()=>location.reload(),900); })
+        .catch(()=>{ save.disabled=false; save.textContent='⚠️ Save failed — is editor_server running?'; });
+    };
+    card.append(save);
+    host.append(card);
+  }
+
+  // Mount when edit mode turns on
+  let mounted=false;
+  function tryMount(){ if(document.body.classList.contains('ze-on')&&!mounted){ mounted=true; load().then(render); } }
+  new MutationObserver(tryMount).observe(document.body,{attributes:true,attributeFilter:['class']});
+  tryMount();
+})();
+</script>
 </body>
 </html>
