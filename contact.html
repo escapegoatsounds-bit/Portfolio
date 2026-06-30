@@ -45,25 +45,102 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.95);b
 footer{border-top:1px solid var(--b);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--m)}
 .fl{font-size:15px;font-weight:900}.fl em{color:var(--gold);font-style:normal}
 
-/* Form */
-.form-section{margin-top:60px}
-.form-section h2{font-size:clamp(26px,3vw,42px);font-weight:900;letter-spacing:-1px;margin-bottom:8px}
-.form-section p{font-size:14px;color:var(--m2);margin-bottom:36px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.form-full{grid-column:1/-1}
-.form-group{display:flex;flex-direction:column;gap:8px}
-.form-group label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--m2)}
-.form-group input,.form-group select,.form-group textarea{
-  width:100%;background:#0d0d0f;border:1px solid var(--b);border-radius:10px;
-  color:var(--text);font:500 14px var(--font);padding:13px 16px;outline:none;
-  transition:border-color .2s;-webkit-appearance:none;appearance:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
-.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:10px;background-color:#0d0d0f;cursor:pointer;padding-right:36px}
-.form-group select option{background:#0d0d0f}
-.form-group textarea{min-height:120px;resize:vertical;line-height:1.6}
-.form-submit{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:8px}
-.form-note{font-size:11px;color:var(--m);line-height:1.5}
-.success-msg{display:none;background:#0d1f0d;border:1px solid #2a5c2a;border-radius:12px;padding:16px 20px;font-size:13px;color:#6fcf6f;margin-top:12px}
+/* WhatsApp Chat UI */
+.wa-section{margin-top:60px}
+.wa-section h2{font-size:clamp(26px,3vw,42px);font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.wa-section p{font-size:14px;color:var(--m2);margin-bottom:32px}
+.wa-phone-frame{
+  max-width:400px;margin:0 auto;
+  border-radius:44px;border:10px solid #111116;
+  box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 0 0 1px #2a2a35,0 0 0 1px #0a0a0d;
+  overflow:hidden;position:relative;
+}
+.wa-phone-frame::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:90px;height:24px;background:#111116;border-radius:0 0 16px 16px;z-index:10;
+}
+.wa-chat-window{background:#0B141A;display:flex;flex-direction:column;height:560px}
+.wa-header{
+  background:#202C33;padding:44px 16px 12px;
+  display:flex;align-items:center;gap:10px;
+  flex-shrink:0;
+}
+.wa-back{color:#aebac1;font-size:22px;line-height:1;margin-right:2px}
+.wa-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--gold);color:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:13px;flex-shrink:0;overflow:hidden;
+}
+.wa-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+.wa-info{flex:1;min-width:0}
+.wa-name{font-size:15px;font-weight:700;color:#e9edef;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wa-status{font-size:11px;color:#25D366;margin-top:1px}
+.wa-hicons{display:flex;gap:22px;color:#aebac1;font-size:18px}
+.wa-body{
+  flex:1;overflow-y:auto;padding:12px 10px;
+  background:#0B141A;
+  scrollbar-width:none;
+}
+.wa-body::-webkit-scrollbar{display:none}
+.wa-wallpaper{
+  position:absolute;inset:0;opacity:.04;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M26 0C11.641 0 0 11.641 0 26s11.641 26 26 26 26-11.641 26-26S40.359 0 26 0zm0 48C13.85 48 4 38.15 4 26S13.85 4 26 4s22 9.85 22 22-9.85 22-22 22z' fill='%23fff' fill-opacity='1'/%3E%3C/svg%3E");
+}
+.wa-date-chip{
+  text-align:center;margin:4px auto 10px;
+  font-size:11px;color:#8696a0;
+  background:#182229;border-radius:8px;
+  padding:4px 12px;display:table;
+}
+.wa-msg{
+  max-width:80%;margin-bottom:2px;
+  padding:7px 10px 4px;border-radius:8px;
+  font-size:13.5px;line-height:1.5;color:#e9edef;
+  position:relative;word-break:break-word;
+}
+.wa-in{
+  background:#202C33;border-radius:0 8px 8px 8px;
+  float:left;clear:both;margin-bottom:6px;
+}
+.wa-out{
+  background:#005C4B;border-radius:8px 0 8px 8px;
+  float:right;clear:both;margin-bottom:6px;
+}
+.wa-time{font-size:10px;color:#8696a0;float:right;margin-left:8px;margin-top:2px;white-space:nowrap}
+.wa-out .wa-time{color:#53bdeb}
+.wa-tick{color:#53bdeb;font-size:11px}
+.wa-clearfix{clear:both}
+.wa-input-bar{
+  background:#202C33;padding:8px 10px;
+  display:flex;align-items:center;gap:8px;
+  border-top:1px solid #2a3942;flex-shrink:0;
+}
+.wa-input-emoji{color:#8696a0;font-size:24px;flex-shrink:0}
+.wa-input-field{
+  flex:1;background:#2a3942;border-radius:22px;
+  padding:9px 16px;color:#8696a0;font-size:13px;
+  font-family:var(--font);white-space:nowrap;overflow:hidden;
+}
+.wa-send-btn{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:background .2s;
+}
+.wa-send-btn:hover{background:#1da851}
+.wa-cta{
+  text-align:center;margin-top:24px;
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+}
+.wa-cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#25D366;color:#000;border-radius:12px;
+  padding:15px 28px;font:800 13px var(--font);
+  letter-spacing:.04em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s;
+}
+.wa-cta-btn:hover{background:#1da851;color:#fff}
+@media(max-width:800px){.wa-phone-frame{border-radius:32px;border-width:8px}}
 
 @media(max-width:800px){
   .contact-hero{grid-template-columns:1fr;gap:40px}
@@ -155,97 +232,84 @@ footer{border-top:1px solid var(--b);padding:28px 40px;display:flex;justify-cont
     </div>
   </div>
 
-  <!-- Contact Form -->
-  <div class="form-section">
-    <h2>Send a message</h2>
-    <p>Fill in the details below and I'll get back to you within 24 hours.</p>
+  <!-- WhatsApp Chat -->
+  <div class="wa-section">
+    <h2>Message on WhatsApp</h2>
+    <p>Tap the send button below — it opens a direct WhatsApp chat. I usually reply within the hour.</p>
 
-    <form id="contactForm" novalidate>
-      <div class="form-grid">
+    <div class="wa-phone-frame">
+      <div class="wa-chat-window">
 
-        <div class="form-group">
-          <label for="cf-name">Full Name *</label>
-          <input type="text" id="cf-name" placeholder="Your name" required>
+        <!-- Header -->
+        <div class="wa-header">
+          <div class="wa-back">‹</div>
+          <div class="wa-avatar">
+            <img src="assets/photos/WhatsApp_Image_2026-03-22_at_06.38.10.jpeg" alt="ZIZO"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="wa-info">
+            <div class="wa-name">Abdelaziz Askar · ZIZO</div>
+            <div class="wa-status">online</div>
+          </div>
+          <div class="wa-hicons">
+            <span>📞</span>
+            <span>⋮</span>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="cf-email">Email Address *</label>
-          <input type="email" id="cf-email" placeholder="your@email.com" required>
+        <!-- Chat body -->
+        <div class="wa-body">
+          <div class="wa-date-chip">Today</div>
+
+          <div class="wa-msg wa-in">
+            Hi, I came across your portfolio — the Glow campaign work is incredible. Are you available for a brand launch?
+            <div class="wa-time">10:14</div>
+          </div>
+          <div class="wa-clearfix"></div>
+
+          <div class="wa-msg wa-out">
+            Hey! Thanks so much 🙌 Absolutely — tell me about the brand and timeline.
+            <div class="wa-time">10:16 <span class="wa-tick">✓✓</span></div>
+          </div>
+          <div class="wa-clearfix"></div>
+
+          <div class="wa-msg wa-in">
+            Food &amp; beverage, MENA launch. Need social strategy, photography direction and content. Budget confirmed.
+            <div class="wa-time">10:18</div>
+          </div>
+          <div class="wa-clearfix"></div>
+
+          <div class="wa-msg wa-out">
+            Perfect — that's exactly my lane 🎯 Send me the brief and let's jump on a call this week.
+            <div class="wa-time">10:19 <span class="wa-tick">✓✓</span></div>
+          </div>
+          <div class="wa-clearfix"></div>
+
+          <div class="wa-date-chip" style="margin-top:14px">Start your conversation below ↓</div>
         </div>
 
-        <div class="form-group">
-          <label for="cf-phone">Phone Number <span style="color:var(--m)">(for callback)</span></label>
-          <input type="tel" id="cf-phone" placeholder="+971 or +20 ...">
-        </div>
-
-        <div class="form-group">
-          <label for="cf-service">Service Needed *</label>
-          <select id="cf-service" required>
-            <option value="">— Select a service —</option>
-            <option>TVC &amp; Campaign Production</option>
-            <option>Social Media Strategy &amp; Management</option>
-            <option>Brand Identity &amp; Design</option>
-            <option>OOH &amp; Print</option>
-            <option>Photography</option>
-            <option>AI Integration &amp; Automation</option>
-            <option>Events &amp; Activations</option>
-            <option>Copywriting &amp; Scripting</option>
-            <option>Brand Launch</option>
-            <option>Music Production</option>
-            <option>Consultation / Strategy Session</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="form-group form-full">
-          <label for="cf-msg">Message</label>
-          <textarea id="cf-msg" placeholder="Tell me about your brand, the project, timeline, and budget if you have one..."></textarea>
-        </div>
-
-        <div class="form-submit form-full">
-          <button type="submit" class="btn-gold" style="border:none;cursor:pointer">✉ Send Message</button>
-          <p class="form-note">Hitting Send opens your email client with everything pre-filled.<br>No data is stored on this site.</p>
-        </div>
+        <!-- Input bar — tapping sends to WhatsApp -->
+        <a href="https://wa.me/201099197988" target="_blank" rel="noopener" class="wa-input-bar" style="text-decoration:none">
+          <span class="wa-input-emoji">😊</span>
+          <div class="wa-input-field">Type a message…</div>
+          <div class="wa-send-btn">
+            <svg viewBox="0 0 24 24" fill="#fff" width="20" height="20"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+          </div>
+        </a>
 
       </div>
-    </form>
+    </div>
 
-    <div class="success-msg" id="successMsg">
-      ✅ Your email client should have opened with the message ready to send. If not, email <a href="mailto:Escapegoatssounds@gmail.com" style="color:var(--gold)">Escapegoatssounds@gmail.com</a> directly.
+    <div class="wa-cta">
+      <a href="https://wa.me/201099197988" target="_blank" rel="noopener" class="wa-cta-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Open in WhatsApp
+      </a>
+      <a href="mailto:Escapegoatssounds@gmail.com" class="btn-outline">✉ Send Email Instead</a>
     </div>
   </div>
 
 </div>
-
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const name    = document.getElementById('cf-name').value.trim();
-  const email   = document.getElementById('cf-email').value.trim();
-  const phone   = document.getElementById('cf-phone').value.trim();
-  const service = document.getElementById('cf-service').value;
-  const msg     = document.getElementById('cf-msg').value.trim();
-
-  if(!name || !email || !service){
-    alert('Please fill in your name, email, and the service you need.');
-    return;
-  }
-
-  const subject = encodeURIComponent('Portfolio enquiry — ' + service + (name ? ' from ' + name : ''));
-  const body = encodeURIComponent(
-    'Hi Abdelaziz,\n\n'
-    + 'Name: ' + name + '\n'
-    + 'Email: ' + email + '\n'
-    + (phone ? 'Phone: ' + phone + '\n' : '')
-    + 'Service needed: ' + service + '\n\n'
-    + (msg ? 'Message:\n' + msg + '\n\n' : '')
-    + '---\nSent via zizo-portfolio contact form'
-  );
-
-  window.location.href = 'mailto:Escapegoatssounds@gmail.com?subject=' + subject + '&body=' + body;
-  document.getElementById('successMsg').style.display = 'block';
-});
-</script>
 
 <footer>
   <span class="fl">ZI<em>ZO</em></span>

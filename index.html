@@ -962,16 +962,25 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
     });
   });
 
+  // Lazy-load observer: only fetch an iframe's external embed when it nears the viewport.
+  // Prevents 50+ Google Drive / Vimeo iframes from loading at once on first paint.
+  const _lazyFrameObs = ('IntersectionObserver' in window) ? new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ const f=e.target; if(f.dataset.src){ f.src=f.dataset.src; f.removeAttribute('data-src'); } obs.unobserve(f); } });
+  },{rootMargin:'300px 0px'}) : null;
+  function _observeLazyFrames(root){
+    const frames=(root||document).querySelectorAll('iframe[data-src]');
+    frames.forEach(f=>{ if(_lazyFrameObs) _lazyFrameObs.observe(f); else { f.src=f.dataset.src; f.removeAttribute('data-src'); } });
+  }
   function inject(id,html){
     if(!html) return;
     // Panels: use dedicated feed div inside the chrome wrapper
     const feedEl=document.getElementById(id+'-feed');
-    if(feedEl){const sec=document.createElement('div');sec.className='dyn-content';sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);return;}
+    if(feedEl){const sec=document.createElement('div');sec.className='dyn-content';sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);_observeLazyFrames(sec);return;}
     // Screens: prepend dynamic content at the top of the app body
     const wrap=document.getElementById(id); if(!wrap) return;
     const body=wrap.querySelector('.app-body,.panel-app-body'); if(!body) return;
     const sec=document.createElement('div'); sec.className='dyn-content';
-    sec.innerHTML=html; body.insertBefore(sec,body.firstChild);
+    sec.innerHTML=html; body.insertBefore(sec,body.firstChild); _observeLazyFrames(sec);
   }
   function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
   function vidSrc(v){return v.source==='drive'?'https://drive.google.com/file/d/'+v.id+'/preview':'https://player.vimeo.com/video/'+v.id+'?color=f0c233&title=0&byline=0&portrait=0&dnt=1';}
@@ -1046,7 +1055,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
       return `<div class="fi-wrap" style="margin-bottom:22px;padding:0 ${padding}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;max-width:${maxW};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
-          <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+          <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" data-src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
           ${ctrl}
         </div>
       </div>`;
@@ -1086,7 +1095,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
       return `<div class="fi-wrap" style="margin-bottom:22px;padding:0 ${padding}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;max-width:${maxW};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
-          <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+          <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" data-src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
           ${ctrl}
         </div>
       </div>`;

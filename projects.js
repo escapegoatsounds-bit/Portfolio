@@ -96,6 +96,41 @@
     'Mooz':              {instagram:'mooz.eg',facebook:'MoozEgypt'},
     'GDK':               {instagram:'gdk_kuwait',facebook:'GDKq8'},
     'Royal-Tulip-Hotel': {instagram:'royaltuliphotel',facebook:'RoyalTulipHotel'},
+    'Royal-Herbs':       {instagram:'royalherbs_eg',facebook:'RoyalHerbsEgypt'},
+    'Deraya':            {instagram:'derayaeg',facebook:'DerayaRealEstate',linkedin:'deraya-real-estate'},
+    'Deraya-Real-Estate':{instagram:'derayaeg',facebook:'DerayaRealEstate',linkedin:'deraya-real-estate'},
+    'The-Recovery-Clinic':{instagram:'therecoveryclinic',facebook:'TheRecoveryClinic',linkedin:'the-recovery-clinic'},
+    'Chouchou':          {instagram:'chouchoueg',facebook:'ChouchouEgypt'},
+    'Lifebox':           {instagram:'lifeboxme',facebook:'LifeboxME'},
+    'Big-Baby-Pop':      {instagram:'bigbabypop',facebook:'BigBabyPop'},
+    'Mostique':          {instagram:'mostique.eg',facebook:'Mostique'},
+    'MTM':               {instagram:'mtm_egypt',facebook:'MTMEgypt'},
+    'Fujifilm':          {instagram:'fujifilmme',facebook:'FujifilmMiddleEast',x:'FujifilmME',youtube:'FujifilmGlobal'},
+    'Lord-of-the-Wings': {instagram:'lordofthewings',facebook:'LordoftheWings'},
+    'Brew-Craft':        {instagram:'brewcraft.eg',facebook:'BrewCraftEgypt'},
+    'No-Limits-Furniture':{instagram:'nolimitsfurniture',facebook:'NoLimitsFurniture'},
+    'Bonny':             {instagram:'bonnyfoods',facebook:'BonnyFoods'},
+    'Imagine-Studio':    {instagram:'imaginestudio.eg',facebook:'ImagineStudioEgypt'},
+    'URBEELS':           {instagram:'urbeels',facebook:'URBEELS'},
+    'WallPost':          {instagram:'wallpost.eg',facebook:'WallPost'},
+    'Escapegoat-Sound':  {instagram:'escapegoatsound',facebook:'EscapegoatSound'},
+    'Bohobun':           {instagram:'bohobun.eg',facebook:'Bohobun'},
+    'Delight-Pastries':  {instagram:'delightpastry',facebook:'DelightPastry'},
+    'Delight-Parties':   {instagram:'delightparties',facebook:'DelightParties'},
+    'Blue-Ocean-Sharm':  {instagram:'blueoceansharm',facebook:'BlueOceanSharm'},
+    'Carzami':           {instagram:'carzami',facebook:'Carzami'},
+    'Eldib-Co':          {instagram:'eldibco',linkedin:'eldib-co'},
+    'Steam-Cola':        {instagram:'steamcola',facebook:'SteamCola'},
+    'Labanita':          {instagram:'labanitaeg',facebook:'LabanitaEgypt'},
+    'BIC-WNA':           {instagram:'bicwna',facebook:'BICWestNorthAfrica'},
+    'Glow':              {instagram:'gloweg',facebook:'GlowEgypt'},
+    'CAPA':              {instagram:'capa.eg',facebook:'CAPAEgypt'},
+    'Nineteen84':        {instagram:'nineteen84.eg',facebook:'Nineteen84Egypt'},
+    'The-Center':        {instagram:'thecentercairo',facebook:'TheCenterCairo'},
+    'The-G-Hotels':      {instagram:'theghotels',facebook:'TheGHotels'},
+    'Medina':            {instagram:'medinabrands',facebook:'MedinaBrands'},
+    'Juicy-Drop-Arabia': {instagram:'juicydrop',facebook:'JuicyDrop'},
+    'Memaar-Al-Morshedy':{instagram:'memaaralmorshedy',facebook:'MemaarAlMorshedy',linkedin:'memaar-almorshedy'},
   };
   const PROJ_FIELDS = [
     ['name','Project Name','e.g. Ramadan 2024 Campaign'],
@@ -166,6 +201,8 @@
       if(!Array.isArray(np.chartData)||!np.chartData.length) np.chartData=blankProject().chartData;
       if(!Array.isArray(np.media)) np.media=[];
       if(!Array.isArray(np.articles)) np.articles=[];
+      // Normalize old {text,url,date} article format to new {body,link} format
+      np.articles=np.articles.map(a=>a.body!==undefined?a:{title:a.title||'',body:a.text||'',link:a.url||a.link||'',socialUrl:a.socialUrl||'',socialPlatform:a.socialPlatform||'',date:a.date||''});
       if(!Array.isArray(np.briefs)) np.briefs=[];
       // migrate old single-object format to array
       if(Array.isArray(p.vimeo)) np.vimeo=p.vimeo;
@@ -223,6 +260,32 @@
   #zz-proj-toast{position:fixed;bottom:70px;right:18px;z-index:99999;background:var(--accent,#f0c233);color:#000;
     padding:10px 18px;border-radius:10px;font:700 13px Inter,sans-serif;opacity:0;transition:opacity .3s;pointer-events:none}
   #zz-proj-toast.show{opacity:1}
+  /* ── Edit Mode Banner ───────────────────────────────── */
+  #zz-edit-banner{background:#f0c233;color:#000;padding:9px 20px;border-radius:10px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  #zz-edit-banner .zeb-left{display:flex;align-items:center;gap:10px}
+  #zz-edit-banner .zeb-icon{font-size:18px;flex-shrink:0}
+  #zz-edit-banner .zeb-title{font:800 12px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  #zz-edit-banner .zeb-sub{font:500 11px Inter,sans-serif;opacity:.65;margin-top:1px}
+  #zz-edit-banner .zeb-badge{font:700 11px Inter,sans-serif;padding:5px 14px;background:rgba(0,0,0,.14);border-radius:6px;flex-shrink:0;white-space:nowrap}
+  /* ── X / Twitter Post Cards ─────────────────────────── */
+  .zz-feed{display:flex;flex-direction:column;gap:1px;border:1px solid #1e1e2a;border-radius:16px;overflow:hidden;max-width:600px}
+  .zz-tweet{background:#080810;padding:18px 20px;border-bottom:1px solid #111118;transition:background .15s;cursor:default}
+  .zz-tweet:last-child{border-bottom:none}
+  .zz-tweet:hover{background:#0c0c18}
+  .zz-tweet-hd{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+  .zz-tweet-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#f0c233,#e85d4a);flex-shrink:0;display:flex;align-items:center;justify-content:center;font:900 15px Inter,sans-serif;color:#000;overflow:hidden}
+  .zz-tweet-av img{width:100%;height:100%;object-fit:cover}
+  .zz-tweet-meta{flex:1;min-width:0}
+  .zz-tweet-name{font:700 14px Inter,sans-serif;color:#f4f2ed;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .zz-tweet-handle{font:400 13px Inter,sans-serif;color:#555565;line-height:1.4}
+  .zz-tweet-xlogo{font:900 16px Inter,sans-serif;color:#e8e6e1;flex-shrink:0;margin-top:2px}
+  .zz-tweet-body{font:400 15px/1.65 Inter,sans-serif;color:#e8e6e1;white-space:pre-wrap;word-break:break-word;margin-bottom:14px}
+  .zz-tweet-title{font:700 15px/1.3 Inter,sans-serif;color:#f4f2ed;margin-bottom:6px}
+  .zz-tweet-link{display:block;border:1px solid #1e1e2a;border-radius:12px;padding:10px 14px;margin-bottom:14px;text-decoration:none;background:#0c0c18;font:500 12px Inter,sans-serif;color:#5a8fee;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:border-color .15s}
+  .zz-tweet-link:hover{border-color:#2c2c3a}
+  .zz-tweet-eng{display:flex;gap:24px;padding-top:12px;border-top:1px solid #111118}
+  .zz-tweet-btn{display:flex;align-items:center;gap:6px;font:400 13px Inter,sans-serif;color:#42424e;cursor:default;transition:color .15s}
+  .zz-tweet-btn:hover{color:#7878a8}
   /* ── Viewer Gallery ──────────────────────────────────── */
   .zz-gallery-section{padding:72px 0;border-bottom:1px solid var(--b,#2c2c33)}
   .zz-gallery-section .c{max-width:1100px;margin:0 auto;padding:0 40px}
@@ -270,8 +333,8 @@
   .zz-carousel-wrap{margin-bottom:14px}
   .zz-carousel{position:relative;overflow:hidden;border-radius:14px;background:#111;border:1px solid var(--b,#2c2c33)}
   .zz-car-track{display:flex;transition:transform .45s cubic-bezier(.22,1,.36,1);will-change:transform}
-  .zz-car-slide{flex:0 0 100%;position:relative;overflow:hidden;cursor:pointer}
-  .zz-car-slide img,.zz-car-slide video{width:100%;height:100%;object-fit:cover;display:block}
+  .zz-car-slide{flex:0 0 100%;position:relative;overflow:hidden;cursor:pointer;background:#000}
+  .zz-car-slide img,.zz-car-slide video{width:100%;height:100%;object-fit:contain;display:block}
   .zz-car-cap{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);color:#fff;font-size:13px;line-height:1.5;pointer-events:none}
   .zz-car-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.58);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .15s;line-height:1;padding:0}
   .zz-car-btn:hover{background:rgba(0,0,0,.85)}
@@ -314,6 +377,64 @@
     const btn=el('button'); btn.className='zp-cover-btn'; btn.textContent=src?'🖼️ Change cover':'🖼️ Add cover photo';
     btn.onclick=()=>pick('image/*',f=>{ toast('Uploading…'); uploadFile(f).then(p=>{ setSrc(p); persist(true); render(); }).catch(()=>toast('Upload failed — is the server running?')); });
     w.append(ov,btn); return w;
+  }
+
+  const PROCESS_PRESETS = {
+    'Social Media':   [{title:'Brief & Strategy',desc:'Aligned brand objectives, audience insights, and content pillars.'},{title:'Content Production',desc:'Wrote copy, developed visual direction, and produced all assets.'},{title:'Scheduling & Publishing',desc:'Planned the content calendar and published across platforms.'},{title:'Community & Reporting',desc:'Managed comments, tracked performance, and reported results.'}],
+    'TVC / Video':    [{title:'Brief & Strategy',desc:'Defined the creative brief, campaign goals, and audience.'},{title:'Concept & Scripting',desc:'Developed the big idea, wrote the script and visual direction.'},{title:'Production',desc:'Directed and produced the shoot — crew, talent, and locations.'},{title:'Post-Production',desc:'Edited, coloured, mixed, and delivered the final cut.'}],
+    'Branding':       [{title:'Discovery',desc:'Researched the market, competitors, and brand positioning.'},{title:'Brand Strategy',desc:'Defined the brand voice, values, and visual DNA.'},{title:'Identity Design',desc:'Designed the logo, colour system, typography, and assets.'},{title:'Brand Guidelines',desc:'Packaged all elements into a comprehensive brand guide.'}],
+    'Copywriting':    [{title:'Brief & Research',desc:'Understood the audience, tone, and campaign objectives.'},{title:'Concept & Draft',desc:'Developed the creative concept and wrote the first drafts.'},{title:'Refinement',desc:'Iterated based on feedback and refined every word.'},{title:'Final Delivery',desc:'Delivered polished copy across all required formats.'}],
+    'BTL / Activation':[{title:'Brief & Objectives',desc:'Defined goals, audience, and activation mechanics.'},{title:'Concept & Design',desc:'Developed the creative concept, visuals, and messaging.'},{title:'Production',desc:'Produced all materials — POS, signage, and print assets.'},{title:'Execution & Reporting',desc:'Executed on-ground and measured results against KPIs.'}],
+    'Photography':    [{title:'Brief & Art Direction',desc:'Defined the visual mood, references, and shot list.'},{title:'Pre-Production',desc:'Sourced talent, locations, props, and styling.'},{title:'Shoot Day',desc:'Directed and shot all content on location.'},{title:'Post-Production',desc:'Edited, retouched, and delivered the final images.'}],
+    'Web Design':     [{title:'Discovery & Brief',desc:'Mapped the user journey, goals, and sitemap.'},{title:'Wireframes & UX',desc:'Designed the structure, flows, and interaction model.'},{title:'Visual Design',desc:'Applied the brand identity across all pages.'},{title:'Launch & Handoff',desc:'Built, tested, and delivered the final product.'}],
+    'Campaign':       [{title:'Brief & Strategy',desc:'Defined campaign goals, audience, and creative approach.'},{title:'Creative Development',desc:'Concepted the big idea and developed all creative assets.'},{title:'Production',desc:'Produced and finalised all campaign deliverables.'},{title:'Launch & Reporting',desc:'Launched across channels and reported on performance.'}],
+  };
+
+  function processSection(p){
+    p.process = p.process || [];
+    const w=el('div'); w.className='zp-card';
+    w.innerHTML='<div class="zp-sl">Process</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">How It Came Together</div><div class="zp-hint" style="margin-bottom:14px">Choose a preset or build your own steps.</div>';
+
+    const presetRow=el('div'); presetRow.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px';
+    Object.keys(PROCESS_PRESETS).forEach(key=>{
+      const b=el('button'); b.className='zp-add'; b.style.cssText='font-size:11px;padding:5px 12px';
+      b.textContent=key;
+      b.onclick=()=>{ p.process=PROCESS_PRESETS[key].map(s=>({...s})); persist(false); render(); };
+      presetRow.append(b);
+    });
+    w.append(presetRow);
+
+    const list=el('div'); list.style.cssText='display:flex;flex-direction:column;gap:10px';
+    (p.process).forEach((s,i)=>{
+      const row=el('div'); row.style.cssText='display:grid;grid-template-columns:1fr 2fr auto;gap:8px;align-items:start';
+      const t=field('input',s.title,'Step title',v=>s.title=v);
+      const d=field('input',s.desc,'Description',v=>s.desc=v);
+      const del=el('button'); del.className='zp-mini'; del.textContent='✕'; del.style.marginTop='2px';
+      del.onclick=()=>{ p.process.splice(i,1); persist(false); render(); };
+      row.append(t,d,del); list.append(row);
+    });
+    w.append(list);
+    const addStep=el('button'); addStep.className='zp-add'; addStep.textContent='＋ Add Step'; addStep.style.marginTop='10px';
+    addStep.onclick=()=>{ p.process.push({title:'',desc:''}); persist(false); render(); };
+    w.append(addStep);
+    return w;
+  }
+
+  function reportsSection(p){
+    function canvaEmbed(url){const m=url.match(/canva\.com\/design\/([^/?]+)/);return m?'https://www.canva.com/design/'+m[1]+'/view?embed':'';}
+    const w=el('div'); w.className='zp-card';
+    w.innerHTML='<div class="zp-sl">Reports</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Campaign Report</div><div class="zp-hint" style="margin-bottom:14px">Paste a Canva report link — shows as a full embed on the brand page.</div>';
+    const urlI=el('input'); urlI.value=p.reportUrl||''; urlI.placeholder='https://www.canva.com/design/...';
+    urlI.style.cssText='width:100%;background:#0d0d0f;border:1px solid var(--b,#2c2c33);border-radius:8px;color:var(--text,#f4f2ed);font:500 14px Inter,sans-serif;padding:10px 12px;outline:none;margin-bottom:8px;box-sizing:border-box';
+    const badge=el('div'); badge.style.cssText='font-size:11px;margin-bottom:12px';
+    function refresh(){ const ok=canvaEmbed(urlI.value.trim()); badge.style.color=ok?'#f0c233':'#888'; badge.textContent=ok?'↳ Canva report detected':(urlI.value?'↳ Not a valid Canva link':''); }
+    urlI.oninput=()=>{ p.reportUrl=urlI.value.trim(); refresh(); persist(false); }; refresh();
+    if(p.reportUrl&&canvaEmbed(p.reportUrl)){
+      const prev=el('div'); prev.style.cssText='position:relative;width:100%;padding-top:56%;border-radius:8px;overflow:hidden;border:1px solid var(--b,#2c2c33)';
+      const ifr=el('iframe'); ifr.src=canvaEmbed(p.reportUrl); ifr.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none'; ifr.allowFullscreen=true;
+      prev.append(ifr); w.append(urlI,badge,prev);
+    } else { w.append(urlI,badge); }
+    return w;
   }
 
   function analyticsRow(p){
@@ -720,7 +841,7 @@
         else { const im=el('img'); im.src=absPath(m.src); im.loading='lazy'; d.append(im); }
         d.onclick=()=>showLb(i); strip.append(d);
       });
-      setTimeout(()=>{ const a=strip.querySelector('.on'); if(a) a.scrollIntoView({inline:'center',behavior:'smooth'}); },50);
+      setTimeout(()=>{ const a=strip.querySelector('.on'); if(a){ const left=a.offsetLeft-strip.offsetWidth/2+a.offsetWidth/2; strip.scrollTo({left:Math.max(0,left),behavior:'smooth'}); } },50);
     }
   }
 
@@ -752,14 +873,24 @@
 
         mediaItems.forEach((mm,i)=>{
           const slide=el('div'); slide.className='zz-car-slide';
-          let media;
-          if(mm.kind==='video'){
-            media=el('video'); media.src=absPath(mm.src); media.muted=true; media.loop=true; media.playsInline=true;
+          if(mm.kind==='drive'){
+            // Google Drive video embed — fill the slide with an iframe
+            slide.style.background='#000';
+            const ifr=el('iframe'); ifr.src='https://drive.google.com/file/d/'+mm.id+'/preview';
+            ifr.style.cssText='width:100%;height:100%;border:none;position:absolute;inset:0';
+            ifr.allow='autoplay;fullscreen'; ifr.allowFullscreen=true;
+            slide.style.position='relative';
+            slide.append(ifr);
           } else {
-            media=el('img'); media.src=absPath(mm.src); media.alt=mm.caption||''; media.loading=i<3?'eager':'lazy';
+            let media;
+            if(mm.kind==='video'){
+              media=el('video'); media.src=absPath(mm.src); media.muted=true; media.loop=true; media.playsInline=true;
+            } else {
+              media=el('img'); media.src=absPath(mm.src); media.alt=mm.caption||''; media.loading=i<3?'eager':'lazy';
+            }
+            media.onclick=()=>openLightbox(mediaItems,i);
+            slide.append(media);
           }
-          media.onclick=()=>openLightbox(mediaItems,i);
-          slide.append(media);
           if(mm.caption){ const cap=el('div'); cap.className='zz-car-cap'; cap.textContent=mm.caption; slide.append(cap); }
           track.append(slide);
         });
@@ -778,7 +909,10 @@
           d.onclick=()=>goTo(i); dotsRow.append(d); dotEls.push(d);
           const th=el('div'); th.className='zz-car-thumb'+(i===0?' on':'');
           let tm;
-          if(mm.kind==='video'){ tm=el('video'); tm.src=absPath(mm.src); tm.muted=true; }
+          if(mm.kind==='drive'){
+            tm=el('div'); tm.style.cssText='width:100%;height:100%;background:#111;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff';
+            tm.textContent='▶';
+          } else if(mm.kind==='video'){ tm=el('video'); tm.src=absPath(mm.src); tm.muted=true; }
           else { tm=el('img'); tm.src=absPath(mm.src); tm.loading='lazy'; }
           th.append(tm); th.onclick=()=>goTo(i); thumbsRow.append(th); thumbEls.push(th);
         });
@@ -789,7 +923,7 @@
           ctr.textContent=(cur+1)+' / '+mediaItems.length;
           dotEls.forEach((d,i)=>d.className='zz-car-dot'+(i===cur?' on':''));
           thumbEls.forEach((t,i)=>{ t.className='zz-car-thumb'+(i===cur?' on':''); });
-          setTimeout(()=>{ const a=thumbsRow.querySelector('.on'); if(a) a.scrollIntoView({inline:'nearest',behavior:'smooth'}); },50);
+          setTimeout(()=>{ const a=thumbsRow.querySelector('.on'); if(a){ const left=a.offsetLeft-thumbsRow.offsetWidth/2+a.offsetWidth/2; thumbsRow.scrollTo({left:Math.max(0,left),behavior:'smooth'}); } },50);
           // video autoplay for current slide
           track.querySelectorAll('video').forEach((v,i)=>{ if(i===cur){v.play().catch(()=>{});}else{v.pause();v.currentTime=0;} });
         }
@@ -872,21 +1006,26 @@
   function applyBrandCircle(){
     const bc=document.querySelector('.bc'); if(!bc) return;
     bc.style.overflow='hidden';
-    const img=bc.querySelector('img');
-    if(img){
-      const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):'';
-      if(logoSrc){
-        img.src=logoSrc;
-        img.onload=()=>{ bc.style.background=DATA.brand.logoBackground||'#fff'; };
-        img.onerror=function(){ this.style.display='none'; bc.style.background=''; };
-      } else {
-        bc.style.background='';
-      }
-      img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:10%';
-    }
+    // Priority: uploaded logo → assets/logos/[SLUG].png fallback
+    const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):('/assets/logos/'+SLUG+'.png');
+    // Remove existing initials text
+    if(!bc.querySelector('img')){ bc.textContent=''; }
+    let img=bc.querySelector('img');
+    if(!img){ img=el('img'); img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:10%'; bc.append(img); }
+    img.src=logoSrc;
+    img.onload=()=>{ bc.style.background='#fff'; img.style.display='block'; };
+    img.onerror=()=>{
+      img.style.display='none';
+      if(!bc.textContent.trim()){ bc.textContent=brandName.slice(0,2).toUpperCase(); }
+      bc.style.background='';
+    };
   }
 
   function renderBrand(){
+    // Edit mode banner — visible only when editor panel is mounted
+    const banner=el('div'); banner.id='zz-edit-banner';
+    banner.innerHTML='<div class="zeb-left"><div class="zeb-icon">✏️</div><div><div class="zeb-title">Edit Mode</div><div class="zeb-sub">Changes save to device instantly &nbsp;·&nbsp; Press Save &amp; Deploy to publish</div></div></div><div class="zeb-badge">'+esc(brandName)+'</div>';
+    root.append(banner);
     const sec=el('div'); sec.innerHTML='<p class="zp-sl">Brand Level</p><h2 class="zp-h">Brand Profile</h2>';
     const card=el('div'); card.className='zp-card'; const grid=el('div'); grid.className='zp-grid';
 
@@ -966,17 +1105,19 @@
     typesCard.append(chipPicker(DELIV_TYPES, p.types=p.types||[], v=>{ p.types=v; persist(false); rebuildPlatSection(); }));
     typesCard.append(platSection); rebuildPlatSection();
     wrap.append(typesCard);
-    // gallery first so it's immediately visible, then analytics
-    wrap.append(vimeoSection(p));
+    wrap.append(processSection(p));
     wrap.append(articlesSection(p));
     wrap.append(briefsSection(p));
     wrap.append(mediaGallery(p));
-    wrap.append(analyticsRow(p));
-    wrap.append(chartBlock(p));
+    wrap.append(reportsSection(p));
     // actions
     const bar=el('div'); bar.className='zp-bar';
     const save=el('button'); save.className='zp-save'; save.textContent='💾 Save & Deploy'; save.onclick=()=>persist(true, save); bar.append(save);
     if(DATA.projects.length>1){ const del=el('button'); del.className='zp-del'; del.textContent='Delete this tab'; del.onclick=()=>{ if(!confirm('Delete "'+(p.name||('Tab '+(DATA.active+1)))+'"?'))return; DATA.projects.splice(DATA.active,1); DATA.active=Math.max(0,DATA.active-1); persist(true, save); render(); }; bar.append(del); }
+    const addVidBar=el('button'); addVidBar.className='zp-add'; addVidBar.textContent='🎬 Add Video'; addVidBar.title='Add a Vimeo or Google Drive campaign video';
+    addVidBar.onclick=()=>{ const u=prompt('Paste Vimeo or Google Drive video URL:',''); if(!u||!u.trim())return; const raw=u.trim(); const vm=raw.match(/vimeo\.com\/(?:video\/)?(\d+)/)||raw.match(/^(\d+)$/); const dm=raw.match(/drive\.google\.com\/file\/d\/([^/?]+)/); if(!vm&&!dm){alert('Not a valid Vimeo or Drive link.');return;} const id=vm?vm[1]:dm[1]; const source=dm?'drive':'vimeo'; const label=prompt('Label for this video (optional):',''); const ans=prompt('Orientation? Type H for horizontal (16:9) or V for vertical (9:16 — Reels/TikTok):','H'); const orientation=(ans&&/^v/i.test(ans.trim()))?'vertical':'horizontal'; (p.vimeo=p.vimeo||[]).push({id,source,label:label||'',orientation}); persist(true); render(); }; bar.append(addVidBar);
+    const addCanvaBar=el('button'); addCanvaBar.className='zp-add'; addCanvaBar.textContent='📊 Add Canva'; addCanvaBar.title='Add a Canva presentation embed to the gallery';
+    addCanvaBar.onclick=()=>{ function canvaEmbed(url){const m=url.match(/canva\.com\/design\/([^/?]+)/);return m?'https://www.canva.com/design/'+m[1]+'/view?embed':'';} const u=prompt('Paste Canva share link — e.g. https://www.canva.com/design/...',''); if(!u||!u.trim())return; const src=u.trim().replace(/\/view(\?.*)?$/,'/view?embed'); if(!canvaEmbed(src)){alert('Not a valid Canva design link.');return;} (p.media=p.media||[]).push({kind:'canva',src,label:''}); persist(true); render(); }; bar.append(addCanvaBar);
     const hint=el('span'); hint.className='zp-hint'; hint.textContent='Saves & pushes directly to GitHub Pages.'; bar.append(hint);
     wrap.append(bar); root.append(wrap);
   }
@@ -1043,13 +1184,95 @@
   // Are we in edit mode? Activated by ?edit in URL or by editor.js toggle (ze-on class).
   const EDIT_MODE = /[?&]edit\b/.test(location.search);
 
-  function applyDisplay(){ applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyGallery(); }
+  function applyProcess(){
+    const p=DATA.projects[DATA.active]||DATA.projects[0]||{};
+    const steps=p.process||[]; if(!steps.length) return;
+    const old=document.getElementById('zz-process-sec'); if(old) old.remove();
+    const sec=el('div'); sec.id='zz-process-sec'; sec.style.cssText='padding:72px 0;border-bottom:1px solid var(--b,#2c2c33)';
+    const c=el('div'); c.className='c';
+    const sl=el('p'); sl.className='sl'; sl.textContent='Process';
+    const st=el('h2'); st.className='st'; st.textContent='How It Came Together';
+    c.append(sl,st);
+    steps.forEach((s,i)=>{
+      const row=el('div'); row.style.cssText='display:grid;grid-template-columns:56px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--b,#2c2c33);align-items:start';
+      const num=el('div'); num.className='pn'; num.textContent=String(i+1).padStart(2,'0');
+      const body=el('div');
+      const title=el('div'); title.className='pt'; title.textContent=s.title;
+      const desc=el('div'); desc.className='pb'; desc.textContent=s.desc;
+      body.append(title,desc); row.append(num,body); c.append(row);
+    });
+    sec.append(c);
+    const btns=document.querySelector('.btns'); if(btns) btns.before(sec); else document.body.append(sec);
+    // hide the static process section in the HTML so we don't show both
+    document.querySelectorAll('section').forEach(s=>{ if(s.querySelector('.ps')) s.style.display='none'; });
+  }
+
+  function applyReports(){
+    function canvaEmbed(url){const m=url.match(/canva\.com\/design\/([^/?]+)/);return m?'https://www.canva.com/design/'+m[1]+'/view?embed':'';}
+    const p=DATA.projects[DATA.active]||DATA.projects[0]||{};
+    const url=p.reportUrl||''; const embed=canvaEmbed(url); if(!embed) return;
+    const old=document.getElementById('zz-report-sec'); if(old) old.remove();
+    const sec=el('div'); sec.id='zz-report-sec'; sec.style.cssText='padding:72px 0;border-bottom:1px solid var(--b,#2c2c33)';
+    const c=el('div'); c.className='c';
+    const sl=el('p'); sl.className='sl'; sl.textContent='Report';
+    const st=el('h2'); st.className='st'; st.textContent='Campaign Results';
+    const wrap=el('div'); wrap.style.cssText='position:relative;width:100%;padding-top:56%;border-radius:12px;overflow:hidden;border:1px solid var(--b,#2c2c33);margin-top:20px';
+    const ifr=el('iframe'); ifr.src=embed; ifr.loading='lazy'; ifr.allowFullscreen=true; ifr.allow='fullscreen';
+    ifr.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none';
+    wrap.append(ifr); c.append(sl,st,wrap); sec.append(c);
+    const btns=document.querySelector('.btns'); if(btns) btns.before(sec); else document.body.append(sec);
+    // hide static results section
+    document.querySelectorAll('section').forEach(s=>{ if(s.querySelector('.rg')) s.style.display='none'; });
+  }
+
+  function applyArticles(){
+    const p=DATA.projects[DATA.active]||DATA.projects[0]||{};
+    const arts=(p.articles||[]).filter(a=>(a.body||a.text||'').trim()||(a.title||'').trim());
+    const old=document.getElementById('zz-articles-sec'); if(old) old.remove();
+    if(!arts.length) return;
+    const sec=el('div'); sec.id='zz-articles-sec'; sec.style.cssText='padding:72px 0;border-bottom:1px solid var(--b,#2c2c33)';
+    const c=el('div'); c.className='c';
+    const sl=el('p'); sl.className='sl'; sl.textContent='Written Content';
+    const st=el('h2'); st.className='st'; st.textContent='Posts & Articles';
+    c.append(sl,st);
+    const feed=el('div'); feed.className='zz-feed'; feed.style.marginTop='24px';
+    arts.forEach(a=>{
+      const body=(a.body||a.text||'').trim();
+      const title=(a.title||'').trim();
+      const link=a.link||a.url||'';
+      const date=a.date||'';
+      const card=el('div'); card.className='zz-tweet';
+      // Header
+      const hd=el('div'); hd.className='zz-tweet-hd';
+      const av=el('div'); av.className='zz-tweet-av'; av.textContent='ZI';
+      const meta=el('div'); meta.className='zz-tweet-meta';
+      meta.innerHTML='<div class="zz-tweet-name">Abdelaziz Askar</div><div class="zz-tweet-handle">@AbdelazizAskar'+(date?' &middot; '+esc(date):'')+'</div>';
+      const xlo=el('div'); xlo.className='zz-tweet-xlogo'; xlo.textContent='𝕏';
+      hd.append(av,meta,xlo); card.append(hd);
+      if(title){ const h=el('div'); h.className='zz-tweet-title'; h.textContent=title; card.append(h); }
+      if(body){ const b=el('div'); b.className='zz-tweet-body'; b.textContent=body; card.append(b); }
+      if(link){ const lk=el('a'); lk.className='zz-tweet-link'; lk.href=link; lk.target='_blank'; lk.rel='noopener'; lk.textContent=link.replace(/^https?:\/\//,'').replace(/\/$/,''); card.append(lk); }
+      const eng=el('div'); eng.className='zz-tweet-eng';
+      [['💬','Reply'],['🔁','Repost'],['❤️','Like'],['📤','Share']].forEach(([ico,lbl])=>{
+        const b=el('div'); b.className='zz-tweet-btn'; b.title=lbl;
+        b.innerHTML=ico+'<span>—</span>'; eng.append(b);
+      });
+      card.append(eng); feed.append(card);
+    });
+    c.append(feed); sec.append(c);
+    const btns=document.querySelector('.btns'); if(btns) btns.before(sec); else document.body.append(sec);
+  }
+
+  function applyDisplay(){ applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyProcess(); applyArticles(); applyGallery(); applyReports(); }
   function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyDisplay(); }
   function mount(){
     if(!root.parentNode){
+      const sy=window.scrollY;
+      root.style.overflowAnchor='none';
       const hero=document.querySelector('.hero')||document.querySelector('nav');
       if(hero&&hero.parentNode) hero.parentNode.insertBefore(root, hero.nextSibling);
       else document.body.insertBefore(root, document.body.firstChild);
+      requestAnimationFrame(()=>window.scrollTo({top:sy,behavior:'instant'}));
     }
     render();
   }

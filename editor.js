@@ -540,7 +540,10 @@ document.addEventListener('scroll', closeMT, true);
 
   function embed(v) {
     const isV = v.orientation === 'vertical';
-    const url = 'https://player.vimeo.com/video/' + v.id + '?color=f0c233&title=0&byline=0&portrait=0&dnt=1';
+    const isDrive = v.source === 'drive';
+    const url = isDrive
+      ? 'https://drive.google.com/file/d/' + v.id + '/preview'
+      : 'https://player.vimeo.com/video/' + v.id + '?color=f0c233&title=0&byline=0&portrait=0&dnt=1';
     if (isV) {
       return '<div style="display:flex;justify-content:center;align-items:center;background:#000;padding:24px 0">'
         + '<div style="width:min(360px,80%);aspect-ratio:9/16;background:#000;position:relative">'
