@@ -654,7 +654,7 @@ function iconHTML(key,inDock){const a=APPS[key];return `<div class="app-icon" on
 document.getElementById('appGrid').innerHTML=GRID.map(k=>iconHTML(k,false)).join('');
 document.getElementById('appDock').innerHTML=DOCK.map(k=>iconHTML(k,true)).join('');
 
-function feedPost(b,cap){return `<div class="feed-post"><div class="feed-head"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · Creative</div></div></div><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div>`;}
+function feedPost(b,cap){return `<div class="feed-post"><a href="${brandLink(b.s)}" class="feed-head" style="text-decoration:none"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · Creative</div></div></a><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div>`;}
 function tweet(txt,meta){return `<div class="tweet"><div class="tweet-av">AZ</div><div><div class="tweet-h"><b>Abdelaziz Askar</b> <span>@AbdelazizAskar · ${meta}</span></div><div class="tweet-txt">${txt}</div><div class="tweet-meta">♡ &nbsp; ⟳ &nbsp; 💬</div></div></div>`;}
 function cardLink(b,meta){return `<a class="acard" href="${brandLink(b.s)}"><div class="acard-body" style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:${b.c};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div><div class="acard-name">${b.n}</div><div class="acard-meta">${meta}</div></div></div></a>`;}
 
@@ -902,13 +902,13 @@ buildAppPanels();
         </div>
         <div style="position:absolute;bottom:10px;right:10px;font-size:10px;color:rgba(255,255,255,.3)">${b.n}</div>
       </div>
-      <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+      <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-top:8px;text-decoration:none">
         ${logoAvatar}
         <div style="flex:1;min-width:0">
           <div style="font-size:13px;font-weight:700;color:#fff">${label}</div>
-          <div style="font-size:11px;color:#888">${b.n}${proj.date?' · '+proj.date:''} · <a href="${link}" target="_blank" rel="noopener" style="color:${vidPlatformColor(v)};text-decoration:none">${vidPlatformLabel(v)} ↗</a></div>
+          <div style="font-size:11px;color:#888">${b.n}${proj.date?' · '+proj.date:''} · <a href="${link}" target="_blank" rel="noopener" style="color:${vidPlatformColor(v)};text-decoration:none" onclick="event.stopPropagation()">${vidPlatformLabel(v)} ↗</a></div>
         </div>
-      </div>
+      </a>
     </div>`;
   }
 
@@ -921,7 +921,7 @@ buildAppPanels();
       const aspect=isVert?'9/16':'16/9';
       const maxW=isVert?'320px':'100%';
       return `<div style="margin-bottom:22px;padding:0 ${padding}">
-        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></div>
+        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;max-width:${maxW};aspect-ratio:${aspect};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
           <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
@@ -939,7 +939,7 @@ buildAppPanels();
     const panelHtml=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>{
       const src=vidSrc(v);const label=v.label||proj.name||b.n;const link=vidLink(v);const isVert=v.orientation==='vertical';
       return `<div style="margin-bottom:22px;padding:0 12px">
-        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></div>
+        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;aspect-ratio:${isVert?'9/16':'16/9'};max-width:${isVert?'340px':'100%'};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
           <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
@@ -949,7 +949,7 @@ buildAppPanels();
     const screenHtml=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>{
       const src=vidSrc(v);const label=v.label||proj.name||b.n;const link=vidLink(v);const isVert=v.orientation==='vertical';
       return `<div style="margin-bottom:22px;padding:0 8px">
-        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></div>
+        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;aspect-ratio:${isVert?'9/16':'16/9'};max-width:${isVert?'300px':'100%'};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
           <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
@@ -971,11 +971,11 @@ buildAppPanels();
       const hashtags=m.tags?`<div style="margin-top:6px;font-size:12px;color:#6f9fd8;line-height:1.6">${m.tags.map(t=>'#'+t.replace(/\s+/g,'')).join(' ')}</div>`:'';
       const dateStr=proj.date?`<div style="margin-top:8px;font-size:10px;color:#8e8e93;text-transform:uppercase;letter-spacing:.04em">${proj.date}</div>`:'';
       return `<div style="border-bottom:1px solid #262626;margin-bottom:0">
-        <div style="padding:10px 14px;display:flex;align-items:center;gap:10px">
+        <a href="${brandLink(b.s)}" style="padding:10px 14px;display:flex;align-items:center;gap:10px;text-decoration:none">
           <div style="width:32px;height:32px;border-radius:50%;background:${b.c};overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};position:relative">${b.i}${logoOverlay(b,'50%')}</div>
           <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${b.n}</div><div style="font-size:11px;color:#8e8e93">Instagram · ${proj.name||'Campaign'}</div></div>
           <div style="color:#fff;font-size:18px;letter-spacing:3px">···</div>
-        </div>
+        </a>
         <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#111">
           <img src="${src}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,${b.c}88,#050505)';this.parentNode.innerHTML+='<div style=\\'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.5\\'><div style=\\'width:80px;height:80px;border-radius:16px;background:${b.c};display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:${b.t}\\'>${b.i}</div></div>'">
         </div>
@@ -1006,9 +1006,9 @@ buildAppPanels();
     const html=sectionHdr('📰 Campaign Posts')+arts.x.map(({b,a})=>`
       <div style="border-bottom:1px solid #2f3336;padding:14px 16px">
         <div style="display:flex;gap:10px">
-          <div style="width:38px;height:38px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>
+          <a href="${brandLink(b.s)}" style="text-decoration:none;flex-shrink:0"><div style="width:38px;height:38px;border-radius:50%;background:${b.c};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div></a>
           <div style="flex:1;min-width:0">
-            <div style="display:flex;gap:6px;align-items:baseline;margin-bottom:3px"><span style="font-weight:700;font-size:14px">${b.n}</span><span style="color:#71767b;font-size:12px">@AbdelazizAskar · Campaign</span></div>
+            <div style="display:flex;gap:6px;align-items:baseline;margin-bottom:3px"><a href="${brandLink(b.s)}" style="font-weight:700;font-size:14px;color:#fff;text-decoration:none">${b.n}</a><span style="color:#71767b;font-size:12px">@AbdelazizAskar · Campaign</span></div>
             ${a.title?'<div style="font-size:11px;color:#1d9bf0;font-weight:600;margin-bottom:4px">'+a.title+'</div>':''}
             <div style="font-size:15px;color:#e7e9ea;line-height:1.5;margin-bottom:6px">${a.body}</div>
             ${a.link?'<div style="border:1px solid #2f3336;border-radius:8px;padding:8px 10px;margin-bottom:6px"><a href="'+a.link+'" style="color:#1d9bf0;font-size:12px">'+a.link+'</a></div>':''}
@@ -1024,10 +1024,10 @@ buildAppPanels();
     const html=sectionHdr('📋 Campaign Posts')+arts.linkedin.map(({b,a})=>`
       <div class="acard">
         <div class="acard-body">
-          <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+          <a href="${brandLink(b.s)}" style="display:flex;gap:10px;align-items:center;margin-bottom:8px;text-decoration:none;color:inherit">
             <div style="width:36px;height:36px;background:${b.c};border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'6px')}</div>
             <div><div style="font-size:13px;font-weight:700">${b.n}</div><div class="acard-meta">Abdelaziz Askar · Campaign</div></div>
-          </div>
+          </a>
           ${a.title?'<div style="font-size:14px;font-weight:700;margin-bottom:6px">'+a.title+'</div>':''}
           <div style="font-size:13px;color:var(--m2);line-height:1.6">${(a.body||'').replace(/<[^>]+>/g,'').trim()}</div>
           ${a.link?'<div style="margin-top:6px"><a href="'+a.link+'" style="color:var(--gold);font-size:12px">Read more →</a></div>':''}
@@ -1046,8 +1046,8 @@ buildAppPanels();
     const html=sectionHdr('🔗 Linked Posts')+socialLinks[key].map(({b,a,proj})=>`
       <div class="feed-post">
         <div class="feed-head">
-          <div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div>
-          <div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · ${proj.name||'Campaign'}</div></div>
+          <a href="${brandLink(b.s)}" style="display:contents;text-decoration:none"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div>
+          <div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · ${proj.name||'Campaign'}</div></div></a>
           <span style="margin-left:auto;font-size:9px;padding:2px 8px;background:${col}22;color:${col};border:1px solid ${col}44;border-radius:99px;font-weight:700;flex-shrink:0">${name}</span>
         </div>
         ${(a.title||a.body)?`<div style="padding:2px 14px 8px;font-size:13px;color:var(--m2);line-height:1.5">${a.title?'<div style="font-weight:700;color:#fff;margin-bottom:2px">'+(a.title||'')+'</div>':''}${a.body?'<div>'+((a.body||'').replace(/<[^>]+>/g,'').trim().slice(0,160))+((a.body||'').replace(/<[^>]+>/g,'').length>160?'…':'')+'</div>':''}</div>`:''}
