@@ -285,6 +285,32 @@
   },
   "body>div:nth-child(9)>div:nth-child(66)>div:nth-child(2)>p:nth-child(1)": {
    "html": "Escapegoat Sounds"
+  },
+  "body>div:nth-child(9)>div:nth-child(66)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "cover": true,
+   "w": "100%",
+   "img": "assets/photos/Copy_of_Untitled__Instagram_Post_.png"
+  },
+  "body>div:nth-child(9)>div:nth-child(70)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "cover": true
+  },
+  "body>div:nth-child(9)>div:nth-child(69)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "img": "assets/photos/Untitled_design__11_.png",
+   "cover": true,
+   "w": "100%"
+  },
+  "body>div:nth-child(9)>div:nth-child(79)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "cover": true
+  },
+  "body>div:nth-child(9)>div:nth-child(78)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "cover": true
+  },
+  "body>div:nth-child(9)>div:nth-child(74)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
+   "w": "100%",
+   "cover": true
+  },
+  "body>div:nth-child(9)>div:nth-child(74)>div:nth-child(2)>p:nth-child(1)": {
+   "html": "Aevapay"
   }
  },
  "clients/Bazooka-Candy/index.html": {
