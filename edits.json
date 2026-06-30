@@ -126,13 +126,9 @@
    "w": "100%"
   },
   "body>div:nth-child(9)>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-   "align": "center",
-   "w": "100%",
-   "cover": false
+   "cover": true
   },
   "body>div:nth-child(9)>div:nth-child(5)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-   "w": "100%",
-   "align": "center",
    "cover": true
   },
   "body>div:nth-child(9)>div:nth-child(7)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
@@ -268,7 +264,6 @@
    "img": "assets/photos/images__1_.png"
   },
   "body>div:nth-child(9)>div:nth-child(61)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-   "cover": true,
    "w": "100%"
   },
   "body>div:nth-child(9)>div:nth-child(60)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
