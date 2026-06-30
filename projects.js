@@ -90,7 +90,7 @@
     'Gillette-Venus':    {instagram:'gillettevenus',tiktok:'gillettevenus',x:'GilletteVenus',facebook:'GilletteVenus',youtube:'GilletteVenus'},
     'Hardees':           {instagram:'hardeesarabia',facebook:'HardeesMiddleEast',x:'HardeesArabia'},
     'Molfix':            {instagram:'molfix_official',facebook:'Molfix',youtube:'MolfixOfficial'},
-    'Mayo-Clinic':       {instagram:'mayoclinic',tiktok:'mayoclinic',x:'MayoClinic',facebook:'MayoClinic',youtube:'MayoClinic',linkedin:'mayo-clinic'},
+    'Mayo-Clinic':       {instagram:'mayoclinicme',x:'MayoClinicME',facebook:'MayoClinicME',linkedin:'mayo-clinic'},
     'Quooker':           {instagram:'quooker',tiktok:'quooker',x:'QuookerHQ',facebook:'Quooker',youtube:'quooker'},
     'Zooba':             {instagram:'zooba_egy',tiktok:'zooba_egy',facebook:'zooba',x:'zooba_egy'},
     'Biella':            {instagram:'biellarestaurants',facebook:'BiellaRestaurants'},
@@ -1273,6 +1273,10 @@
     const sl=el('p'); sl.className='sl'; sl.textContent='Written Content';
     const st=el('h2'); st.className='st'; st.textContent='Posts & Articles';
     c.append(sl,st);
+    // Posts are attributed to the BRAND — its handle and logo, not ZIZO personally.
+    const xh=((DATA.brand.socials&&DATA.brand.socials.x)||(KNOWN_HANDLES[SLUG]&&KNOWN_HANDLES[SLUG].x)||'').replace(/^@/,'');
+    const handle=xh?'@'+xh:'@'+SLUG.replace(/-/g,'').toLowerCase();
+    const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):('/assets/logos/'+SLUG+'.png');
     const feed=el('div'); feed.className='zz-feed'; feed.style.marginTop='24px';
     arts.forEach(a=>{
       const body=(a.body||a.text||'').trim();
@@ -1280,11 +1284,15 @@
       const link=a.link||a.url||'';
       const date=a.date||'';
       const card=el('div'); card.className='zz-tweet';
-      // Header
+      // Header — brand avatar (logo) + brand name + brand handle
       const hd=el('div'); hd.className='zz-tweet-hd';
-      const av=el('div'); av.className='zz-tweet-av'; av.textContent='ZI';
+      const av=el('div'); av.className='zz-tweet-av';
+      const avImg=el('img'); avImg.src=logoSrc; avImg.alt=brandName+' logo';
+      avImg.style.cssText='width:100%;height:100%;object-fit:contain;background:#fff;padding:8%';
+      avImg.onerror=()=>{ av.removeChild(avImg); av.style.background='linear-gradient(135deg,#f0c233,#e85d4a)'; av.textContent=brandName.slice(0,2).toUpperCase(); };
+      av.append(avImg);
       const meta=el('div'); meta.className='zz-tweet-meta';
-      meta.innerHTML='<div class="zz-tweet-name">Abdelaziz Askar</div><div class="zz-tweet-handle">@AbdelazizAskar'+(date?' &middot; '+esc(date):'')+'</div>';
+      meta.innerHTML='<div class="zz-tweet-name">'+esc(brandName)+'</div><div class="zz-tweet-handle">'+esc(handle)+(date?' &middot; '+esc(date):'')+'</div>';
       const xlo=el('div'); xlo.className='zz-tweet-xlogo'; xlo.textContent='𝕏';
       hd.append(av,meta,xlo); card.append(hd);
       if(title){ const h=el('div'); h.className='zz-tweet-title'; h.textContent=title; card.append(h); }
