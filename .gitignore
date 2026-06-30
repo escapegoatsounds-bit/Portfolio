@@ -38,3 +38,5 @@ _add_*.py
 _fix_*.py
 animations/node_modules/
 node_modules/
+
+auto-push.log
