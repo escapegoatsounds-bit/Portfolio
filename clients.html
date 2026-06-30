@@ -115,6 +115,13 @@ header{
   transition:filter .38s ease;
 }
 .card:hover .card-logo::before{filter:grayscale(0) brightness(.65) saturate(1)}
+.card-logo img{
+  position:relative;z-index:1;
+  width:100px;height:100px;object-fit:contain;
+  background:#fff;border-radius:50%;
+  padding:14px;box-sizing:border-box;
+  box-shadow:0 4px 22px rgba(0,0,0,.55);
+}
 .cl-ring{
   width:86px;height:86px;border-radius:50%;
   border:2.5px solid rgba(255,255,255,.62);
@@ -292,7 +299,7 @@ header{
     </div>
     <div class="card" data-cats="lead_creative_btl_copywriting" data-name="subway oman">
       <div class="card-logo">
-        <img src="assets/logos/Subway-Oman.png" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='clients/Subway-Oman/assets/logo.png';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}"
+        <img src="assets/logos/Subway-Oman.svg" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='clients/Subway-Oman/assets/logo.png';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}"
              alt="Subway Oman logo">
         <div class="card-initials" style="background:#009B3A;color:#fff">SO</div>
       </div>
