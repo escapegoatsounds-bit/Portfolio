@@ -1,24 +1,29 @@
 [
-  {
-    "id": 1,
-    "type": "video",
-    "pinned": true,
-    "date": "2026-06-23",
-    "title": "Meet ZIZO — Introduction",
-    "body": "A quick walkthrough of who I am, what I do, and what drives my work as a Creative Director. 18 years. 70+ brands. One identity.",
-    "youtube": "",
-    "thumb": "",
-    "tags": ["intro", "about"]
-  },
-  {
-    "id": 2,
-    "type": "text",
-    "pinned": false,
-    "date": "2026-06-23",
-    "title": "The portfolio is live.",
-    "body": "After 18 years of doing the work, I finally built a home for it. This feed is where I'll post ideas, work-in-progress, client results, and anything else worth sharing. Check back often.",
-    "youtube": "",
-    "thumb": "",
-    "tags": ["update"]
-  }
+ {
+  "id": 1,
+  "type": "video",
+  "pinned": true,
+  "date": "2026-06-23",
+  "title": "Meet ZIZO — Introduction",
+  "body": "A quick walkthrough of who I am, what I do, and what drives my work as a Creative Director. 18 years. 70+ brands. One identity.",
+  "youtube": "",
+  "thumb": "",
+  "tags": [
+   "intro",
+   "about"
+  ]
+ },
+ {
+  "id": 2,
+  "type": "text",
+  "pinned": false,
+  "date": "2026-06-23",
+  "title": "The portfolio is live.",
+  "body": "After 18 years of doing the work, I finally built a home for it. This feed is where I'll post ideas, work-in-progress, client results, and anything else worth sharing. Check back often.",
+  "youtube": "",
+  "thumb": "",
+  "tags": [
+   "update"
+  ]
+ }
 ]
