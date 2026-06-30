@@ -792,6 +792,43 @@ const PLATFORM_CHROME={
 function buildAppPanels(){document.getElementById('appPanels').innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];let body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';if(PLATFORM_CHROME[key])body=PLATFORM_CHROME[key](body);const noHdr=!!PLATFORM_CHROME[key]||key==='instagram';return `<div class="panel-app" id="panel-${key}">${noHdr?'':`<div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div>`}<div class="panel-app-body" style="">${body}</div></div>`;}).join('');}
 buildAppPanels();
 
+// ── Custom video player: play/pause · mute · seek · like · comments ─────────
+const _VP={};let _vpN=0;
+function _vFmt(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+(('0'+(s%60)).slice(-2));}
+window.addEventListener('message',function(e){
+  if(e.origin!=='https://player.vimeo.com')return;
+  let d;try{d=JSON.parse(e.data);}catch(x){return;}
+  const uid=d.player_id;if(!uid||!_VP[uid])return;const st=_VP[uid];
+  if(d.method==='getDuration'&&d.value!=null)st.dur=parseFloat(d.value);
+  if(d.event==='ready'){
+    const f=document.getElementById(uid);if(!f)return;
+    const o=e.origin;
+    ['timeupdate','play','pause'].forEach(ev=>f.contentWindow.postMessage(JSON.stringify({method:'addEventListener',value:ev}),o));
+    f.contentWindow.postMessage(JSON.stringify({method:'getDuration'}),o);
+  }
+  if(d.event==='timeupdate'&&d.data){
+    st.cur=d.data.seconds;
+    const pg=document.getElementById(uid+'-p');if(pg)pg.style.width=(d.data.percent*100)+'%';
+    const tm=document.getElementById(uid+'-t');if(tm)tm.textContent=_vFmt(d.data.seconds)+' / '+_vFmt(st.dur);
+  }
+  if(d.event==='play'){st.playing=1;const b=document.getElementById(uid+'-pb');if(b)b.innerHTML=_vPauseIco;}
+  if(d.event==='pause'){st.playing=0;const b=document.getElementById(uid+'-pb');if(b)b.innerHTML=_vPlayIco;}
+});
+const _vPlayIco='<svg viewBox="0 0 24 24" fill="#fff" width="13" height="13"><polygon points="5,3 19,12 5,21"/></svg>';
+const _vPauseIco='<svg viewBox="0 0 24 24" fill="#fff" width="13" height="13"><rect x="5" y="4" width="4" height="16" rx="1"/><rect x="15" y="4" width="4" height="16" rx="1"/></svg>';
+const _vVolIco='<svg viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.2" width="13" height="13"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+const _vMuteIco='<svg viewBox="0 0 24 24" fill="none" stroke="#f0c233" stroke-width="2.2" width="13" height="13"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+const _vHeartOff='<svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" width="15" height="15"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+const _vHeartOn='<svg viewBox="0 0 24 24" fill="#e1306c" stroke="#e1306c" stroke-width="2" width="15" height="15"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+const _vCmtIco='<svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" width="15" height="15"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+function _vCmd(uid,m,v){const f=document.getElementById(uid);if(!f)return;f.contentWindow.postMessage(JSON.stringify(v!==undefined?{method:m,value:v}:{method:m}),'https://player.vimeo.com');}
+function vpPlay(uid){_VP[uid]&&_VP[uid].playing?_vCmd(uid,'pause'):_vCmd(uid,'play');}
+function vpMute(uid){const st=_VP[uid]||{};st.muted=!st.muted;_vCmd(uid,'setVolume',st.muted?0:1);const b=document.getElementById(uid+'-mb');if(b)b.innerHTML=st.muted?_vMuteIco:_vVolIco;}
+function vpSeek(uid,e){const bar=document.getElementById(uid+'-bar');if(!bar)return;const r=bar.getBoundingClientRect();_vCmd(uid,'seekTo',((e.clientX-r.left)/r.width)*(_VP[uid]&&_VP[uid].dur||0));}
+function vpLike(uid){const b=document.getElementById(uid+'-lb');if(!b)return;const on=b.dataset.on==='1';b.dataset.on=on?'0':'1';b.innerHTML=on?_vHeartOff:_vHeartOn;}
+function vpCmt(uid){const el=document.getElementById(uid+'-cm');if(!el)return;const show=el.style.display==='none';el.style.display=show?'block':'none';if(show)setTimeout(()=>document.getElementById(uid+'-ci')?.focus(),50);}
+function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.getElementById(uid+'-cl');if(!inp||!lst||!inp.value.trim())return;const c=document.createElement('div');c.style.cssText='padding:6px 0;border-bottom:1px solid #1a1a24;font-size:12px;color:#e0e0e0';c.innerHTML=`<b style="color:var(--gold)">You</b> <span style="font-size:10px;color:#555">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span><div style="margin-top:2px">${inp.value.replace(/</g,'&lt;').trim()}</div>`;lst.appendChild(c);inp.value='';}
+
 // ── Dynamic content from projects.json ──────────────────────────────────────
 // Reads saved campaign data and injects videos, photos, articles into the
 // phone screens (SCREENS) and desktop panels (PANELS) automatically based
@@ -912,20 +949,38 @@ buildAppPanels();
     </div>`;
   }
 
-  // YouTube — both phone screen and panel show real iframes (lazy-loaded, no tap-to-play)
+  // YouTube — both phone screen and panel: custom player with controls
   if(vids.youtube&&vids.youtube.length){
-    const logoAvatar=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
+    const _la=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
     const videoCard=({b,v,proj},padding)=>{
-      const src=vidSrc(v);const label=v.label||proj.name||b.n;const link=vidLink(v);
-      const isVert=v.orientation==='vertical';
-      const aspect=isVert?'9/16':'16/9';
-      const maxW=isVert?'320px':'100%';
-      return `<div style="margin-bottom:22px;padding:0 ${padding}">
-        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
-        <div style="width:100%;max-width:${maxW};aspect-ratio:${aspect};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
-          <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      const uid='vp'+(++_vpN);const isVm=v.source!=='drive';
+      _VP[uid]={dur:0,playing:isVm,muted:isVm};
+      const src=isVm?'https://player.vimeo.com/video/'+v.id+'?background=1&api=1&player_id='+uid+'&dnt=1':vidSrc(v);
+      const label=v.label||proj.name||b.n;const link=vidLink(v);
+      const isVert=v.orientation==='vertical';const aspect=isVert?'9/16':'16/9';const maxW=isVert?'320px':'100%';
+      const ctrl=isVm?`<div style="background:#111;padding:6px 10px 8px;border-top:1px solid #1e1e2a">
+        <div id="${uid}-bar" onclick="vpSeek('${uid}',event)" style="height:3px;background:#2a2a34;border-radius:2px;margin-bottom:9px;cursor:pointer;position:relative">
+          <div id="${uid}-p" style="height:100%;background:var(--gold);border-radius:2px;width:0%;pointer-events:none;transition:width .15s linear"></div>
         </div>
-        <div style="margin-top:8px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#00adef;text-decoration:none">Open on Vimeo ↗</a></div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button id="${uid}-pb" onclick="vpPlay('${uid}')" title="Play/Pause" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vPauseIco}</button>
+          <button id="${uid}-mb" onclick="vpMute('${uid}')" title="Mute/Unmute" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vMuteIco}</button>
+          <span id="${uid}-t" style="font-size:11px;color:#555;flex:1">0:00 / 0:00</span>
+          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" title="Like" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
+          <button onclick="vpCmt('${uid}')" title="Comment" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vCmtIco}</button>
+          <a href="${link}" target="_blank" rel="noopener" title="Open on Vimeo" style="display:flex;align-items:center;color:#00adef;text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+      <div id="${uid}-cm" style="display:none;padding:8px 10px;background:#0a0a12;border-top:1px solid #1a1a24">
+        <div style="display:flex;gap:6px"><input id="${uid}-ci" type="text" placeholder="Add a comment…" onkeydown="if(event.key==='Enter')vpPost('${uid}')" style="flex:1;background:#141420;border:1px solid #2a2a34;border-radius:6px;padding:6px 10px;color:#fff;font-size:12px;outline:none;font-family:inherit"><button onclick="vpPost('${uid}')" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer">Post</button></div>
+        <div id="${uid}-cl" style="margin-top:6px;max-height:140px;overflow-y:auto"></div>
+      </div>`:`<div style="padding:6px 10px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#4285f4;text-decoration:none">Open on Drive ↗</a></div>`;
+      return `<div style="margin-bottom:22px;padding:0 ${padding}">
+        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
+        <div style="width:100%;max-width:${maxW};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
+          <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+          ${ctrl}
+        </div>
       </div>`;
     };
     const panelHtml=sectionHdr('📹 From Campaigns')+vids.youtube.map(v=>videoCard(v,'12px')).join('');
@@ -933,29 +988,42 @@ buildAppPanels();
     inject('screen-youtube',screenHtml); inject('panel-youtube',panelHtml);
   }
 
-  // TikTok — phone screen facade; content panel uses real iframes (vertical)
+  // TikTok — both screen and panel: same custom player as YouTube
   if(vids.tiktok&&vids.tiktok.length){
-    const logoAvatar=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
-    const panelHtml=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>{
-      const src=vidSrc(v);const label=v.label||proj.name||b.n;const link=vidLink(v);const isVert=v.orientation==='vertical';
-      return `<div style="margin-bottom:22px;padding:0 12px">
-        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
-        <div style="width:100%;aspect-ratio:${isVert?'9/16':'16/9'};max-width:${isVert?'340px':'100%'};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
-          <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    const _la=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
+    const tkCard=({b,v,proj},padding)=>{
+      const uid='vp'+(++_vpN);const isVm=v.source!=='drive';
+      _VP[uid]={dur:0,playing:isVm,muted:isVm};
+      const src=isVm?'https://player.vimeo.com/video/'+v.id+'?background=1&api=1&player_id='+uid+'&dnt=1':vidSrc(v);
+      const label=v.label||proj.name||b.n;const link=vidLink(v);
+      const isVert=v.orientation==='vertical';const aspect=isVert?'9/16':'16/9';const maxW=isVert?'320px':'100%';
+      const ctrl=isVm?`<div style="background:#111;padding:6px 10px 8px;border-top:1px solid #1e1e2a">
+        <div id="${uid}-bar" onclick="vpSeek('${uid}',event)" style="height:3px;background:#2a2a34;border-radius:2px;margin-bottom:9px;cursor:pointer;position:relative">
+          <div id="${uid}-p" style="height:100%;background:var(--gold);border-radius:2px;width:0%;pointer-events:none;transition:width .15s linear"></div>
         </div>
-        <div style="margin-top:8px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#00adef;text-decoration:none">Open on Vimeo ↗</a></div>
-      </div>`;
-    }).join('');
-    const screenHtml=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(({b,v,proj})=>{
-      const src=vidSrc(v);const label=v.label||proj.name||b.n;const link=vidLink(v);const isVert=v.orientation==='vertical';
-      return `<div style="margin-bottom:22px;padding:0 8px">
-        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${logoAvatar(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
-        <div style="width:100%;aspect-ratio:${isVert?'9/16':'16/9'};max-width:${isVert?'300px':'100%'};border-radius:10px;overflow:hidden;background:#000;border:1px solid #333">
-          <iframe src="${src}" style="width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button id="${uid}-pb" onclick="vpPlay('${uid}')" title="Play/Pause" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vPauseIco}</button>
+          <button id="${uid}-mb" onclick="vpMute('${uid}')" title="Mute/Unmute" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vMuteIco}</button>
+          <span id="${uid}-t" style="font-size:11px;color:#555;flex:1">0:00 / 0:00</span>
+          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" title="Like" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
+          <button onclick="vpCmt('${uid}')" title="Comment" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vCmtIco}</button>
+          <a href="${link}" target="_blank" rel="noopener" title="Open on Vimeo" style="display:flex;align-items:center;color:#00adef;text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
-        <div style="margin-top:8px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#00adef;text-decoration:none">Open on Vimeo ↗</a></div>
+      </div>
+      <div id="${uid}-cm" style="display:none;padding:8px 10px;background:#0a0a12;border-top:1px solid #1a1a24">
+        <div style="display:flex;gap:6px"><input id="${uid}-ci" type="text" placeholder="Add a comment…" onkeydown="if(event.key==='Enter')vpPost('${uid}')" style="flex:1;background:#141420;border:1px solid #2a2a34;border-radius:6px;padding:6px 10px;color:#fff;font-size:12px;outline:none;font-family:inherit"><button onclick="vpPost('${uid}')" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer">Post</button></div>
+        <div id="${uid}-cl" style="margin-top:6px;max-height:140px;overflow-y:auto"></div>
+      </div>`:`<div style="padding:6px 10px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#4285f4;text-decoration:none">Open on Drive ↗</a></div>`;
+      return `<div style="margin-bottom:22px;padding:0 ${padding}">
+        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
+        <div style="width:100%;max-width:${maxW};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
+          <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+          ${ctrl}
+        </div>
       </div>`;
-    }).join('');
+    };
+    const panelHtml=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(v=>tkCard(v,'12px')).join('');
+    const screenHtml=sectionHdr('📹 Campaign Videos')+vids.tiktok.map(v=>tkCard(v,'8px')).join('');
     inject('screen-tiktok',screenHtml); inject('panel-tiktok',panelHtml);
   }
 
