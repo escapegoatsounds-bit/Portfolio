@@ -1106,6 +1106,7 @@
     typesCard.append(platSection); rebuildPlatSection();
     wrap.append(typesCard);
     wrap.append(processSection(p));
+    wrap.append(vimeoSection(p));
     wrap.append(articlesSection(p));
     wrap.append(briefsSection(p));
     wrap.append(mediaGallery(p));
