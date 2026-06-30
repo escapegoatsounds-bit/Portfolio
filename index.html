@@ -213,6 +213,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .wc-title{font-size:16px;font-weight:800;line-height:1.12;margin-bottom:4px}
 .wc-role{font-size:10px;color:rgba(255,255,255,.55);font-weight:500}
 
+.fi-wrap{position:relative}.fi-x{position:absolute;top:6px;right:6px;background:rgba(10,10,20,.85);border:1px solid #2a2a34;color:#666;width:22px;height:22px;border-radius:50%;font-size:14px;cursor:pointer;z-index:10;padding:0;line-height:1;display:none;align-items:center;justify-content:center;transition:color .15s,border-color .15s}.fi-wrap:hover .fi-x{display:flex}.fi-x:hover{color:#e04040;border-color:#e04040}
 .brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--b)}
 .brand-tile{background:var(--s1);display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;transition:background .18s;text-decoration:none}
 .brand-tile:hover{background:var(--s2)}
@@ -346,7 +347,6 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 <nav>
   <a href="index.html" class="nav-logo"><img src="assets/photos/escapegoat-logo.png" alt="Escapegoat" style="height:34px;width:34px;object-fit:contain;border-radius:8px;margin-right:10px"><span style="font-size:13px;font-weight:600;letter-spacing:-.2px;color:var(--m2)">Abdelaziz Askar</span></a>
   <ul class="nav-links">
-    <li><a onclick="openApp('instagram')">Work</a></li>
     <li><a onclick="openApp('brands')">Brands</a></li>
     <li><a href="about.html">About</a></li>
     <li><a onclick="openApp('escapegoat')" style="color:#ff7ad9">Escapegoat</a></li>
@@ -601,13 +601,13 @@ const BRANDS=[
   {s:'Kappa',n:'Kappa',c:'#FF0000',t:'#fff',i:'K'},{s:'EA-FC-Mobile',n:'EA FC Mobile',c:'#003087',t:'#fff',i:'EA'},
   {s:'Molfix',n:'Molfix',c:'#00AEEF',t:'#fff',i:'M'},{s:'Carina',n:'Carina',c:'#8B1A1A',t:'#fff',i:'C'},
   {s:'Bazooka-Candy',n:'Bazooka',c:'#E8192C',t:'#fff',i:'BC'},{s:'Hardees',n:"Hardee's",c:'#E31837',t:'#fff',i:'H'},
-  {s:'URBEELS',n:'URBEELS',c:'#FF6B35',t:'#fff',i:'U'},{s:'AXE-Unilever',n:'AXE',c:'#1a1a1a',t:'#fff',i:'AX'},
+{s:'AXE-Unilever',n:'AXE',c:'#1a1a1a',t:'#fff',i:'AX'},
   {s:'Bershka',n:'Bershka',c:'#000',t:'#fff',i:'B'},{s:'Krispy-Kreme',n:'Krispy Kreme',c:'#007A3D',t:'#fff',i:'KK'},
   {s:'Quooker',n:'Quooker',c:'#1A1A1A',t:'#fff',i:'Q'},{s:'Royal-Herbs',n:'Royal Herbs',c:'#2D6A2D',t:'#fff',i:'RH'},
   {s:'Glow',n:'Glow',c:'#00C4B4',t:'#fff',i:'GL'},{s:'Delight-Parties',n:'Delight',c:'#F7931E',t:'#fff',i:'DP'},
   {s:'Gourmet',n:'Gourmet',c:'#8B0000',t:'#fff',i:'GO'},{s:'Royal-Tulip-Hotel',n:'Royal Tulip',c:'#6B2D8B',t:'#fff',i:'RT'},
   {s:'Tonic-International',n:'Tonic',c:'#222',t:'#fff',i:'T'},{s:'Delight-Pastries',n:'Delight Pastries',c:'#C8960C',t:'#fff',i:'DP'},
-  {s:'Juicy-Drop',n:'Juicy Drop',c:'#FF4500',t:'#fff',i:'JD'},{s:'Decoys-Real-Estate',n:'Decoys',c:'#1A3A5C',t:'#fff',i:'D'},
+  {s:'Juicy-Drop',n:'Juicy Drop',c:'#FF4500',t:'#fff',i:'JD'},{s:'Decoys-Real-Estate',n:'Deraya Real Estate',c:'#1A3A5C',t:'#fff',i:'DR',logo:'assets/logos/Deraya.png'},
   {s:'No-Limits-Furniture',n:'No Limits',c:'#5B3A29',t:'#fff',i:'NL'},{s:'Lord-of-the-Wings',n:'Lord of Wings',c:'#C00000',t:'#fff',i:'LW'},
   {s:'GDK',n:'GDK',c:'#D4A017',t:'#000',i:'GD'},{s:'Brew-Craft',n:'Brew',c:'#4A2C2A',t:'#fff',i:'BR'},
   {s:'WallPost',n:'WallPost',c:'#1877F2',t:'#fff',i:'WP'},
@@ -654,7 +654,9 @@ function iconHTML(key,inDock){const a=APPS[key];return `<div class="app-icon" on
 document.getElementById('appGrid').innerHTML=GRID.map(k=>iconHTML(k,false)).join('');
 document.getElementById('appDock').innerHTML=DOCK.map(k=>iconHTML(k,true)).join('');
 
-function feedPost(b,cap){return `<div class="feed-post"><a href="${brandLink(b.s)}" class="feed-head" style="text-decoration:none"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · Creative</div></div></a><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div>`;}
+function fDel(btn){btn.closest('.fi-wrap').remove();}
+function fEdit(btn){const cap=btn.previousElementSibling;if(!cap)return;if(cap.isContentEditable){cap.contentEditable='false';btn.textContent='✏';cap.style.outline='none';cap.style.padding='';}else{cap.contentEditable='true';cap.style.outline='1px solid #333';cap.style.borderRadius='4px';cap.style.padding='2px 4px';cap.focus();const r=document.createRange(),s=window.getSelection();r.selectNodeContents(cap);r.collapse(false);s.removeAllRanges();s.addRange(r);btn.textContent='✓';}}
+function feedPost(b,cap){return `<div class="fi-wrap"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button><div class="feed-post"><a href="${brandLink(b.s)}" class="feed-head" style="text-decoration:none"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div><div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · Creative</div></div></a><a href="${brandLink(b.s)}" class="feed-img" style="background:linear-gradient(135deg,${b.c},#000)"><div class="feed-img-label">${b.n}</div></a><div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div><div class="feed-cap"><b>${b.n}</b> ${cap}</div></div></div>`;}
 function tweet(txt,meta){return `<div class="tweet"><div class="tweet-av">AZ</div><div><div class="tweet-h"><b>Abdelaziz Askar</b> <span>@AbdelazizAskar · ${meta}</span></div><div class="tweet-txt">${txt}</div><div class="tweet-meta">♡ &nbsp; ⟳ &nbsp; 💬</div></div></div>`;}
 function cardLink(b,meta){return `<a class="acard" href="${brandLink(b.s)}"><div class="acard-body" style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:${b.c};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,'8px')}</div><div><div class="acard-name">${b.n}</div><div class="acard-meta">${meta}</div></div></div></a>`;}
 
@@ -684,7 +686,7 @@ const SCREENS={
       +'<div style="padding:14px 12px 4px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600">SKILLS</div>'
       +'<div style="display:flex;flex-wrap:wrap;gap:5px;padding:0 12px 14px">'+['Creative Direction','Social Strategy','AI Production','Photography','Music Production','Brand Strategy','Copywriting','Team Leadership'].map(s=>`<span style="font-size:9.5px;padding:3px 9px;background:var(--s2);border:1px solid var(--b);border-radius:99px;color:var(--m2)">${s}</span>`).join('')+'</div>';
   },
-  slack:()=>[B['Imagine-Studio'],B['URBEELS']].map(b=>cardLink(b,'Founded / co-created')).join(''),
+  slack:()=>[B['Imagine-Studio']].map(b=>cardLink(b,'Founded / co-created')).join(''),
   messages:()=>[['Arnaud Veschera · CEO, Tonic International','"He changed how we collaborate daily."'],['Mohamed Shafei · Founder, Decoys Real Estate','"Pivotal in launching our brand as Egypt went digital."'],['Amina Rashad · Vice Chairman, Glow','"A creative edge that kept us top of mind."'],['Ismail Drouby · CEO, Delight Parties','"An invaluable asset to my growing brand."'],['Sherry ElKilany · WestworldX & Scuba Empire','"Creative judgment and a deep sense of ownership."'],['Sherif ElSorsy · Chairman, No Limits Furniture','"Made a real difference to our online presence."'],['Samo Roxa · Founder & Artist, URBEELS','"Narratives that keep audiences on the edge."'],['Mikey · Music Artist','"He lives the project with you."'],['Shehab Kassem · Chairman, Septam Foods','"Handles the entire creative spectrum, effortlessly."']].map(m=>`<div class="acard"><div class="acard-body"><div class="acard-meta">${m[0]}</div><div class="acard-name" style="font-weight:600;font-size:12px;margin-top:3px">${m[1]}</div></div></div>`).join(''),
   escapegoat:()=>'<div class="tabs"><span class="tab on" data-tb="egS" data-tk="pl" onclick="tabShow(\'egS\',\'pl\')">🎧 Music Player</span><span class="tab alt" data-tb="egS" data-tk="mp" onclick="tabShow(\'egS\',\'mp\')">🎛️ Music Production</span></div><div data-ts="egS" data-tk="pl"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.jpg" alt="Escapegoat" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="font-size:15px;font-weight:800;color:#ff7ad9">EscapegoatSounds</div><div style="font-size:11px;color:var(--m2)">Music label · Abdelaziz Askar</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join('')+'</div><div data-ts="egS" data-tk="mp" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
   brands:()=>'<div style="padding:10px 14px;font-size:11px;color:var(--m2)">180+ brands handled since 2011 — 71 featured. Tap any to open its storyboard.</div>'+BRANDS.slice(0,12).map(b=>cardLink(b,b.s.replace(/-/g,' '))).join(''),
@@ -774,7 +776,7 @@ const PANELS={
     const brandsHTML=brandCats.map(([cat,slugs])=>`<div style="margin-bottom:18px"><div style="font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#c9a227;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid rgba(201,162,39,.2)">${cat}</div><div style="display:flex;flex-wrap:wrap;gap:10px 8px">${slugs.map(bLogo).join('')}</div></div>`).join('');
     return `<div style="background:#1d2226;border-top:6px solid #1b1f23;padding:18px 18px 4px"><div style="font-size:15px;font-weight:700;margin-bottom:20px">Experience</div>${expHTML}</div><div style="background:#1d2226;border-top:6px solid #1b1f23;padding:18px 18px 28px"><div style="font-size:15px;font-weight:700;margin-bottom:16px">Skills &amp; Expertise</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${skills.map(s=>`<div style="background:#252a30;border-radius:8px;padding:10px 12px;border:1px solid #2a3040"><div style="font-size:13px;font-weight:700;margin-bottom:3px;color:#fff">${s[0]}</div><div style="font-size:11px;color:#7a8896">${s[1]}</div></div>`).join('')}</div></div><div style="background:#0d1520;border-top:6px solid #0a1018;padding:20px 18px 36px"><div style="font-size:15px;font-weight:700;margin-bottom:18px;color:#fff">Brands I've Worked With</div>${brandsHTML}</div>`;
   },
-  slack:()=>'<div class="work-grid">'+[[B['Imagine-Studio'],'Photo · Design','Co-founder'],[B['URBEELS'],'Music · Events','Co-creator']].map(x=>workCard(...x)).join('')+'</div>',
+  slack:()=>'<div class="work-grid">'+[[B['Imagine-Studio'],'Photo · Design','Co-founder']].map(x=>workCard(...x)).join('')+'</div>',
   messages:()=>{const T=[['Arnaud Veschera','Group CEO · Tonic International','"Working with Abdelaziz is an efficiency. He didn\'t just shorten our workflow — he genuinely changed how we collaborate daily."','AV'],['Mohamed Shafei','Founder · Decoys Real Estate','"He played a pivotal role launching our real estate brand — right as the Egyptian market shifted heavily toward digital."','MS'],['Amina Rashad','Vice Chairman · Glow','"Abdelaziz brought a creative edge to Glow and helped keep us at the top of our customers\' minds."','AR'],['Ismail Drouby','CEO · Delight Parties','"He built our inbound and outbound funnel, directed all brand photography and QA. An invaluable asset."','ID'],['Sherry ElKilany','Partner · WestworldX','"Creative judgment and a deep sense of ownership — he believed in what we were building."','SE'],['Sherif ElSorsy','Chairman · No Limits Furniture','"His grasp of social strategy made a real difference to our online presence."','SS'],['Samo Roxa','Founder · URBEELS','"Audacious details and spine-chilling narratives that keep audiences on the edge."','SR'],['Mikey','Music Artist','"He doesn\'t just do the work — he lives the project with you."','M'],['Shehab Kassem','Chairman · Delight Pastries','"Rare to find someone who handles the entire creative spectrum effortlessly."','SK']];
     return T.map((t,i)=>{const right=i%2===0;return `<div style="display:flex;flex-direction:column;align-items:${right?'flex-end':'flex-start'};margin-bottom:18px"><div style="display:flex;align-items:flex-end;gap:8px;flex-direction:${right?'row-reverse':'row'}"><div style="width:32px;height:32px;border-radius:50%;background:${right?'#0a84ff':'#3a3a3c'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0">${t[3]}</div><div style="max-width:75%"><div style="background:${right?'#0a84ff':'#3a3a3c'};color:#fff;border-radius:${right?'18px 18px 4px 18px':'18px 18px 18px 4px'};padding:12px 16px;font-size:14px;line-height:1.6">${t[2]}</div><div style="font-size:11px;color:#636366;margin-top:4px;text-align:${right?'right':'left'};padding:0 4px"><b style="color:#8e8e93">${t[0]}</b> · ${t[1]}</div></div></div></div>`}).join('')+'<div style="text-align:center;padding:20px 0"><div style="display:inline-flex;align-items:center;gap:8px;background:#1c1c1e;border:1px solid #38383a;border-radius:99px;padding:10px 20px;font-size:13px;color:#0a84ff;font-weight:600;cursor:pointer">📞 Reference on request</div></div>';},
   escapegoat:()=>'<div class="tabs in-panel"><span class="tab on" data-tb="egB" data-tk="pl" onclick="tabShow(\'egB\',\'pl\')">🎧 EscapegoatSounds — Music Player</span><span class="tab alt" data-tb="egB" data-tk="mp" onclick="tabShow(\'egB\',\'mp\')">🎛️ Music Production</span></div><div data-ts="egB" data-tk="pl"><div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start"><div style="width:260px;flex-shrink:0"><img src="assets/photos/escapegoat-album.jpg" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px" alt="EscapegoatSounds album art" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="margin-top:14px;padding:14px;background:var(--s1);border:1px solid #ff7ad9;border-radius:12px"><div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff7ad9;margin-bottom:8px">The Label</div><div style="font-size:12px;color:var(--m2);line-height:1.7">Original releases, custom tracks and lyrics for DJs — written, produced and sold by ZIZO.</div></div></div><div style="flex:1;min-width:300px">'+TRACKS.map((t,i)=>`<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--b)"><span style="color:var(--m);font-size:13px">${i+1}</span><div style="flex:1"><div style="font-weight:700;margin-bottom:6px">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3" style="width:100%;height:34px"></audio></div></div>`).join('')+'</div></div></div><div data-ts="egB" data-tk="mp" style="display:none"><div class="tabs"><span class="tab on" data-tb="egMP" data-tk="dj" onclick="tabShow(\'egMP\',\'dj\')">🎧 For DJs</span><span class="tab alt" data-tb="egMP" data-tk="jingle" onclick="tabShow(\'egMP\',\'jingle\')">📺 Advertising Jingles</span></div><div data-ts="egMP" data-tk="dj"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">Tracks <span class="hl">tailored to your set</span>, not stitched from a preset. I write the lyrics, lay the topline and master the hook — <strong style="color:var(--text)">made to order, cleared to play</strong>, sold online as ready-to-spin exclusives.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎛️</div><div class="proj-name">Custom DJ Tracks</div><div class="proj-desc">Your crowd, your BPM, your vibe — exclusive licensing on request.</div></div><div class="proj-card"><div class="proj-ico">✍️</div><div class="proj-name">Lyrics & Toplines</div><div class="proj-desc">Arabic & English — hooks that hit, verses that stick, recorded.</div></div><div class="proj-card g"><div class="proj-ico">🛒</div><div class="proj-name">Online Catalog</div><div class="proj-desc">Ready-made tracks, stems included, cleared for release.</div></div><div class="proj-card g"><div class="proj-ico">🎧</div><div class="proj-name">Direct to DJs</div><div class="proj-desc">Brief me, hear a demo, get the master — fast.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Custom%20DJ%20Track%20Inquiry" class="btn btn-gold" style="margin-top:26px">Order a Custom Track →</a></div><div data-ts="egMP" data-tk="jingle" style="display:none"><p style="font-size:15px;color:var(--m2);line-height:1.8;max-width:640px;margin-bottom:24px">A <span class="hl">jingle is a brand you can hum</span>. I compose sticky audio logos and ad music for TVCs, radio and social — the kind that lodges in a head and won\'t let go. The <strong style="color:var(--text)">Juicy Drop earworm</strong> I wrote ran on air across MENA.</p><div class="proj-grid"><div class="proj-card"><div class="proj-ico">🎵</div><div class="proj-name">Brand Jingles & Audio Logos</div><div class="proj-desc">Short, sticky, unmistakably yours — built to be remembered.</div></div><div class="proj-card"><div class="proj-ico">📺</div><div class="proj-name">TVC & Radio Scores</div><div class="proj-desc">Original scoring that lifts the film and sells the feeling.</div></div><div class="proj-card g"><div class="proj-ico">🗣️</div><div class="proj-name">AI Voice & VO</div><div class="proj-desc">ElevenLabs voiceovers and beds, mixed and mastered in-house.</div></div><div class="proj-card g"><div class="proj-ico">⚡</div><div class="proj-name">Fast Turnaround</div><div class="proj-desc">Concept to clearable master in days, not weeks.</div></div></div><a href="mailto:bananalover9119@gmail.com?subject=Advertising%20Jingle%20Inquiry" class="btn btn-gold" style="margin-top:26px">Brief a Jingle →</a></div></div>',
@@ -848,18 +850,20 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
         const bg=tile.querySelector('.bt-banner-bg');
         if(bg){ bg.style.backgroundImage=`url('${logo}')`; bg.style.backgroundSize='contain'; bg.style.backgroundRepeat='no-repeat'; bg.style.backgroundPosition='center'; }
         const dot=tile.querySelector('.bt-dot');
-        if(dot&&!dot.querySelector('img')){
-          const img=document.createElement('img');
+        if(dot){
+          dot.style.position='relative'; dot.style.overflow='hidden';
+          let img=dot.querySelector('img');
+          if(!img){img=document.createElement('img');dot.appendChild(img);}
           img.src=logo; img.alt=B[slug].n+' logo';
           img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:50%';
           img.onload=function(){dot.style.background='#0e0e0e';dot.style.color='transparent';};
           img.onerror=function(){this.remove();};
-          dot.style.position='relative'; dot.style.overflow='hidden';
-          dot.appendChild(img);
         }
       }
     }
   });
+
+  function _shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
   // Buckets: panelKey → [{b, v/m/a, proj, slug}]
   const vids={}, imgs={}, arts={}, socialLinks={};
@@ -949,6 +953,11 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
     </div>`;
   }
 
+  // Shuffle all buckets so brands are interleaved, not grouped
+  Object.values(vids).forEach(_shuffle);
+  Object.values(imgs).forEach(_shuffle);
+  Object.values(arts).forEach(_shuffle);
+
   // YouTube — both phone screen and panel: custom player with controls
   if(vids.youtube&&vids.youtube.length){
     const _la=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div>`;
@@ -975,7 +984,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
         <div style="display:flex;gap:6px"><input id="${uid}-ci" type="text" placeholder="Add a comment…" onkeydown="if(event.key==='Enter')vpPost('${uid}')" style="flex:1;background:#141420;border:1px solid #2a2a34;border-radius:6px;padding:6px 10px;color:#fff;font-size:12px;outline:none;font-family:inherit"><button onclick="vpPost('${uid}')" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer">Post</button></div>
         <div id="${uid}-cl" style="margin-top:6px;max-height:140px;overflow-y:auto"></div>
       </div>`:`<div style="padding:6px 10px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#4285f4;text-decoration:none">Open on Drive ↗</a></div>`;
-      return `<div style="margin-bottom:22px;padding:0 ${padding}">
+      return `<div class="fi-wrap" style="margin-bottom:22px;padding:0 ${padding}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;max-width:${maxW};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
           <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
@@ -1014,7 +1023,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
         <div style="display:flex;gap:6px"><input id="${uid}-ci" type="text" placeholder="Add a comment…" onkeydown="if(event.key==='Enter')vpPost('${uid}')" style="flex:1;background:#141420;border:1px solid #2a2a34;border-radius:6px;padding:6px 10px;color:#fff;font-size:12px;outline:none;font-family:inherit"><button onclick="vpPost('${uid}')" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer">Post</button></div>
         <div id="${uid}-cl" style="margin-top:6px;max-height:140px;overflow-y:auto"></div>
       </div>`:`<div style="padding:6px 10px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#4285f4;text-decoration:none">Open on Drive ↗</a></div>`;
-      return `<div style="margin-bottom:22px;padding:0 ${padding}">
+      return `<div class="fi-wrap" style="margin-bottom:22px;padding:0 ${padding}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||''}</div></div></a>
         <div style="width:100%;max-width:${maxW};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
           <div style="aspect-ratio:${aspect};position:relative"><iframe id="${uid}" src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
@@ -1035,10 +1044,10 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
       const src=/^(https?:|\/\/)/.test(m.src)?m.src:m.src.replace(/^\//,'');
       // Use per-photo caption if set, otherwise fall back to the project description (first 220 chars)
       const rawCaption=m.caption||(proj.desc?proj.desc.replace(/<[^>]+>/g,'').trim().slice(0,220)+(proj.desc.length>220?'…':''):'');
-      const caption=rawCaption?`<div style="margin-top:4px;font-size:13px;color:#e0e0e0;line-height:1.55">${rawCaption}</div>`:'';
+      const caption=rawCaption?`<div style="margin-top:4px;font-size:13px;color:#e0e0e0;line-height:1.55">${rawCaption}</div><button onclick="fEdit(this)" style="background:none;border:1px solid #333;border-radius:4px;color:#555;font-size:10px;cursor:pointer;padding:1px 7px;margin-top:3px" title="Edit caption">✏ edit</button>`:'';
       const hashtags=m.tags?`<div style="margin-top:6px;font-size:12px;color:#6f9fd8;line-height:1.6">${m.tags.map(t=>'#'+t.replace(/\s+/g,'')).join(' ')}</div>`:'';
       const dateStr=proj.date?`<div style="margin-top:8px;font-size:10px;color:#8e8e93;text-transform:uppercase;letter-spacing:.04em">${proj.date}</div>`:'';
-      return `<div style="border-bottom:1px solid #262626;margin-bottom:0">
+      return `<div class="fi-wrap" style="border-bottom:1px solid #262626;margin-bottom:0"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <a href="${brandLink(b.s)}" style="padding:10px 14px;display:flex;align-items:center;gap:10px;text-decoration:none">
           <div style="width:32px;height:32px;border-radius:50%;background:${b.c};overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};position:relative">${b.i}${logoOverlay(b,'50%')}</div>
           <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${b.n}</div><div style="font-size:11px;color:#8e8e93">Instagram · ${proj.name||'Campaign'}</div></div>
@@ -1072,7 +1081,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
   // X / Twitter: articles
   if(arts.x&&arts.x.length){
     const html=sectionHdr('📰 Campaign Posts')+arts.x.map(({b,a})=>`
-      <div style="border-bottom:1px solid #2f3336;padding:14px 16px">
+      <div class="fi-wrap" style="border-bottom:1px solid #2f3336;padding:14px 16px"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <div style="display:flex;gap:10px">
           <a href="${brandLink(b.s)}" style="text-decoration:none;flex-shrink:0"><div style="width:38px;height:38px;border-radius:50%;background:${b.c};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'50%')}</div></a>
           <div style="flex:1;min-width:0">
@@ -1090,7 +1099,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
   // LinkedIn: articles
   if(arts.linkedin&&arts.linkedin.length){
     const html=sectionHdr('📋 Campaign Posts')+arts.linkedin.map(({b,a})=>`
-      <div class="acard">
+      <div class="fi-wrap acard"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <div class="acard-body">
           <a href="${brandLink(b.s)}" style="display:flex;gap:10px;align-items:center;margin-bottom:8px;text-decoration:none;color:inherit">
             <div style="width:36px;height:36px;background:${b.c};border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,'6px')}</div>
@@ -1112,7 +1121,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
     if(!socialLinks[key]||!socialLinks[key].length) return;
     const col=socColors[key],name=socNames[key],icon=socIcons[key];
     const html=sectionHdr('🔗 Linked Posts')+socialLinks[key].map(({b,a,proj})=>`
-      <div class="feed-post">
+      <div class="fi-wrap"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button><div class="feed-post">
         <div class="feed-head">
           <a href="${brandLink(b.s)}" style="display:contents;text-decoration:none"><div class="feed-avatar" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,'50%')}</div>
           <div><div class="feed-user">${b.n}</div><div class="feed-sub">Abdelaziz Askar · ${proj.name||'Campaign'}</div></div></a>
@@ -1124,7 +1133,7 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
           <div><div style="font-size:12px;font-weight:700;color:${col}">${name} Post</div><div style="font-size:10px;color:var(--m2)">View original →</div></div>
         </a>
         <div class="feed-actions"><span>♡</span><span>💬</span><span>➤</span></div>
-      </div>`).join('');
+      </div></div>`).join('');
     inject('panel-'+key,html); // social link previews go to panel only — phone screens show real content (photos/videos)
   });
 })();
