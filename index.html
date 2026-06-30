@@ -214,6 +214,8 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .wc-role{font-size:10px;color:rgba(255,255,255,.55);font-weight:500}
 
 .fi-wrap{position:relative}.fi-x{position:absolute;top:6px;right:6px;background:rgba(10,10,20,.85);border:1px solid #2a2a34;color:#666;width:22px;height:22px;border-radius:50%;font-size:14px;cursor:pointer;z-index:10;padding:0;line-height:1;display:none;align-items:center;justify-content:center;transition:color .15s,border-color .15s}.fi-wrap:hover .fi-x{display:flex}.fi-x:hover{color:#e04040;border-color:#e04040}
+@keyframes zpSlideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.zp-like-panel{animation:zpSlideDown .2s ease}
 .brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--b)}
 .brand-tile{background:var(--s1);display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;transition:background .18s;text-decoration:none}
 .brand-tile:hover{background:var(--s2)}
@@ -352,7 +354,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
     <li><a onclick="openApp('escapegoat')" style="color:#ff7ad9">Escapegoat</a></li>
     <li><a onclick="openApp('linkedin')">Resume</a></li>
     <li><a href="tools.html">Skills</a></li>
-    <li><a href="news.html">News</a></li>
+    <li><a href="news.html">My Everyday</a></li>
     <li><a href="contact.html" style="color:var(--gold)">Contact</a></li>
   </ul>
   <a href="mailto:bananalover9119@gmail.com" class="nav-cta">Let's Talk →</a>
@@ -526,7 +528,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px">
           <a class="btn btn-gold" onclick="openApp('instagram')">Explore My Work →</a>
           <a class="btn btn-ghost" onclick="openApp('linkedin')">Career History</a>
-          <a class="btn btn-ghost" href="news.html" style="border-color:rgba(240,194,51,.3);color:var(--gold)">▶ Watch Showreel</a>
+          <a class="btn btn-ghost" href="news.html" style="border-color:rgba(240,194,51,.3);color:var(--gold)">▶ My Everyday</a>
         </div>
         <p class="panel-hint">LinkedIn for career history · Instagram for campaigns · Messages for testimonials</p>
       </div>
@@ -596,7 +598,7 @@ const APPS = {
 
 const BRANDS=[
   {s:'Geely',n:'Geely',c:'#003DA5',t:'#fff',i:'G'},
-  {s:'Subway-Oman',n:'Subway Oman',c:'#009B3A',t:'#fff',i:'SO'},{s:'Audi',n:'Audi',c:'#BB0A30',t:'#fff',i:'A'},
+  {s:'Subway-Oman',n:'Subway Oman',c:'#009B3A',t:'#fff',i:'SO',logo:'assets/logos/Subway-Oman.svg'},{s:'Audi',n:'Audi',c:'#BB0A30',t:'#fff',i:'A'},
   {s:'Snapchat',n:'Snapchat',c:'#FFFC00',t:'#000',i:'S'},{s:'Warba-Bank',n:'Warba Bank',c:'#006341',t:'#fff',i:'WB'},
   {s:'Kappa',n:'Kappa',c:'#FF0000',t:'#fff',i:'K'},{s:'EA-FC-Mobile',n:'EA FC Mobile',c:'#003087',t:'#fff',i:'EA'},
   {s:'Molfix',n:'Molfix',c:'#00AEEF',t:'#fff',i:'M'},{s:'Carina',n:'Carina',c:'#8B1A1A',t:'#fff',i:'C'},
@@ -639,13 +641,24 @@ function brandLink(s){return 'clients/'+s+'/index.html';}
 function logoOverlay(b,radius){
   const src=b.logo||`assets/logos/${b.s}.png`;
   const fb=`clients/${b.s}/assets/logo.png`;
-  return `<img src="${src}" alt="${b.n} logo" loading="lazy" onload="this.parentNode.style.background='#0e0e0e';this.parentNode.style.color='transparent'" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${fb}';}else{this.remove();}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:${radius}">`;
+  return `<img src="${src}" alt="${b.n} logo" onload="this.parentNode.style.background='#0e0e0e';this.parentNode.style.color='transparent'" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${fb}';}else{this.remove();}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:${radius}">`;
 }
 function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};}
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
 const SKILLS=[['Creative Direction',85],['Social Strategy',92],['AI Integration',88],['Copywriting',80],['Photography',70],['Music Production',72],['Team Management',85],['Storyboarding',88]];
 const TRACKS=[['Elli Kan Kan','elli-kan-kan'],['La Bali','la-bali'],['Ya Ghayba','ya-ghayba'],['Escapegoat IV','track-04']];
+const JINGLES=[
+  {slug:'Bazooka-Candy',title:'Bazooka Brand Music',desc:'Original brand music composed for the Bazooka Candy MENA campaign — crafted for social reels, digital activations and product launch moments.',year:'2024',type:'audio',src:''},
+  {slug:'Juicy-Drop',title:'Juicy Drop — The Earworm',desc:'The Juicy Drop brand jingle ran across social, radio and in-store activations across MENA. An audio ID engineered to be impossible to unhear.',year:'2021',type:'audio',src:''},
+  {slug:'Molfix',title:'Molfix TVC Score',desc:'Original score composed for the Molfix TVC campaign — a musical bed that underscores the emotional narrative and lifts the film.',year:'2023',type:'audio',src:''},
+  {slug:'GLC',title:'GLC Brand Track',desc:'Brand music track produced for GLC — composed and produced to match the energy and identity of the campaign brief.',year:'2022',type:'audio',src:''},
+];
+function jBrand(j){return B[j.slug]||{c:'#1a1a2e',t:'#fff',i:j.slug.slice(0,2).toUpperCase(),n:j.slug.replace(/-/g,' ')};}
+function jLogo(j,sz,r,p){const b=jBrand(j);const ls=b.logo||`assets/logos/${j.slug}.png`;return `<div style="width:${sz}px;height:${sz}px;border-radius:${r};background:${b.c};color:${b.t};display:flex;align-items:center;justify-content:center;font-size:${Math.round(sz*.24)}px;font-weight:800;flex-shrink:0;position:relative;overflow:hidden">${b.i}<img src="${ls}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:${p}px"></div>`;}
+function jMedia(j,ph){if(!j.src)return `<div style="background:#111;border:1px dashed rgba(240,194,51,.2);border-radius:8px;padding:${ph?'8':'14'}px;text-align:center;font-size:${ph?'9':'11'}px;color:#444">🎵 Audio · video coming soon</div>`;if(j.type==='video')return `<video controls src="${j.src}" style="width:100%;border-radius:8px;${ph?'max-height:140px':'aspect-ratio:16/9'}"></video>`;return `<audio controls preload="none" src="${j.src}" style="width:100%;height:${ph?'30':'36'}px"></audio>`;}
+function jPhoneCards(){return JINGLES.map(j=>{const b=jBrand(j);return `<div style="border-bottom:1px solid var(--b);padding:12px 14px"><div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">${jLogo(j,44,'8px',5)}<div style="flex:1;min-width:0"><div style="font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${j.title}</div><div style="font-size:10px;color:var(--m2)">${b.n} · ${j.year}</div></div></div>${jMedia(j,true)}</div>`;}).join('');}
+function jPanelCards(){return JINGLES.map(j=>{const b=jBrand(j);return `<div style="border:1px solid var(--b);border-top:3px solid ${b.c};border-radius:12px;overflow:hidden;margin-bottom:18px"><div style="padding:20px 24px;background:linear-gradient(135deg,${b.c}44,transparent);display:flex;gap:16px;align-items:center">${jLogo(j,64,'12px',8)}<div><div style="font-size:18px;font-weight:800;margin-bottom:4px">${j.title}</div><div style="font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase">${b.n} · ${j.year}</div></div></div><div style="padding:18px 24px;border-top:1px solid var(--b)"><p style="font-size:13px;color:var(--m2);line-height:1.7;margin-bottom:14px">${j.desc}</p>${jMedia(j,false)}</div></div>`;}).join('');}
 
 const GRID=['instagram','youtube','x','tiktok','camera','photoshop','chatgpt','spotify','escapegoat','powerpoint','wikipedia','skills','brands','linkedin','slack','messages'];
 const DOCK=['phone','instagram','spotify','messages'];
@@ -827,7 +840,53 @@ function _vCmd(uid,m,v){const f=document.getElementById(uid);if(!f)return;f.cont
 function vpPlay(uid){_VP[uid]&&_VP[uid].playing?_vCmd(uid,'pause'):_vCmd(uid,'play');}
 function vpMute(uid){const st=_VP[uid]||{};st.muted=!st.muted;_vCmd(uid,'setVolume',st.muted?0:1);const b=document.getElementById(uid+'-mb');if(b)b.innerHTML=st.muted?_vMuteIco:_vVolIco;}
 function vpSeek(uid,e){const bar=document.getElementById(uid+'-bar');if(!bar)return;const r=bar.getBoundingClientRect();_vCmd(uid,'seekTo',((e.clientX-r.left)/r.width)*(_VP[uid]&&_VP[uid].dur||0));}
-function vpLike(uid){const b=document.getElementById(uid+'-lb');if(!b)return;const on=b.dataset.on==='1';b.dataset.on=on?'0':'1';b.innerHTML=on?_vHeartOff:_vHeartOn;}
+function vpLike(uid){const b=document.getElementById(uid+'-lb');if(!b)return;const on=b.dataset.on==='1';b.dataset.on=on?'0':'1';b.innerHTML=on?_vHeartOff:_vHeartOn;if(!on)_showLikePanel(uid);}
+function _showLikePanel(uid){
+  const lb=document.getElementById(uid+'-lb');if(!lb)return;
+  const existing=document.getElementById(uid+'-lp');if(existing){existing.style.display='block';return;}
+  const wrap=lb.closest('.fi-wrap');if(!wrap)return;
+  const vidBox=wrap.querySelector('div[style*="border-radius:10px"]');
+  const brandN=(lb.dataset.brand||'').replace(/</g,'&lt;');
+  const projN=(lb.dataset.proj||'').replace(/</g,'&lt;');
+  const panel=document.createElement('div');
+  panel.id=uid+'-lp'; panel.className='zp-like-panel';
+  panel.style.cssText='background:#07070f;border:1px solid #28283a;border-top:none;border-radius:0 0 10px 10px;padding:14px 16px';
+  panel.innerHTML='<div style="font-size:12px;font-weight:700;color:#f0c233;margin-bottom:10px">Glad you liked it — want Abdelaziz to know?</div>'
+    +'<div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">'
+    +'<input id="'+uid+'-ln" placeholder="Your name *" style="flex:1;min-width:110px;background:#0d0d1c;border:1px solid #28283a;border-radius:6px;color:#fff;padding:8px 10px;font-size:12px;font-family:inherit;outline:none">'
+    +'<input id="'+uid+'-le" placeholder="Email or LinkedIn (optional)" style="flex:2;min-width:150px;background:#0d0d1c;border:1px solid #28283a;border-radius:6px;color:#fff;padding:8px 10px;font-size:12px;font-family:inherit;outline:none">'
+    +'</div>'
+    +'<div style="display:flex;gap:8px;align-items:center">'
+    +'<button id="'+uid+'-lsend" data-brand="'+brandN+'" data-proj="'+projN+'" onclick="_sendLike(\''+uid+'\',this)" style="background:#e1306c;border:none;border-radius:6px;color:#fff;padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">Send ❤</button>'
+    +'<button onclick="document.getElementById(\''+uid+'-lp\').style.display=\'none\'" style="background:none;border:1px solid #333;border-radius:6px;color:#666;padding:8px 14px;font-size:12px;cursor:pointer;font-family:inherit">Skip</button>'
+    +'<span style="font-size:10px;color:#3a3a4a;margin-left:auto">Just your name is enough</span>'
+    +'</div>';
+  if(vidBox) vidBox.insertAdjacentElement('afterend',panel);
+  else wrap.append(panel);
+  setTimeout(()=>{const i=document.getElementById(uid+'-ln');if(i)i.focus();},80);
+}
+function _sendLike(uid,btn){
+  const nameI=document.getElementById(uid+'-ln'), contI=document.getElementById(uid+'-le');
+  const name=(nameI&&nameI.value||'').trim();
+  if(!name){if(nameI){nameI.style.borderColor='#e04040';nameI.focus();}return;}
+  const contact=(contI&&contI.value||'').trim();
+  const brandN=btn.dataset.brand||'', projN=btn.dataset.proj||'';
+  btn.disabled=true; btn.textContent='Sending…';
+  const fd=new FormData();
+  fd.append('name',name); fd.append('email',contact||'noemail@portfolio.like');
+  fd.append('_subject','❤ Portfolio Like — '+brandN+' / '+projN);
+  fd.append('message','Portfolio like!\n\nName: '+name+'\nContact: '+(contact||'—')+'\nLiked: '+brandN+' — '+projN+'\nPage: '+location.href);
+  fd.append('_captcha','false');
+  const panel=document.getElementById(uid+'-lp');
+  fetch('https://formsubmit.co/bananalover9119@gmail.com',{method:'POST',body:fd})
+    .then(()=>{if(panel)panel.innerHTML='<div style="padding:6px 0;font-size:13px;color:#2ecc71;font-weight:700">✅ Sent! Abdelaziz will reach out.</div>';})
+    .catch(()=>{
+      const sub=encodeURIComponent('❤ Portfolio Like — '+brandN+' / '+projN);
+      const body=encodeURIComponent('Hi Abdelaziz,\n\nI liked your work on '+brandN+' ('+projN+').\n\nName: '+name+'\nContact: '+(contact||'—')+'\n\nFrom your portfolio.');
+      window.open('mailto:bananalover9119@gmail.com?subject='+sub+'&body='+body,'_blank');
+      if(panel)panel.innerHTML='<div style="padding:6px 0;font-size:13px;color:#2ecc71;font-weight:700">✅ Your email client opened — hit send!</div>';
+    });
+}
 function vpCmt(uid){const el=document.getElementById(uid+'-cm');if(!el)return;const show=el.style.display==='none';el.style.display=show?'block':'none';if(show)setTimeout(()=>document.getElementById(uid+'-ci')?.focus(),50);}
 function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.getElementById(uid+'-cl');if(!inp||!lst||!inp.value.trim())return;const c=document.createElement('div');c.style.cssText='padding:6px 0;border-bottom:1px solid #1a1a24;font-size:12px;color:#e0e0e0';c.innerHTML=`<b style="color:var(--gold)">You</b> <span style="font-size:10px;color:#555">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span><div style="margin-top:2px">${inp.value.replace(/</g,'&lt;').trim()}</div>`;lst.appendChild(c);inp.value='';}
 
@@ -975,7 +1034,8 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
           <button id="${uid}-pb" onclick="vpPlay('${uid}')" title="Play/Pause" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vPauseIco}</button>
           <button id="${uid}-mb" onclick="vpMute('${uid}')" title="Mute/Unmute" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vMuteIco}</button>
           <span id="${uid}-t" style="font-size:11px;color:#555;flex:1">0:00 / 0:00</span>
-          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" title="Like" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
+          <span style="font-size:10px;color:#3a3a52;letter-spacing:.03em;font-style:italic">Like this?</span>
+          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" data-brand="${b.n.replace(/"/g,'&quot;')}" data-proj="${label.replace(/"/g,'&quot;')}" title="Like this campaign" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
           <button onclick="vpCmt('${uid}')" title="Comment" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vCmtIco}</button>
           <a href="${link}" target="_blank" rel="noopener" title="Open on Vimeo" style="display:flex;align-items:center;color:#00adef;text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
@@ -1014,7 +1074,8 @@ function vpPost(uid){const inp=document.getElementById(uid+'-ci'),lst=document.g
           <button id="${uid}-pb" onclick="vpPlay('${uid}')" title="Play/Pause" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vPauseIco}</button>
           <button id="${uid}-mb" onclick="vpMute('${uid}')" title="Mute/Unmute" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vMuteIco}</button>
           <span id="${uid}-t" style="font-size:11px;color:#555;flex:1">0:00 / 0:00</span>
-          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" title="Like" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
+          <span style="font-size:10px;color:#3a3a52;letter-spacing:.03em;font-style:italic">Like this?</span>
+          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" data-brand="${b.n.replace(/"/g,'&quot;')}" data-proj="${label.replace(/"/g,'&quot;')}" title="Like this campaign" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
           <button onclick="vpCmt('${uid}')" title="Comment" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vCmtIco}</button>
           <a href="${link}" target="_blank" rel="noopener" title="Open on Vimeo" style="display:flex;align-items:center;color:#00adef;text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>

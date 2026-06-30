@@ -44,26 +44,25 @@ body{background:radial-gradient(ellipse at 50% -10%,#1a1530,#0e0e10 60%);color:v
 </div>
 <script>
 const T=[
-  ['Arnaud Veschera','Group CEO · Tonic International','person-arnaud.png',5,'Working with Abdelaziz is an <b>efficiency</b>. He didn\'t just shorten our workflow — he genuinely changed how we collaborate daily.'],
-  ['Mohamed Shafei','Founder · Decoys Real Estate','person-shafei.png',5,'He played a <b>pivotal role</b> launching our real estate brand in 2019 — right as the Egyptian market shifted heavily toward digital.'],
-  ['Amina Rashad','Vice Chairman · Glow','person-amina.png',5,'Abdelaziz brought a <b>creative edge</b> to Glow and helped keep us at the top of our customers\' minds.'],
-  ['Sherry ElKilany','Managing Partner · WestworldX & Scuba Empire','person-sherry.png',5,'Creative judgment and a deep sense of <b>ownership</b>. He approached our brands like someone who genuinely believed in what we were building.'],
-  ['Ismail Drouby','Founder & CEO · Delight Parties','',5,'He didn\'t just launch our social — he built our inbound and outbound funnel, directed all brand photography and QA. An <b>invaluable asset</b>.'],
-  ['Sherif ElSorsy','Chairman · No Limits Furniture','',5,'Highly professional and creative — his grasp of social strategy made a <b>real difference</b> to our online presence.'],
-  ['Samo Roxa','Founder & Artist · URBEELS','',5,'Audacious details and <b>spine-chilling narratives</b> that keep audiences on the edge.'],
-  ['Mikey','Music Artist','',5,'Zizo has been an incredible partner and friend throughout my music journey. He doesn\'t just do the work — he <b>lives the project</b> with you.'],
-  ['Shehab Kassem','Chairman · Septam Foods','',5,'Rare to find someone who handles the <b>entire creative spectrum</b> effortlessly. The output is always impeccable — a multi-talented force.']
+  ['Arnaud Verchere','Group CEO · Tonic International Dubai','person-arnaud.png',5,'Working with Abdelaziz is a masterclass in <b>efficiency</b>. He didn\'t just improve our workflow — he genuinely changed how we collaborate daily. He\'s a critical thinker who doesn\'t just find flaws — he builds the solutions to fix them.'],
+  ['Mohamed Shafei','Founder · Deraya Real Estate','person-shafei.png',5,'Abdelaziz clearly played a <b>pivotal role</b> in Deraya\'s history. Launching a real estate brand\'s social presence in 2015 — right as the Egyptian market was shifting heavily toward digital — was a massive undertaking.'],
+  ['Amina Rashad','Vice Chairman & Founder · Glow','person-amina.png',5,'Abdelaziz brought a level of <b>creative edge</b> to Glow that we were missing, seamlessly integrating AI tools and modern video trends to keep us at the top of our customers\' feeds.'],
+  ['Sherry ElKilany','Managing Partner · Nineteen84','person-sherry.png',5,'His strength has always been his creative judgment and deep sense of <b>ownership</b>. He approached our brands with the care and loyalty of someone who genuinely believed in what we were building.'],
+  ['Ismail Drouby','Founder & CEO · Delight Pastries & Scoop Empire','',5,'Abdelaziz owned our entire operational and digital presence. He didn\'t just launch our social — he built our inbound and outbound call center, directed all brand photography and QA. An <b>invaluable asset</b>.'],
+  ['Sherif ElSersy','Chairman · No Limits Furniture','',5,'Highly professional, reliable, and consistently delivered strong results. His understanding of social media strategy made a <b>real difference</b> to our online presence.'],
+  ['Mikey MTM','Music Artist · MTM','',5,'Zizo has been an incredible partner and friend throughout our musical journey. He doesn\'t just do the work — he <b>lives the project</b> with you.'],
+  ['Shehab Kassem','Chairman · DEFARM FOODS','',5,'Rare to find someone who handles the <b>entire creative spectrum</b> effortlessly. Whether it\'s art direction or full-scale social — the output is always world-class.']
 ];
 const ini=n=>n.split(' ').slice(0,2).map(w=>w[0]).join('');
 document.getElementById('list').innerHTML=T.map(t=>`
   <div class="t-card">
     <div class="t-head">
-      <div class="t-av">${ini(t[0])}${t[2]?`<img src="assets/photos/${t[2]}" alt="${t[0]}" onerror="this.remove()">`:''}</div>
+      <div class="t-av">${ini(t[0])}${t[2]?`<img src="assets/logos/${t[2]}" alt="${t[0]}" onerror="this.remove()">`:''}</div>
       <div><div class="t-name">${t[0]}</div><div class="t-role">${t[1]}</div></div>
     </div>
     <div class="t-stars">${'★'.repeat(t[3])}${'☆'.repeat(5-t[3])}</div>
     <div class="t-quote">${t[4]}</div>
-    <a class="t-call" href="tel:+201099197888">📞 Reference on request</a>
+    <a class="t-call" href="tel:+201099197988">📞 Reference on request</a>
   </div>`).join('');
 </script>
 <script src="editor.js?v=2"></script>

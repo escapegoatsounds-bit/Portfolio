@@ -1,0 +1,104 @@
+{
+  "social-2016-2017": {
+    "brand": "Deraya",
+    "project": "Social Media 2016-2017",
+    "files": [
+      "01-7385be50328991.58cdb26c455dd.jpg",
+      "02-1c683e50328991.58cdb26c485a1.jpg",
+      "03-19253f50328991.58cdb26c46419.jpg",
+      "04-a3662550328991.58cdb26c473b8.jpg",
+      "05-752f1d50328991.58cdb7cb98347.jpg",
+      "06-bfc22450328991.58cdb7cb996f5.jpg",
+      "07-1107ab50328991.58cdb7cb946f3.jpg",
+      "08-c3210050328991.58cdb7cb97528.jpg",
+      "09-396b9950328991.58cdb7cb941f7.jpg",
+      "10-5a28e650328991.58cdb7cb97d5e.jpg",
+      "11-d7912450328991.58cdb7cb99123.jpg",
+      "12-0c25ee50328991.58cdb7cb94b46.jpg",
+      "13-38ea8150328991.58cdb7cb96fd0.jpg",
+      "14-96c25350328991.58cdb7cb988da.jpg",
+      "15-84550550328991.58cdb7cb957bf.jpg",
+      "16-5bc10f50328991.58cdb7cb96091.jpg",
+      "17-e11eae50328991.58cdb7cb9681b.jpg"
+    ]
+  },
+  "social-2017-2018": {
+    "brand": "Glow",
+    "project": "Social Media 2017-2018",
+    "files": [
+      "01-c9a82965403941.5af30d4977591.jpg",
+      "02-a48b6665403941.5af30d497806f.jpg",
+      "03-37f9a865403941.5af30d4977be0.jpg",
+      "04-7f419465403941.5af30d497a1b1.jpg",
+      "05-377b4665403941.5af30d49756be.jpg",
+      "06-a35a5965403941.5af30d4979767.jpg",
+      "07-8876b965403941.5af30d4976f1d.jpg",
+      "08-42f91d65403941.5af30d4978b68.jpg",
+      "09-c2a90665403941.5af30d4974a01.jpg",
+      "10-f7179865403941.5af30d497653d.jpg",
+      "11-8bfab665403941.5af30d497919b.jpg",
+      "12-5f7ea465403941.5af30d4975e39.jpg",
+      "13-5aa87065403941.5af30d4978801.jpg",
+      "14-86b20565403941.5af30d4976b5e.jpg",
+      "15-e7a1d065403941.5af30d497a763.jpg",
+      "16-5d9e0265403941.5af30d4979d2b.jpg",
+      "17-cb76c465403941.5af30d4978403.jpg"
+    ]
+  },
+  "glow": {
+    "brand": "Glow",
+    "project": "Glow Brand Campaign",
+    "files": [
+      "01-cc8ab959774515.5a2efbf9163b4.jpg",
+      "02-66143a59774515.5a2efbf914f8d.jpg",
+      "03-35dfe259774515.5a2efbf914500.jpg",
+      "04-7e35db59774515.5a2efbf915d88.jpg",
+      "05-009c4c59774515.5a2efbf9156ef.jpg",
+      "06-eb8ce659774515.5a2efbf915b44.jpg",
+      "07-c421d559774515.5a2efbf91534f.jpg",
+      "08-930c7659774515.5a2efbf91371c.jpg",
+      "09-75095859774515.5a2efbf914b22.jpg",
+      "10-f56aaa59774515.5a2efbf913c29.jpg"
+    ]
+  },
+  "photography": {
+    "brand": "Bibliotheca-Alexandrina",
+    "project": "Product & Advertising Photography",
+    "files": [
+      "01-26618712671389.5626b500bce4e.jpg",
+      "02-013bc112671389.5626b55edc84e.jpg",
+      "03-fd513512671389.5626b4bb0c33e.jpg",
+      "04-03da6212671389.5626b37e62185.jpg",
+      "05-3301a912671389.5626b5012401a.jpg",
+      "06-0eaff812671389.5626b48011e2e.jpg",
+      "07-19aea812671389.5626b37d40b95.jpg",
+      "08-eddeac12671389.5626b37da508b.jpg",
+      "09-e3bd4712671389.5626b37f084c6.jpg",
+      "10-4086a112671389.5626b37f12ab6.jpg",
+      "11-6b65fd12671389.5626b55cadbf7.jpg",
+      "12-442b9e12671389.5626b4dd4c0f2.jpg",
+      "13-3d68cc12671389.5626b500d1ef1.jpg",
+      "14-5cff2a12671389.5626b4810016e.jpg",
+      "15-e9494e12671389.5626b37eb557d.jpg",
+      "16-64f8e212671389.5626b37e07222.jpg",
+      "17-ceacf412671389.5626b4dbc76c5.jpg",
+      "18-69275712671389.5626b47ef14c7.jpg",
+      "19-97c6ab12671389.5626b37f4f0e0.jpg",
+      "20-1a6d7312671389.5626b55ff38f0.jpg"
+    ]
+  },
+  "photography-samples": {
+    "brand": "Imagine-Studio",
+    "project": "Photography Samples",
+    "files": [
+      "01-4b3dee50330045.58cdbc1eadd7f.jpg",
+      "02-2f3a4450330045.58cdbc1eafd39.jpg",
+      "03-eb8ee650330045.58cdbc1eb9129.jpg",
+      "04-2925a950330045.58cdbc1eb29d6.jpg",
+      "05-53a6e250330045.58cdbc1eb4c97.jpg",
+      "06-b5c0a250330045.58cdbc1eb6e9f.jpg",
+      "07-a205d150330045.58cdbc1eb0673.jpg",
+      "08-29dfc550330045.58cdbc1eb01bd.jpg"
+    ]
+  }
+}

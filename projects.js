@@ -40,6 +40,63 @@
   ];
   const DELIV_TYPES   = ['TVC','Social Media','Campaign','Photography','OOH','Branding','Strategy','AI Production','Events','PR','Copy','Music','Film'];
   const SOCIAL_PLATFORMS = ['Instagram','TikTok','Facebook','YouTube','Snapchat','X / Twitter','LinkedIn','WhatsApp','Pinterest','Threads'];
+  const SOCIAL_KEYS = ['instagram','tiktok','facebook','youtube','x','linkedin','snapchat','whatsapp','pinterest','threads'];
+  const SOCIAL_META = {
+    instagram:{label:'Instagram', color:'#E1306C', bg:'#1a0a10', prefix:'@', url:h=>'https://instagram.com/'+h},
+    tiktok:   {label:'TikTok',    color:'#69C9D0', bg:'#091314', prefix:'@', url:h=>'https://tiktok.com/@'+h},
+    facebook: {label:'Facebook',  color:'#1877F2', bg:'#080f1f', prefix:'',  url:h=>'https://facebook.com/'+h},
+    youtube:  {label:'YouTube',   color:'#FF0000', bg:'#1a0000', prefix:'@', url:h=>'https://youtube.com/@'+h},
+    x:        {label:'X',         color:'#f4f2ed', bg:'#111',    prefix:'@', url:h=>'https://x.com/'+h},
+    linkedin: {label:'LinkedIn',  color:'#0A66C2', bg:'#080f1a', prefix:'',  url:h=>'https://linkedin.com/company/'+h},
+    snapchat: {label:'Snapchat',  color:'#FFFC00', bg:'#131300', prefix:'@', url:h=>'https://snapchat.com/add/'+h},
+    whatsapp: {label:'WhatsApp',  color:'#25D366', bg:'#061209', prefix:'',  url:h=>'https://wa.me/'+h},
+    pinterest:{label:'Pinterest', color:'#E60023', bg:'#1a0000', prefix:'@', url:h=>'https://pinterest.com/'+h},
+    threads:  {label:'Threads',   color:'#f4f2ed', bg:'#111',    prefix:'@', url:h=>'https://threads.net/@'+h},
+  };
+  const SOCIAL_ABBR = {instagram:'IG',tiktok:'TK',facebook:'FB',youtube:'YT',x:'X',linkedin:'in',snapchat:'SC',whatsapp:'WA',pinterest:'PT',threads:'TH'};
+  const KNOWN_HANDLES = {
+    'Kappa':             {instagram:'kappaofficial',facebook:'kappa',x:'kappasport'},
+    'Subway-Oman':       {instagram:'subwayoman',facebook:'SubwayOman',x:'SubwayOman'},
+    'EA-FC-Mobile':      {instagram:'easportsfcmobile',tiktok:'easports',x:'EASPORTSFCMobile',youtube:'EASPORTSFCMobile',facebook:'easportsfcmobile'},
+    'Geely':             {instagram:'geelyauto',x:'GeelyGlobal',youtube:'GeelyAutoOfficial',facebook:'GeelyAuto',linkedin:'geely'},
+    'Snapchat':          {instagram:'snapchat',tiktok:'snapchat',x:'Snapchat',youtube:'Snapchat',facebook:'Snapchat'},
+    'Bazooka-Candy':     {instagram:'bazookacandy',facebook:'bazookacandy',x:'bazookacandy'},
+    'AXE-Unilever':      {instagram:'axeofficial',tiktok:'axe',x:'AXEbodyspray',facebook:'Axe',youtube:'axe'},
+    'Bershka':           {instagram:'bershka',tiktok:'bershka',x:'bershka',facebook:'Bershka',youtube:'bershka',pinterest:'bershka'},
+    'Krispy-Kreme':      {instagram:'krispykreme',tiktok:'krispykreme',x:'krispykreme',facebook:'krispykreme',youtube:'KrispyKreme'},
+    'Audi':              {instagram:'audi',tiktok:'audi',x:'audi',facebook:'Audi',youtube:'audi',linkedin:'audi'},
+    'Polo-Ralph-Lauren': {instagram:'ralphlauren',tiktok:'ralphlauren',x:'RalphLauren',facebook:'RalphLauren',youtube:'ralphlauren',pinterest:'ralphlauren'},
+    'Gillette-Venus':    {instagram:'gillettevenus',tiktok:'gillettevenus',x:'GilletteVenus',facebook:'GilletteVenus',youtube:'GilletteVenus'},
+    'Hardees':           {instagram:'hardeesarabia',facebook:'HardeesMiddleEast',x:'HardeesArabia'},
+    'Molfix':            {instagram:'molfix_official',facebook:'Molfix',youtube:'MolfixOfficial'},
+    'Mayo-Clinic':       {instagram:'mayoclinic',tiktok:'mayoclinic',x:'MayoClinic',facebook:'MayoClinic',youtube:'MayoClinic',linkedin:'mayo-clinic'},
+    'Quooker':           {instagram:'quooker',tiktok:'quooker',x:'QuookerHQ',facebook:'Quooker',youtube:'quooker'},
+    'Zooba':             {instagram:'zooba_egy',tiktok:'zooba_egy',facebook:'zooba',x:'zooba_egy'},
+    'Biella':            {instagram:'biellarestaurants',facebook:'BiellaRestaurants'},
+    'El-Gouna':          {instagram:'elgouna',facebook:'ElGounaTownship',x:'elgouna'},
+    'Bibliotheca-Alexandrina':{instagram:'bibliotheca.alexandrina',facebook:'LibraryofAlexandria',x:'Bibalex',youtube:'BibalexTV'},
+    'Em-Sherif-Cafe':    {instagram:'emsherifcafe',facebook:'EmSherifCafe'},
+    'Hayat-Water':       {instagram:'hayatwater',facebook:'HayatWater'},
+    'Ring-Pop':          {instagram:'ringpop',facebook:'RingPop',x:'ringpop'},
+    'Juicy-Drop':        {instagram:'juicydrop',facebook:'JuicyDrop'},
+    'Burger-Pump':       {instagram:'burgerpump_eg'},
+    'Warba-Bank':        {instagram:'warbabank',facebook:'WarbaBankKuwait',x:'WarbaBank'},
+    'One-Zaabeel':       {instagram:'onezaabeel',facebook:'OneZaabeel'},
+    'Decoys-Real-Estate':{instagram:'derayaeg',facebook:'DerayaRealEstate'},
+    'Gourmet':           {instagram:'gourmetegypt',facebook:'GourmetEgypt'},
+    'Revitalash':        {instagram:'revitalash',facebook:'RevitaLash',x:'RevitaLash'},
+    'Almaza-Bay':        {instagram:'almazabay',facebook:'AlmazaBay'},
+    'Noodle-House':      {instagram:'noodlehousedubai',facebook:'NoodleHouseGroup'},
+    'Carina':            {instagram:'carinafashion',facebook:'CarinaME'},
+    'Emirgan-Sutis':     {instagram:'emirgansutis',facebook:'EmirganSutis'},
+    'Al-Siddiqi-Holding':{instagram:'alsiddiqiholding',facebook:'AlSiddiqiHolding',linkedin:'al-siddiqi-holding'},
+    'Tonic-International':{instagram:'tonicintl',linkedin:'tonic-international'},
+    'Mansour':           {instagram:'mansourgroup',facebook:'MansourGroup',linkedin:'mansour-group'},
+    'ACUD':              {instagram:'acud_egypt',facebook:'ACUDEgypt'},
+    'Mooz':              {instagram:'mooz.eg',facebook:'MoozEgypt'},
+    'GDK':               {instagram:'gdk_kuwait',facebook:'GDKq8'},
+    'Royal-Tulip-Hotel': {instagram:'royaltuliphotel',facebook:'RoyalTulipHotel'},
+  };
   const PROJ_FIELDS = [
     ['name','Project Name','e.g. Ramadan 2024 Campaign'],
     ['client','Client', brandName],
@@ -56,7 +113,7 @@
     p.media=[]; p.vimeo=[]; p.types=[]; p.platforms=[]; p.articles=[]; p.briefs=[]; return p;
   }
   function defaults(){
-    const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover=''; b.logo='';
+    const b={}; BRAND_FIELDS.forEach(f=>b[f[0]]=''); b.industry=industry; b.summary=''; b.cover=''; b.logo=''; b.socials={};
     return { brand:b, projects:[ Object.assign(blankProject(),{name:''}) ], active:0 };
   }
   let DATA = defaults();
@@ -87,7 +144,7 @@
     }
   }
   function load(){
-    return fetch('../../projects.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+    return fetch('../../projects.json'+(EDIT_MODE?'?t='+Date.now():'')).then(r=>r.ok?r.json():{}).catch(()=>({}))
       .then(store=>{
         if(store && store[SLUG]) DATA = normalize(store[SLUG]);
         else { try{ const ls=localStorage.getItem(KEY); if(ls) DATA=normalize(JSON.parse(ls)); }catch(_){} }
@@ -99,6 +156,9 @@
     if(d.brand.summary==null) d.brand.summary='';
     if(d.brand.cover==null) d.brand.cover='';
     if(d.brand.logo==null) d.brand.logo='';
+    if(!d.brand.socials || typeof d.brand.socials!=='object') d.brand.socials={};
+    SOCIAL_KEYS.forEach(k=>{ if(d.brand.socials[k]==null) d.brand.socials[k]=''; });
+    const known=KNOWN_HANDLES[SLUG]||{}; Object.entries(known).forEach(([k,v])=>{ if(!d.brand.socials[k]) d.brand.socials[k]=v; });
     if(!d.brand.industry) d.brand.industry=industry;
     if(!Array.isArray(d.projects)||!d.projects.length) d.projects=[Object.assign(blankProject(),{name:''})];
     d.projects=d.projects.map(p=>{ const np=blankProject(); Object.assign(np,p);
@@ -162,7 +222,50 @@
   #zz-proj .zp-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
   #zz-proj-toast{position:fixed;bottom:70px;right:18px;z-index:99999;background:var(--accent,#f0c233);color:#000;
     padding:10px 18px;border-radius:10px;font:700 13px Inter,sans-serif;opacity:0;transition:opacity .3s;pointer-events:none}
-  #zz-proj-toast.show{opacity:1}`;
+  #zz-proj-toast.show{opacity:1}
+  /* ── Viewer Gallery ──────────────────────────────────── */
+  .zz-gallery-section{padding:72px 0;border-bottom:1px solid var(--b,#2c2c33)}
+  .zz-gallery-section .c{max-width:1100px;margin:0 auto;padding:0 40px}
+  @media(max-width:800px){.zz-gallery-section .c{padding:0 20px}}
+  /* Artistic masonry grid */
+  .zz-art-grid{columns:3 220px;column-gap:6px;margin-bottom:8px}
+  @media(max-width:700px){.zz-art-grid{columns:2}}
+  @media(max-width:420px){.zz-art-grid{columns:1}}
+  .zz-art-item{break-inside:avoid;display:inline-block;width:100%;margin-bottom:6px;cursor:pointer;border-radius:8px;overflow:hidden;background:#111;vertical-align:top;transition:opacity .2s}
+  .zz-art-item:hover{opacity:.92}
+  .zz-art-mwrap{position:relative;overflow:hidden}
+  .zz-art-mwrap img{width:100%;height:auto;display:block;transition:transform .4s ease}
+  .zz-art-mwrap.vid{aspect-ratio:16/9;position:relative}
+  .zz-art-mwrap.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .zz-art-item:hover .zz-art-mwrap img,.zz-art-item:hover .zz-art-mwrap.vid video{transform:scale(1.04)}
+  .zz-art-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.12);pointer-events:none}
+  .zz-art-play span{width:52px;height:52px;border-radius:50%;background:rgba(0,0,0,.62);border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff}
+  .zz-art-cap{padding:10px 12px 12px;font-size:12px;line-height:1.6;color:var(--m,#9a958c);background:#0d0d10;border-top:1px solid #181820}
+  /* ── Lightbox ────────────────────────────────────────── */
+  #zz-lb{position:fixed;inset:0;z-index:99990;background:rgba(0,0,0,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+  #zz-lb.open{opacity:1;pointer-events:all}
+  #zz-lb .zz-lb-wrap{position:relative;max-width:min(90vw,1200px);max-height:80vh;display:flex;align-items:center;justify-content:center}
+  #zz-lb .zz-lb-wrap img,#zz-lb .zz-lb-wrap video{max-width:100%;max-height:80vh;object-fit:contain;border-radius:6px}
+  #zz-lb .zz-lb-arrow{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:background .15s}
+  #zz-lb .zz-lb-arrow:hover{background:rgba(255,255,255,.22)}
+  #zz-lb .zz-lb-arrow.prev{left:16px}
+  #zz-lb .zz-lb-arrow.next{right:16px}
+  #zz-lb .zz-lb-close{position:fixed;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  #zz-lb .zz-lb-counter{position:fixed;top:16px;left:50%;transform:translateX(-50%);font:700 12px Inter,sans-serif;color:rgba(255,255,255,.7);letter-spacing:.1em;background:rgba(0,0,0,.5);padding:5px 14px;border-radius:99px}
+  #zz-lb .zz-lb-strip{position:fixed;bottom:0;left:0;right:0;display:flex;gap:6px;padding:12px;overflow-x:auto;background:rgba(0,0,0,.6);justify-content:center}
+  #zz-lb .zz-lb-dot{width:40px;height:40px;border-radius:4px;overflow:hidden;cursor:pointer;flex-shrink:0;opacity:.5;transition:opacity .15s;border:2px solid transparent}
+  #zz-lb .zz-lb-dot.on{opacity:1;border-color:var(--accent,#f0c233)}
+  #zz-lb .zz-lb-dot img{width:100%;height:100%;object-fit:cover}
+  /* ── Edit gallery grid ──────────────────────────────── */
+  .zz-edit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+  .zz-edit-cell{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--b,#2c2c33);background:#0d0d0f;display:flex;flex-direction:column}
+  .zz-edit-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;flex-shrink:0}
+  .zz-edit-thumb img,.zz-edit-thumb video{width:100%;height:100%;object-fit:cover;display:block}
+  .zz-edit-cell .zz-rm{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.82);color:#fff;border:1px solid #555;border-radius:6px;padding:4px 8px;font:700 11px Inter,sans-serif;cursor:pointer;z-index:2}
+  .zz-edit-cell .zz-idx{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.82);color:rgba(255,255,255,.6);border-radius:4px;padding:3px 6px;font:700 10px Inter,sans-serif;z-index:2}
+  .zz-edit-cap{padding:8px 10px;background:#0d0d0f;border-top:1px solid #1c1c22;flex:1}
+  .zz-edit-cap textarea{width:100%;background:transparent;border:none;color:#c2bcb2;font:400 11px/1.5 Inter,sans-serif;outline:none;padding:0;resize:none;min-height:44px}
+  .zz-edit-cap textarea::placeholder{color:#3d3d44}`;
   document.head.appendChild(css);
   const toastEl = el('div'); toastEl.id='zz-proj-toast'; document.body.appendChild(toastEl);
   function toast(t){ toastEl.textContent=t; toastEl.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>toastEl.classList.remove('show'),2200); }
@@ -465,36 +568,224 @@
     w.append(list,addBtn); return w;
   }
 
+  function pickMulti(accept,cb){
+    const i=el('input'); i.type='file'; i.accept=accept; i.multiple=true;
+    i.onchange=()=>{ if(i.files&&i.files.length) cb(Array.from(i.files)); }; i.click();
+  }
+  function uploadMulti(p, files, onDone){
+    let done=0; const total=files.length;
+    toast('Uploading 1 / '+total+'…');
+    function next(idx){
+      if(idx>=total){ persist(true); onDone(); return; }
+      uploadFile(files[idx]).then(pth=>{
+        const kind=files[idx].type.startsWith('video')?'video':'img';
+        (p.media=p.media||[]).push({kind,src:pth,caption:''});
+        done++;
+        toast('Uploading '+(done+1<total?done+1:done)+' / '+total+(done<total?'…':' — done!'));
+        next(idx+1);
+      }).catch(()=>{ toast('Upload failed on file '+(idx+1)); next(idx+1); });
+    }
+    next(0);
+  }
+
   function mediaGallery(p){
     const w=el('div'); w.className='zp-card';
-    w.innerHTML='<div class="zp-sl">Gallery</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Photos &amp; Videos</div><div class="zp-hint" style="margin-bottom:14px">The main event — drop the campaign films and stills here.</div>';
-    const grid=el('div'); grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px';
-    (p.media||[]).forEach((mm,i)=>{
-      const cell=el('div'); cell.style.cssText='position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--b,#2c2c33);aspect-ratio:1/1;background:#0d0d0f';
-      let me; if(mm.kind==='video'){ me=el('video'); me.src=absPath(mm.src); me.controls=true; } else { me=el('img'); me.src=absPath(mm.src); }
-      me.style.cssText='width:100%;height:100%;object-fit:cover';
-      const rm=el('button'); rm.className='zp-mini'; rm.textContent='✕'; rm.style.position='absolute'; rm.style.top='6px'; rm.style.right='6px';
-      rm.onclick=()=>{ p.media.splice(i,1); persist(true); render(); };
-      cell.append(me,rm); grid.append(cell);
-    });
-    if(!(p.media||[]).length){ const empty=el('div'); empty.style.cssText='color:var(--m,#9a958c);font-size:13px;padding:8px 0'; empty.textContent='No media yet — add the first photo or video below.'; w.append(empty); }
+    w.innerHTML='<div class="zp-sl">Gallery</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Photos &amp; Videos</div><div class="zp-hint" style="margin-bottom:14px">Bulk-upload photos &amp; videos — they appear as a carousel on the live page. Add captions to tell the story.</div>';
+    const grid=el('div'); grid.className='zz-edit-grid';
+    function rebuildGrid(){
+      grid.innerHTML='';
+      (p.media||[]).forEach((mm,i)=>{
+        const cell=el('div'); cell.className='zz-edit-cell';
+
+        if(mm.kind==='canva'){
+          const thumb=el('div'); thumb.className='zz-edit-thumb';
+          thumb.style.cssText='background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:12px;text-align:center';
+          thumb.innerHTML='<div style="font-size:28px;margin-bottom:4px">📊</div><div style="font-size:11px;font-weight:700;color:#f4f2ed">Canva Presentation</div><div style="font-size:10px;color:#555;word-break:break-all;max-width:100%">'+(mm.src.slice(0,36)||'')+'</div>';
+          const idx=el('span'); idx.className='zz-idx'; idx.textContent=i+1;
+          const rm=el('button'); rm.className='zz-rm'; rm.textContent='✕';
+          rm.onclick=()=>{ p.media.splice(i,1); persist(false); rebuildGrid(); };
+          thumb.append(idx,rm);
+          const capWrap=el('div'); capWrap.className='zz-edit-cap';
+          const lbIn=el('textarea'); lbIn.placeholder='Slide deck title…'; lbIn.value=mm.label||''; lbIn.rows=2;
+          lbIn.oninput=()=>{ mm.label=lbIn.value; persist(false); };
+          capWrap.append(lbIn);
+          cell.append(thumb,capWrap); grid.append(cell); return;
+        }
+
+        const thumb=el('div'); thumb.className='zz-edit-thumb';
+        const idx=el('span'); idx.className='zz-idx'; idx.textContent=i+1;
+        const rm=el('button'); rm.className='zz-rm'; rm.textContent='✕';
+        rm.onclick=()=>{ p.media.splice(i,1); persist(false); rebuildGrid(); };
+        let me;
+        if(mm.kind==='video'){ me=el('video'); me.src=absPath(mm.src); me.muted=true; me.style.cssText='width:100%;height:100%;object-fit:cover'; }
+        else { me=el('img'); me.src=absPath(mm.src); me.loading='lazy'; }
+        thumb.append(me,idx,rm);
+        const capWrap=el('div'); capWrap.className='zz-edit-cap';
+        const capIn=el('textarea'); capIn.rows=2; capIn.placeholder='Caption / description shown below the photo and on the news feed…'; capIn.value=mm.caption||'';
+        capIn.oninput=()=>{ mm.caption=capIn.value; persist(false); };
+        capWrap.append(capIn);
+        cell.append(thumb,capWrap); grid.append(cell);
+      });
+    }
+    rebuildGrid();
+    if(!(p.media||[]).length){ const empty=el('div'); empty.style.cssText='color:var(--m,#9a958c);font-size:13px;padding:8px 0;'; empty.textContent='No media yet — use the buttons below to add photos and videos.'; w.append(empty); }
     w.append(grid);
-    const bar=el('div'); bar.style.cssText='display:flex;gap:10px;margin-top:14px;flex-wrap:wrap';
-    const addP=el('button'); addP.className='zp-add'; addP.textContent='＋ Add Photo'; addP.onclick=()=>pick('image/*',f=>{ toast('Uploading…'); uploadFile(f).then(pth=>{ (p.media=p.media||[]).push({kind:'img',src:pth}); persist(true); render(); }).catch(()=>toast('Upload failed — server off')); });
-    const addV=el('button'); addV.className='zp-add'; addV.textContent='🎬 Add Video'; addV.onclick=()=>pick('video/*',f=>{ toast('Uploading…'); uploadFile(f).then(pth=>{ (p.media=p.media||[]).push({kind:'video',src:pth}); persist(true); render(); }).catch(()=>toast('Upload failed — server off')); });
-    bar.append(addP,addV); w.append(bar); return w;
+    const bar=el('div'); bar.style.cssText='display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center';
+    const bulk=el('button'); bulk.className='zp-add'; bulk.textContent='📁 Bulk Upload Photos';
+    bulk.onclick=()=>pickMulti('image/*',files=>uploadMulti(p,files,()=>render()));
+    const addV=el('button'); addV.className='zp-add'; addV.textContent='🎬 Add Video';
+    addV.onclick=()=>pickMulti('video/*',files=>uploadMulti(p,files,()=>render()));
+    const addUrl=el('button'); addUrl.className='zp-add'; addUrl.textContent='🔗 URL';
+    addUrl.onclick=()=>{ const u=prompt('Paste image or video URL:',''); if(!u||!u.trim())return; const k=/\.(mp4|webm|mov|avi)/i.test(u)?'video':'img'; (p.media=p.media||[]).push({kind:k,src:u.trim(),caption:''}); persist(true); render(); };
+    const addCanva=el('button'); addCanva.className='zp-add'; addCanva.textContent='📊 Add Canva';
+    addCanva.onclick=()=>{
+      const u=prompt('Paste Canva embed URL (the ?embed link from Share → Embed):','');
+      if(!u||!u.trim())return;
+      const src=u.trim().replace(/\/view(\?.*)?$/,'/view?embed');
+      (p.media=p.media||[]).push({kind:'canva',src,label:''}); persist(true); rebuildGrid();
+    };
+    const hint=el('span'); hint.className='zp-hint'; hint.textContent='Ctrl+A in file picker to select all at once.';
+    bar.append(bulk,addV,addUrl,addCanva,hint); w.append(bar); return w;
+  }
+
+  // ── Viewer gallery: Instagram-style album + lightbox ──────────────────
+  let _lbItems=[], _lbIdx=0;
+  function openLightbox(items, startIdx){
+    _lbItems=items; _lbIdx=startIdx||0;
+    let lb=document.getElementById('zz-lb');
+    if(!lb){
+      lb=el('div'); lb.id='zz-lb';
+      const close=el('button'); close.className='zz-lb-close'; close.innerHTML='&times;';
+      close.onclick=()=>lb.classList.remove('open');
+      const prev=el('button'); prev.className='zz-lb-arrow prev'; prev.textContent='‹';
+      prev.onclick=()=>showLb(_lbIdx-1);
+      const next=el('button'); next.className='zz-lb-arrow next'; next.textContent='›';
+      next.onclick=()=>showLb(_lbIdx+1);
+      lb.append(close,prev,next);
+      const wrap=el('div'); wrap.className='zz-lb-wrap'; wrap.id='zz-lb-wrap'; lb.append(wrap);
+      const counter=el('div'); counter.className='zz-lb-counter'; counter.id='zz-lb-counter'; lb.append(counter);
+      const strip=el('div'); strip.className='zz-lb-strip'; strip.id='zz-lb-strip'; lb.append(strip);
+      lb.onclick=e=>{ if(e.target===lb||e.target===wrap) lb.classList.remove('open'); };
+      document.body.append(lb);
+      document.addEventListener('keydown',e=>{
+        if(!lb.classList.contains('open')) return;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown') showLb(_lbIdx+1);
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') showLb(_lbIdx-1);
+        else if(e.key==='Escape') lb.classList.remove('open');
+      });
+      let tx=0;
+      lb.addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; },{passive:true});
+      lb.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) showLb(_lbIdx+(dx<0?1:-1)); },{passive:true});
+    }
+    lb.classList.add('open'); showLb(_lbIdx);
+  }
+  function showLb(idx){
+    _lbIdx=Math.max(0,Math.min(idx,_lbItems.length-1));
+    const wrap=document.getElementById('zz-lb-wrap'); if(!wrap) return;
+    const counter=document.getElementById('zz-lb-counter');
+    const strip=document.getElementById('zz-lb-strip');
+    wrap.innerHTML='';
+    const mm=_lbItems[_lbIdx];
+    let media;
+    if(mm.kind==='video'){ media=el('video'); media.src=absPath(mm.src); media.controls=true; media.autoplay=true; }
+    else { media=el('img'); media.src=absPath(mm.src); media.alt=mm.caption||''; }
+    wrap.append(media);
+    if(mm.caption){ const cap=el('div'); cap.style.cssText='color:rgba(255,255,255,.75);font-size:13px;text-align:center;margin-top:10px;max-width:600px;line-height:1.5'; cap.textContent=mm.caption; wrap.append(cap); }
+    if(counter) counter.textContent=(_lbIdx+1)+' / '+_lbItems.length;
+    if(strip){
+      strip.innerHTML='';
+      _lbItems.forEach((m,i)=>{
+        const d=el('div'); d.className='zz-lb-dot'+(i===_lbIdx?' on':'');
+        if(m.kind==='video'){ d.style.cssText='background:#222;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff'; d.textContent='▶'; }
+        else { const im=el('img'); im.src=absPath(m.src); im.loading='lazy'; d.append(im); }
+        d.onclick=()=>showLb(i); strip.append(d);
+      });
+      setTimeout(()=>{ const a=strip.querySelector('.on'); if(a) a.scrollIntoView({inline:'center',behavior:'smooth'}); },50);
+    }
+  }
+
+  function applyGallery(){
+    const p=DATA.projects[DATA.active]||DATA.projects[0]||{};
+    const items=p.media||[];
+    const old=document.getElementById('zz-gallery-sec'); if(old) old.remove();
+    if(!items.length) return;
+
+    const canvaItems=items.filter(m=>m.kind==='canva');
+    const mediaItems=items.filter(m=>m.kind!=='canva');
+
+    const sec=el('div'); sec.id='zz-gallery-sec'; sec.className='zz-gallery-section';
+    const c=el('div'); c.className='c';
+
+    if(mediaItems.length){
+      const sl=el('p'); sl.className='sl'; sl.textContent='Gallery';
+      const st=el('h2'); st.className='st'; st.textContent=p.name||'Campaign Work';
+      c.append(sl,st);
+
+      const grid=el('div'); grid.className='zz-art-grid';
+
+      mediaItems.forEach((mm,i)=>{
+        const item=el('div'); item.className='zz-art-item';
+
+        const mwrap=el('div');
+        if(mm.kind==='video'){
+          mwrap.className='zz-art-mwrap vid';
+          const v=el('video'); v.src=absPath(mm.src); v.muted=true; v.loop=true; v.playsInline=true;
+          const play=el('div'); play.className='zz-art-play'; play.innerHTML='<span>▶</span>';
+          mwrap.append(v,play);
+          mwrap.addEventListener('mouseenter',()=>v.play());
+          mwrap.addEventListener('mouseleave',()=>{ v.pause(); v.currentTime=0; });
+        } else {
+          mwrap.className='zz-art-mwrap';
+          const img=el('img'); img.src=absPath(mm.src); img.alt=mm.caption||''; img.loading='lazy';
+          mwrap.append(img);
+        }
+        mwrap.onclick=()=>openLightbox(mediaItems,i);
+        item.append(mwrap);
+
+        if(mm.caption){
+          const cap=el('div'); cap.className='zz-art-cap'; cap.textContent=mm.caption;
+          item.append(cap);
+        }
+        grid.append(item);
+      });
+      c.append(grid);
+    }
+
+    // Canva presentation embeds
+    if(canvaItems.length){
+      const psl=el('p'); psl.className='sl'; psl.style.marginTop=mediaItems.length?'56px':'0';
+      psl.textContent='Presentation';
+      c.append(psl);
+      canvaItems.forEach(mm=>{
+        if(mm.label){ const pst=el('h2'); pst.className='st'; pst.textContent=mm.label; c.append(pst); }
+        const wrap=el('div');
+        wrap.style.cssText='position:relative;width:100%;height:0;padding-top:56.2225%;border-radius:12px;overflow:hidden;border:1px solid var(--b,#2c2c33)';
+        const iframe=el('iframe'); iframe.src=mm.src; iframe.loading='lazy'; iframe.allowFullscreen=true;
+        iframe.allow='fullscreen'; iframe.setAttribute('allowfullscreen','allowfullscreen');
+        iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none';
+        wrap.append(iframe); c.append(wrap);
+      });
+    }
+
+    sec.append(c);
+    const btns=document.querySelector('.btns');
+    if(btns) btns.before(sec); else document.body.append(sec);
   }
 
   function applyBrandCircle(){
     const bc=document.querySelector('.bc'); if(!bc) return;
-    // Remove white background override — use brand accent color from CSS
-    bc.style.background=''; bc.style.overflow='hidden';
+    bc.style.overflow='hidden';
     const img=bc.querySelector('img');
     if(img){
       const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):'';
-      if(logoSrc){ img.src=logoSrc; img.onerror=null; }
+      if(logoSrc){
+        img.src=logoSrc;
+        img.onload=()=>{ bc.style.background=DATA.brand.logoBackground||'#fff'; };
+        img.onerror=function(){ this.style.display='none'; bc.style.background=''; };
+      } else {
+        bc.style.background='';
+      }
       img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:10%';
-      img.onerror=function(){ this.style.display='none'; };
     }
   }
 
@@ -524,7 +815,28 @@
 
     BRAND_FIELDS.forEach(f=>{ const opts=BRAND_SELECTS[f[0]]; const e=opts?selectField(opts,DATA.brand[f[0]],v=>DATA.brand[f[0]]=v):field('input',DATA.brand[f[0]],f[2],v=>DATA.brand[f[0]]=v); grid.append(labeled(f[1],e)); });
     grid.append(labeled('Summary', field('textarea',DATA.brand.summary,'Short brand summary — who they are and what you did for them.',v=>DATA.brand.summary=v), true));
-    card.append(grid); sec.append(card); root.append(sec);
+    card.append(grid); sec.append(card);
+
+    // Social Handles card
+    const socialCard=el('div'); socialCard.className='zp-card';
+    socialCard.innerHTML='<div class="zp-sl">Social Media</div><div style="font-size:18px;font-weight:800;margin-bottom:6px">Social Handles</div><div class="zp-hint" style="margin-bottom:16px">Enter the handle without @ — links are built automatically. Pre-filled where known.</div>';
+    const socialGrid=el('div'); socialGrid.style.cssText='display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px';
+    if(!DATA.brand.socials) DATA.brand.socials={};
+    SOCIAL_KEYS.forEach(k=>{
+      const meta=SOCIAL_META[k];
+      const row=el('div'); row.style.cssText='display:flex;flex-direction:column;gap:4px';
+      const lab=el('label'); lab.textContent=meta.label;
+      const inp=field('input',(DATA.brand.socials[k]||'').replace(/^@/,''),meta.prefix+'handle',v=>{ DATA.brand.socials[k]=v.replace(/^@/,''); applySocialHandles(); });
+      row.append(lab,inp); socialGrid.append(row);
+    });
+    socialCard.append(socialGrid);
+    const hasHandles=SOCIAL_KEYS.some(k=>DATA.brand.socials[k]);
+    if(hasHandles){
+      const prev=el('div'); prev.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid #2c2c33';
+      SOCIAL_KEYS.forEach(k=>{ const h=(DATA.brand.socials[k]||'').replace(/^@/,''); if(!h)return; const meta=SOCIAL_META[k]; const a=el('a'); a.href=meta.url(h); a.target='_blank'; a.rel='noopener'; a.style.cssText='display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:'+meta.bg+';border:1px solid #2c2c33;border-radius:99px;font-size:12px;font-weight:700;color:'+meta.color+';text-decoration:none;letter-spacing:.02em'; a.textContent=meta.label+' · @'+h; prev.append(a); });
+      socialCard.append(prev);
+    }
+    sec.append(socialCard); root.append(sec);
   }
 
   function renderProjects(){
@@ -621,7 +933,21 @@
     if(section) section.style.display=anyVisible?'':'none';
   }
 
-  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyHeroCover(); applyAnalytics(); applyBrandCircle(); }
+  function applySocialHandles(){
+    const hs=document.querySelector('.hs'); if(!hs) return;
+    let bar=document.getElementById('zz-social-bar');
+    if(!bar){ bar=el('div'); bar.id='zz-social-bar'; bar.style.cssText='display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08)'; hs.append(bar); }
+    bar.innerHTML='';
+    const soc=DATA.brand.socials||{};
+    let any=false;
+    SOCIAL_KEYS.forEach(k=>{ const h=(soc[k]||'').replace(/^@/,''); if(!h)return; any=true; const meta=SOCIAL_META[k]; const a=el('a'); a.href=meta.url(h); a.target='_blank'; a.rel='noopener'; a.title=meta.label+': @'+h; a.style.cssText='width:30px;height:30px;border-radius:50%;background:'+meta.bg+';border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:'+meta.color+';text-decoration:none;letter-spacing:0;transition:transform .15s'; a.textContent=SOCIAL_ABBR[k]; a.onmouseenter=()=>a.style.transform='scale(1.18)'; a.onmouseleave=()=>a.style.transform=''; bar.append(a); });
+    bar.style.display=any?'flex':'none';
+  }
+  // Are we in edit mode? Activated by ?edit in URL or by editor.js toggle (ze-on class).
+  const EDIT_MODE = /[?&]edit\b/.test(location.search);
+
+  function applyDisplay(){ applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyGallery(); }
+  function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyDisplay(); }
   function mount(){
     if(!root.parentNode){
       const hero=document.querySelector('.hero')||document.querySelector('nav');
@@ -630,6 +956,26 @@
     }
     render();
   }
-  function boot(){ mount(); load().then(()=>{ if(root.parentNode) render(); }); }
+
+  // Cache the load promise so we never fetch projects.json twice.
+  let _lp=null;
+  function loadOnce(){ if(!_lp) _lp=load(); return _lp; }
+
+  function boot(){
+    if(EDIT_MODE){
+      // Edit mode: load then build the full panel (single render, no defaults pass).
+      loadOnce().then(()=>mount());
+      return;
+    }
+    // Visitor mode: load data and apply display enhancements only — no edit panel DOM.
+    loadOnce().then(()=>applyDisplay());
+    // If the owner clicks "✏️ Edit" (editor.js adds ze-on to body), lazy-mount the panel.
+    const obs=new MutationObserver(()=>{
+      if(document.body.classList.contains('ze-on')&&!root.parentNode){
+        loadOnce().then(()=>mount()); obs.disconnect();
+      }
+    });
+    obs.observe(document.body,{attributes:true,attributeFilter:['class']});
+  }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
 })();
