@@ -265,7 +265,27 @@
   .zz-edit-cell .zz-idx{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.82);color:rgba(255,255,255,.6);border-radius:4px;padding:3px 6px;font:700 10px Inter,sans-serif;z-index:2}
   .zz-edit-cap{padding:8px 10px;background:#0d0d0f;border-top:1px solid #1c1c22;flex:1}
   .zz-edit-cap textarea{width:100%;background:transparent;border:none;color:#c2bcb2;font:400 11px/1.5 Inter,sans-serif;outline:none;padding:0;resize:none;min-height:44px}
-  .zz-edit-cap textarea::placeholder{color:#3d3d44}`;
+  .zz-edit-cap textarea::placeholder{color:#3d3d44}
+  /* ── Carousel ────────────────────────────────────────── */
+  .zz-carousel-wrap{margin-bottom:14px}
+  .zz-carousel{position:relative;overflow:hidden;border-radius:14px;background:#111;border:1px solid var(--b,#2c2c33)}
+  .zz-car-track{display:flex;transition:transform .45s cubic-bezier(.22,1,.36,1);will-change:transform}
+  .zz-car-slide{flex:0 0 100%;position:relative;overflow:hidden;cursor:pointer}
+  .zz-car-slide img,.zz-car-slide video{width:100%;height:100%;object-fit:cover;display:block}
+  .zz-car-cap{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);color:#fff;font-size:13px;line-height:1.5;pointer-events:none}
+  .zz-car-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.58);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .15s;line-height:1;padding:0}
+  .zz-car-btn:hover{background:rgba(0,0,0,.85)}
+  .zz-car-btn.prev{left:13px}.zz-car-btn.next{right:13px}
+  .zz-car-dots{display:flex;justify-content:center;gap:5px;margin-top:9px;flex-wrap:wrap}
+  .zz-car-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .2s;flex-shrink:0;border:none;padding:0}
+  .zz-car-dot.on{width:20px;border-radius:3px;background:var(--accent,#f0c233)}
+  .zz-car-ctr{position:absolute;top:12px;right:14px;background:rgba(0,0,0,.55);color:rgba(255,255,255,.8);font:700 11px Inter,sans-serif;padding:4px 10px;border-radius:99px;z-index:3;letter-spacing:.06em}
+  /* Thumbnails below carousel */
+  .zz-car-thumbs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-top:9px;scrollbar-width:none}
+  .zz-car-thumbs::-webkit-scrollbar{display:none}
+  .zz-car-thumb{width:52px;height:52px;border-radius:6px;overflow:hidden;flex-shrink:0;cursor:pointer;opacity:.5;transition:opacity .2s;border:2px solid transparent}
+  .zz-car-thumb.on{opacity:1;border-color:var(--accent,#f0c233)}
+  .zz-car-thumb img,.zz-car-thumb video{width:100%;height:100%;object-fit:cover;display:block}`;
   document.head.appendChild(css);
   const toastEl = el('div'); toastEl.id='zz-proj-toast'; document.body.appendChild(toastEl);
   function toast(t){ toastEl.textContent=t; toastEl.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>toastEl.classList.remove('show'),2200); }
@@ -720,6 +740,83 @@
       const sl=el('p'); sl.className='sl'; sl.textContent='Gallery';
       const st=el('h2'); st.className='st'; st.textContent=p.name||'Campaign Work';
       c.append(sl,st);
+
+      // ── Carousel (4+ items) ──────────────────────────────
+      if(mediaItems.length>=4){
+        const wrap=el('div'); wrap.className='zz-carousel-wrap';
+        const car=el('div'); car.className='zz-carousel';
+        // aspect ratio based on first image (default 16/9)
+        car.style.aspectRatio='16/9';
+        const track=el('div'); track.className='zz-car-track';
+        let cur=0, autoT=null;
+
+        mediaItems.forEach((mm,i)=>{
+          const slide=el('div'); slide.className='zz-car-slide';
+          let media;
+          if(mm.kind==='video'){
+            media=el('video'); media.src=absPath(mm.src); media.muted=true; media.loop=true; media.playsInline=true;
+          } else {
+            media=el('img'); media.src=absPath(mm.src); media.alt=mm.caption||''; media.loading=i<3?'eager':'lazy';
+          }
+          media.onclick=()=>openLightbox(mediaItems,i);
+          slide.append(media);
+          if(mm.caption){ const cap=el('div'); cap.className='zz-car-cap'; cap.textContent=mm.caption; slide.append(cap); }
+          track.append(slide);
+        });
+        car.append(track);
+
+        const ctr=el('div'); ctr.className='zz-car-ctr'; ctr.textContent='1 / '+mediaItems.length; car.append(ctr);
+        const btnP=el('button'); btnP.className='zz-car-btn prev'; btnP.innerHTML='&#8249;'; car.append(btnP);
+        const btnN=el('button'); btnN.className='zz-car-btn next'; btnN.innerHTML='&#8250;'; car.append(btnN);
+
+        const dotsRow=el('div'); dotsRow.className='zz-car-dots';
+        const thumbsRow=el('div'); thumbsRow.className='zz-car-thumbs';
+
+        const dotEls=[], thumbEls=[];
+        mediaItems.forEach((mm,i)=>{
+          const d=el('button'); d.type='button'; d.className='zz-car-dot'+(i===0?' on':'');
+          d.onclick=()=>goTo(i); dotsRow.append(d); dotEls.push(d);
+          const th=el('div'); th.className='zz-car-thumb'+(i===0?' on':'');
+          let tm;
+          if(mm.kind==='video'){ tm=el('video'); tm.src=absPath(mm.src); tm.muted=true; }
+          else { tm=el('img'); tm.src=absPath(mm.src); tm.loading='lazy'; }
+          th.append(tm); th.onclick=()=>goTo(i); thumbsRow.append(th); thumbEls.push(th);
+        });
+
+        function goTo(idx){
+          cur=((idx%mediaItems.length)+mediaItems.length)%mediaItems.length;
+          track.style.transform='translateX(-'+(cur*100)+'%)';
+          ctr.textContent=(cur+1)+' / '+mediaItems.length;
+          dotEls.forEach((d,i)=>d.className='zz-car-dot'+(i===cur?' on':''));
+          thumbEls.forEach((t,i)=>{ t.className='zz-car-thumb'+(i===cur?' on':''); });
+          setTimeout(()=>{ const a=thumbsRow.querySelector('.on'); if(a) a.scrollIntoView({inline:'nearest',behavior:'smooth'}); },50);
+          // video autoplay for current slide
+          track.querySelectorAll('video').forEach((v,i)=>{ if(i===cur){v.play().catch(()=>{});}else{v.pause();v.currentTime=0;} });
+        }
+        btnP.onclick=()=>{ clearAuto(); goTo(cur-1); startAuto(); };
+        btnN.onclick=()=>{ clearAuto(); goTo(cur+1); startAuto(); };
+
+        function startAuto(){ autoT=setInterval(()=>goTo(cur+1), 4500); }
+        function clearAuto(){ clearInterval(autoT); }
+        car.addEventListener('mouseenter',clearAuto);
+        car.addEventListener('mouseleave',startAuto);
+        startAuto();
+
+        let tx=0;
+        car.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+        car.addEventListener('touchend',e=>{ clearAuto(); const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>40) goTo(cur+(dx<0?1:-1)); startAuto(); },{passive:true});
+
+        wrap.append(car);
+        // Show dots for <=12 items, thumbnails for >12
+        if(mediaItems.length<=12) wrap.append(dotsRow);
+        else wrap.append(thumbsRow);
+        c.append(wrap);
+      }
+
+      // ── Masonry grid (always shown below carousel, or alone if <4) ─
+      const gridHdr=el('p'); gridHdr.style.cssText='font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent,#f0c233);margin:'+(mediaItems.length>=4?'40px':'0')+' 0 10px;';
+      gridHdr.textContent=mediaItems.length>=4?'Full Gallery':'Gallery';
+      if(mediaItems.length>=4) c.append(gridHdr);
 
       const grid=el('div'); grid.className='zz-art-grid';
 

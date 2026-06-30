@@ -579,3 +579,89 @@ document.addEventListener('scroll', closeMT, true);
       + '</div>';
   }
 })();
+
+/* ── LOGO EDITOR — clients.html brand grid ──────────────────────────────────
+   In edit mode, hovering any brand logo circle shows a camera overlay.
+   Click → pick file → upload to assets/logos/ keeping the same filename.
+   Saves & deploys automatically. ──────────────────────────────────────────── */
+(function(){
+  if (!location.pathname.includes('clients.html') && !location.pathname.endsWith('clients')) return;
+  const logoStyle = document.createElement('style');
+  logoStyle.textContent = `
+    body.ze-on .cl-ring { position:relative !important; cursor:pointer }
+    body.ze-on .cl-ring::after {
+      content: '📷';
+      position:absolute;inset:0;border-radius:50%;
+      background:rgba(0,0,0,.58);
+      display:flex;align-items:center;justify-content:center;
+      font-size:22px;opacity:0;transition:opacity .18s;
+      pointer-events:none;
+    }
+    body.ze-on .cl-ring:hover::after { opacity:1 }
+  `;
+  document.head.appendChild(logoStyle);
+
+  function uploadLogo(file, slug) {
+    const ext = file.name.split('.').pop().toLowerCase();
+    const fname = slug + '.' + ext;
+    const say = window._zeSay || (msg => console.log(msg));
+    say('📷 Uploading logo for ' + slug + '…');
+    fetch('/upload?name=' + encodeURIComponent(fname) + '&folder=logos', {
+      method: 'POST', body: file
+    })
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(j => {
+      // Update every img in this card that points to the old logo
+      document.querySelectorAll('.card-logo .cl-ring img').forEach(img => {
+        const imgSlug = img.src.split('/').pop().replace(/\.[^.]+$/, '');
+        if (imgSlug === slug) {
+          img.src = '/' + j.path + '?t=' + Date.now();
+          img.style.display = '';
+          // hide initials if showing
+          const ini = img.closest('.cl-ring') && img.closest('.cl-ring').querySelector('.card-initials');
+          if (ini) ini.style.display = 'none';
+        }
+      });
+      // Also update the .card-logo background-forced logo circle (bc class)
+      say('✅ Logo updated! Deploying to GitHub…');
+      // push via save-projects (reuse slug as a dummy if no projects.json entry)
+      fetch('/upload-done', { method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ file: j.path })
+      }).catch(() => {});
+    })
+    .catch(() => say('⚠️ Upload failed — is editor_server.py running at localhost:8777?'));
+  }
+
+  document.addEventListener('click', e => {
+    if (!document.body.classList.contains('ze-on')) return;
+    const ring = e.target.closest('.cl-ring');
+    if (!ring) return;
+    const cardLogo = ring.closest('.card-logo');
+    if (!cardLogo) return;
+    e.preventDefault(); e.stopPropagation();
+
+    // Extract slug from: img src, or the card's href/link
+    let slug = '';
+    const img = ring.querySelector('img');
+    if (img && img.src) {
+      slug = img.src.split('/').pop().replace(/\.[^.]+$/, '');
+    }
+    if (!slug) {
+      const link = ring.closest('a') || ring.closest('[href]');
+      if (link) slug = (link.getAttribute('href')||'').split('/').filter(Boolean).pop() || '';
+    }
+    if (!slug) { say('Could not determine brand slug'); return; }
+
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = 'image/png,image/jpeg,image/webp,image/svg+xml';
+    inp.onchange = () => { if (inp.files[0]) uploadLogo(inp.files[0], slug); };
+    inp.click();
+  }, true);
+
+  // expose say helper reference
+  window._zeSay = window._zeSay || (msg => {
+    const t = document.getElementById('ze-toast');
+    if (t) { t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2400); }
+  });
+})();
