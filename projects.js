@@ -1134,7 +1134,7 @@
     // Remove existing initials text
     if(!bc.querySelector('img')){ bc.textContent=''; }
     let img=bc.querySelector('img');
-    if(!img){ img=el('img'); img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:10%'; bc.append(img); }
+    if(!img){ img=el('img'); img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:5%'; bc.append(img); }
     const circleBg=DATA.brand.circleBg||'#fff';
     const applyBg=()=>{ bc.style.background=circleBg; img.style.display='block'; };
     img.onload=applyBg;
@@ -1160,7 +1160,7 @@
     const logoRow=el('div'); logoRow.style.cssText='grid-column:1/-1;display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid #2c2c33;margin-bottom:4px';
     const logoPreview=el('div'); logoPreview.style.cssText='width:64px;height:64px;border-radius:50%;background:var(--accent,#f0c233);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff';
     if(DATA.brand.logo){
-      const pi=el('img'); pi.src=absPath(DATA.brand.logo); pi.style.cssText='width:100%;height:100%;object-fit:contain;padding:10%';
+      const pi=el('img'); pi.src=absPath(DATA.brand.logo); pi.style.cssText='width:100%;height:100%;object-fit:contain;padding:5%';
       pi.onerror=()=>{ pi.style.display='none'; };
       logoPreview.appendChild(pi);
     } else { logoPreview.textContent=brandName.slice(0,2).toUpperCase(); }

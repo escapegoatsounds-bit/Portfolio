@@ -34,7 +34,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font
 .site-nav-divider{color:var(--muted);margin:0 7px;font-weight:300}
 .site-nav-back{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--muted2);display:flex;align-items:center;gap:6px;transition:color .2s;text-decoration:none}
 .site-nav-back:hover{color:var(--accent)}
-.site-nav-back::before{content:'?';font-size:14px}
+.site-nav-back::before{content:'←';font-size:14px}
 
 /* -- HEADER -- */
 header{
@@ -119,7 +119,7 @@ header{
   position:relative;z-index:1;
   width:100px;height:100px;object-fit:contain;
   background:#fff;border-radius:50%;
-  padding:14px;box-sizing:border-box;
+  padding:6px;box-sizing:border-box;
   box-shadow:0 4px 22px rgba(0,0,0,.55);
 }
 .cl-ring{
@@ -130,7 +130,7 @@ header{
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
   box-shadow:0 4px 22px rgba(0,0,0,.55);
 }
-.cl-ring img{width:100%;height:100%;object-fit:contain;padding:8px;box-sizing:border-box;background:#fff}
+.cl-ring img{width:100%;height:100%;object-fit:contain;padding:4px;box-sizing:border-box;background:#fff}
 .card-initials{
   display:none;width:100%;height:100%;
   align-items:center;justify-content:center;
@@ -183,7 +183,7 @@ header{
     <a href="about.html" class="site-nav-back" style="border:none">About</a>
     <a href="news.html" class="site-nav-back" style="border:none">My Everyday</a>
     <a href="contact.html" class="site-nav-back" style="border:none;color:var(--accent)">Contact</a>
-    <a href="index.html" class="site-nav-back">? Portfolio Home</a>
+    <a href="index.html" class="site-nav-back">Portfolio Home</a>
   </div>
 </nav>
 
@@ -1208,6 +1208,10 @@ header{
   copy into <code>copywriting/</code>, finished files into <code>final-work/</code>.
 </div>
 
+<footer style="padding:24px 40px;text-align:center;font-size:11px;color:var(--muted,#706c64);border-top:1px solid var(--border,#252532)">
+  This website was created by Abdelaziz Askar and is still being updated. &copy; 2026.
+</footer>
+
 <script src="brands-data.js?v=2"></script>
 <script>
 const cards = document.querySelectorAll('.card');
@@ -1297,6 +1301,7 @@ filterBtns.forEach(btn => {
 })();
 // ------------------------------------------------------------
 </script>
+<script src="track.js"></script>
 <script src="editor.js?v=3"></script>
 <script src="nda.js"></script>
 </body>

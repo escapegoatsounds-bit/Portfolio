@@ -8,6 +8,7 @@ claude_tasks.json
 memory/
 .claude/
 *.jsonl
+# ^ also covers analytics.jsonl (visitor log — IP hashes/UA, never publish)
 
 # Root AI-generated images (not used in site, 341 MB)
 freepik__*.png
