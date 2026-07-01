@@ -80,13 +80,14 @@ window.BRAND_CONFIG = {
     "year": "2023",
     "tags": [
       "BTL",
-      "Copy",
       "Social",
+      "Copy",
       "QSR"
     ],
     "desc": "BTL creative and copywriting for SubSavers promotion. Social-first campaign with bilingual copy.",
     "banner": "",
-    "vimeo": []
+    "vimeo": [],
+    "title": ""
   },
   "Molfix": {
     "platforms": [
