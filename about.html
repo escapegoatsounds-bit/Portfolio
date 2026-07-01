@@ -87,19 +87,28 @@ section{padding:80px 0}
 .hero-photo{
   width:100%;height:100%;position:absolute;inset:0;
   background:linear-gradient(135deg,#111 0%,#1a1a12 100%);
-  display:flex;align-items:flex-end;justify-content:center;
 }
+/* Slideshow: cross-fading photos, fitted so faces aren't over-cropped */
 .hero-photo img{
-  position:absolute;bottom:0;right:0;
-  height:100%;max-height:100%;
-  object-fit:contain;object-position:bottom center;
-  opacity:.9;
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 22%;
+  opacity:0;transition:opacity 1.1s ease;
+}
+.hero-photo img.on{opacity:1}
+.hero-photo-fade{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,8,8,.85),transparent 40%),
+             linear-gradient(to right,rgba(8,8,8,.55),transparent 55%);
 }
 .photo-caption{
-  position:absolute;bottom:28px;left:28px;
-  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  position:absolute;bottom:26px;left:28px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);
   z-index:2;
 }
+.ab-dots{position:absolute;right:24px;bottom:24px;z-index:2;display:flex;gap:7px}
+.ab-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
+.ab-dots span.on{background:var(--accent)}
 
 /* ── TABS ── */
 .tabs-bar{
@@ -319,53 +328,40 @@ footer{border-top:1px solid var(--border);padding:48px 0}
   </div>
 </nav>
 
-<!-- ══ PAGE HERO ════════════════════════════════════════════════ -->
+<!-- ══ PAGE HERO (text + rotating photo slideshow) ══════════════ -->
 <section class="page-hero">
   <div class="hero-text">
     <p class="hero-eyebrow">Head of Social &amp; AI · Creative Director · Music Producer</p>
     <h1 class="hero-name">
       Abdelaziz<br><em>Askar</em>
     </h1>
-    <p class="hero-title-line">Abdelaziz Askar — Head of Social, Tonic International · Cairo / Dubai</p>
+    <p class="hero-title-line">From a film camera in Alexandria → Head of Social &amp; AI in Dubai</p>
     <p class="hero-bio">
       Since 2007, turning creative ambition into commercial results — today as
-      <strong>Head of Social &amp; AI at Tonic International (Dubai)</strong>. I've built content
-      for global brands, composed and produced original music, directed visuals, and pioneered
-      AI-powered production — all under one identity: <strong>ZIZO</strong>.
+      <strong>Head of Social &amp; AI at Tonic International (Dubai)</strong>. I build content
+      for global brands, produce original music, direct visuals, and pioneer AI-powered
+      production. In the studio, friends know me as <strong>ZIZO</strong>.
     </p>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a href="index.html#contact" class="btn btn-primary">Let's Work Together →</a>
-      <a href="clients.html" class="btn btn-ghost">See All 72 Brands</a>
+      <a href="resume.html" class="btn btn-primary">View Résumé →</a>
+      <a href="clients.html" class="btn btn-ghost">See All Brands</a>
     </div>
   </div>
   <div class="hero-photo-side">
-    <div class="hero-photo">
-      <img src="assets/photos/studio-standing.jpg"
-           alt="Abdelaziz Askar standing in his music studio"
-           onerror="this.style.display='none'">
+    <div class="hero-photo" id="heroSlides">
+      <img class="on" src="assets/photos/studio-standing.jpg" alt="Abdelaziz Askar in his music studio" onerror="this.remove()">
+      <img src="assets/photos/img-02.jpg" alt="Abdelaziz Askar at work" onerror="this.remove()">
+      <img src="assets/photos/img-05.jpg" alt="Abdelaziz Askar on set" onerror="this.remove()">
+      <img src="assets/photos/img-08.jpg" alt="Abdelaziz Askar creative work" onerror="this.remove()">
+      <img src="assets/photos/slide-2.jpg" alt="Abdelaziz Askar" onerror="this.remove()">
+      <img src="assets/photos/img-12.jpg" alt="Abdelaziz Askar" onerror="this.remove()">
+      <img src="assets/photos/slide-4.jpg" alt="Abdelaziz Askar" onerror="this.remove()">
     </div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,#080808,transparent);z-index:1"></div>
-    <p class="photo-caption">Abdelaziz "ZIZO" Askar</p>
+    <div class="hero-photo-fade"></div>
+    <p class="photo-caption">Abdelaziz "ZIZO" Askar · 18 years in the making</p>
+    <div class="ab-dots" id="abDots"></div>
   </div>
 </section>
-
-<!-- ══ SLIDESHOW BANNER ════════════════════════════════════════ -->
-<div class="ab-banner">
-  <div class="ab-slides" id="abSlides">
-    <img class="on" src="assets/photos/studio-standing.jpg" alt="Abdelaziz Askar in the studio" onerror="this.remove()">
-    <img src="assets/photos/img-02.jpg" alt="" onerror="this.remove()">
-    <img src="assets/photos/img-05.jpg" alt="" onerror="this.remove()">
-    <img src="assets/photos/img-08.jpg" alt="" onerror="this.remove()">
-    <img src="assets/photos/slide-2.jpg" alt="" onerror="this.remove()">
-    <img src="assets/photos/img-12.jpg" alt="" onerror="this.remove()">
-    <img src="assets/photos/slide-4.jpg" alt="" onerror="this.remove()">
-  </div>
-  <div class="ab-banner-cap">
-    <div class="abc-k">Abdelaziz "ZIZO" Askar · 18 years in the making</div>
-    <div class="abc-h">From a film camera in Alexandria<br>to <span class="hl">Head of Social &amp; AI</span> in Dubai.</div>
-  </div>
-  <div class="ab-dots" id="abDots"></div>
-</div>
 
 <!-- ══ VIDEO INTRO ══════════════════════════════════════════════ -->
 <!-- TO ADD YOUR VIDEO: replace the empty string in data-youtube="" with your YouTube video ID -->
@@ -1320,7 +1316,7 @@ function animateSkillBars() {
 
 // ── SLIDESHOW BANNER ──────────────────────────────────────────────
 (function(){
-  const sl=[...document.querySelectorAll('#abSlides img')];
+  const sl=[...document.querySelectorAll('#heroSlides img')];
   if(!sl.length) return;
   const dots=document.getElementById('abDots');
   sl.forEach((_,i)=>{const d=document.createElement('span');if(i===0)d.classList.add('on');d.onclick=()=>go(i);dots.appendChild(d);});
@@ -1334,8 +1330,8 @@ if (location.hash === '#achievements') {
   switchTab('achievements');
 }
 </script>
-<script defer src="editor.js?v=3"></script>
 <a href="index.html" id="zz-home-chip" style="position:fixed;top:14px;left:14px;z-index:99998;display:flex;align-items:center;gap:6px;background:rgba(10,10,10,.85);border:1px solid #333;color:#f0c233;border-radius:99px;padding:7px 14px;font:700 12px Inter,system-ui,sans-serif;text-decoration:none;backdrop-filter:blur(10px)">⌂ Home</a>
+<script src="brands-config.js"></script>
 <script src="editor.js?v=3"></script>
 <script src="nda.js"></script>
 </body>
