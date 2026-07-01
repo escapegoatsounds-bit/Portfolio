@@ -354,9 +354,10 @@
   /* ── Carousel ────────────────────────────────────────── */
   .zz-carousel-wrap{margin-bottom:14px}
   .zz-carousel{position:relative;overflow:hidden;border-radius:14px;background:#111;border:1px solid var(--b,#2c2c33)}
-  .zz-car-track{display:flex;transition:transform .45s cubic-bezier(.22,1,.36,1);will-change:transform}
-  .zz-car-slide{flex:0 0 100%;position:relative;overflow:hidden;cursor:pointer;background:#000}
-  .zz-car-slide img,.zz-car-slide video{width:100%;height:100%;object-fit:contain;display:block}
+  .zz-car-track{display:flex;height:100%;transition:transform .45s cubic-bezier(.22,1,.36,1);will-change:transform}
+  .zz-car-slide{flex:0 0 100%;height:100%;position:relative;overflow:hidden;cursor:pointer;background:#0a0a0a;display:flex;align-items:center;justify-content:center}
+  .zz-car-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(34px) brightness(.42) saturate(1.2);transform:scale(1.18);z-index:0}
+  .zz-car-slide img,.zz-car-slide video{position:relative;z-index:1;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
   .zz-car-cap{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);color:#fff;font-size:13px;line-height:1.5;pointer-events:none}
   .zz-car-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.58);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .15s;line-height:1;padding:0}
   .zz-car-btn:hover{background:rgba(0,0,0,.85)}
@@ -888,10 +889,29 @@
       if(mediaItems.length>=4){
         const wrap=el('div'); wrap.className='zz-carousel-wrap';
         const car=el('div'); car.className='zz-carousel';
-        // aspect ratio based on first image (default 16/9)
-        car.style.aspectRatio='16/9';
+        // Adaptive height: the frame resizes to each slide so images fit
+        // edge-to-edge with no black bars (portrait, square, landscape all fit).
+        car.style.height='56vh';
+        car.style.transition='height .4s cubic-bezier(.22,1,.36,1)';
         const track=el('div'); track.className='zz-car-track';
         let cur=0, autoT=null;
+        function fitHeight(){
+          const slide=track.children[cur]; if(!slide) return;
+          const media=slide.querySelector('img,video');
+          const w=car.clientWidth||car.offsetWidth||900;
+          let ar=16/9, natW=w; // default for drive/iframe or unloaded
+          if(media){
+            if(media.tagName==='IMG'&&media.naturalWidth){ ar=media.naturalWidth/media.naturalHeight; natW=media.naturalWidth; }
+            else if(media.tagName==='VIDEO'&&media.videoWidth){ ar=media.videoWidth/media.videoHeight; natW=media.videoWidth; }
+            else if(media.tagName==='IMG'||media.tagName==='VIDEO') return; // wait for load
+          }
+          // Frame width = displayed image width (never upscaled past natural), so small
+          // logos get a small frame instead of floating in a huge blurred one.
+          const effW=Math.min(w, natW);
+          let h=effW/ar;
+          h=Math.max(300, Math.min(h, Math.round(window.innerHeight*0.80)));
+          car.style.height=h+'px';
+        }
 
         mediaItems.forEach((mm,i)=>{
           const slide=el('div'); slide.className='zz-car-slide';
@@ -907,8 +927,13 @@
             let media;
             if(mm.kind==='video'){
               media=el('video'); media.src=absPath(mm.src); media.muted=true; media.loop=true; media.playsInline=true;
+              media.addEventListener('loadedmetadata',()=>{ if(track.children[cur]&&track.children[cur].contains(media)) fitHeight(); });
             } else {
               media=el('img'); media.src=absPath(mm.src); media.alt=mm.caption||''; media.loading=i<3?'eager':'lazy';
+              media.addEventListener('load',()=>{ if(track.children[cur]&&track.children[cur].contains(media)) fitHeight(); });
+              // Blurred backdrop fills any letterbox gap so images never sit in black voids
+              const bg=el('div'); bg.className='zz-car-bg'; bg.style.backgroundImage='url("'+absPath(mm.src)+'")';
+              slide.append(bg);
             }
             media.onclick=()=>openLightbox(mediaItems,i);
             slide.append(media);
@@ -942,6 +967,7 @@
         function goTo(idx){
           cur=((idx%mediaItems.length)+mediaItems.length)%mediaItems.length;
           track.style.transform='translateX(-'+(cur*100)+'%)';
+          fitHeight();
           ctr.textContent=(cur+1)+' / '+mediaItems.length;
           dotEls.forEach((d,i)=>d.className='zz-car-dot'+(i===cur?' on':''));
           thumbEls.forEach((t,i)=>{ t.className='zz-car-thumb'+(i===cur?' on':''); });
@@ -957,6 +983,9 @@
         car.addEventListener('mouseenter',clearAuto);
         car.addEventListener('mouseleave',startAuto);
         startAuto();
+        // Fit the frame to the first slide once it's laid out, and on resize
+        window.addEventListener('resize',fitHeight);
+        requestAnimationFrame(()=>{ fitHeight(); setTimeout(fitHeight,350); });
 
         let tx=0;
         car.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
