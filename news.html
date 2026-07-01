@@ -204,7 +204,7 @@ nav{
 </div>
 
 <script>
-const AUTHOR = { name:'Abdelaziz "ZIZO" Askar', photo:'' };
+const AUTHOR = { name:'Abdelaziz Askar', photo:'' };
 
 function fmtDate(d){
   const dt = new Date(d);
@@ -240,7 +240,7 @@ function renderPost(post, idx, total){
   const isPinned = post.pinned;
   const tags = (post.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
   const avatar = AUTHOR.photo
-    ? `<img src="${AUTHOR.photo}" alt="ZIZO" onerror="this.remove()">`
+    ? `<img src="${AUTHOR.photo}" alt="Abdelaziz Askar" onerror="this.remove()">`
     : 'Z';
 
   let mediaHTML = '';

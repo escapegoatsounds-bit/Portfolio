@@ -3,7 +3,7 @@
 <head>
     <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Escapegoat Arcade — ZIZO</title>
+<title>Escapegoat Arcade — Abdelaziz Askar</title>
 <link rel="icon" href="assets/photos/escapegoat-logo.png">
 <audio id="bgm" loop preload="none"><source src="assets/tracks/escapegoat-game.mp3" type="audio/mpeg"></audio>
 <style>
@@ -260,7 +260,7 @@ function menu(){
   else emoji('🐐',W/2,52,46);
   ctx.fillStyle=PINK;ctx.font='bold 46px monospace';ctx.fillText('ESCAPEGOAT',W/2,118);
   ctx.fillStyle=GOLD;ctx.font='bold 18px monospace';ctx.fillText('★  A R C A D E  ★',W/2,145);
-  ctx.fillStyle='rgba(255,255,255,.4)';ctx.font='12px monospace';ctx.fillText('featuring ZIZO & SKIPPY',W/2,165);
+  ctx.fillStyle='rgba(255,255,255,.4)';ctx.font='12px monospace';ctx.fillText('featuring ASKAR & SKIPPY',W/2,165);
   for(const b of MBTN){
     const hot=((Date.now()/600|0)%2)&&b===MBTN[0];
     px(W/2-170,b.y,340,46,hot?'rgba(240,194,51,.22)':'rgba(139,92,246,.14)');
@@ -279,7 +279,7 @@ const SK=[['Creative Direction',85],['Social Strategy',92],['AI Integration',88]
 function skills(){
   bg();ctx.textAlign='center';
   ctx.fillStyle=GOLD;ctx.font='bold 34px monospace';ctx.fillText('📊 ULTIMATE SKILLSET',W/2,80);
-  ctx.fillStyle=PINK;ctx.font='13px monospace';ctx.fillText('ZIZO — LVL 15 · THE GOAT · sidekick: SKIPPY',W/2,108);
+  ctx.fillStyle=PINK;ctx.font='13px monospace';ctx.fillText('ASKAR — LVL 15 · THE GOAT · sidekick: SKIPPY',W/2,108);
   ctx.textAlign='left';
   SK.forEach((s,i)=>{
     const col=i%2,row=i/2|0,x=120+col*380,y=150+row*64;
@@ -296,7 +296,7 @@ function skills(){
 function controls(){
   bg();ctx.textAlign='center';
   ctx.fillStyle=PINK;ctx.font='bold 36px monospace';ctx.fillText('🎮 CONTROLS',W/2,58);
-  ctx.fillStyle=GOLD;ctx.font='13px monospace';ctx.fillText('ALLEY BRAWLER — ZIZO & SKIPPY',W/2,84);
+  ctx.fillStyle=GOLD;ctx.font='13px monospace';ctx.fillText('ALLEY BRAWLER — ASKAR & SKIPPY',W/2,84);
   const rows=[
     ['← → / A D','MOVE'],
     ['SPACE / ↑ / W','JUMP  (×2 = Skippy boost)'],
@@ -375,7 +375,7 @@ function brJump(){
 function brAttack(){
   const p=BR&&BR.p; if(!p||BR.atk>0||BR.skAtk)return;
   BR.atk=ATK_T;
-  // find nearest live enemy in front of ZIZO
+  // find nearest live enemy in front of the player
   const ens=BR.ens.filter(e=>!e.dead&&(e.x-p.x)*p.face>-30);
   if(ens.length){
     ens.sort((a,b)=>Math.abs(a.x-p.x)-Math.abs(b.x-p.x));

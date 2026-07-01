@@ -1,4 +1,4 @@
-/* ZIZO live editor — drag pictures onto any image, click any text to fix it,
+/* Abdelaziz Askar live editor — drag pictures onto any image, click any text to fix it,
    ➕ add brand-new images/videos anywhere, 📦 bulk upload, ◀▶ align, ⛶ fill.
    Edits persist to edits.json via editor_server.py and re-apply on every load. */
 (function(){

@@ -1,4 +1,4 @@
-/* ZIZO brand pages — Brand cover + profile, and Project sub-tabs.
+/* Abdelaziz Askar brand pages — Brand cover + profile, and Project sub-tabs.
    Each brand page = one brand. Each tab is a project with: a cover photo, template
    (name/type/client/date/role/status), an analytics row, a pie OR bar chart, and a
    photo + video gallery. Saves to the site via editor_server (/save-projects →
@@ -312,6 +312,14 @@
   .zz-gallery-section{padding:72px 0;border-bottom:1px solid var(--b,#2c2c33)}
   .zz-gallery-section .c{max-width:1100px;margin:0 auto;padding:0 40px}
   @media(max-width:800px){.zz-gallery-section .c{padding:0 20px}}
+  /* Audio jingles / VO list */
+  .zz-audio-list{display:flex;flex-direction:column;gap:10px}
+  .zz-audio-row{display:flex;align-items:center;gap:16px;background:#111114;border:1px solid var(--b,#2c2c33);border-radius:10px;padding:14px 18px}
+  .zz-audio-num{font:900 18px Inter,sans-serif;color:var(--accent,#f0c233);width:26px;flex-shrink:0}
+  .zz-audio-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+  .zz-audio-title{font:700 14px Inter,sans-serif;color:#f4f2ed}
+  .zz-audio-row audio{width:100%;height:34px}
+  @media(max-width:600px){.zz-audio-row{flex-wrap:wrap}}
   /* Artistic masonry grid */
   .zz-art-grid{columns:3 220px;column-gap:6px;margin-bottom:8px}
   @media(max-width:700px){.zz-art-grid{columns:2}}
@@ -742,7 +750,8 @@
     function next(idx){
       if(idx>=total){ persist(true); onDone(); return; }
       uploadFile(files[idx]).then(pth=>{
-        const kind=files[idx].type.startsWith('video')?'video':'img';
+        const mime=files[idx].type;
+        const kind=mime.startsWith('video')?'video':mime.startsWith('audio')?'audio':'img';
         (p.media=p.media||[]).push({kind,src:pth,caption:''});
         done++;
         toast('Uploading '+(done+1<total?done+1:done)+' / '+total+(done<total?'…':' — done!'));
@@ -790,6 +799,22 @@
           cell.append(thumb,capWrap); grid.append(cell); return;
         }
 
+        if(mm.kind==='audio'){
+          const thumb=el('div'); thumb.className='zz-edit-thumb';
+          thumb.style.cssText='aspect-ratio:auto;height:auto;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px';
+          const ico=el('div'); ico.style.cssText='font-size:26px'; ico.textContent='🎵';
+          const player=el('audio'); player.controls=true; player.preload='none'; player.src=absPath(mm.src); player.style.cssText='width:100%;height:32px';
+          const idx=el('span'); idx.className='zz-idx'; idx.textContent=i+1;
+          const rm=el('button'); rm.className='zz-rm'; rm.textContent='✕';
+          rm.onclick=()=>{ p.media.splice(i,1); persist(false); rebuildGrid(); };
+          thumb.append(ico,player,idx,rm);
+          const capWrap=el('div'); capWrap.className='zz-edit-cap';
+          const titleIn=el('textarea'); titleIn.placeholder='Track title (e.g. "30s Radio Jingle — English")…'; titleIn.value=mm.caption||''; titleIn.rows=2;
+          titleIn.oninput=()=>{ mm.caption=titleIn.value; persist(false); };
+          capWrap.append(titleIn);
+          cell.append(thumb,capWrap); grid.append(cell); return;
+        }
+
         const thumb=el('div'); thumb.className='zz-edit-thumb';
         const idx=el('span'); idx.className='zz-idx'; idx.textContent=i+1;
         const rm=el('button'); rm.className='zz-rm'; rm.textContent='✕';
@@ -823,8 +848,11 @@
     bulk.onclick=()=>pickMulti('image/*',files=>uploadMulti(p,files,()=>render()));
     const addV=el('button'); addV.className='zp-add'; addV.textContent='🎬 Add Video';
     addV.onclick=()=>pickMulti('video/*',files=>uploadMulti(p,files,()=>render()));
+    const addA=el('button'); addA.className='zp-add'; addA.textContent='🎵 Add Audio';
+    addA.title='Upload jingles, VO, or radio spots — MP3 or WAV';
+    addA.onclick=()=>pickMulti('audio/mpeg,audio/wav,audio/mp3,.mp3,.wav',files=>uploadMulti(p,files,()=>render()));
     const addUrl=el('button'); addUrl.className='zp-add'; addUrl.textContent='🔗 URL';
-    addUrl.onclick=()=>{ const u=prompt('Paste image or video URL:',''); if(!u||!u.trim())return; const k=/\.(mp4|webm|mov|avi)/i.test(u)?'video':'img'; (p.media=p.media||[]).push({kind:k,src:u.trim(),caption:''}); persist(true); render(); };
+    addUrl.onclick=()=>{ const u=prompt('Paste image, video, or audio URL:',''); if(!u||!u.trim())return; const k=/\.(mp4|webm|mov|avi)/i.test(u)?'video':/\.(mp3|wav|m4a|ogg)/i.test(u)?'audio':'img'; (p.media=p.media||[]).push({kind:k,src:u.trim(),caption:''}); persist(true); render(); };
     const addCanva=el('button'); addCanva.className='zp-add'; addCanva.textContent='📊 Add Canva';
     addCanva.onclick=()=>{
       const u=prompt('Paste Canva embed URL (the ?embed link from Share → Embed):','');
@@ -833,7 +861,7 @@
       (p.media=p.media||[]).push({kind:'canva',src,label:''}); persist(true); rebuildGrid();
     };
     const hint=el('span'); hint.className='zp-hint'; hint.textContent='Ctrl+A in file picker to select all at once.';
-    bar.append(bulk,addV,addUrl,addCanva,hint); w.append(bar); return w;
+    bar.append(bulk,addV,addA,addUrl,addCanva,hint); w.append(bar); return w;
   }
 
   // ── Viewer gallery: Instagram-style album + lightbox ──────────────────
@@ -899,7 +927,8 @@
     if(!items.length) return;
 
     const canvaItems=items.filter(m=>m.kind==='canva');
-    const mediaItems=items.filter(m=>m.kind!=='canva');
+    const audioItems=items.filter(m=>m.kind==='audio');
+    const mediaItems=items.filter(m=>m.kind!=='canva'&&m.kind!=='audio');
 
     const sec=el('div'); sec.id='zz-gallery-sec'; sec.className='zz-gallery-section';
     const c=el('div'); c.className='c';
@@ -1071,6 +1100,25 @@
         iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none';
         wrap.append(iframe); c.append(wrap);
       });
+    }
+
+    // Audio jingles / VO — simple track-list players
+    if(audioItems.length){
+      const asl=el('p'); asl.className='sl'; asl.style.marginTop=(mediaItems.length||canvaItems.length)?'56px':'0';
+      asl.textContent='Audio';
+      const ah=el('h2'); ah.className='st'; ah.textContent='Jingles & Voiceover';
+      c.append(asl,ah);
+      const alist=el('div'); alist.className='zz-audio-list';
+      audioItems.forEach((mm,i)=>{
+        const row=el('div'); row.className='zz-audio-row';
+        const num=el('div'); num.className='zz-audio-num'; num.textContent=String(i+1).padStart(2,'0');
+        const meta=el('div'); meta.className='zz-audio-meta';
+        const title=el('div'); title.className='zz-audio-title'; title.textContent=mm.caption||('Track '+(i+1));
+        const player=el('audio'); player.controls=true; player.preload='none'; player.src=absPath(mm.src);
+        meta.append(title,player);
+        row.append(num,meta); alist.append(row);
+      });
+      c.append(alist);
     }
 
     sec.append(c);
@@ -1326,7 +1374,7 @@
     const sl=el('p'); sl.className='sl'; sl.textContent='Written Content';
     const st=el('h2'); st.className='st'; st.textContent='Posts & Articles';
     c.append(sl,st);
-    // Posts are attributed to the BRAND — its handle and logo, not ZIZO personally.
+    // Posts are attributed to the BRAND — its handle and logo, not Abdelaziz personally.
     const xh=((DATA.brand.socials&&DATA.brand.socials.x)||(KNOWN_HANDLES[SLUG]&&KNOWN_HANDLES[SLUG].x)||'').replace(/^@/,'');
     const handle=xh?'@'+xh:'@'+SLUG.replace(/-/g,'').toLowerCase();
     const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):('/assets/logos/'+SLUG+'.png');
