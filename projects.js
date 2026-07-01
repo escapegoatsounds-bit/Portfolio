@@ -758,8 +758,22 @@
     const grid=el('div'); grid.className='zz-edit-grid';
     function rebuildGrid(){
       grid.innerHTML='';
+      // Flag items whose src repeats elsewhere in this gallery (the "4 Molfix logos"
+      // bug) so junk/duplicates are obvious to spot and remove, on any brand.
+      const srcCounts={};
+      (p.media||[]).forEach(mm=>{ if(mm.src) srcCounts[mm.src]=(srcCounts[mm.src]||0)+1; });
+      const seenOnce={};
       (p.media||[]).forEach((mm,i)=>{
         const cell=el('div'); cell.className='zz-edit-cell';
+        const isDup = mm.src && srcCounts[mm.src]>1;
+        const isFirstOfDup = isDup && !seenOnce[mm.src];
+        if(mm.src) seenOnce[mm.src]=true;
+        if(isDup){
+          cell.style.outline='2px solid #e85d4a'; cell.style.outlineOffset='-2px';
+          const tag=el('div'); tag.textContent=isFirstOfDup?'DUPLICATE (kept)':'DUPLICATE';
+          tag.style.cssText='position:absolute;bottom:0;left:0;right:0;background:#e85d4a;color:#fff;font:800 9px Inter,sans-serif;letter-spacing:.06em;text-align:center;padding:3px;z-index:3';
+          cell.style.position='relative'; cell.append(tag);
+        }
 
         if(mm.kind==='canva'){
           const thumb=el('div'); thumb.className='zz-edit-thumb';
@@ -794,7 +808,17 @@
     rebuildGrid();
     if(!(p.media||[]).length){ const empty=el('div'); empty.style.cssText='color:var(--m,#9a958c);font-size:13px;padding:8px 0;'; empty.textContent='No media yet — use the buttons below to add photos and videos.'; w.append(empty); }
     w.append(grid);
+    const dupCount=(()=>{ const c={}; (p.media||[]).forEach(mm=>{ if(mm.src) c[mm.src]=(c[mm.src]||0)+1; }); return Object.values(c).filter(n=>n>1).reduce((s,n)=>s+(n-1),0); })();
     const bar=el('div'); bar.style.cssText='display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center';
+    if(dupCount>0){
+      const cleanBtn=el('button'); cleanBtn.className='zp-add'; cleanBtn.style.cssText='border-color:#e85d4a;color:#e85d4a'; cleanBtn.textContent='🧹 Remove '+dupCount+' Duplicate'+(dupCount>1?'s':'');
+      cleanBtn.onclick=()=>{
+        const seen=new Set(); const before=p.media.length;
+        p.media=p.media.filter(mm=>{ if(!mm.src) return true; if(seen.has(mm.src)) return false; seen.add(mm.src); return true; });
+        toast('🧹 Removed '+(before-p.media.length)+' duplicate item(s)'); persist(true); render();
+      };
+      bar.append(cleanBtn);
+    }
     const bulk=el('button'); bulk.className='zp-add'; bulk.textContent='📁 Bulk Upload Photos';
     bulk.onclick=()=>pickMulti('image/*',files=>uploadMulti(p,files,()=>render()));
     const addV=el('button'); addV.className='zp-add'; addV.textContent='🎬 Add Video';
