@@ -232,7 +232,21 @@
    "website": "",
    "summary": "Challenge: Developing an engaging animated Ramadan calendar campaign while ensuring precise motion timing and accurate product representation for the regional market.\nSolution: Directed the design and animation optimization process, refining motion speeds and sandwich sizing to align perfectly with brand guidelines and elevate the festive promotional rollout.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__4_.png"
+   "logo": "assets/photos/Untitled_design__4_.png",
+   "circleBg": "#198634",
+   "logoScale": 1,
+   "socials": {
+    "instagram": "subwayoman",
+    "tiktok": "",
+    "facebook": "SubwayOman",
+    "youtube": "",
+    "x": "SubwayOman",
+    "linkedin": "",
+    "snapchat": "",
+    "whatsapp": "",
+    "pinterest": "",
+    "threads": ""
+   }
   },
   "projects": [
    {
@@ -360,7 +374,8 @@
     "platforms": [],
     "articles": [],
     "briefs": [],
-    "reportUrl": "https://www.canva.com/design/DAGAvNs_TBs/4nsVm7MCRN0jdseuGj9vog/view"
+    "reportUrl": "https://www.canva.com/design/DAGAvNs_TBs/4nsVm7MCRN0jdseuGj9vog/view",
+    "process": []
    }
   ],
   "active": 0
@@ -2132,5 +2147,75 @@
     "reportUrl": ""
    }
   ]
+ },
+ "Defarm": {
+  "brand": {
+   "industry": "F&B",
+   "market": "",
+   "since": "",
+   "services": "",
+   "website": "",
+   "summary": "",
+   "cover": "",
+   "logo": "",
+   "socials": {
+    "instagram": "",
+    "tiktok": "",
+    "facebook": "",
+    "youtube": "",
+    "x": "",
+    "linkedin": "",
+    "snapchat": "",
+    "whatsapp": "",
+    "pinterest": "",
+    "threads": ""
+   },
+   "logoScale": 1.1,
+   "circleBg": ""
+  },
+  "projects": [
+   {
+    "name": "",
+    "client": "Defarm",
+    "date": "",
+    "role": "",
+    "agency": "",
+    "status": "",
+    "deliverables": "",
+    "desc": "",
+    "cover": "",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": ""
+    },
+    "chartType": "bar",
+    "chartData": [
+     {
+      "label": "Reach",
+      "value": 60,
+      "color": "#f0c233"
+     },
+     {
+      "label": "Engagement",
+      "value": 25,
+      "color": "#8b5cf6"
+     },
+     {
+      "label": "Conversion",
+      "value": 15,
+      "color": "#2ecc71"
+     }
+    ],
+    "media": [],
+    "vimeo": [],
+    "types": [],
+    "platforms": [],
+    "articles": [],
+    "briefs": [],
+    "process": []
+   }
+  ],
+  "active": 0
  }
 }
