@@ -26,8 +26,12 @@
   function el(t){ return document.createElement(t); }
   function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
   function pick(accept,cb){ const i=el('input'); i.type='file'; i.accept=accept; i.onchange=()=>{ if(i.files[0]) cb(i.files[0]); }; i.click(); }
-  function uploadFile(file){
-    return fetch('/upload?name='+encodeURIComponent(file.name),{method:'POST',body:file})
+  function uploadFile(file, opts){
+    opts=opts||{};
+    let qs='name='+encodeURIComponent(opts.name||file.name);
+    if(opts.folder) qs+='&folder='+encodeURIComponent(opts.folder);
+    if(opts.overwrite) qs+='&overwrite=1';
+    return fetch('/upload?'+qs,{method:'POST',body:file})
       .then(r=>r.ok?r.json():Promise.reject()).then(j=>j.path);
   }
 
@@ -213,6 +217,7 @@
     if(d.brand.cover==null) d.brand.cover='';
     if(d.brand.logo==null) d.brand.logo='';
     if(d.brand.circleBg==null) d.brand.circleBg='';
+    if(d.brand.logoScale==null) d.brand.logoScale=1;
     if(!d.brand.socials || typeof d.brand.socials!=='object') d.brand.socials={};
     SOCIAL_KEYS.forEach(k=>{ if(d.brand.socials[k]==null) d.brand.socials[k]=''; });
     const known=KNOWN_HANDLES[SLUG]||{}; Object.entries(known).forEach(([k,v])=>{ if(!d.brand.socials[k]) d.brand.socials[k]=v; });
@@ -1135,6 +1140,9 @@
     if(!bc.querySelector('img')){ bc.textContent=''; }
     let img=bc.querySelector('img');
     if(!img){ img=el('img'); img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:5%'; bc.append(img); }
+    // Scale applies whether this img came from a static page template or was
+    // just created above — so the resize slider works on every brand page.
+    img.style.transform='scale('+(DATA.brand.logoScale||1)+')';
     const circleBg=DATA.brand.circleBg||'#fff';
     const applyBg=()=>{ bc.style.background=circleBg; img.style.display='block'; };
     img.onload=applyBg;
@@ -1168,13 +1176,36 @@
     const logoTitle=el('div'); logoTitle.style.cssText='font-size:13px;font-weight:700'; logoTitle.textContent='Brand Logo';
     const logoHint=el('div'); logoHint.className='zp-hint'; logoHint.textContent=DATA.brand.logo?'Logo set — click to replace':'No logo yet — upload a PNG/SVG';
     const logoBtn=el('button'); logoBtn.className='zp-add'; logoBtn.textContent='📷 Upload Logo';
-    logoBtn.onclick=()=>pick('image/*',f=>{ toast('Uploading logo…'); uploadFile(f).then(pth=>{ DATA.brand.logo=pth; persist(false); render(); applyBrandCircle(); toast('✅ Logo updated'); }).catch(()=>toast('Upload failed — is editor server running?')); });
+    logoBtn.onclick=()=>pick('image/*',f=>{
+      toast('Uploading logo…');
+      const isSvg=/\.svg$/i.test(f.name)||f.type==='image/svg+xml';
+      const ext=isSvg?'.svg':'.png';
+      // Always write to assets/logos/[SLUG].<ext> and overwrite in place, so
+      // the brand page AND the clients.html registry card read the exact
+      // same file — replacing a logo here updates both places at once.
+      uploadFile(f,{folder:'logos',name:SLUG+ext,overwrite:true}).then(pth=>{
+        DATA.brand.logo=pth; persist(false); render(); applyBrandCircle();
+        toast('✅ Logo updated — synced to the brand registry too');
+      }).catch(()=>toast('Upload failed — is editor server running?'));
+    });
     if(DATA.brand.logo){
       const rmBtn=el('button'); rmBtn.style.cssText='background:none;border:1px solid #5a2330;color:#ff7a90;border-radius:6px;padding:5px 12px;font-size:11px;cursor:pointer;margin-left:6px';
       rmBtn.textContent='Remove'; rmBtn.onclick=()=>{ DATA.brand.logo=''; persist(false); render(); applyBrandCircle(); };
       logoMeta.append(logoTitle,logoHint,el('div').appendChild(logoBtn)&&logoBtn); logoMeta.lastChild.appendChild(rmBtn);
     } else { logoMeta.append(logoTitle,logoHint,logoBtn); }
-    logoRow.append(logoPreview,logoMeta); grid.append(logoRow);
+    logoRow.append(logoPreview,logoMeta);
+
+    // Logo resize — scales the logo within its circle, in case it renders
+    // too small or too tight after a replace.
+    const scaleRow=el('div'); scaleRow.style.cssText='grid-column:1/-1;display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid #2c2c33;margin-bottom:4px';
+    const scaleLab=el('div'); scaleLab.style.cssText='font-size:13px;font-weight:700;white-space:nowrap'; scaleLab.textContent='Logo Size';
+    const scaleSlider=el('input'); scaleSlider.type='range'; scaleSlider.min='0.5'; scaleSlider.max='2'; scaleSlider.step='0.05';
+    scaleSlider.value=DATA.brand.logoScale||1; scaleSlider.style.cssText='flex:1;accent-color:var(--accent,#f0c233)';
+    const scaleVal=el('span'); scaleVal.style.cssText='font-size:12px;color:var(--m2,#c2bcb2);min-width:38px;text-align:right'; scaleVal.textContent=Math.round((DATA.brand.logoScale||1)*100)+'%';
+    scaleSlider.oninput=()=>{ DATA.brand.logoScale=parseFloat(scaleSlider.value); scaleVal.textContent=Math.round(DATA.brand.logoScale*100)+'%'; persist(false); applyBrandCircle(); };
+    const scaleReset=el('button'); scaleReset.className='zp-mini'; scaleReset.textContent='Reset';
+    scaleReset.onclick=()=>{ DATA.brand.logoScale=1; scaleSlider.value='1'; scaleVal.textContent='100%'; persist(false); applyBrandCircle(); };
+    scaleRow.append(scaleLab,scaleSlider,scaleVal,scaleReset); grid.append(scaleRow);
 
     // Circle background colour — defaults to white; modify any time.
     const bgRow=el('div'); bgRow.style.cssText='grid-column:1/-1;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid #2c2c33;margin-bottom:4px';
@@ -1186,6 +1217,65 @@
     whiteBtn.onclick=()=>{ DATA.brand.circleBg=''; sw.value='#ffffff'; persist(false); applyBrandCircle(); render(); };
     const bgHint=el('span'); bgHint.className='zp-hint'; bgHint.textContent='Pick a colour to match a logo with a solid background, or keep white.';
     bgRow.append(bgLab,sw,whiteBtn,bgHint); grid.append(bgRow);
+
+    // Page colour theme — rewrites this brand page's own CSS variables.
+    // Pick any background + accent; surfaces, borders, and text are derived
+    // automatically for readable contrast (same process used for the
+    // Subway Oman light theme, generalised to any brand/any colour).
+    const rootStyle=getComputedStyle(document.documentElement);
+    const curBg=(rootStyle.getPropertyValue('--bg')||'#0e0e10').trim();
+    const curAccent=(rootStyle.getPropertyValue('--accent')||'#f0c233').trim();
+    function toHex(c){
+      if(/^#[0-9a-f]{6}$/i.test(c)) return c;
+      const m=c.match(/rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/i);
+      if(m) return '#'+[1,2,3].map(i=>(+m[i]).toString(16).padStart(2,'0')).join('');
+      return '#0e0e10';
+    }
+    function hexToRgb(h){ h=h.replace('#',''); if(h.length===3) h=h.split('').map(c=>c+c).join(''); const n=parseInt(h,16); return [n>>16&255,n>>8&255,n&255]; }
+    function rgbToHex(rgb){ return '#'+rgb.map(c=>Math.max(0,Math.min(255,Math.round(c))).toString(16).padStart(2,'0')).join(''); }
+    function mix(rgb,target,amt){ return rgb.map((c,i)=>c+(target[i]-c)*amt); }
+    // Mirrors editor_server.py's derive_brand_palette() — client-side, for
+    // an instant live preview before the user commits with "Apply".
+    function derivePalette(bgHex,accentHex){
+      const bg=hexToRgb(bgHex);
+      const lum=0.299*bg[0]+0.587*bg[1]+0.114*bg[2];
+      let s1,s2,b,text,m,m2;
+      if(lum<128){ s1=mix(bg,[255,255,255],.06); s2=mix(bg,[255,255,255],.12); b=mix(bg,[255,255,255],.18); text=mix(bg,[255,255,255],.94); m=mix(bg,[255,255,255],.45); m2=mix(bg,[255,255,255],.62); }
+      else{ s1=mix(bg,[0,0,0],.08); s2=mix(bg,[0,0,0],.16); b=mix(bg,[0,0,0],.28); text=mix(bg,[0,0,0],.88); m=mix(bg,[0,0,0],.55); m2=mix(bg,[0,0,0],.70); }
+      return {bg:bgHex, s1:rgbToHex(s1), s2:rgbToHex(s2), b:rgbToHex(b), accent:accentHex, text:rgbToHex(text), m:rgbToHex(m), m2:rgbToHex(m2)};
+    }
+    function livePreview(){
+      const p=derivePalette(bgSw.value, accentSw.value);
+      const r=document.documentElement.style;
+      r.setProperty('--bg',p.bg); r.setProperty('--s1',p.s1); r.setProperty('--s2',p.s2);
+      r.setProperty('--b',p.b); r.setProperty('--accent',p.accent); r.setProperty('--text',p.text);
+      r.setProperty('--m',p.m); r.setProperty('--m2',p.m2);
+      themeStatus.textContent='Previewing — click Apply to save & publish, or reload to discard.';
+    }
+    const themeRow=el('div'); themeRow.style.cssText='grid-column:1/-1;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid #2c2c33;margin-bottom:4px';
+    const themeLab=el('div'); themeLab.style.cssText='font-size:13px;font-weight:700;white-space:nowrap'; themeLab.textContent='Page Theme';
+    const bgSw=el('input'); bgSw.type='color'; bgSw.value=toHex(curBg); bgSw.title='Background';
+    bgSw.style.cssText='width:42px;height:34px;border:1px solid #2c2c33;border-radius:8px;background:none;cursor:pointer;padding:2px';
+    bgSw.oninput=livePreview;
+    const accentSw=el('input'); accentSw.type='color'; accentSw.value=toHex(curAccent); accentSw.title='Accent';
+    accentSw.style.cssText='width:42px;height:34px;border:1px solid #2c2c33;border-radius:8px;background:none;cursor:pointer;padding:2px';
+    accentSw.oninput=livePreview;
+    const themeBtn=el('button'); themeBtn.className='zp-add'; themeBtn.textContent='🎨 Apply Theme to Page';
+    const themeStatus=el('span'); themeStatus.className='zp-hint';
+    themeBtn.onclick=()=>{
+      themeBtn.disabled=true; themeBtn.textContent='Applying…';
+      fetch('/save-brand-theme',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({slug:SLUG, bg:bgSw.value, accent:accentSw.value})})
+        .then(r=>r.ok?r.json():Promise.reject())
+        .then(j=>{
+          themeBtn.disabled=false; themeBtn.textContent='🎨 Apply Theme to Page';
+          themeStatus.textContent=j.pushed?'✅ Theme applied & pushed live':'✅ Theme applied (push failed — saved locally)';
+          setTimeout(()=>location.reload(),900);
+        })
+        .catch(()=>{ themeBtn.disabled=false; themeBtn.textContent='🎨 Apply Theme to Page'; themeStatus.textContent='⚠️ Failed — is editor server running?'; });
+    };
+    const themeHint=el('span'); themeHint.className='zp-hint'; themeHint.textContent='Pick a background + accent — surfaces, borders and text adjust automatically for readability. Colours preview live before you apply.';
+    themeRow.append(themeLab,bgSw,accentSw,themeBtn,themeHint,themeStatus); grid.append(themeRow);
 
     BRAND_FIELDS.forEach(f=>{ const opts=BRAND_SELECTS[f[0]]; const e=opts?selectField(opts,DATA.brand[f[0]],v=>DATA.brand[f[0]]=v):field('input',DATA.brand[f[0]],f[2],v=>DATA.brand[f[0]]=v); grid.append(labeled(f[1],e)); });
     grid.append(labeled('Summary', field('textarea',DATA.brand.summary,'Short brand summary — who they are and what you did for them.',v=>DATA.brand.summary=v), true));

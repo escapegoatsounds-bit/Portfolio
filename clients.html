@@ -235,11 +235,49 @@ header{
   const yt = sec ? sec.dataset.youtube : '';
   const embed = document.getElementById('brandsVideoEmbed');
   if(!embed) return;
-  if(yt){
-    embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
-  } else {
-    embed.innerHTML = `<div class="brs-placeholder"><div class="brs-ph-icon">??</div><div class="brs-ph-title">Brand Reel Walkthrough</div><div class="brs-ph-sub">Record your brand reel and paste the YouTube ID into the HTML</div><div class="brs-ph-badge">Coming Soon</div></div>`;
+  const EDIT_KEY = '@walkthroughVideo';
+  const PAGE = location.pathname.replace(/^\//,'') || 'index.html';
+
+  function renderPlaceholder(){
+    embed.innerHTML = '<div class="brs-placeholder"><div class="brs-ph-icon">🎬</div><div class="brs-ph-title">Brand Reel Walkthrough</div><div class="brs-ph-sub">Record your brand reel and paste the YouTube ID into the HTML</div><div class="brs-ph-badge">Coming Soon</div><button class="brs-upload-btn" style="display:none;margin-top:4px;position:relative;z-index:1;background:var(--accent);color:#000;border:none;border-radius:8px;padding:8px 16px;font:800 10px Inter,sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer">🎬 Upload Video</button></div>';
+    wireUploadBtn();
   }
+  function renderVideo(src){
+    embed.innerHTML = '<video src="'+src+'" controls preload="metadata" style="width:100%;aspect-ratio:16/9;display:block;background:#000"></video>';
+  }
+  function wireUploadBtn(){
+    const btn = embed.querySelector('.brs-upload-btn');
+    if(!btn) return;
+    if(document.body.classList.contains('ze-on')) btn.style.display='inline-block';
+    btn.onclick = (e)=>{
+      e.stopPropagation();
+      const i = document.createElement('input'); i.type='file'; i.accept='video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm';
+      i.onchange = ()=>{
+        if(!i.files[0]) return;
+        const fd = i.files[0];
+        btn.textContent = 'Uploading…';
+        let uploadedPath = '';
+        fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{
+          uploadedPath = j.path;
+          return fetch('/save-edits',{method:'POST',headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({page:PAGE, edits:{[EDIT_KEY]:{src:uploadedPath}}})});
+        }).then(()=>{ renderVideo(uploadedPath); }).catch(()=>{ btn.textContent='Upload failed'; });
+      };
+      i.click();
+    };
+  }
+
+  fetch('edits.json?t='+Date.now()).then(r=>r.ok?r.json():{}).then(all=>{
+    const mine = (all[PAGE]||{})[EDIT_KEY];
+    if(mine && mine.src){ renderVideo(mine.src); return; }
+    if(yt){
+      embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    } else {
+      renderPlaceholder();
+    }
+  }).catch(()=>{ if(yt){ embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`; } else { renderPlaceholder(); } });
+
+  new MutationObserver(()=>wireUploadBtn()).observe(document.body,{attributes:true,attributeFilter:['class']});
 })();
 </script>
 
