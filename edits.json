@@ -396,5 +396,10 @@
   "body>section:nth-child(5)>div:nth-child(1)>div:nth-child(4)>div:nth-child(1)>div:nth-child(2)": {
    "html": "Ai Producer"
   }
+ },
+ "clients/Molfix/": {
+  "body>nav:nth-child(1)>a:nth-child(1)": {
+   "html": "AbdelaAbdelaziz<em class=\"\"> Askar</em>"
+  }
  }
 }
