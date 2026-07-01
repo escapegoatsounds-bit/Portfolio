@@ -218,6 +218,11 @@ function typeBadge(type){
 }
 
 function videoBlock(post){
+  if(post.videoSrc){
+    return `<div class="video-container">
+      <video src="${post.videoSrc}" controls preload="metadata" style="width:100%;aspect-ratio:16/9;display:block;background:#000"></video>
+    </div>`;
+  }
   if(post.youtube){
     return `<div class="video-container">
       <iframe src="https://www.youtube.com/embed/${post.youtube}?rel=0&modestbranding=1"
@@ -241,7 +246,7 @@ function renderPost(post, idx, total){
   const tags = (post.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
   const avatar = AUTHOR.photo
     ? `<img src="${AUTHOR.photo}" alt="Abdelaziz Askar" onerror="this.remove()">`
-    : 'Z';
+    : 'AA';
 
   let mediaHTML = '';
   if(post.type==='video') mediaHTML = videoBlock(post);
@@ -352,7 +357,22 @@ body.ze-on #me-composer{display:block}
     const mediaWrap=grid.querySelector('#mec-media-wrap');
     function renderMedia(){
       const t=card.querySelector('#mec-type').value;
-      if(t==='video'){ mediaWrap.innerHTML='<label>YouTube URL or ID (optional)</label><input id="mec-yt" placeholder="https://youtu.be/… or 11-char ID">'; }
+      if(t==='video'){
+        mediaWrap.innerHTML='<label>Upload a video guide (MP4/MOV) — or paste a YouTube link below</label>'+
+          '<div class="mec-row"><button class="mec-ghost" id="mec-vid-btn">🎬 Upload Video File</button><span class="d" id="mec-vid-name">No video uploaded yet</span><input type="hidden" id="mec-videosrc"></div>'+
+          '<label style="margin-top:10px;display:block">YouTube URL or ID (optional — used only if no file is uploaded)</label><input id="mec-yt" placeholder="https://youtu.be/… or 11-char ID">';
+        mediaWrap.querySelector('#mec-vid-btn').onclick=()=>{
+          const i=document.createElement('input'); i.type='file'; i.accept='video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm';
+          i.onchange=()=>{ if(!i.files[0])return; const fd=i.files[0];
+            mediaWrap.querySelector('#mec-vid-name').textContent='Uploading '+fd.name+'…';
+            fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{
+              mediaWrap.querySelector('#mec-videosrc').value=j.path;
+              mediaWrap.querySelector('#mec-vid-name').textContent='✅ '+j.path.split('/').pop();
+            }).catch(()=>mediaWrap.querySelector('#mec-vid-name').textContent='Upload failed — is editor_server.py running?');
+          };
+          i.click();
+        };
+      }
       else if(t==='image'){ mediaWrap.innerHTML='<label>Image</label><div class="mec-row"><button class="mec-ghost" id="mec-img-btn">📷 Upload Image</button><span class="d" id="mec-img-name">No image yet</span><input type="hidden" id="mec-thumb"></div>';
         mediaWrap.querySelector('#mec-img-btn').onclick=()=>{ const i=document.createElement('input'); i.type='file'; i.accept='image/*'; i.onchange=()=>{ if(!i.files[0])return; const fd=i.files[0]; mediaWrap.querySelector('#mec-img-name').textContent='Uploading…'; fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{ mediaWrap.querySelector('#mec-thumb').value=j.path; mediaWrap.querySelector('#mec-img-name').textContent='✅ '+j.path.split('/').pop(); }).catch(()=>mediaWrap.querySelector('#mec-img-name').textContent='Upload failed'); }; i.click(); };
       } else { mediaWrap.innerHTML=''; }
@@ -373,7 +393,11 @@ body.ze-on #me-composer{display:block}
         date:card.querySelector('#mec-date').value||new Date().toISOString().slice(0,10),
         title:title, body:body,
         tags:card.querySelector('#mec-tags').value.split(',').map(s=>s.trim()).filter(Boolean) };
-      if(t==='video') post.youtube=ytId((card.querySelector('#mec-yt')||{}).value||'');
+      if(t==='video'){
+        const uploadedSrc=(card.querySelector('#mec-videosrc')||{}).value||'';
+        if(uploadedSrc) post.videoSrc=uploadedSrc;
+        else post.youtube=ytId((card.querySelector('#mec-yt')||{}).value||'');
+      }
       if(t==='image') post.thumb=(card.querySelector('#mec-thumb')||{}).value||'';
       FEED.unshift(post); dirty=true; render();
     };
