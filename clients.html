@@ -106,21 +106,23 @@ header{
 .card.hidden{display:none}
 .card-logo{
   height:148px;display:flex;align-items:center;justify-content:center;
-  border-bottom:1px solid var(--border);overflow:hidden;padding:0;
-  position:relative;
+  border-bottom:1px solid var(--border);overflow:hidden;padding:18px;
+  position:relative;background:#fff;
 }
 .card-logo::before{
-  content:'';position:absolute;inset:0;background:inherit;
-  filter:grayscale(1) brightness(.28) saturate(.3);
-  transition:filter .38s ease;
+  content:'';position:absolute;inset:0;background:rgba(255,255,255,.65);opacity:1;
+  transition:opacity .24s ease;
 }
-.card:hover .card-logo::before{filter:grayscale(0) brightness(.65) saturate(1)}
+.card:hover .card-logo::before{opacity:.22}
 .card-logo img{
-  position:relative;z-index:1;
-  width:100px;height:100px;object-fit:contain;
-  background:#fff;border-radius:50%;
-  padding:6px;box-sizing:border-box;
-  box-shadow:0 4px 22px rgba(0,0,0,.55);
+  position:relative;z-index:1;display:block;
+    width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;
+    /* slightly desaturate by default, reveal full colour on hover */
+    filter:grayscale(.18) opacity(.85);transition:filter .28s ease,opacity .28s ease,transform .28s ease;
+  background:transparent;border-radius:0;padding:0;box-sizing:border-box;box-shadow:none;
+}
+.card:hover .card-logo img{
+  filter:none;opacity:1;transform:scale(1.02);
 }
 .cl-ring{
   width:86px;height:86px;border-radius:50%;
@@ -130,7 +132,13 @@ header{
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
   box-shadow:0 4px 22px rgba(0,0,0,.55);
 }
-.cl-ring img{width:100%;height:100%;object-fit:contain;padding:4px;box-sizing:border-box;background:#fff}
+.cl-ring img{
+  width:100%;height:100%;object-fit:contain;padding:4px;box-sizing:border-box;
+  /* slightly desaturated circular thumbnails */
+  filter:grayscale(.18) opacity(.85);transition:filter .28s ease,opacity .28s ease;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(8px);
+}
+.card:hover .cl-ring img{filter:none;opacity:1}
 .card-initials{
   display:none;width:100%;height:100%;
   align-items:center;justify-content:center;
@@ -338,7 +346,7 @@ header{
     </div>
     <div class="card" data-cats="lead_creative_btl_copywriting" data-name="subway oman">
       <div class="card-logo">
-        <img src="assets/logos/Subway-Oman.svg" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='clients/Subway-Oman/assets/logo.png';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}"
+           <img src="assets/logos/Subway-Oman.png" onload="this.parentNode.style.background='#0e0e0e';this.parentNode.style.color='transparent'" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='clients/Subway-Oman/assets/logo.png';}else{this.style.display='none';this.nextElementSibling.style.display='flex';}"
              alt="Subway Oman logo">
         <div class="card-initials" style="background:#009B3A;color:#fff">SO</div>
       </div>

@@ -16,6 +16,8 @@
      'slack'      → Startups panel
      'linkedin'   → LinkedIn / Resume panel
      'messages'   → Testimonials panel
+
+   When you add or edit a brand here and assign platforms, the matching phone app feeds are rebuilt automatically.
    ────────────────────────────────────────────────────────────────────────── */
 window.BRAND_CONFIG = {
   "Geely": {
