@@ -1,0 +1,1376 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Abdelaziz Askar</title>
+<link rel="icon" href="assets/photos/escapegoat-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="description" content="Abdelaziz Askar — Head of Social & AI at Tonic International. Creative Director, Music Producer, Photographer. 18 years, 70+ brands.">
+<meta property="og:title" content="About — Abdelaziz Askar">
+<meta property="og:description" content="18 years. 70+ brands. One identity: Abdelaziz Askar.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/photos/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  --bg:#0e0e10; --surface:#16161a; --surface2:#1f1f24; --border:#2c2c33;
+  --accent:#f0c233; --purple:#8b5cf6; --text:#f4f2ed; --muted:#9a958c; --muted2:#c2bcb2;
+  --font:'Inter',system-ui,-apple-system,sans-serif; --max:1280px; --r:6px;
+}
+.hl{color:var(--accent);font-weight:800}
+/* slideshow banner */
+.ab-banner{position:relative;height:360px;overflow:hidden;border-bottom:1px solid var(--border);background:#000}
+.ab-slides{position:absolute;inset:0}
+.ab-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
+.ab-slides img.on{opacity:.92}
+.ab-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,14,16,.95),transparent 45%),linear-gradient(to right,rgba(14,14,16,.6),transparent 50%)}
+.ab-banner-cap{position:absolute;left:40px;bottom:30px;z-index:2;max-width:680px}
+.ab-banner-cap .abc-k{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.ab-banner-cap .abc-h{font-size:clamp(26px,4vw,46px);font-weight:900;letter-spacing:-1.5px;line-height:1}
+.ab-dots{position:absolute;right:30px;bottom:30px;z-index:2;display:flex;gap:8px}
+.ab-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
+.ab-dots span.on{background:var(--accent)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);
+     font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(8,8,8,.96);backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 40px;
+           display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-logo{font-size:20px;font-weight:900;letter-spacing:-.5px}
+.nav-logo em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+
+/* ── LAYOUT ── */
+.container{max-width:var(--max);margin:0 auto;padding:0 40px}
+section{padding:80px 0}
+.section-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.section-title{font-size:clamp(28px,3.5vw,48px);font-weight:900;line-height:1;letter-spacing:-1.5px;margin-bottom:16px}
+
+/* ── HERO ── */
+.page-hero{
+  min-height:60vh;padding-top:60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 50%, rgba(240,194,51,.06) 0%, transparent 60%);
+}
+.hero-text{padding:80px 60px 80px 40px}
+.hero-eyebrow{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hero-name{font-size:clamp(40px,5vw,72px);font-weight:900;line-height:.95;letter-spacing:-2.5px;margin-bottom:12px}
+.hero-name em{color:var(--accent);font-style:normal}
+.hero-title-line{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);margin-bottom:28px}
+.hero-bio{font-size:17px;color:var(--muted2);line-height:1.8;max-width:480px;margin-bottom:32px}
+
+/* ── PHOTO SIDE ── */
+.hero-photo-side{
+  position:relative;height:100%;min-height:60vh;
+  background:var(--surface);
+  border-left:1px solid var(--border);
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+}
+.hero-photo{
+  width:100%;height:100%;position:absolute;inset:0;
+  background:linear-gradient(135deg,#111 0%,#1a1a12 100%);
+}
+/* Slideshow: cross-fading photos, fitted so faces aren't over-cropped */
+.hero-photo img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 22%;
+  opacity:0;transition:opacity 1.1s ease;
+}
+.hero-photo img.on{opacity:1}
+.hero-photo-fade{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,8,8,.85),transparent 40%),
+             linear-gradient(to right,rgba(8,8,8,.55),transparent 55%);
+}
+.photo-caption{
+  position:absolute;bottom:26px;left:28px;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);
+  z-index:2;
+}
+.ab-dots{position:absolute;right:24px;bottom:24px;z-index:2;display:flex;gap:7px}
+.ab-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
+.ab-dots span.on{background:var(--accent)}
+
+/* ── TABS ── */
+.tabs-bar{
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+  position:sticky;top:60px;z-index:50;
+}
+.tabs-inner{max-width:var(--max);margin:0 auto;padding:0 40px;display:flex;gap:0}
+.tab-btn{
+  padding:18px 28px;
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  color:var(--muted);border:none;background:none;cursor:pointer;
+  font-family:var(--font);
+  border-bottom:2px solid transparent;
+  transition:color .2s, border-color .2s;
+  margin-bottom:-1px;
+}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── TAB PANELS ── */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ── BIO TAB ── */
+.bio-grid{display:grid;grid-template-columns:3fr 2fr;gap:64px;align-items:start}
+.bio-text h2{font-size:clamp(22px,2.5vw,32px);font-weight:800;letter-spacing:-.5px;margin-bottom:20px}
+.bio-text p{font-size:16px;color:var(--muted2);line-height:1.85;margin-bottom:20px}
+.bio-text p strong{color:var(--text);font-weight:700}
+.bio-aside{}
+
+.skills-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.skill-item{}
+.skill-label{display:flex;justify-content:space-between;
+             font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+             color:var(--muted2);margin-bottom:6px}
+.skill-bar{height:3px;background:var(--border);border-radius:99px;overflow:hidden}
+.skill-fill{height:100%;background:var(--accent);border-radius:99px;
+            transition:width 1.2s cubic-bezier(.22,.68,0,1.2)}
+
+.aside-card{background:var(--surface2);border:1px solid var(--border);
+            border-radius:var(--r);padding:24px;margin-bottom:16px}
+.aside-card-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+                  color:var(--accent);margin-bottom:12px}
+.aside-card-value{font-size:14px;color:var(--text);line-height:1.6}
+.inline-tag{display:inline-block;padding:3px 10px;border:1px solid var(--border);
+            border-radius:99px;font-size:10px;color:var(--muted2);margin:2px}
+
+/* ── ACHIEVEMENTS TAB ── */
+
+/* Big numbers row */
+.achieve-hero{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;margin-bottom:64px;
+}
+.achieve-stat{
+  background:var(--surface);
+  padding:48px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.achieve-stat::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--accent);transform:scaleX(0);
+  transition:transform .4s ease;
+  transform-origin:left;
+}
+.achieve-stat:hover::before{transform:scaleX(1)}
+.achieve-num{
+  font-size:clamp(48px,5vw,80px);font-weight:900;
+  color:var(--accent);line-height:1;letter-spacing:-2px;
+  margin-bottom:8px;
+  font-variant-numeric:tabular-nums;
+}
+.achieve-label{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted2);
+}
+.achieve-sub{font-size:12px;color:var(--muted);margin-top:4px}
+
+/* Infographic Grid */
+.infographic-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:64px;
+  background:var(--border);
+}
+.info-block{
+  background:var(--surface);padding:48px 40px;
+}
+.info-block-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.info-block-title{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:28px}
+
+/* Category Bars */
+.cat-bars{display:flex;flex-direction:column;gap:16px}
+.cat-bar{}
+.cat-bar-head{display:flex;justify-content:space-between;
+              font-size:12px;color:var(--text);margin-bottom:6px;font-weight:600}
+.cat-bar-track{height:6px;background:var(--border);border-radius:99px;overflow:hidden}
+.cat-bar-fill{height:100%;border-radius:99px;transition:width 1.4s cubic-bezier(.22,.68,0,1.2)}
+
+/* Regions Donut */
+.donut-wrap{display:flex;align-items:center;gap:40px}
+.donut{
+  width:140px;height:140px;
+  border-radius:50%;
+  background:conic-gradient(
+    #f0c233 0deg 126deg,
+    #e85d4a 126deg 198deg,
+    #4a9eff 198deg 252deg,
+    #2ecc71 252deg 360deg
+  );
+  position:relative;flex-shrink:0;
+}
+.donut::after{
+  content:'';
+  position:absolute;inset:28px;
+  background:var(--surface);
+  border-radius:50%;
+}
+.donut-legend{display:flex;flex-direction:column;gap:10px;flex:1}
+.legend-item{display:flex;align-items:center;gap:10px;font-size:12px}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* Awards / Milestones List */
+.milestones{display:flex;flex-direction:column;gap:0}
+.milestone{
+  display:grid;grid-template-columns:64px 1fr;gap:24px;
+  padding:24px 0;border-bottom:1px solid var(--border);
+  align-items:start;
+}
+.milestone:last-child{border-bottom:none}
+.milestone-year{
+  font-size:14px;font-weight:800;color:var(--accent);
+  letter-spacing:-.5px;padding-top:2px;
+}
+.milestone-content h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.milestone-content p{font-size:13px;color:var(--muted2);line-height:1.6}
+.milestone-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.mtag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+       padding:2px 8px;border:1px solid var(--border);border-radius:99px;color:var(--muted)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:32px;display:flex;flex-direction:column;gap:40px}
+.timeline::before{
+  content:'';position:absolute;left:6px;top:8px;bottom:8px;
+  width:2px;background:var(--border);
+}
+.tl-item{position:relative}
+.tl-item::before{
+  content:'';
+  position:absolute;left:-29px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent);
+}
+.tl-year{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.tl-title{font-size:17px;font-weight:800;letter-spacing:-.3px;margin-bottom:4px}
+.tl-body{font-size:13px;color:var(--muted2);line-height:1.6}
+
+/* ── BTN ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;
+     font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+     font-weight:700;border-radius:var(--r);transition:all .2s;font-family:var(--font)}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--border);color:var(--muted2)}
+.btn-ghost:hover{border-color:var(--muted2);color:var(--text)}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:48px 0}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 40px;
+              display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-size:18px;font-weight:900}
+.footer-logo em{color:var(--accent);font-style:normal}
+.footer-copy{font-size:12px;color:var(--muted)}
+
+@media(max-width:900px){
+  .page-hero{grid-template-columns:1fr}
+  .hero-photo-side{display:none}
+  .hero-text{padding:100px 24px 60px}
+  .bio-grid{grid-template-columns:1fr;gap:40px}
+  .infographic-grid{grid-template-columns:1fr}
+  .achieve-hero{grid-template-columns:1fr 1fr}
+  .container{padding:0 24px}
+  .tabs-inner{padding:0 24px}
+  .nav-links{display:none}
+  .donut-wrap{flex-direction:column;gap:20px}
+}
+</style>
+</head>
+<body>
+<div id="preloader" style="position:fixed;inset:0;z-index:99999;background:#0e0e10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .5s ease,visibility .5s ease">
+  <svg width="56" height="56" viewBox="0 0 64 64" style="animation:preloaderPulse 1.2s ease-in-out infinite">
+    <rect width="64" height="64" rx="14" fill="#0e0e10" stroke="#2c2c33" stroke-width="1"/>
+    <line x1="14" y1="18" x2="50" y2="18" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
+    <line x1="50" y1="18" x2="14" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
+    <line x1="14" y1="46" x2="50" y2="46" stroke="#f0c233" stroke-width="5" stroke-linecap="round"/>
+  </svg>
+  <div style="width:160px;height:2px;background:#2c2c33;border-radius:1px;overflow:hidden">
+    <div id="preloaderBar" style="height:100%;width:0;background:#f0c233;border-radius:1px;transition:width .4s ease"></div>
+  </div>
+</div>
+<style>@keyframes preloaderPulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}</style>
+<script>(function(){const bar=document.getElementById('preloaderBar');let p=0;const t=setInterval(()=>{p=Math.min(p+Math.random()*18,90);bar.style.width=p+'%';},120);window.addEventListener('load',()=>{clearInterval(t);bar.style.width='100%';setTimeout(()=>{const pl=document.getElementById('preloader');pl.style.opacity='0';pl.style.visibility='hidden';},400);});})();</script>
+
+<!-- ── NAV ────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Abdelaziz Askar<em> Portfolio</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#app=escapegoat" style="color:#ff7ad9">Escapegoat</a></li>
+      <li><a href="clients.html">Brands</a></li>
+      <li><a href="tools.html">Skills</a></li>
+      <li><a href="news.html">My Everyday</a></li>
+      <li><a href="contact.html" style="color:var(--accent)">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO (text + rotating photo slideshow) ══════════════ -->
+<section class="page-hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Head of Social &amp; AI · Creative Director · Music Producer</p>
+    <h1 class="hero-name">
+      Abdelaziz<br><em>Askar</em>
+    </h1>
+    <p class="hero-title-line">From a film camera in Alexandria → Head of Social &amp; AI in Cairo</p>
+    <p class="hero-bio">
+      Since 2007, turning creative ambition into commercial results — today as
+      <strong>Head of Social &amp; AI at Tonic International</strong>. I build content
+      for global brands, produce original music, direct visuals, and pioneer AI-powered
+      production. 
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="resume.html" class="btn btn-primary">View Résumé →</a>
+      <a href="clients.html" class="btn btn-ghost">See All Brands</a>
+    </div>
+  </div>
+  <div class="hero-photo-side">
+    <div class="hero-photo" id="heroSlides">
+      <img class="on" src="assets/photos/studio-standing.jpg" alt="Abdelaziz Askar in his music studio" onerror="this.remove()">
+      <img src="assets/photos/img-02.jpg" alt="Abdelaziz Askar at work" onerror="this.remove()">
+      <img src="assets/photos/img-05.jpg" alt="Abdelaziz Askar on set" onerror="this.remove()">
+      <img src="assets/photos/img-08.jpg" alt="Abdelaziz Askar creative work" onerror="this.remove()">
+      <img src="assets/photos/slide-2.jpg" alt="Abdelaziz Askar" onerror="this.remove()">
+      <img src="assets/photos/img-12.jpg" alt="Abdelaziz Askar" onerror="this.remove()">
+      <img src="assets/photos/slide-4.jpg" alt="Abdelaziz Askar" onerror="this.remove()">
+    </div>
+    <div class="hero-photo-fade"></div>
+    <p class="photo-caption">Abdelaziz Askar · 18 years in the making</p>
+    <div class="ab-dots" id="abDots"></div>
+  </div>
+</section>
+
+<!-- ══ VIDEO INTRO ══════════════════════════════════════════════ -->
+<!-- TO ADD YOUR VIDEO: replace the empty string in data-youtube="" with your YouTube video ID -->
+<!-- Example: data-youtube="dQw4w9WgXcQ" — just the ID, not the full URL -->
+<div class="video-intro-section" data-youtube="">
+  <style>
+  .video-intro-section{padding:48px 40px;border-bottom:1px solid var(--border);background:var(--surface)}
+  .vis-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:48px;align-items:center}
+  .vis-text .vis-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .vis-text h2{font-size:clamp(22px,2.8vw,34px);font-weight:900;letter-spacing:-.8px;line-height:1.1;margin-bottom:14px}
+  .vis-text p{font-size:15px;color:var(--muted2);line-height:1.8}
+  .vis-embed{border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#000}
+  .vis-embed iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+  .vis-placeholder{
+    aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:linear-gradient(135deg,#111118,#19191f);position:relative;overflow:hidden;
+  }
+  .vis-placeholder::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(240,194,51,.07) 0%,transparent 65%)}
+  .vis-ph-icon{font-size:48px;position:relative;z-index:1}
+  .vis-ph-title{font-size:16px;font-weight:800;position:relative;z-index:1}
+  .vis-ph-sub{font-size:12px;color:var(--muted2);position:relative;z-index:1;text-align:center;max-width:280px;line-height:1.6}
+  .vis-ph-badge{background:rgba(240,194,51,.12);border:1px solid rgba(240,194,51,.3);color:var(--accent);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;border-radius:99px;position:relative;z-index:1}
+  @media(max-width:860px){.vis-inner{grid-template-columns:1fr}}
+  </style>
+  <div class="vis-inner">
+    <div class="vis-text">
+      <div class="vis-label">Video Introduction</div>
+      <h2>About My Journey &amp; Philosophy</h2>
+      <p>A direct walkthrough of how I work, what drives my creative decisions, and why the brands I've built look and feel the way they do.</p>
+    </div>
+    <div class="vis-embed" id="aboutVideoEmbed"></div>
+  </div>
+</div>
+<script>
+(function(){
+  const sec = document.querySelector('.video-intro-section');
+  const yt = sec ? sec.dataset.youtube : '';
+  const embed = document.getElementById('aboutVideoEmbed');
+  if(!embed) return;
+  const EDIT_KEY = '@walkthroughVideo';
+  const PAGE = location.pathname.replace(/^\//,'') || 'index.html';
+
+  function renderPlaceholder(){
+    embed.innerHTML = '<div class="vis-placeholder"><div class="vis-ph-icon">🎬</div><div class="vis-ph-title">About / Philosophy Video</div><div class="vis-ph-sub">Record your walkthrough and paste the YouTube ID into the HTML</div><div class="vis-ph-badge">Coming Soon</div><button class="vis-upload-btn" style="display:none;margin-top:6px;position:relative;z-index:1;background:var(--accent);color:#000;border:none;border-radius:8px;padding:9px 18px;font:800 11px Inter,sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer">🎬 Upload Video</button></div>';
+    wireUploadBtn();
+  }
+  function renderVideo(src){
+    embed.innerHTML = '<video src="'+src+'" controls preload="metadata" style="width:100%;aspect-ratio:16/9;display:block;background:#000"></video>';
+  }
+  function wireUploadBtn(){
+    const btn = embed.querySelector('.vis-upload-btn');
+    if(!btn) return;
+    if(document.body.classList.contains('ze-on')) btn.style.display='inline-block';
+    btn.onclick = (e)=>{
+      e.stopPropagation();
+      const i = document.createElement('input'); i.type='file'; i.accept='video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm';
+      i.onchange = ()=>{
+        if(!i.files[0]) return;
+        const fd = i.files[0];
+        btn.textContent = 'Uploading…';
+        let uploadedPath = '';
+        fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{
+          uploadedPath = j.path;
+          return fetch('/save-edits',{method:'POST',headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({page:PAGE, edits:{[EDIT_KEY]:{src:uploadedPath}}})});
+        }).then(()=>{ renderVideo(uploadedPath); }).catch(()=>{ btn.textContent='Upload failed'; });
+      };
+      i.click();
+    };
+  }
+
+  fetch('edits.json?t='+Date.now()).then(r=>r.ok?r.json():{}).then(all=>{
+    const mine = (all[PAGE]||{})[EDIT_KEY];
+    if(mine && mine.src){ renderVideo(mine.src); return; }
+    if(yt){
+      embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    } else {
+      renderPlaceholder();
+    }
+  }).catch(()=>{ if(yt){ embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${yt}?rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`; } else { renderPlaceholder(); } });
+
+  new MutationObserver(()=>wireUploadBtn()).observe(document.body,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+
+<!-- ══ TABS BAR ════════════════════════════════════════════════ -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="switchTab('bio')">Bio &amp; Story</button>
+    <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
+    <button class="tab-btn" onclick="switchTab('achievements')">Achievements</button>
+    <button class="tab-btn" onclick="switchTab('skills')">Skills &amp; Tools</button>
+  </div>
+</div>
+
+<!-- ══ TAB: BIO ══════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-bio">
+  <section>
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-text">
+          <h2>The story behind the work</h2>
+          <p>
+            Born in Kuwait in 1987 and raised on the creative pulse of <strong>Alexandria</strong>, my path was
+            carved by an artistic lineage — a family of musicians and artists, where rhythm and expression were
+            the standard. My brothers: <span class="hl">Takki of the legendary band MTM</span> and my eldest
+            brother Sherif, a lead guitarist — growing up in their orbit taught me a great deal about writing
+            and music production. That talent was disciplined at university, where I majored in <strong>Graphics</strong>.
+            Behind the lens of a Minolta film camera I found my first obsession: turning a mastery of photography
+            into a craft that evolved from capturing light into styling and food photography.
+          </p>
+          <p>
+            Since 2007 I've worked across <strong>Egypt, Qatar, and the UAE</strong> — from PR at the
+            Bibliotheca Alexandrina to social for Al Siddiqi's Doha hospitality group, Creative Content
+            Director at Nineteen84 in Cairo, and now <strong>Head of Social at Tonic International</strong>.
+            I've been the Creative Director, the copywriter, the photographer, the strategist and the
+            producer — often all at once.
+          </p>
+          <p>
+            At Tonic I also serve as <strong>Head of Artificial Intelligence</strong>, spearheading AI into
+            our creative workflows — a TikTok-first, AI-driven production model that reached
+            <strong>15M+ views in a single quarter</strong> and builds digital-first brand mascots at a
+            speed that used to require a full agency.
+          </p>
+          <h2 style="margin-top:36px">My approach</h2>
+          <p>
+            Today I've evolved from capturing noise to <strong>simulating</strong> it. I'm a strategist and a
+            creator, driven by exploration — my work revolves around the depths of human psychology and pushing
+            the boundaries of what's possible in <strong>digital storytelling</strong>.
+          </p>
+          <p>
+            Whether I'm automating workflows with complex systems for global brands, or producing the haunting,
+            cinematic narratives that live on <strong>Escapegoat</strong>, a campaign or a track is never just
+            content — it's a journey into the mind, designed to keep the industry on notice and my audience a
+            step ahead of the future.
+          </p>
+
+          <h2 style="margin-top:36px">Spirit &amp; the machine</h2>
+          <p>
+            A personal <span class="hl">spiritual awakening</span> rewired how I create — it taught me presence,
+            patience and trust, and to quiet the ego long enough to listen. That's exactly why AI doesn't rattle
+            me. I don't fear the machine; I <strong>collaborate</strong> with it — a creative partner that
+            amplifies intention rather than replacing it. I bring the soul and the story; it brings the speed.
+            Together we make work that's faster <em>and</em> more human — head in the clouds, hands on the craft.
+          </p>
+
+          <div style="margin-top:40px">
+            <p class="section-label">Values</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px">
+                <div style="font-size:22px;margin-bottom:8px">🎯</div>
+                <strong style="font-size:14px;display:block;margin-bottom:6px">Strategy First</strong>
+                <p style="font-size:13px;color:var(--muted2)">Beautiful work that doesn't move the needle is just decoration. Strategy is always the foundation.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px">
+                <div style="font-size:22px;margin-bottom:8px">⚡</div>
+                <strong style="font-size:14px;display:block;margin-bottom:6px">Speed + Quality</strong>
+                <p style="font-size:13px;color:var(--muted2)">AI tools mean I can deliver at a pace that used to require a full agency. Same quality. Better timelines.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px">
+                <div style="font-size:22px;margin-bottom:8px">🌍</div>
+                <strong style="font-size:14px;display:block;margin-bottom:6px">Cultural Fluency</strong>
+                <p style="font-size:13px;color:var(--muted2)">MENA is not a monolith. Egyptian, Gulf, Levant — I understand the nuances that make or break a campaign.</p>
+              </div>
+              <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px">
+                <div style="font-size:22px;margin-bottom:8px">🔊</div>
+                <strong style="font-size:14px;display:block;margin-bottom:6px">Sonic Thinking</strong>
+                <p style="font-size:13px;color:var(--muted2)">My music background means I think in arcs and tension. Every campaign has a beat. Every piece of copy has a rhythm.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bio-aside">
+          <div class="aside-card">
+            <div class="aside-card-label">Currently Based</div>
+            <div class="aside-card-value">Cairo, Egypt<br><span style="color:var(--muted);font-size:13px">Head of Social, Tonic Intl — Remote</span></div>
+          </div>
+          <div class="aside-card">
+            <div class="aside-card-label">Languages</div>
+            <div class="aside-card-value">
+              Arabic — Native<br>
+              English — Fluent (C2)<br>
+              <span style="color:var(--muted);font-size:13px">Ad copy in both dialects</span>
+            </div>
+          </div>
+          <div class="aside-card">
+            <div class="aside-card-label">Specialisms</div>
+            <div class="aside-card-value" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">
+              <span class="inline-tag">ATL Campaigns</span>
+              <span class="inline-tag">TVC Direction</span>
+              <span class="inline-tag">Social Strategy</span>
+              <span class="inline-tag">Music Production</span>
+              <span class="inline-tag">AI Workflows</span>
+              <span class="inline-tag">Copywriting</span>
+              <span class="inline-tag">Photography</span>
+              <span class="inline-tag">Brand Identity</span>
+            </div>
+          </div>
+          <div class="aside-card">
+            <div class="aside-card-label">Education</div>
+            <div class="aside-card-value">
+              Fine Arts — Alexandria University<br>
+              <span style="color:var(--muted);font-size:13px">Graphics Communication · + self-taught production &amp; AI</span>
+            </div>
+          </div>
+          <div style="margin-top:24px">
+            <a href="index.html#contact" class="btn btn-primary" style="width:100%;justify-content:center">Let's Talk →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ TAB: EXPERIENCE ═══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-experience">
+  <section>
+    <div class="container">
+      <p class="section-label">Career</p>
+      <h2 class="section-title" style="margin-bottom:14px">Experience</h2>
+      <p style="font-size:15px;color:var(--muted2);line-height:1.8;max-width:680px;margin-bottom:48px">
+        Eighteen years across Egypt, Qatar and the UAE — from public relations and studio photography
+        to leading social and AI for an international agency.
+      </p>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Tonic-International.png" alt="Tonic International" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">Feb 2024 — Present · Cairo, Egypt · Remote</div>
+              <div class="tl-title">Head of Social &amp; Head of AI — Tonic International</div>
+              <div class="tl-body">
+                Define and execute the social media department's strategy and final creative approval for an
+                international agency. Built a <strong>TikTok-first content framework</strong> for global confectionery
+                brands — trend-native video and mascot storytelling — reaching <strong>15M+ views in a single
+                quarter</strong> by moving to a high-speed, AI-driven production workflow. As Head of AI, I spearhead
+                the integration of AI into creative production, lead the creative roadmap and digital-mascot
+                architecture, recruit senior 2D animators / production specialists / executive producers, and
+                mentor senior leadership.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Content Strategy</span><span class="inline-tag">Digital Marketing</span>
+                  <span class="inline-tag">AI Workflows</span><span class="inline-tag">Team Leadership</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;background:var(--surface2);border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center;font-size:20px">🎵</div>
+            <div style="flex:1">
+              <div class="tl-year">Dec 2025 — Present · Hybrid · Self-employed</div>
+              <div class="tl-title">Music Producer — escapegoatsounds</div>
+              <div class="tl-body">
+                Compose and produce original songs, writing <strong>100% of the lyrics and vocal melodies</strong>
+                through personal storytelling. Leverage AI as a session musician and studio engineer, and direct
+                all visual elements for Escapegoat — video production and artwork — for one cohesive creative output.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Music Production</span><span class="inline-tag">Songwriting</span>
+                  <span class="inline-tag">Creative Direction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Nineteen84.png" alt="Nineteen84" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">Feb 2018 — Feb 2024 · Cairo, Egypt</div>
+              <div class="tl-title">Creative Content Director — Nineteen84 Luxury &amp; Entertainment Management</div>
+              <div class="tl-body">
+                Developed, executed and measured social media strategy and budgets across campaigns and channels
+                for key clients. Established content-creation pipelines (video, photography, design), managed a
+                portfolio of external agencies and production houses, and led both the creative and digital
+                account-handling teams. Pitched and handled large-scale clients one-on-one, and hired and grew the
+                creative team.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Creative Direction</span><span class="inline-tag">Copywriting</span>
+                  <span class="inline-tag">Team Management</span><span class="inline-tag">Production</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Al-Siddiqi-Holding.png" alt="Al Siddiqi Holding" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">Nov 2016 — Jun 2017 · Doha, Qatar</div>
+              <div class="tl-title">Social Media Specialist — Al Siddiqi Holding</div>
+              <div class="tl-body">
+                Built social channels, content strategies and printed collateral for Al Siddiqi's hospitality
+                franchises — <strong>Emirgan Sutis, Lord of the Wings, Biella Qatar, The Noodle House Qatar and
+                Wafi Gourmet</strong>. Ran daily publishing, shot weekly photo/video content on-site, drove
+                footfall initiatives and delivered weekly performance reviews.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Social Media</span><span class="inline-tag">Graphic Design</span>
+                  <span class="inline-tag">Photography</span><span class="inline-tag">Hospitality</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/WallPost.png" alt="WallPost ERP" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">Aug 2016 — Mar 2017 · Qatar</div>
+              <div class="tl-title">Digital Marketing Executive — WallPost ERP</div>
+              <div class="tl-body">
+                Developed an annual digital marketing plan across <strong>five countries</strong> for WallPost
+                Software, managed the social platforms and content, and collaborated with the art team on video
+                storyboards and visuals.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Digital Marketing</span><span class="inline-tag">Copywriting</span>
+                  <span class="inline-tag">Storyboarding</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Deraya.png" alt="Deraya Real Estate" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">Jun 2015 — Aug 2016 · Cairo, Egypt</div>
+              <div class="tl-title">Digital Marketing Executive / Content Creator — Deraya Real Estate</div>
+              <div class="tl-body">
+                Owned all digital channels, activations and social media. Designed graphic material, wrote
+                marketing and corporate copy, built sales presentations and proposals, shot professional real-estate
+                photography, handled website development and led marketing research and planning.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Digital Marketing</span><span class="inline-tag">Photography</span>
+                  <span class="inline-tag">Web Development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Delight-Pastries.png" alt="Delight Foods" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">2013 — 2015 · Cairo, Egypt</div>
+              <div class="tl-title">Sales &amp; Marketing Specialist — Delight Foods</div>
+              <div class="tl-body">
+                Built marketing strategy with the General Manager, created the website, managed customer service and
+                order management via hotline 16469, ran social, SEO and online advertising campaigns, and prepared
+                regular marketing and sales reports.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Strategic Planning</span><span class="inline-tag">Teamwork</span>
+                  <span class="inline-tag">SEO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Imagine-Studio.png" alt="Imagine Creative Studio" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">2011 — 2014 · Alexandria, Egypt</div>
+              <div class="tl-title">Creative Content Specialist — Imagine Creative Studio</div>
+              <div class="tl-body">
+                Marketing &amp; Photography Coordinator: built clients' identities through design and photography,
+                directed the studio and shoots, handled video editing, copywriting and creative direction, produced
+                advertising photography, and trained interns and trainees.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Photography</span><span class="inline-tag">Brand Identity</span>
+                  <span class="inline-tag">Creative Direction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div style="display:flex;gap:14px">
+            <div style="width:40px;height:40px;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);flex-shrink:0;margin-top:4px;display:flex;align-items:center;justify-content:center">
+              <img src="assets/logos/Bibliotheca-Alexandrina.png" alt="Bibliotheca Alexandrina" style="width:100%;height:100%;object-fit:contain;padding:3px" onerror="this.parentNode.style.background='var(--surface2)';this.remove()">
+            </div>
+            <div style="flex:1">
+              <div class="tl-year">2007 — 2009 · Alexandria, Egypt · Part-time</div>
+              <div class="tl-title">Public Relations Specialist — Bibliotheca Alexandrina</div>
+              <div class="tl-body">
+                Where it began. Enhanced the BA's image through PR activities, ensured hospitality procedures for all
+                guests, supported national and international events, conferences, seminars and workshops, and handled
+                national-day correspondence with embassies in Cairo.
+                <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px">
+                  <span class="inline-tag">Public Relations</span><span class="inline-tag">Events</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:40px">
+        <a href="https://www.linkedin.com/in/abdel-aziz-askar/" target="_blank" rel="noopener" class="btn btn-primary">View LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ TAB: ACHIEVEMENTS ═════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-achievements">
+  <section>
+    <div class="container">
+      <p class="section-label">The Numbers</p>
+      <h2 class="section-title" style="margin-bottom:48px">Impact you can measure.<br>Quality you can feel.</h2>
+
+      <!-- Big Stats -->
+      <div class="achieve-hero">
+        <div class="achieve-stat">
+          <div class="achieve-num" data-target="70">0</div>
+          <div class="achieve-label">Brands Served</div>
+          <div class="achieve-sub">Global & Regional</div>
+        </div>
+        <div class="achieve-stat">
+          <div class="achieve-num" data-target="18">0</div>
+          <div class="achieve-label">Years Active</div>
+          <div class="achieve-sub">2007 — Present</div>
+        </div>
+        <div class="achieve-stat">
+          <div class="achieve-num" data-target="200">0</div>
+          <div class="achieve-label">Projects Delivered</div>
+          <div class="achieve-sub">Campaigns & Productions</div>
+        </div>
+        <div class="achieve-stat">
+          <div class="achieve-num" data-target="3">0</div>
+          <div class="achieve-label">Countries</div>
+          <div class="achieve-sub">Egypt · Qatar · UAE</div>
+        </div>
+      </div>
+
+      <!-- Infographic Grid -->
+      <div class="infographic-grid">
+
+        <!-- Category Breakdown -->
+        <div class="info-block">
+          <p class="info-block-label">Work Breakdown</p>
+          <h3 class="info-block-title">Where the hours went</h3>
+          <div class="cat-bars">
+            <div class="cat-bar">
+              <div class="cat-bar-head"><span>Social Media & Content</span><span>42%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:0%;background:#f0c233" data-w="42"></div></div>
+            </div>
+            <div class="cat-bar">
+              <div class="cat-bar-head"><span>TVC & Film Production</span><span>24%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:0%;background:#e85d4a" data-w="24"></div></div>
+            </div>
+            <div class="cat-bar">
+              <div class="cat-bar-head"><span>Creative Direction</span><span>18%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:0%;background:#4a9eff" data-w="18"></div></div>
+            </div>
+            <div class="cat-bar">
+              <div class="cat-bar-head"><span>Strategy & Consulting</span><span>10%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:0%;background:#9b59b6" data-w="10"></div></div>
+            </div>
+            <div class="cat-bar">
+              <div class="cat-bar-head"><span>Music & Sound Design</span><span>6%</span></div>
+              <div class="cat-bar-track"><div class="cat-bar-fill" style="width:0%;background:#2ecc71" data-w="6"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regional Split -->
+        <div class="info-block">
+          <p class="info-block-label">Geographic Reach</p>
+          <h3 class="info-block-title">MENA and counting</h3>
+          <div class="donut-wrap">
+            <div class="donut"></div>
+            <div class="donut-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#f0c233"></div><span><strong>35%</strong> Egypt</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#e85d4a"></div><span><strong>20%</strong> UAE & Gulf</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#4a9eff"></div><span><strong>15%</strong> Qatar</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#2ecc71"></div><span><strong>30%</strong> Pan-MENA</span></div>
+            </div>
+          </div>
+          <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+            <div style="text-align:center;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:16px">
+              <div style="font-size:24px;font-weight:900;color:var(--accent)">5+</div>
+              <div style="font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">Long-term Retainers</div>
+            </div>
+            <div style="text-align:center;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:16px">
+              <div style="font-size:24px;font-weight:900;color:#e85d4a">20+</div>
+              <div style="font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">TVCs Directed</div>
+            </div>
+            <div style="text-align:center;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:16px">
+              <div style="font-size:24px;font-weight:900;color:#4a9eff">1st</div>
+              <div style="font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase">AI TVC Pitch MENA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Milestones -->
+        <div class="info-block" style="grid-column:1/-1">
+          <p class="info-block-label">Key Achievements</p>
+          <h3 class="info-block-title">Moments that defined the career</h3>
+          <div class="milestones">
+            <div class="milestone">
+              <div class="milestone-year">2024</div>
+              <div class="milestone-content">
+                <h4>First AI-Assisted TVC Pitch in Kuwait — Warba Bank</h4>
+                <p>Used AI-generated animatics to visualise and pitch a full TVC concept before committing to production. Delivered the campaign under budget and ahead of schedule.</p>
+                <div class="milestone-tags"><span class="mtag">AI</span><span class="mtag">TVC</span><span class="mtag">Innovation</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2024</div>
+              <div class="milestone-content">
+                <h4>Geely UAE Launch — National ATL Campaign</h4>
+                <p>Led the full creative from concept to on-air for Geely's Coolray UAE launch. Managed TVC direction, OOH creative, and digital rollout simultaneously.</p>
+                <div class="milestone-tags"><span class="mtag">ATL</span><span class="mtag">TVC</span><span class="mtag">Automotive</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2023</div>
+              <div class="milestone-content">
+                <h4>EA FC Mobile MENA Production — Global Gaming Brand</h4>
+                <p>Production managed the EA FC Mobile regional TVC, bridging between EA's global team and local MENA execution. First gaming TVC production role in career.</p>
+                <div class="milestone-tags"><span class="mtag">Gaming</span><span class="mtag">TVC</span><span class="mtag">Production Management</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2024</div>
+              <div class="milestone-content">
+                <h4>Head of Social &amp; AI — Tonic International</h4>
+                <p>Stepped up to lead the social department and AI integration for an international agency. A TikTok-first, AI-driven production model reached 15M+ views in a single quarter and built digital-first brand mascots.</p>
+                <div class="milestone-tags"><span class="mtag">Leadership</span><span class="mtag">AI</span><span class="mtag">Social</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2018</div>
+              <div class="milestone-content">
+                <h4>Creative Content Director — Nineteen84 (Cairo)</h4>
+                <p>Built content-creation pipelines across video, photo and design, managed external agencies and production houses, and led both the creative and account-handling teams for nearly six years.</p>
+                <div class="milestone-tags"><span class="mtag">Creative Direction</span><span class="mtag">Team Lead</span><span class="mtag">Production</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2021</div>
+              <div class="milestone-content">
+                <h4>Snapchat MENA B2B Campaign</h4>
+                <p>Developed lead generation strategy and content for Snapchat's B2B brand awareness campaign targeting marketing decision-makers across the Gulf region.</p>
+                <div class="milestone-tags"><span class="mtag">B2B</span><span class="mtag">Strategy</span><span class="mtag">Lead Gen</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2019</div>
+              <div class="milestone-content">
+                <h4>Carina Egypt — 5-Year Creative Partnership</h4>
+                <p>Became the sole creative lead for Carina's Egyptian social media and brand strategy. Built the brand's digital voice from near-zero engagement to a recognisable presence.</p>
+                <div class="milestone-tags"><span class="mtag">Social</span><span class="mtag">Strategy</span><span class="mtag">Long-Term</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2016</div>
+              <div class="milestone-content">
+                <h4>Doha — Al Siddiqi Hospitality Group</h4>
+                <p>Ran social and content for five F&B franchises in Qatar — Emirgan Sutis, Lord of the Wings, Biella, The Noodle House and Wafi Gourmet — the first Gulf chapter of the career.</p>
+                <div class="milestone-tags"><span class="mtag">Social</span><span class="mtag">F&B</span><span class="mtag">Qatar</span></div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-year">2007</div>
+              <div class="milestone-content">
+                <h4>Where It Began — Bibliotheca Alexandrina</h4>
+                <p>Started as a Public Relations Specialist at the Bibliotheca Alexandrina, supporting national and international events — the first step into a career built on communication and storytelling.</p>
+                <div class="milestone-tags"><span class="mtag">Origin</span><span class="mtag">PR</span><span class="mtag">Alexandria</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /infographic-grid -->
+
+    </div>
+  </section>
+</div>
+
+<!-- ══ TAB: SKILLS ════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-skills">
+  <section>
+    <div class="container">
+      <!-- ── Skill Development Chronology ── -->
+      <p class="section-label">Always Learning</p>
+      <h2 class="section-title" style="margin-bottom:12px">Skill Development Chronology</h2>
+      <p style="font-size:15px;color:var(--muted2);line-height:1.8;max-width:700px;margin-bottom:16px">
+        I have never stopped being a student — every chapter of my career added a new craft. From writing and
+        photography to creative leadership, music production and AI. <strong>Right now I'm teaching myself to code.</strong>
+      </p>
+      <div style="display:flex;align-items:center;gap:12px;background:var(--surface2);border:1px solid var(--accent);border-radius:var(--r);padding:14px 18px;margin-bottom:40px;max-width:560px">
+        <span style="font-size:22px">🧑‍💻</span>
+        <div><strong style="font-size:14px">Currently learning: Coding &amp; Python</strong>
+        <div style="font-size:12px;color:var(--muted2);margin-top:2px">The next tool in the kit — a constant self-learner.</div></div>
+      </div>
+      <!-- Horizontal skill chronology -->
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:12px;margin-bottom:48px">
+        <div style="display:grid;grid-template-columns:repeat(8,minmax(158px,1fr));min-width:1264px;border:1px solid var(--border);border-radius:var(--r);overflow:hidden">
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:rgba(240,194,51,.3)"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2005 – 09</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">Writing &amp; PR</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ Copywriting</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Public relations</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Event support</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Press kits</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Bibliotheca Alexandrina</div>
+          </div>
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:rgba(240,194,51,.45)"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2009 – 11</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">Design &amp; Photography</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ Graphic design</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Photography</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Content creation</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Music basics</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Fine Arts · Alexandria Uni.</div>
+          </div>
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:rgba(240,194,51,.6)"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2011 – 14</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">First Studio</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ Food photography</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Brand identity</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Video editing</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ FL Studio (music)</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Imagine Creative Studio</div>
+          </div>
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:rgba(240,194,51,.72)"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2013 – 15</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">Digital Marketing</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ Social media mgmt</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ SEO &amp; PPC</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Digital advertising</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Marketing strategy</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Delight Foods · Cairo</div>
+          </div>
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:rgba(240,194,51,.84)"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2015 – 17</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">GCC Expansion</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ Startup launch</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Gulf market entry</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ F&amp;B social</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Public speaking</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Deraya → Al Siddiqi · Qatar</div>
+          </div>
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f0c233"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2018 – 24</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">The Big Break</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ Creative direction</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Team leadership</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ TVC production</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Storytelling at scale</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ AI exploration</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Nineteen84 · Creative Director</div>
+          </div>
+
+          <div style="border-right:1px solid var(--border);padding:20px 16px;background:var(--surface2);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f0c233"></div>
+            <div style="font-size:10px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">2024 – Now</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2">Head of Social &amp; AI</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">✦ AI integration</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Remote leadership</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Music production</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ Songwriting</span>
+              <span style="font-size:11px;color:var(--muted2)">✦ GCC clients</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Tonic International · Cairo</div>
+          </div>
+
+          <div style="padding:20px 16px;background:var(--surface2);position:relative">
+            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#f0c233,#8b5cf6)"></div>
+            <div style="font-size:10px;color:var(--purple);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px;font-weight:700">Next ⟶</div>
+            <div style="font-size:13px;font-weight:800;margin-bottom:10px;line-height:1.2;color:var(--purple)">Learning</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-size:11px;color:var(--muted2)">⟳ Coding</span>
+              <span style="font-size:11px;color:var(--muted2)">⟳ Python</span>
+              <span style="font-size:11px;color:var(--muted2)">⟳ App dev</span>
+            </div>
+            <div style="margin-top:12px;font-size:10px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px">Self-taught · 2025+</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+        <div>
+          <p class="section-label">Skills &amp; Abilities</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:28px;letter-spacing:-.5px">The craft toolkit</h3>
+          <ul class="skills-list">
+            <li class="skill-item">
+              <div class="skill-label"><span>Graphic Design</span><span>★★★★☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="85" data-color="#f0c233"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Copywriting (Advertising)</span><span>★★★★☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="85" data-color="#f0c233"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Creative Direction</span><span>★★★★☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="88" data-color="#f0c233"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Team Management</span><span>★★★★☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="88" data-color="#f0c233"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Photography</span><span>★★★☆☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="62" data-color="#e85d4a"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Public Speaking (Presentations)</span><span>★★★☆☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="70" data-color="#e85d4a"></div></div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="section-label">Social · AI · Music</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:28px;letter-spacing:-.5px">Strategy &amp; systems</h3>
+          <ul class="skills-list">
+            <li class="skill-item">
+              <div class="skill-label"><span>Prompt Engineering</span><span>★★★★½</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="92" data-color="#4a9eff"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Strategy for Social</span><span>★★★★½</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="90" data-color="#4a9eff"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Social Content Creation</span><span>★★★★½</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="90" data-color="#4a9eff"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Song / Jingle Writing</span><span>★★★☆☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="65" data-color="#9b59b6"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Music Production</span><span>★★★☆☆</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="65" data-color="#9b59b6"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-label"><span>Coding / Python</span><span>Learning ⟳</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width:0%" data-w="30" data-color="#2ecc71"></div></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Software & Modules -->
+      <div style="margin-top:64px">
+        <p class="section-label">Software &amp; Modules</p>
+        <h3 style="font-size:22px;font-weight:800;margin-bottom:28px;letter-spacing:-.5px">The toolset</h3>
+
+        <div style="margin-bottom:22px">
+          <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px">Graphic design · photo-editing · animation</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Photoshop</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Illustrator</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">InDesign</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">After Effects</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Lightroom</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:22px">
+          <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px">Video editing</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Premiere Pro</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Final Cut Pro</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">DaVinci Resolve</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">CapCut</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:22px">
+          <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px">Music production &amp; VO</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">FL Studio</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Serato</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Audacity</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">ElevenLabs</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Google AI Studio</span>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px">Image / video generative AI</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Freepik</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Midjourney</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Ideogram</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Kling AI</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Python</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Runway</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Veo 3</span>
+            <span class="inline-tag" style="font-size:12px;padding:8px 16px">Flux</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ══ TESTIMONIALS ══════════════════════════════════════════════ -->
+<section style="padding:80px 0;border-top:1px solid var(--border)">
+  <div class="container">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title" style="margin-bottom:48px">What collaborators say</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px">
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"Working with Abdelaziz is a masterclass in efficiency. He didn't just improve our workflow; he genuinely changed how we collaborate daily. He took the time to build an autonomous system that actually works for people. He's a critical thinker who doesn't just find flaws — he builds the solutions to fix them."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent);position:relative">
+            AV<img src="assets/logos/person-arnaud.png" alt="Arnaud Verchere" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">
+          </div>
+          <div><div style="font-size:14px;font-weight:700">Arnaud Verchere</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Group CEO · Tonic International</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"Abdelaziz clearly played a pivotal role in Deraya's history. Launching a real estate brand's social presence in 2015 — right as the Egyptian market was shifting heavily toward digital — was a massive undertaking."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent);position:relative">
+            MS<img src="assets/logos/person-shafei.png" alt="Mohamed Shafei" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">
+          </div>
+          <div><div style="font-size:14px;font-weight:700">Mohamed Shafei</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Founder · Deraya Real Estate</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"Abdelaziz brought a level of creative edge to Glow that we were missing, seamlessly integrating AI tools and modern video trends to keep us at the top of our customers' feeds."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent);position:relative">
+            AR<img src="assets/logos/person-amina.png" alt="Amina Rashad" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">
+          </div>
+          <div><div style="font-size:14px;font-weight:700">Amina Rashad</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Vice Chairman &amp; Founder · Glow</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"I worked with Abdelaziz for several years, and his strength has always been his creative judgment and deep sense of ownership. He approached our brands with the care and loyalty of someone who genuinely believed in what we were building, and his creative thinking consistently elevated the work beyond execution."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent);position:relative">
+            SK<img src="assets/logos/person-sherry.png" alt="Sherry ElKilany" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">
+          </div>
+          <div><div style="font-size:14px;font-weight:700">Sherry ElKilany</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Managing Partner · Nineteen84</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"Abdelaziz owned our entire operational and digital presence. He didn't just launch our social media; he built our inbound and outbound call center, directed all brand photography, and quality assurance. His ability to masterfully juggle creative direction with complex operations makes him the ultimate multi-tasker and an invaluable asset to any growing brand."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent)">ID</div>
+          <div><div style="font-size:14px;font-weight:700">Ismail Drouby</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Founder &amp; CEO · Delight Pastries &amp; Scoop Empire</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"Abdelaziz has been an incredible partner and friend throughout our musical journey. On so many occasions, he's stepped up to handle everything from our branding to our cover art with a level of care that's hard to find. He doesn't just 'do' the work; he lives the project with you."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent)">MM</div>
+          <div><div style="font-size:14px;font-weight:700">Mikey MTM</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Music Artist · MTM</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"I had the pleasure of working with Abdelaziz at Nolimits, where he managed our social media accounts. He was highly professional, reliable, and consistently delivered strong results. His understanding of social media strategy, attention to detail, and ability to manage accounts efficiently made a real difference to our online presence."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent)">SE</div>
+          <div><div style="font-size:14px;font-weight:700">Sherif ElSersy</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Chairman · No Limits Furniture</div></div>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-size:14px;color:var(--muted2);line-height:1.8;flex:1">"It's rare to find someone who can handle the entire creative spectrum, but Abdelaziz does it effortlessly. Whether it's art direction, animation, or full-scale social marketing, the output is always world-class. He's a multi-talented force who brings a level of dedication that is truly priceless. Any team would be lucky to have him."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent)">SK</div>
+          <div><div style="font-size:14px;font-weight:700">Shehab Kassem</div><div style="font-size:11px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Chairman · DEFARM FOODS</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Abdelaziz<em> Askar</em></span>
+    <p class="footer-copy">This website was created by Abdelaziz Askar and is still being updated. © 2026 — All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// ── TABS ─────────────────────────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+
+  if (name === 'achievements') {
+    setTimeout(() => {
+      animateCounters();
+      animateBars();
+    }, 100);
+  }
+  if (name === 'skills') {
+    setTimeout(animateSkillBars, 100);
+  }
+}
+
+// ── COUNTER ANIMATION ─────────────────────────────────────────────
+function animateCounters() {
+  document.querySelectorAll('[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.textContent.includes('+') ? '+' : '';
+    let start = 0;
+    const dur = 1600;
+    const step = target / (dur / 16);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = Math.floor(start) + (start >= target ? '+' : '');
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  });
+}
+
+// ── BAR ANIMATIONS ────────────────────────────────────────────────
+function animateBars() {
+  document.querySelectorAll('.cat-bar-fill[data-w]').forEach(el => {
+    setTimeout(() => { el.style.width = el.dataset.w + '%'; }, 200);
+  });
+}
+function animateSkillBars() {
+  document.querySelectorAll('.skill-fill[data-w]').forEach(el => {
+    el.style.background = el.dataset.color || '#f0c233';
+    setTimeout(() => { el.style.width = el.dataset.w + '%'; }, 200);
+  });
+}
+
+// ── SLIDESHOW BANNER ──────────────────────────────────────────────
+(function(){
+  const sl=[...document.querySelectorAll('#heroSlides img')];
+  if(!sl.length) return;
+  const dots=document.getElementById('abDots');
+  sl.forEach((_,i)=>{const d=document.createElement('span');if(i===0)d.classList.add('on');d.onclick=()=>go(i);dots.appendChild(d);});
+  let cur=0,timer;
+  function go(i){sl[cur].classList.remove('on');dots.children[cur]&&dots.children[cur].classList.remove('on');cur=i%sl.length;sl[cur].classList.add('on');dots.children[cur]&&dots.children[cur].classList.add('on');clearInterval(timer);timer=setInterval(()=>go(cur+1),4200);}
+  timer=setInterval(()=>go(cur+1),4200);
+})();
+
+// Auto-animate if achievements tab shown via URL hash
+if (location.hash === '#achievements') {
+  switchTab('achievements');
+}
+</script>
+<script src="brands-config.js"></script>
+<script src="track.js"></script>
+<script src="editor.js?v=3"></script>
+<script src="nda.js"></script>
+</body>
+</html>

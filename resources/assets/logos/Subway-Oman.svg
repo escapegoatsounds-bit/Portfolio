@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100">
+  <rect width="220" height="100" rx="10" fill="#009B3A"/>
+  <rect x="4" y="4" width="212" height="92" rx="8" fill="#FFCC00"/>
+  <text x="110" y="68" font-family="Impact,'Arial Black',Arial,sans-serif" font-size="56" font-weight="900" fill="#009B3A" text-anchor="middle" letter-spacing="-1">SUBWAY</text>
+  <polygon points="6,4 22,4 6,20" fill="#009B3A"/>
+  <polygon points="214,96 198,96 214,80" fill="#009B3A"/>
+</svg>

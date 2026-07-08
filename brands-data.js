@@ -48,6 +48,7 @@
     'Royal-Herbs':'FMCG',
     'Delight-Pastries':'Food & Beverage',
     'Bohobun':'Food & Beverage',
+    'Mooz':'FMCG',
     'Kappa':'Fashion & Apparel',
     'Bershka':'Fashion & Apparel',
     'Polo-Ralph-Lauren':'Fashion & Apparel',

@@ -720,6 +720,7 @@ const LockScreen = ({ onUnlock }) => {
   const [dragging, setDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [offset, setOffset] = useState(0);
+  const unblockTriggered = useRef(false);
   const [time] = useState(() => {
     const d = new Date();
     return { h: String(d.getHours()).padStart(2,"0"), m: String(d.getMinutes()).padStart(2,"0") };
@@ -729,20 +730,42 @@ const LockScreen = ({ onUnlock }) => {
     return d.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"});
   });
 
-  const onPointerDown = e => { setDragging(true); setStartY(e.clientY||e.touches?.[0]?.clientY||0); };
+  const unlock = useCallback(() => {
+    if (unblockTriggered.current) return;
+    unblockTriggered.current = true;
+    clickSound();
+    setOffset(900);
+    setTimeout(onUnlock, 200);
+  }, [onUnlock]);
+
+  const onPointerDown = e => {
+    unblockTriggered.current = false;
+    setDragging(true);
+    setStartY(e.clientY||e.touches?.[0]?.clientY||0);
+  };
+
   const onPointerMove = e => {
-    if (!dragging) return;
+    if (!dragging || unblockTriggered.current) return;
     const y = e.clientY||e.touches?.[0]?.clientY||0;
     const d = Math.max(0, startY - y);
     setOffset(d);
-    if (d > 90) { setOffset(900); setTimeout(onUnlock, 180); }  // lift screen up then unlock
+    if (d > 90) unlock();
   };
-  const onPointerUp = () => { setDragging(false); if(offset<=90) setOffset(0); };
-  // also allow a simple tap/click to unlock for desktop
-  const onClick = () => { clickSound(); setOffset(900); setTimeout(onUnlock, 200); };
+
+  const onPointerUp = e => {
+    setDragging(false);
+    if (unblockTriggered.current) return;
+    const y = e.clientY||e.touches?.[0]?.clientY||0;
+    const d = Math.max(0, startY - y);
+    if (d > 10) {
+      setOffset(0);
+    } else {
+      unlock();
+    }
+  };
 
   return (
-    <div onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onClick={onClick}
+    <div onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onClick={unlock}
       style={{position:"absolute",inset:0,color:"#fff",display:"flex",flexDirection:"column",userSelect:"none",cursor:"pointer",transform:`translateY(-${offset}px)`,opacity:offset>200?0:1,transition:dragging?"opacity .2s":"transform .4s cubic-bezier(.4,0,.2,1),opacity .3s",overflow:"hidden"}}>
       {/* Poem lock-screen wallpaper */}
       <div style={{position:"absolute",inset:0,backgroundImage:`url(${LOCK_BG})`,backgroundSize:"cover",backgroundPosition:"center",filter:"brightness(.92)"}}/>

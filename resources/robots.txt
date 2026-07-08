@@ -1,0 +1,7 @@
+# Abdelaziz Askar — portfolio
+# Public, hire-relevant pages are indexable; NDA client work is excluded
+# per-page via <meta name="robots" content="noindex">.
+User-agent: *
+Allow: /
+
+Sitemap: https://escapegoatsounds-bit.github.io/Portfolio/sitemap.xml

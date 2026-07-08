@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Everyday — Abdelaziz Askar</title>
+<link rel="icon" href="assets/photos/escapegoat-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="description" content="Abdelaziz Askar's live creative feed — ideas, work-in-progress, client results, and video guides.">
+<style>
+:root{
+  --bg:#09090c; --surface:#111118; --surface2:#19191f; --border:#252532;
+  --accent:#f0c233; --text:#f3f0eb; --muted:#706c64; --muted2:#b5b0a6;
+  --font:'Inter','Helvetica Neue',Arial,sans-serif; --r:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;padding-bottom:80px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;border-bottom:1px solid var(--border);
+  background:rgba(5,5,6,.97);backdrop-filter:blur(20px);
+}
+.nav-logo{font-size:14px;font-weight:700;color:var(--muted2);display:flex;align-items:center;gap:2px}
+.nav-logo em{color:var(--accent);font-style:normal;font-size:19px;font-weight:900}
+.nav-divider{color:var(--muted);margin:0 7px;font-weight:300}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);transition:color .2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:9px 20px;background:var(--accent);color:#000;border-radius:var(--r);transition:filter .2s}
+.nav-cta:hover{filter:brightness(1.08)}
+
+/* PAGE HEADER */
+.page-header{
+  padding:60px 48px 40px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;
+  background:radial-gradient(ellipse at 20% 50%,rgba(240,194,51,.05) 0%,transparent 60%);
+}
+.ph-left .eyebrow{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:600}
+.ph-left .eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--accent);margin-bottom:13px;border-radius:1px}
+.ph-left h1{font-size:clamp(34px,4vw,56px);font-weight:900;letter-spacing:-2px;line-height:.9}
+.ph-left h1 em{color:var(--accent);font-style:normal}
+.ph-left p{font-size:14px;color:var(--muted2);margin-top:16px;max-width:520px;line-height:1.7}
+.ph-right .post-count{font-size:52px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-2px;text-align:right}
+.ph-right .pc-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px;text-align:right}
+
+/* FEED LAYOUT */
+.feed-wrap{max-width:840px;margin:0 auto;padding:48px 48px 0}
+
+/* POST CARD */
+.post-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;margin-bottom:28px;
+  transition:border-color .2s;
+}
+.post-card:hover{border-color:rgba(240,194,51,.25)}
+.post-card.pinned{border-color:rgba(240,194,51,.4);box-shadow:0 0 0 1px rgba(240,194,51,.1)}
+
+/* POST META */
+.post-meta{
+  display:flex;align-items:center;gap:12px;
+  padding:18px 24px 0;
+}
+.post-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent);color:#000;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:13px;flex-shrink:0;
+  overflow:hidden;
+}
+.post-avatar img{width:100%;height:100%;object-fit:cover}
+.post-author{font-size:13px;font-weight:700}
+.post-date{font-size:11px;color:var(--muted2);margin-top:2px}
+.post-badge{
+  margin-left:auto;font-size:9px;letter-spacing:.15em;text-transform:uppercase;
+  padding:4px 10px;border-radius:99px;font-weight:700;flex-shrink:0;
+}
+.badge-video{background:rgba(240,194,51,.12);color:var(--accent);border:1px solid rgba(240,194,51,.3)}
+.badge-text{background:rgba(181,176,166,.08);color:var(--muted2);border:1px solid var(--border)}
+.badge-image{background:rgba(139,92,246,.1);color:#a78bfa;border:1px solid rgba(139,92,246,.3)}
+.badge-pinned{background:rgba(240,194,51,.15);color:var(--accent);border:1px solid rgba(240,194,51,.4);margin-left:8px}
+
+/* POST BODY */
+.post-body{padding:16px 24px 20px}
+.post-title{font-size:20px;font-weight:800;letter-spacing:-.4px;margin-bottom:10px;line-height:1.2}
+.post-text{font-size:15px;color:var(--muted2);line-height:1.8}
+
+/* VIDEO EMBED */
+.video-container{
+  position:relative;margin:0 24px 20px;border-radius:10px;overflow:hidden;
+  background:#000;border:1px solid var(--border);
+}
+.video-container iframe{
+  width:100%;aspect-ratio:16/9;display:block;border:none;
+}
+.video-placeholder{
+  aspect-ratio:16/9;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;
+  background:linear-gradient(135deg,#111118 0%,#19191f 100%);
+  border-radius:10px;overflow:hidden;
+  position:relative;cursor:pointer;
+}
+.vp-glow{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 60%,rgba(240,194,51,.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+.vp-play{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(240,194,51,.12);border:2px solid rgba(240,194,51,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;transition:transform .2s,background .2s;
+  position:relative;z-index:1;
+}
+.video-placeholder:hover .vp-play{transform:scale(1.08);background:rgba(240,194,51,.2)}
+.vp-label{font-size:13px;font-weight:700;color:var(--muted2);position:relative;z-index:1}
+.vp-sub{font-size:11px;color:var(--muted);position:relative;z-index:1;letter-spacing:.05em}
+.vp-badge{
+  position:absolute;top:16px;right:16px;
+  background:rgba(240,194,51,.9);color:#000;
+  font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  padding:4px 10px;border-radius:99px;
+}
+
+/* TAGS */
+.post-tags{padding:0 24px 20px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 10px;border:1px solid var(--border);border-radius:99px;
+  color:var(--muted);font-weight:500;
+}
+
+/* DIVIDER */
+.feed-divider{
+  text-align:center;padding:24px 0;color:var(--muted);font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;
+  display:flex;align-items:center;gap:16px;margin:0 0 28px;
+}
+.feed-divider::before,.feed-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* EMPTY / LOADING */
+#feedLoading{text-align:center;padding:80px;color:var(--muted);font-size:14px}
+
+/* HOW TO POST */
+.how-to-post{
+  background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:var(--r);padding:20px 24px;margin-bottom:28px;
+  font-size:13px;color:var(--muted2);line-height:1.9;
+}
+.how-to-post strong{color:var(--text)}
+.how-to-post code{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:4px;padding:1px 6px;font-size:11px;color:var(--accent);font-family:monospace;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .page-header{padding:40px 20px 30px}
+  .feed-wrap{padding:28px 20px 0}
+  .video-container,.video-placeholder{margin:0 0 16px}
+  .post-meta,.post-body,.post-tags{padding-left:16px;padding-right:16px}
+  .video-container{margin:0 16px 16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><em>Abdelaziz Askar</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="clients.html">Brands</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="news.html" class="active">My Everyday</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="mailto:Escapegoatssounds@gmail.com" class="nav-cta">Let's Talk →</a>
+</nav>
+
+<div class="page-header">
+  <div class="ph-left">
+    <div class="eyebrow">My Everyday</div>
+    <h1>My <em>Everyday</em></h1>
+    <p>Ideas, work-in-progress, client results and behind-the-scenes from Abdelaziz Askar's creative world — updated as things happen.</p>
+  </div>
+  <div class="ph-right">
+    <div class="post-count" id="postCount">—</div>
+    <div class="pc-label">Posts</div>
+  </div>
+</div>
+
+<div class="feed-wrap">
+  <div id="feedLoading">Loading feed…</div>
+  <div id="feedContainer" style="display:none"></div>
+</div>
+
+<script>
+const AUTHOR = { name:'Abdelaziz Askar', photo:'' };
+
+function fmtDate(d){
+  const dt = new Date(d);
+  return dt.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+}
+
+function typeBadge(type){
+  if(type==='video') return '<span class="post-badge badge-video">🎬 Video</span>';
+  if(type==='image') return '<span class="post-badge badge-image">🖼 Image</span>';
+  return '<span class="post-badge badge-text">✏️ Post</span>';
+}
+
+function videoBlock(post){
+  if(post.videoSrc){
+    return `<div class="video-container">
+      <video src="${post.videoSrc}" controls preload="metadata" style="width:100%;aspect-ratio:16/9;display:block;background:#000"></video>
+    </div>`;
+  }
+  if(post.youtube){
+    return `<div class="video-container">
+      <iframe src="https://www.youtube.com/embed/${post.youtube}?rel=0&modestbranding=1"
+              allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+    </div>`;
+  }
+  return `<div style="margin:0 24px 20px">
+    <div class="video-placeholder">
+      <div class="vp-glow"></div>
+      <div class="vp-badge">Coming Soon</div>
+      <div class="vp-play">🎬</div>
+      <div class="vp-label">${post.title}</div>
+      <div class="vp-sub">Video being recorded — check back soon</div>
+    </div>
+  </div>`;
+}
+
+function renderPost(post, idx, total){
+  const isPinned = post.pinned;
+  const tags = (post.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+  const avatar = AUTHOR.photo
+    ? `<img src="${AUTHOR.photo}" alt="Abdelaziz Askar" onerror="this.remove()">`
+    : 'AA';
+
+  let mediaHTML = '';
+  if(post.type==='video') mediaHTML = videoBlock(post);
+  else if(post.type==='image' && post.thumb) mediaHTML = `<div style="margin:0 24px 20px;border-radius:10px;overflow:hidden;border:1px solid var(--border)"><img src="${post.thumb}" alt="${post.title}" style="width:100%;display:block"></div>`;
+
+  let divider = '';
+  if(isPinned && total > 1 && idx === 0){
+    divider = `<div class="feed-divider">Latest posts</div>`;
+  }
+
+  return `
+    <div class="post-card${isPinned?' pinned':''}">
+      <div class="post-meta">
+        <div class="post-avatar">${avatar}</div>
+        <div>
+          <div class="post-author">${AUTHOR.name}</div>
+          <div class="post-date">${fmtDate(post.date)}</div>
+        </div>
+        ${typeBadge(post.type)}
+        ${isPinned?'<span class="post-badge badge-pinned">📌 Pinned</span>':''}
+      </div>
+      <div class="post-body">
+        <div class="post-title">${post.title}</div>
+        <p class="post-text">${post.body}</p>
+      </div>
+      ${mediaHTML}
+      ${tags?`<div class="post-tags">${tags}</div>`:''}
+    </div>
+    ${divider}
+  `;
+}
+
+fetch('feed.json')
+  .then(r=>r.json())
+  .then(posts=>{
+    document.getElementById('feedLoading').style.display='none';
+    document.getElementById('feedContainer').style.display='block';
+    document.getElementById('postCount').textContent=posts.length;
+
+    const pinned = posts.filter(p=>p.pinned);
+    const rest = posts.filter(p=>!p.pinned);
+    const ordered = [...pinned, ...rest];
+
+    document.getElementById('feedContainer').innerHTML =
+      ordered.map((p,i)=>renderPost(p,i,ordered.length)).join('');
+  })
+  .catch(()=>{
+    document.getElementById('feedLoading').innerHTML =
+      '<p style="color:var(--muted)">Could not load feed. Make sure feed.json exists.</p>';
+  });
+</script>
+
+<!-- ── My Everyday composer (edit mode only) ──────────────────────────── -->
+<style>
+#me-composer{max-width:840px;margin:0 auto 32px;padding:0 48px;display:none}
+body.ze-on #me-composer{display:block}
+.mec-card{background:var(--s1,#111114);border:1px solid var(--accent,#f0c233);border-radius:14px;padding:22px 24px;margin-top:24px}
+.mec-h{font-size:18px;font-weight:800;margin-bottom:4px}
+.mec-sub{font-size:12px;color:var(--muted,#9a958c);margin-bottom:16px}
+.mec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:12px}
+.mec-card label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2,#c2bcb2);margin-bottom:5px}
+.mec-card input,.mec-card textarea,.mec-card select{width:100%;background:#0d0d0f;border:1px solid var(--border,#2c2c33);border-radius:8px;color:var(--text,#f4f2ed);font:500 14px Inter,sans-serif;padding:9px 11px;outline:none}
+.mec-card input:focus,.mec-card textarea:focus,.mec-card select:focus{border-color:var(--accent,#f0c233)}
+.mec-card textarea{min-height:80px;resize:vertical;line-height:1.6}
+.mec-full{grid-column:1/-1}
+.mec-btn{background:var(--accent,#f0c233);color:#000;border:none;border-radius:8px;padding:10px 18px;font:700 12px Inter,sans-serif;letter-spacing:.05em;cursor:pointer}
+.mec-ghost{background:transparent;border:1px dashed var(--accent,#f0c233);color:var(--accent,#f0c233);border-radius:8px;padding:9px 14px;font:700 12px Inter,sans-serif;cursor:pointer}
+.mec-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.mec-list{margin-top:18px;border-top:1px solid var(--border,#2c2c33);padding-top:14px}
+.mec-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #1c1c22}
+.mec-item .t{flex:1;font-size:13px;font-weight:600;color:#e7e7e7}
+.mec-item .d{font-size:11px;color:var(--muted,#9a958c)}
+.mec-mini{background:#26262c;color:#fff;border:none;border-radius:6px;padding:5px 9px;font:700 11px Inter,sans-serif;cursor:pointer}
+.mec-mini.on{background:var(--accent,#f0c233);color:#000}
+.mec-save{background:var(--accent,#f0c233);color:#000;border:none;border-radius:8px;padding:11px 22px;font:800 12px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;margin-top:16px}
+</style>
+<div id="me-composer"></div>
+
+<footer style="padding:24px 48px;text-align:center;font-size:11px;color:var(--muted,#706c64);border-top:1px solid var(--border,#252532)">
+  This website was created by Abdelaziz Askar and is still being updated. &copy; 2026.
+</footer>
+
+<script src="brands-config.js"></script>
+<script src="track.js"></script>
+<script src="editor.js?v=3"></script>
+<script>
+/* My Everyday post composer — mounts inside #me-composer when edit mode is on. */
+(function(){
+  let FEED = [];
+  let dirty = false;
+  const host = document.getElementById('me-composer');
+
+  function load(){ return fetch('feed.json?t='+Date.now()).then(r=>r.ok?r.json():[]).then(d=>{ FEED=Array.isArray(d)?d:[]; }).catch(()=>{ FEED=[]; }); }
+  function nextId(){ return (FEED.reduce((m,p)=>Math.max(m,+p.id||0),0))+1; }
+  function ytId(u){ if(!u)return''; const m=String(u).match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/); return m?m[1]:(/^[\w-]{11}$/.test(u)?u:''); }
+
+  function render(){
+    if(!host) return;
+    host.innerHTML='';
+    const card=document.createElement('div'); card.className='mec-card';
+    card.innerHTML='<div class="mec-h">📣 New Post — My Everyday</div><div class="mec-sub">Add an update, a video, or an image. Saves to feed.json and publishes to GitHub.</div>';
+
+    const grid=document.createElement('div'); grid.className='mec-grid';
+    grid.innerHTML=
+      '<div><label>Type</label><select id="mec-type"><option value="text">✏️ Post</option><option value="video">🎬 Video</option><option value="image">🖼 Image</option></select></div>'+
+      '<div><label>Date</label><input id="mec-date" type="date"></div>'+
+      '<div class="mec-full"><label>Title</label><input id="mec-title" placeholder="What\'s the headline?"></div>'+
+      '<div class="mec-full"><label>Body</label><textarea id="mec-body" placeholder="Write the update…"></textarea></div>'+
+      '<div class="mec-full"><label>Tags (comma separated)</label><input id="mec-tags" placeholder="work, behind-the-scenes"></div>'+
+      '<div class="mec-full" id="mec-media-wrap"></div>';
+    card.append(grid);
+
+    const mediaWrap=grid.querySelector('#mec-media-wrap');
+    function renderMedia(){
+      const t=card.querySelector('#mec-type').value;
+      if(t==='video'){
+        mediaWrap.innerHTML='<label>Upload a video guide (MP4/MOV) — or paste a YouTube link below</label>'+
+          '<div class="mec-row"><button class="mec-ghost" id="mec-vid-btn">🎬 Upload Video File</button><span class="d" id="mec-vid-name">No video uploaded yet</span><input type="hidden" id="mec-videosrc"></div>'+
+          '<label style="margin-top:10px;display:block">YouTube URL or ID (optional — used only if no file is uploaded)</label><input id="mec-yt" placeholder="https://youtu.be/… or 11-char ID">';
+        mediaWrap.querySelector('#mec-vid-btn').onclick=()=>{
+          const i=document.createElement('input'); i.type='file'; i.accept='video/mp4,video/quicktime,video/webm,.mp4,.mov,.webm';
+          i.onchange=()=>{ if(!i.files[0])return; const fd=i.files[0];
+            mediaWrap.querySelector('#mec-vid-name').textContent='Uploading '+fd.name+'…';
+            fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{
+              mediaWrap.querySelector('#mec-videosrc').value=j.path;
+              mediaWrap.querySelector('#mec-vid-name').textContent='✅ '+j.path.split('/').pop();
+            }).catch(()=>mediaWrap.querySelector('#mec-vid-name').textContent='Upload failed — is editor_server.py running?');
+          };
+          i.click();
+        };
+      }
+      else if(t==='image'){ mediaWrap.innerHTML='<label>Image</label><div class="mec-row"><button class="mec-ghost" id="mec-img-btn">📷 Upload Image</button><span class="d" id="mec-img-name">No image yet</span><input type="hidden" id="mec-thumb"></div>';
+        mediaWrap.querySelector('#mec-img-btn').onclick=()=>{ const i=document.createElement('input'); i.type='file'; i.accept='image/*'; i.onchange=()=>{ if(!i.files[0])return; const fd=i.files[0]; mediaWrap.querySelector('#mec-img-name').textContent='Uploading…'; fetch('/upload?name='+encodeURIComponent(fd.name),{method:'POST',body:fd}).then(r=>r.json()).then(j=>{ mediaWrap.querySelector('#mec-thumb').value=j.path; mediaWrap.querySelector('#mec-img-name').textContent='✅ '+j.path.split('/').pop(); }).catch(()=>mediaWrap.querySelector('#mec-img-name').textContent='Upload failed'); }; i.click(); };
+      } else { mediaWrap.innerHTML=''; }
+    }
+    card.querySelector('#mec-type').onchange=renderMedia; renderMedia();
+    card.querySelector('#mec-date').value=new Date().toISOString().slice(0,10);
+
+    const row=document.createElement('div'); row.className='mec-row';
+    const pinned=document.createElement('label'); pinned.style.cssText='display:flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;font-size:13px;color:#ccc;margin:0';
+    pinned.innerHTML='<input type="checkbox" id="mec-pin" style="width:auto"> 📌 Pin to top';
+    const addBtn=document.createElement('button'); addBtn.className='mec-btn'; addBtn.textContent='＋ Add to feed';
+    addBtn.onclick=()=>{
+      const t=card.querySelector('#mec-type').value;
+      const title=card.querySelector('#mec-title').value.trim();
+      const body=card.querySelector('#mec-body').value.trim();
+      if(!title&&!body){ alert('Add a title or body first.'); return; }
+      const post={ id:nextId(), type:t, pinned:card.querySelector('#mec-pin').checked,
+        date:card.querySelector('#mec-date').value||new Date().toISOString().slice(0,10),
+        title:title, body:body,
+        tags:card.querySelector('#mec-tags').value.split(',').map(s=>s.trim()).filter(Boolean) };
+      if(t==='video'){
+        const uploadedSrc=(card.querySelector('#mec-videosrc')||{}).value||'';
+        if(uploadedSrc) post.videoSrc=uploadedSrc;
+        else post.youtube=ytId((card.querySelector('#mec-yt')||{}).value||'');
+      }
+      if(t==='image') post.thumb=(card.querySelector('#mec-thumb')||{}).value||'';
+      FEED.unshift(post); dirty=true; render();
+    };
+    row.append(pinned,addBtn); card.append(row);
+
+    // Existing posts list
+    const list=document.createElement('div'); list.className='mec-list';
+    list.innerHTML='<div class="mec-sub" style="margin-bottom:8px">'+FEED.length+' post'+(FEED.length===1?'':'s')+' in feed</div>';
+    FEED.forEach((p,i)=>{
+      const it=document.createElement('div'); it.className='mec-item';
+      const lbl=p.type==='video'?'🎬':p.type==='image'?'🖼':'✏️';
+      it.innerHTML='<span>'+lbl+'</span><div class="t">'+(p.title||'(untitled)')+'<div class="d">'+(p.date||'')+'</div></div>';
+      const pin=document.createElement('button'); pin.className='mec-mini'+(p.pinned?' on':''); pin.textContent='📌'; pin.title='Pin/unpin';
+      pin.onclick=()=>{ p.pinned=!p.pinned; dirty=true; render(); };
+      const up=document.createElement('button'); up.className='mec-mini'; up.textContent='↑'; up.title='Move up';
+      up.onclick=()=>{ if(i>0){ [FEED[i-1],FEED[i]]=[FEED[i],FEED[i-1]]; dirty=true; render(); } };
+      const del=document.createElement('button'); del.className='mec-mini'; del.textContent='✕'; del.title='Delete';
+      del.onclick=()=>{ if(confirm('Delete "'+(p.title||'this post')+'"?')){ FEED.splice(i,1); dirty=true; render(); } };
+      it.append(pin,up,del); list.append(it);
+    });
+    card.append(list);
+
+    const save=document.createElement('button'); save.className='mec-save'; save.textContent=dirty?'💾 Save & Publish':'✓ Up to date';
+    save.onclick=()=>{
+      save.disabled=true; save.textContent='Publishing…';
+      fetch('/save-feed',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({posts:FEED})})
+        .then(r=>r.ok?r.json():Promise.reject())
+        .then(j=>{ save.textContent=j.pushed?'✅ Published':'💾 Saved'; dirty=false; setTimeout(()=>location.reload(),900); })
+        .catch(()=>{ save.disabled=false; save.textContent='⚠️ Save failed — is editor_server running?'; });
+    };
+    card.append(save);
+    host.append(card);
+  }
+
+  // Mount when edit mode turns on
+  let mounted=false;
+  function tryMount(){ if(document.body.classList.contains('ze-on')&&!mounted){ mounted=true; load().then(render); } }
+  new MutationObserver(tryMount).observe(document.body,{attributes:true,attributeFilter:['class']});
+  tryMount();
+})();
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* ── BRANDS CONFIG ─────────────────────────────────────────────────────────
+﻿/* ── BRANDS CONFIG ─────────────────────────────────────────────────────────
    Single source of truth for all extended brand metadata.
    Edit via the Brand Manager (Brands panel → Manage Brands) in edit mode,
    or directly here. Changes reflect in every panel on the phone navigator.
@@ -16,8 +16,6 @@
      'slack'      → Startups panel
      'linkedin'   → LinkedIn / Resume panel
      'messages'   → Testimonials panel
-
-   When you add or edit a brand here and assign platforms, the matching phone app feeds are rebuilt automatically.
    ────────────────────────────────────────────────────────────────────────── */
 window.BRAND_CONFIG = {
   "Geely": {
@@ -73,6 +71,21 @@ window.BRAND_CONFIG = {
     "banner": "",
     "vimeo": []
   },
+  "Mooz": {
+    "platforms": [
+      "instagram",
+      "facebook"
+    ],
+    "role": "Lead Creative",
+    "year": "2021",
+    "tags": [
+      "FMCG",
+      "Character Design"
+    ],
+    "desc": "Character universe and social-first campaign design for Mooz by Bazooka Candy.",
+    "banner": "",
+    "vimeo": []
+  },
   "Subway-Oman": {
     "platforms": [
       "instagram",
@@ -82,14 +95,13 @@ window.BRAND_CONFIG = {
     "year": "2023",
     "tags": [
       "BTL",
-      "Social",
       "Copy",
+      "Social",
       "QSR"
     ],
     "desc": "BTL creative and copywriting for SubSavers promotion. Social-first campaign with bilingual copy.",
     "banner": "",
-    "vimeo": [],
-    "title": ""
+    "vimeo": []
   },
   "Molfix": {
     "platforms": [

@@ -356,6 +356,23 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .bm-checks{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
 .bm-check{padding:6px 12px;border:1px solid var(--b);border-radius:8px;cursor:pointer;font-size:12px;transition:border-color .15s,color .15s;user-select:none}
 .bm-check.on{border-color:var(--gold);color:var(--gold)}
+
+.live-preview{padding:48px 24px 64px;background:linear-gradient(135deg,#0a0a0a 0%,#14110d 100%);border-bottom:1px solid var(--b)}
+.live-preview-inner{max-width:1200px;margin:0 auto}
+.live-hero{padding:40px 0 36px}
+.live-eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.live-title{font-family:Arial Black,Helvetica Neue,sans-serif;font-size:clamp(52px,8vw,96px);font-weight:900;line-height:.95;letter-spacing:-2px;color:var(--text);margin-bottom:24px}
+.live-title em{color:var(--gold);font-style:normal}
+.live-sub{font-size:16px;color:var(--m2);max-width:520px;margin-bottom:32px}
+.live-actions{display:flex;flex-wrap:wrap;gap:12px}
+.live-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+.live-card{position:relative;min-height:220px;background:#111111;overflow:hidden;grid-column:span 4;border:1px solid var(--b)}
+.live-card.large{grid-column:span 7;min-height:320px}
+.live-card.tall{grid-column:span 5;min-height:320px}
+.live-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.live-meta{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.live-card-title{font-family:Arial Black,Helvetica Neue,sans-serif;font-size:18px;font-weight:900;color:var(--text)}
+@media (max-width:768px){.live-grid{grid-template-columns:1fr}.live-card,.live-card.large,.live-card.tall{grid-column:span 1}}
 </style>
 </head>
 <body>
@@ -404,6 +421,53 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
   <a href="mailto:Escapegoatssounds@gmail.com" class="nav-cta">Let's Talk →</a>
 </nav>
 
+<section class="live-preview">
+  <div class="live-preview-inner">
+    <div class="live-hero">
+      <p class="live-eyebrow">Creative / Social Media Director · AI Expert · Hybrid Producer</p>
+      <h1 class="live-title">Abdelaziz<br><em>Askar</em></h1>
+      <p class="live-sub">Turning insights into cultural momentum — across campaigns, tracks, and intelligent systems.</p>
+      <div class="live-actions">
+        <a href="#live-work" class="btn btn-gold">View Work</a>
+        <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="live-grid" id="live-work">
+      <div class="live-card large">
+        <div class="live-card-overlay">
+          <p class="live-meta">ATL · MBC · 2025</p>
+          <p class="live-card-title">MBC CrossC Campaign</p>
+        </div>
+      </div>
+      <div class="live-card tall">
+        <div class="live-card-overlay">
+          <p class="live-meta">Brand Launch · Geely · 2025</p>
+          <p class="live-card-title">Geely Coolray UAE</p>
+        </div>
+      </div>
+      <div class="live-card">
+        <div class="live-card-overlay">
+          <p class="live-meta">TVC · Molfix · 2023</p>
+          <p class="live-card-title">Molfix Production</p>
+        </div>
+      </div>
+      <div class="live-card">
+        <div class="live-card-overlay">
+          <p class="live-meta">BTL · Subway Oman · 2024</p>
+          <p class="live-card-title">SubSavers Regional</p>
+        </div>
+      </div>
+      <div class="live-card">
+        <div class="live-card-overlay">
+          <p class="live-meta">Influencer · Royal Herbs · 2021</p>
+          <p class="live-card-title">Healthy Living</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="layout">
   <div class="phone-col">
     <div class="phone-hint">
@@ -426,7 +490,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
           </div>
         </div>
 
-        <div class="screen" id="lockScreen" onclick="unlockPhone()" onpointerdown="unlockPhone()" ontouchstart="unlockPhone()">
+        <div class="screen" id="lockScreen">
           <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1c1140 0%,#0c0c0c 55%,#0c0e0b 100%)"></div>
           <div style="position:absolute;inset:0;background:radial-gradient(circle at 60% 28%,rgba(240,194,51,.14),transparent 55%),radial-gradient(circle at 25% 75%,rgba(139,92,246,.18),transparent 50%)"></div>
           <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;height:100%;padding:60px 24px 36px">
@@ -497,7 +561,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
             </div>
 
             <div style="flex:1"></div>
-            <div style="text-align:center"><div class="lock-pill"></div><div class="lock-unlock-text">tap to unlock</div></div>
+            <div style="text-align:center"><div class="lock-pill"></div><div class="lock-unlock-text">tap or swipe to unlock</div></div>
           </div>
         </div>
 
@@ -1387,8 +1451,10 @@ egAudio.addEventListener('timeupdate', function(){
 function updateClock(){const now=new Date();const h=now.getHours().toString().padStart(2,'0');const m=now.getMinutes().toString().padStart(2,'0');const t=h+':'+m;['clockDisplay','lockTime'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=t;});const d=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];const mo=['January','February','March','April','May','June','July','August','September','October','November','December'];const ld=document.getElementById('lockDate');if(ld)ld.textContent=d[now.getDay()]+', '+mo[now.getMonth()]+' '+now.getDate();}
 updateClock();setInterval(updateClock,30000);
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('hidden',s.id!==id));}
-function unlockPhone(){showScreen('homeScreen');showPanel(null);}
-function showHome(){showScreen('homeScreen');showPanel(null);}
+function attachLockScreenEvents(){const lock=document.getElementById('lockScreen');if(!lock)return;['click','pointerdown','touchstart','pointerup','touchend'].forEach(evt=>lock.addEventListener(evt,unlockPhone));}
+document.addEventListener('DOMContentLoaded',attachLockScreenEvents);
+function unlockPhone(){showScreen('homeScreen');showPanel(null);history.replaceState(null,'', '#home');}
+function showHome(){showScreen('homeScreen');showPanel(null);history.replaceState(null,'', '#home');}
 // Route mouse-wheel events into the active app's scrollable body
 // (needed because #appScreens is height:0 and overflow:hidden ancestors swallow wheel events)
 (function(){

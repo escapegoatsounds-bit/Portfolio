@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Visitor Stats — Abdelaziz Askar</title>
+<link rel="icon" href="assets/photos/escapegoat-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0e10;--s1:#16161a;--s2:#1f1f24;--b:#2c2c33;--gold:#f0c233;--text:#f4f2ed;--m:#9a958c;--m2:#c2bcb2;--font:'Inter',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:48px 32px 80px}
+h1{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-1.5px;margin-bottom:6px}
+.sub{font-size:13px;color:var(--m2);margin-bottom:28px}
+.notice{background:#241c0c;border:1px solid #4a3a12;border-left:3px solid var(--gold);border-radius:8px;padding:16px 20px;font-size:13px;color:var(--m2);line-height:1.7;margin-bottom:32px}
+.notice b{color:var(--gold)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--b);border:1px solid var(--b);border-radius:10px;overflow:hidden;margin-bottom:36px}
+.stat{background:var(--s1);padding:22px 20px}
+.stat-n{font-size:32px;font-weight:900;color:var(--gold);letter-spacing:-1px;line-height:1}
+.stat-l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--m);margin-top:6px}
+.sec{margin-bottom:36px}
+.sec h2{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--b)}
+th{color:var(--m);font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+td.n{text-align:right;color:var(--gold);font-weight:700;white-space:nowrap}
+.bar{height:6px;background:var(--gold);border-radius:3px;margin-top:4px}
+#empty{color:var(--m);font-size:14px;padding:40px 0;text-align:center}
+.reload{background:var(--gold);color:#000;border:none;border-radius:8px;padding:9px 18px;font:800 12px var(--font);letter-spacing:.05em;text-transform:uppercase;cursor:pointer;margin-bottom:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Visitor Stats</h1>
+  <p class="sub">Local traffic log from the editor server.</p>
+
+  <div class="notice">
+    <b>Heads up:</b> this only counts visits made while <code>editor_server.py</code> was running on this machine (e.g. your own local testing).
+    GitHub Pages is a static host — it can't run this Python backend, so <b>real visitors to the live site are not tracked yet</b>.
+    To capture real traffic you'd need either a small always-on server for this backend, or a privacy-friendly hosted analytics
+    script (e.g. GoatCounter, Plausible) added to the pages instead.
+  </div>
+
+  <button class="reload" onclick="load()">↻ Refresh</button>
+
+  <div id="content"></div>
+</div>
+
+<script>
+function bar(n, max){ return '<div class="bar" style="width:'+(max?Math.max(4,Math.round(n/max*100)):0)+'%"></div>'; }
+function rows(list, label){
+  if(!list.length) return '<tr><td colspan="2" style="color:var(--m)">No data yet</td></tr>';
+  const max = Math.max(...list.map(r=>r[1]));
+  return list.map(r=>`<tr><td>${r[0]||'(unknown)'}${bar(r[1],max)}</td><td class="n">${r[1]}</td></tr>`).join('');
+}
+function load(){
+  document.getElementById('content').innerHTML = '<div id="empty">Loading…</div>';
+  fetch('/track-stats?t='+Date.now()).then(r=>r.json()).then(d=>{
+    if(!d.totalHits){
+      document.getElementById('content').innerHTML = '<div id="empty">No visits logged yet. Browse the site locally with editor_server.py running to generate data.</div>';
+      return;
+    }
+    document.getElementById('content').innerHTML = `
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-n">${d.totalHits}</div><div class="stat-l">Total Page Views</div></div>
+        <div class="stat"><div class="stat-n">${d.uniqueVisitors}</div><div class="stat-l">Unique Visitors</div></div>
+        <div class="stat"><div class="stat-n">${d.byPath.length}</div><div class="stat-l">Pages Visited</div></div>
+        <div class="stat"><div class="stat-n">${d.byDay.length}</div><div class="stat-l">Active Days</div></div>
+      </div>
+      <div class="sec"><h2>Top Pages</h2><table>${rows(d.byPath)}</table></div>
+      <div class="sec"><h2>Referrers</h2><table>${rows(d.byReferrer)}</table></div>
+      <div class="sec"><h2>Visits by Day</h2><table>${rows(d.byDay)}</table></div>
+    `;
+  }).catch(()=>{
+    document.getElementById('content').innerHTML = '<div id="empty">Could not reach /track-stats — is editor_server.py running?</div>';
+  });
+}
+load();
+</script>
+</body>
+</html>
