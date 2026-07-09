@@ -1,0 +1,40 @@
+media:
+  input: 00_brand-assets
+  output: /00_brand-assets
+
+collections:
+  - name: Creative Campaigns (ATL)
+    id: creative_atl
+    type: folder
+    path: 01_creative-content/campaigns/ATL
+    format: html # or json/md depending on how your code reads data
+    fields:
+      - { name: Project Name, id: title, type: string }
+      - { name: Hero Thumbnail, id: thumbnail, type: image }
+      - { name: Brief & Strategy, id: brief, type: rich-text }
+      - { name: Sketches & Process, id: sketches, type: image, list: true }
+      - { name: Copywriting, id: copywriting, type: text }
+      - { name: Work Done / Deliverables, id: deliverables, type: rich-text }
+
+  - name: Production & Music
+    id: music_tracks
+    type: folder
+    path: 02_production-music/tracks
+    format: html
+    fields:
+      - { name: Track Name, id: title, type: string }
+      - { name: Cover Visual, id: cover, type: image }
+      - { name: Brief / Concept, id: concept, type: text }
+      - { name: Audio Stream Link, id: embed_link, type: string }
+      - { name: Lyrics / Copywriting, id: lyrics, type: text }
+
+  - name: AI & Automation
+    id: ai_tools
+    type: folder
+    path: 03_ai-automation/tools-workflows
+    format: html
+    fields:
+      - { name: Tool Name, id: title, type: string }
+      - { name: Problem Statement, id: problem, type: text }
+      - { name: Process / Architecture, id: architecture, type: rich-text }
+      - { name: Walkthrough Video, id: video, type: string }
