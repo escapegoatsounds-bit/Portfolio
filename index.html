@@ -286,9 +286,6 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .pv-desc{font-size:14.5px;line-height:1.8;color:var(--m2);max-width:70ch}
 .pv-tags{display:flex;flex-wrap:wrap;gap:8px}
 .pv-tag{font-size:11px;color:var(--text);padding:6px 13px;background:var(--s2);border:1px solid var(--b);border-radius:99px}
-.pv-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
-.pv-video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;border:1px solid var(--b)}
-.pv-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .pv-cta{display:flex;gap:12px;flex-wrap:wrap}
 .pv-empty{font-size:13px;color:var(--m);line-height:1.7}
 .ze-on .bm-trigger-btn{display:flex!important}
@@ -1533,20 +1530,6 @@ function openApp(key){
 /* ---------- extended project view ----------
    Clicking a brand anywhere in the phone expands that project across the
    content panel instead of navigating away to the standalone case-study page. */
-function pvSrc(v){
-  return v.source==="drive"
-    ? "https://drive.google.com/file/d/"+encodeURIComponent(v.id)+"/preview"
-    : "https://player.vimeo.com/video/"+encodeURIComponent(v.id)+"?color=f0c233&title=0&byline=0&portrait=0&dnt=1";
-}
-
-function pvVideos(cfg){
-  const vids=Array.isArray(cfg.vimeo)?cfg.vimeo.filter(v=>v&&v.id):[];
-  if(!vids.length)return"";
-  return `<section class="pv-section"><div class="pv-label">Work</div><div class="pv-videos">`
-    +vids.map(v=>`<div class="pv-video"><iframe src="${esc(pvSrc(v))}" title="${esc(v.title||"Project video")}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`).join("")
-    +`</div></section>`;
-}
-
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 
 function openProject(slug){
@@ -1581,7 +1564,6 @@ function openProject(slug){
                   :`<p class="pv-empty">No write-up for ${esc(b.n)} yet — open the full case study for the complete project.</p>`}
       </section>
       ${tags.length?`<section class="pv-section"><div class="pv-label">Scope</div><div class="pv-tags">${tags.map(t=>`<span class="pv-tag">${esc(t)}</span>`).join("")}</div></section>`:""}
-      ${pvVideos(cfg)}
       <div class="pv-section pv-dropped" data-slug="${esc(slug)}" hidden></div>
       <section class="pv-section">
         <div class="pv-cta">

@@ -940,9 +940,11 @@
     const old=document.getElementById('zz-gallery-sec'); if(old) old.remove();
     if(!items.length) return;
 
-    const canvaItems=items.filter(m=>m.kind==='canva');
     const audioItems=items.filter(m=>m.kind==='audio');
-    const mediaItems=items.filter(m=>m.kind!=='canva'&&m.kind!=='audio');
+    // Films are shown in the player under "The work" - one at a time, with its
+    // note. Leaving them in this carousel too put every film on the page twice.
+    const FILM=/^(video|drive|youtube|vimeo)$/;
+    const mediaItems=items.filter(m=>m.kind!=='canva'&&m.kind!=='audio'&&!FILM.test(m.kind||''));
 
     const sec=el('div'); sec.id='zz-gallery-sec'; sec.className='zz-gallery-section';
     const c=el('div'); c.className='c';
@@ -1100,25 +1102,9 @@
       c.append(grid);
     }
 
-    // Canva presentation embeds
-    if(canvaItems.length){
-      const psl=el('p'); psl.className='sl'; psl.style.marginTop=mediaItems.length?'56px':'0';
-      psl.textContent='Presentation';
-      c.append(psl);
-      canvaItems.forEach(mm=>{
-        if(mm.label){ const pst=el('h2'); pst.className='st'; pst.textContent=mm.label; c.append(pst); }
-        const wrap=el('div');
-        wrap.style.cssText='position:relative;width:100%;height:0;padding-top:56.2225%;border-radius:12px;overflow:hidden;border:1px solid var(--b,#2c2c33)';
-        const iframe=el('iframe'); iframe.src=mm.src; iframe.loading='lazy'; iframe.allowFullscreen=true;
-        iframe.allow='fullscreen'; iframe.setAttribute('allowfullscreen','allowfullscreen');
-        iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none';
-        wrap.append(iframe); c.append(wrap);
-      });
-    }
-
     // Audio jingles / VO — simple track-list players
     if(audioItems.length){
-      const asl=el('p'); asl.className='sl'; asl.style.marginTop=(mediaItems.length||canvaItems.length)?'56px':'0';
+      const asl=el('p'); asl.className='sl'; asl.style.marginTop=mediaItems.length?'56px':'0';
       asl.textContent='Audio';
       const ah=el('h2'); ah.className='st'; ah.textContent='Jingles & Voiceover';
       c.append(asl,ah);
@@ -1529,7 +1515,7 @@
   function loadProjectContent(){
     if(window.ProjectContent) return Promise.resolve();
     if(_pcLoad) return _pcLoad;
-    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=2'; document.head.append(css);
+    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=4'; document.head.append(css);
     const st=el('style'); st.textContent=
       '#zz-dropped-sec .zz-dropzone{margin-top:28px;border:2px dashed var(--b,#2c2c33);border-radius:12px;padding:26px;text-align:center;color:var(--m2,#c2bcb2);font-size:13px;display:flex;flex-direction:column;gap:10px;align-items:center;transition:border-color .15s,background .15s}'
       +'#zz-dropped-sec .zz-dropzone.over{border-color:var(--accent,#f0c233);background:rgba(255,255,255,.03)}'
@@ -1539,14 +1525,16 @@
       +'#zz-dropped-sec .zz-dz-btns button{font:700 12px var(--font,Inter,sans-serif);padding:9px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--b,#2c2c33);background:var(--s2,#1f1f24);color:var(--text,#f4f2ed)}'
       +'#zz-dropped-sec .zz-dz-btns button:first-child{background:var(--accent,#f0c233);border-color:var(--accent,#f0c233);color:#000}';
     document.head.append(st);
-    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=2'; s.onload=res; s.onerror=res; document.head.append(s); });
+    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=4'; s.onload=res; s.onerror=res; document.head.append(s); });
     return _pcLoad;
   }
   function applyDropped(){
     return loadProjectContent().then(()=>{
       if(!window.ProjectContent) return;
       if(ProjectContent.refresh) ProjectContent.refresh();
-      return ProjectContent.for(SLUG).then(html=>{
+      // Stills already have their own carousel on this page (applyGallery),
+      // so take films, decks and the drop folders only.
+      return ProjectContent.for(SLUG,{projectStills:false}).then(html=>{
         let sec=document.getElementById('zz-dropped-sec');
         if(!html && !editing()){ if(sec) sec.remove(); return; }
         if(!sec){

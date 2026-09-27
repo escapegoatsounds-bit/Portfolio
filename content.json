@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T04:48:22.038603+00:00",
+  "generated": "2026-09-27T10:07:37.772507+00:00",
   "brands": {
     "Audi": {
       "images": [],
@@ -7,42 +7,920 @@
       "articles": [],
       "links": [
         {
-          "url": "https://drive.google.com/file/d/1OeN9tfBWIgUpiSHgRuyNc5D0wEYQylbD/view",
+          "url": "https://drive.google.com/file/d/1s-NNiLKEsl4tayFE_1dXqP1zjWPRb0Pf/view",
           "provider": "drive",
-          "embed": "https://drive.google.com/file/d/1OeN9tfBWIgUpiSHgRuyNc5D0wEYQylbD/preview",
-          "title": "Audi A5 - You Earned It",
-          "id": "1OeN9tfBWIgUpiSHgRuyNc5D0wEYQylbD"
+          "embed": "https://drive.google.com/file/d/1s-NNiLKEsl4tayFE_1dXqP1zjWPRb0Pf/preview",
+          "title": "Audi concept frame 1",
+          "kind": "photo",
+          "id": "1s-NNiLKEsl4tayFE_1dXqP1zjWPRb0Pf"
         },
         {
-          "url": "https://drive.google.com/file/d/1uW6X_x6ynes_AgLf-rl_7xPToP_dJbgy/view",
+          "url": "https://drive.google.com/file/d/1YArcwHijRZ8ilc7DIF9e5lZhEwX0sAad/view",
           "provider": "drive",
-          "embed": "https://drive.google.com/file/d/1uW6X_x6ynes_AgLf-rl_7xPToP_dJbgy/preview",
-          "title": "Audi A7 - New Premium Commercial, 2019",
-          "id": "1uW6X_x6ynes_AgLf-rl_7xPToP_dJbgy"
+          "embed": "https://drive.google.com/file/d/1YArcwHijRZ8ilc7DIF9e5lZhEwX0sAad/preview",
+          "title": "Audi concept frame 2",
+          "kind": "photo",
+          "id": "1YArcwHijRZ8ilc7DIF9e5lZhEwX0sAad"
         },
         {
-          "url": "https://drive.google.com/file/d/104GuypzEJf6tHWlKvIne4GsQ-zRPv3M1/view",
+          "url": "https://drive.google.com/file/d/1AaHfja6H12WbMPHxoRshKn09cmVLKHfW/view",
           "provider": "drive",
-          "embed": "https://drive.google.com/file/d/104GuypzEJf6tHWlKvIne4GsQ-zRPv3M1/preview",
-          "title": "Audi A8 - New Premium feature, fragrance control",
-          "id": "104GuypzEJf6tHWlKvIne4GsQ-zRPv3M1"
+          "embed": "https://drive.google.com/file/d/1AaHfja6H12WbMPHxoRshKn09cmVLKHfW/preview",
+          "title": "Audi concept frame 3",
+          "kind": "photo",
+          "id": "1AaHfja6H12WbMPHxoRshKn09cmVLKHfW"
         },
         {
-          "url": "https://drive.google.com/file/d/17A3ShS7QsLhFlrU31U4Kn4OjU0pSMrw5/view",
+          "url": "https://drive.google.com/file/d/1XA-rhgc5TgOlXqAb8wM0WKGXX9tdVqQH/view",
           "provider": "drive",
-          "embed": "https://drive.google.com/file/d/17A3ShS7QsLhFlrU31U4Kn4OjU0pSMrw5/preview",
-          "title": "Audi e-tron - Redefining electric driving in the Middle East",
-          "id": "17A3ShS7QsLhFlrU31U4Kn4OjU0pSMrw5"
+          "embed": "https://drive.google.com/file/d/1XA-rhgc5TgOlXqAb8wM0WKGXX9tdVqQH/preview",
+          "title": "Audi concept frame 4",
+          "kind": "photo",
+          "id": "1XA-rhgc5TgOlXqAb8wM0WKGXX9tdVqQH"
         },
         {
-          "url": "https://drive.google.com/file/d/1u_Gj9Nd9rxCXvt-9wh0Jtv2sg9T3MAVG/view",
+          "url": "https://drive.google.com/file/d/1h1DeyBmoK8K83vrJavREiPj6V5gTx-eM/view",
           "provider": "drive",
-          "embed": "https://drive.google.com/file/d/1u_Gj9Nd9rxCXvt-9wh0Jtv2sg9T3MAVG/preview",
-          "title": "Audi New Premium campaign",
-          "id": "1u_Gj9Nd9rxCXvt-9wh0Jtv2sg9T3MAVG"
+          "embed": "https://drive.google.com/file/d/1h1DeyBmoK8K83vrJavREiPj6V5gTx-eM/preview",
+          "title": "Audi concept frame 5",
+          "kind": "photo",
+          "id": "1h1DeyBmoK8K83vrJavREiPj6V5gTx-eM"
+        },
+        {
+          "url": "https://drive.google.com/file/d/16rYvpVTHwT0p7hpv7n9iw9-ow0P36cJW/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/16rYvpVTHwT0p7hpv7n9iw9-ow0P36cJW/preview",
+          "title": "Audi concept frame 6",
+          "kind": "photo",
+          "id": "16rYvpVTHwT0p7hpv7n9iw9-ow0P36cJW"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1u5vh0shWQPvxdzd8O8NtOQ-u08QiojCR/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1u5vh0shWQPvxdzd8O8NtOQ-u08QiojCR/preview",
+          "title": "Audi concept frame 7",
+          "kind": "photo",
+          "id": "1u5vh0shWQPvxdzd8O8NtOQ-u08QiojCR"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1hXVf9nJeycv8LzrwR_pUGArbOtfTVq3e/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1hXVf9nJeycv8LzrwR_pUGArbOtfTVq3e/preview",
+          "title": "Audi concept frame 8",
+          "kind": "photo",
+          "id": "1hXVf9nJeycv8LzrwR_pUGArbOtfTVq3e"
+        },
+        {
+          "url": "https://drive.google.com/file/d/18Pg5QmRIlysr7xNvBEW8ke414wBskR8P/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/18Pg5QmRIlysr7xNvBEW8ke414wBskR8P/preview",
+          "title": "Audi concept frame 9",
+          "kind": "photo",
+          "id": "18Pg5QmRIlysr7xNvBEW8ke414wBskR8P"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1oc0NQ-Lc7UbdOoWHNvhv90oXWQ73ND14/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1oc0NQ-Lc7UbdOoWHNvhv90oXWQ73ND14/preview",
+          "title": "Audi concept frame 10",
+          "kind": "photo",
+          "id": "1oc0NQ-Lc7UbdOoWHNvhv90oXWQ73ND14"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1FqktZjPyxMmR6KVMlHpP_TRxMaPTNvlc/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1FqktZjPyxMmR6KVMlHpP_TRxMaPTNvlc/preview",
+          "title": "Audi concept frame 11",
+          "kind": "photo",
+          "id": "1FqktZjPyxMmR6KVMlHpP_TRxMaPTNvlc"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1jrm9DmD-RWv5SWPzGfPyRR2YUe80tq3i/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1jrm9DmD-RWv5SWPzGfPyRR2YUe80tq3i/preview",
+          "title": "Audi concept frame 12",
+          "kind": "photo",
+          "id": "1jrm9DmD-RWv5SWPzGfPyRR2YUe80tq3i"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1lzxiqYOdgmsCFQhYThvpZTRy-v4-s3NZ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1lzxiqYOdgmsCFQhYThvpZTRy-v4-s3NZ/preview",
+          "title": "Audi concept frame 13",
+          "kind": "photo",
+          "id": "1lzxiqYOdgmsCFQhYThvpZTRy-v4-s3NZ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Qcjgnb9tpKf28tGp6bN2Gz3OHNjXtzl2/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Qcjgnb9tpKf28tGp6bN2Gz3OHNjXtzl2/preview",
+          "title": "Audi concept frame 14",
+          "kind": "photo",
+          "id": "1Qcjgnb9tpKf28tGp6bN2Gz3OHNjXtzl2"
+        },
+        {
+          "url": "https://drive.google.com/file/d/12n2wpbXMMlo9fPqw0Em3NyQkSTEjgHBx/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/12n2wpbXMMlo9fPqw0Em3NyQkSTEjgHBx/preview",
+          "title": "Audi concept frame 15",
+          "kind": "photo",
+          "id": "12n2wpbXMMlo9fPqw0Em3NyQkSTEjgHBx"
+        },
+        {
+          "url": "https://drive.google.com/file/d/15wo3ZTylhNzzVGL1YctvPYZCH2e8l-fh/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/15wo3ZTylhNzzVGL1YctvPYZCH2e8l-fh/preview",
+          "title": "Audi concept frame 16",
+          "kind": "photo",
+          "id": "15wo3ZTylhNzzVGL1YctvPYZCH2e8l-fh"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1yrYp4ED3pxMjHVCBfni1uZZ9-njYW9lx/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1yrYp4ED3pxMjHVCBfni1uZZ9-njYW9lx/preview",
+          "title": "Audi concept frame 17",
+          "kind": "photo",
+          "id": "1yrYp4ED3pxMjHVCBfni1uZZ9-njYW9lx"
+        },
+        {
+          "url": "https://drive.google.com/file/d/195MLKUGm_o4z9CDK1BEeSqKNSLJxemgD/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/195MLKUGm_o4z9CDK1BEeSqKNSLJxemgD/preview",
+          "title": "Audi concept frame 18",
+          "kind": "photo",
+          "id": "195MLKUGm_o4z9CDK1BEeSqKNSLJxemgD"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1GrRx-uMI_n3a64JKQ8b-VidoNPqDQSaX/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1GrRx-uMI_n3a64JKQ8b-VidoNPqDQSaX/preview",
+          "title": "Audi concept frame 19",
+          "kind": "photo",
+          "id": "1GrRx-uMI_n3a64JKQ8b-VidoNPqDQSaX"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1g4VF2mCrSrtOeK1xohU5zgfAGKCfgv0e/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1g4VF2mCrSrtOeK1xohU5zgfAGKCfgv0e/preview",
+          "title": "Audi concept frame 20",
+          "kind": "photo",
+          "id": "1g4VF2mCrSrtOeK1xohU5zgfAGKCfgv0e"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1utMFOEULCph2NFonBFjeEIRgWFUvb54H/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1utMFOEULCph2NFonBFjeEIRgWFUvb54H/preview",
+          "title": "Audi concept frame 21",
+          "kind": "photo",
+          "id": "1utMFOEULCph2NFonBFjeEIRgWFUvb54H"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1i9BNMjtm5qJAsg5SI8BwdgFeWaByYztO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1i9BNMjtm5qJAsg5SI8BwdgFeWaByYztO/preview",
+          "title": "Audi concept frame 22",
+          "kind": "photo",
+          "id": "1i9BNMjtm5qJAsg5SI8BwdgFeWaByYztO"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1tJw9I4uvbzDo-jLn4j73TBcHHAJpRNeX/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1tJw9I4uvbzDo-jLn4j73TBcHHAJpRNeX/preview",
+          "title": "Audi concept frame 23",
+          "kind": "photo",
+          "id": "1tJw9I4uvbzDo-jLn4j73TBcHHAJpRNeX"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1_jQC9wGEEAjNtrLq8D5ZlTCbgQrisf5B/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1_jQC9wGEEAjNtrLq8D5ZlTCbgQrisf5B/preview",
+          "title": "Audi concept frame 24",
+          "kind": "photo",
+          "id": "1_jQC9wGEEAjNtrLq8D5ZlTCbgQrisf5B"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1InlokhR16ixeQxOD6r0f8ZQDm7Wi9JQd/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1InlokhR16ixeQxOD6r0f8ZQDm7Wi9JQd/preview",
+          "title": "Audi concept frame 25",
+          "kind": "photo",
+          "id": "1InlokhR16ixeQxOD6r0f8ZQDm7Wi9JQd"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1RjJZ9b38d4GxSfCNh-c2_-DEQPiWnz_S/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1RjJZ9b38d4GxSfCNh-c2_-DEQPiWnz_S/preview",
+          "title": "Audi concept frame 26",
+          "kind": "photo",
+          "id": "1RjJZ9b38d4GxSfCNh-c2_-DEQPiWnz_S"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1cBVYhxgd_zn6f1tVJeG--i9LgstAOXlA/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1cBVYhxgd_zn6f1tVJeG--i9LgstAOXlA/preview",
+          "title": "Audi concept frame 27",
+          "kind": "photo",
+          "id": "1cBVYhxgd_zn6f1tVJeG--i9LgstAOXlA"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1i9fLtZXkvPkxp-uBLS8JKyBVGbOVXp-r/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1i9fLtZXkvPkxp-uBLS8JKyBVGbOVXp-r/preview",
+          "title": "Audi concept frame 28",
+          "kind": "photo",
+          "id": "1i9fLtZXkvPkxp-uBLS8JKyBVGbOVXp-r"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1fgzyVFhMnTg8zQKMwIoWHQrQ9MbXT40O/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1fgzyVFhMnTg8zQKMwIoWHQrQ9MbXT40O/preview",
+          "title": "Audi concept frame 29",
+          "kind": "photo",
+          "id": "1fgzyVFhMnTg8zQKMwIoWHQrQ9MbXT40O"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1GLZrBRpO-Wg3sYZDnI3xQk94Nv8qjK21/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1GLZrBRpO-Wg3sYZDnI3xQk94Nv8qjK21/preview",
+          "title": "Audi concept frame 30",
+          "kind": "photo",
+          "id": "1GLZrBRpO-Wg3sYZDnI3xQk94Nv8qjK21"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1fzJNgJptoTUoPQ5zIc7eA2hEhE6QVI4G/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1fzJNgJptoTUoPQ5zIc7eA2hEhE6QVI4G/preview",
+          "title": "Audi concept frame 31",
+          "kind": "photo",
+          "id": "1fzJNgJptoTUoPQ5zIc7eA2hEhE6QVI4G"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-50kcL0jm5XmO4vJVr6lJy-zRVc1As9z/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-50kcL0jm5XmO4vJVr6lJy-zRVc1As9z/preview",
+          "title": "Audi concept frame 32",
+          "kind": "photo",
+          "id": "1-50kcL0jm5XmO4vJVr6lJy-zRVc1As9z"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1XD9YsMoYb-0DRSE_sd5Ac3alW9nPRWyZ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1XD9YsMoYb-0DRSE_sd5Ac3alW9nPRWyZ/preview",
+          "title": "Audi concept frame 33",
+          "kind": "photo",
+          "id": "1XD9YsMoYb-0DRSE_sd5Ac3alW9nPRWyZ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1YCPjqp8JtFM-SyjPKOQxu3vNxVCT3CrB/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1YCPjqp8JtFM-SyjPKOQxu3vNxVCT3CrB/preview",
+          "title": "Audi concept frame 34",
+          "kind": "photo",
+          "id": "1YCPjqp8JtFM-SyjPKOQxu3vNxVCT3CrB"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1s1KVgXhhErhIrpGEG7UvmXZbJggQ-5aA/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1s1KVgXhhErhIrpGEG7UvmXZbJggQ-5aA/preview",
+          "title": "Audi concept frame 35",
+          "kind": "photo",
+          "id": "1s1KVgXhhErhIrpGEG7UvmXZbJggQ-5aA"
+        },
+        {
+          "url": "https://drive.google.com/file/d/10skn_1LN7LDb66qnq9Pzua_augkofcxn/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/10skn_1LN7LDb66qnq9Pzua_augkofcxn/preview",
+          "title": "Audi concept frame 36",
+          "kind": "photo",
+          "id": "10skn_1LN7LDb66qnq9Pzua_augkofcxn"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Dg6WpHrzNQb_JmPurC9yzmxQMcAy3a6v/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Dg6WpHrzNQb_JmPurC9yzmxQMcAy3a6v/preview",
+          "title": "Audi concept frame 37",
+          "kind": "photo",
+          "id": "1Dg6WpHrzNQb_JmPurC9yzmxQMcAy3a6v"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1P2a87RifTHWSEPHQGswiqa8yoU0JzaGG/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1P2a87RifTHWSEPHQGswiqa8yoU0JzaGG/preview",
+          "title": "Audi concept frame 38",
+          "kind": "photo",
+          "id": "1P2a87RifTHWSEPHQGswiqa8yoU0JzaGG"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ulKBHMtnI6EIF9WTfAWwwW4M6btmvCZr/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ulKBHMtnI6EIF9WTfAWwwW4M6btmvCZr/preview",
+          "title": "Audi concept frame 39",
+          "kind": "photo",
+          "id": "1ulKBHMtnI6EIF9WTfAWwwW4M6btmvCZr"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1mtbiIVHURu56ysyclrR_rGSEPn1C2LTt/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1mtbiIVHURu56ysyclrR_rGSEPn1C2LTt/preview",
+          "title": "Audi concept frame 40",
+          "kind": "photo",
+          "id": "1mtbiIVHURu56ysyclrR_rGSEPn1C2LTt"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1lsL_ktydU-Tgyn0lYdVRqGSdXZbOkB5F/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1lsL_ktydU-Tgyn0lYdVRqGSdXZbOkB5F/preview",
+          "title": "Audi concept frame 41",
+          "kind": "photo",
+          "id": "1lsL_ktydU-Tgyn0lYdVRqGSdXZbOkB5F"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-lTg-vA5Zz2uVqMnuxBpy8WHMQIxmQm4/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-lTg-vA5Zz2uVqMnuxBpy8WHMQIxmQm4/preview",
+          "title": "Audi concept frame 42",
+          "kind": "photo",
+          "id": "1-lTg-vA5Zz2uVqMnuxBpy8WHMQIxmQm4"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1zdhcRaMiY_QapyeqWgy5e-X5wvlm2nLF/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1zdhcRaMiY_QapyeqWgy5e-X5wvlm2nLF/preview",
+          "title": "Audi concept frame 43",
+          "kind": "photo",
+          "id": "1zdhcRaMiY_QapyeqWgy5e-X5wvlm2nLF"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1MfJxkNsY6XeyO6heO8Izzvk-_dYMUSUi/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1MfJxkNsY6XeyO6heO8Izzvk-_dYMUSUi/preview",
+          "title": "Audi concept frame 44",
+          "kind": "photo",
+          "id": "1MfJxkNsY6XeyO6heO8Izzvk-_dYMUSUi"
         }
       ],
-      "count": 5
+      "count": 44
+    },
+    "Bazooka-Candy": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAHA0tbWcFM/LQzLhF7GZfPfeRCEWBw3oQ/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAHA0tbWcFM/LQzLhF7GZfPfeRCEWBw3oQ/view?embed",
+          "title": "Mooz animations",
+          "kind": "",
+          "id": "DAHA0tbWcFM",
+          "note": "The Mooz character in motion - 22 boards covering the profile, the poses and the animation set built for social."
+        },
+        {
+          "url": "https://drive.google.com/file/d/1QdqWX8H4rr0XM6jL9UzDfKfDUvpspZUn/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1QdqWX8H4rr0XM6jL9UzDfKfDUvpspZUn/preview",
+          "title": "Bazooka reels",
+          "kind": "",
+          "id": "1QdqWX8H4rr0XM6jL9UzDfKfDUvpspZUn"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1_dy9YxrMrSq8DLXEs798tObKIj-TUzlc/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1_dy9YxrMrSq8DLXEs798tObKIj-TUzlc/preview",
+          "title": "Bazooka cut 1",
+          "kind": "",
+          "id": "1_dy9YxrMrSq8DLXEs798tObKIj-TUzlc"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1EHngW339pun8MS5Z0NqQXXdVIb2CTIIi/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1EHngW339pun8MS5Z0NqQXXdVIb2CTIIi/preview",
+          "title": "creation_2264381457",
+          "kind": "animatic",
+          "id": "1EHngW339pun8MS5Z0NqQXXdVIb2CTIIi"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1EpZECFhCg3YgPKktuX5NA0_Pa7iLNBO7/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1EpZECFhCg3YgPKktuX5NA0_Pa7iLNBO7/preview",
+          "title": "freepik dynamic camera zooms in on a colorful bag",
+          "kind": "animatic",
+          "id": "1EpZECFhCg3YgPKktuX5NA0_Pa7iLNBO7"
+        },
+        {
+          "url": "https://drive.google.com/file/d/13z67JJMJhUc0hhjK5g6w8mYGSvjDDtSC/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/13z67JJMJhUc0hhjK5g6w8mYGSvjDDtSC/preview",
+          "title": "freepik moose character chewing gum",
+          "kind": "animatic",
+          "id": "13z67JJMJhUc0hhjK5g6w8mYGSvjDDtSC"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1SuraAXxiwe1-OEpWLRkxHBpg2IotpVcU/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1SuraAXxiwe1-OEpWLRkxHBpg2IotpVcU/preview",
+          "title": "freepik moose character rapping",
+          "kind": "animatic",
+          "id": "1SuraAXxiwe1-OEpWLRkxHBpg2IotpVcU"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1u_4XMH0rmFxMBX3XLzbXe9qSZgTuQNYO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1u_4XMH0rmFxMBX3XLzbXe9qSZgTuQNYO/preview",
+          "title": "freepik frame divided into boxes intro",
+          "kind": "animatic",
+          "id": "1u_4XMH0rmFxMBX3XLzbXe9qSZgTuQNYO"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO/preview",
+          "title": "Share Your Fun!",
+          "kind": "",
+          "id": "1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1F97fm7OjH23xh2R8VJFEorbMopfd31FE/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1F97fm7OjH23xh2R8VJFEorbMopfd31FE/preview",
+          "title": "Bazooka cut 2",
+          "kind": "",
+          "id": "1F97fm7OjH23xh2R8VJFEorbMopfd31FE"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1M8JJIBc6hrVyeLxKAprdSazh8qDgXknz/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1M8JJIBc6hrVyeLxKAprdSazh8qDgXknz/preview",
+          "title": "Bazooka cut 3",
+          "kind": "",
+          "id": "1M8JJIBc6hrVyeLxKAprdSazh8qDgXknz"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1oi8kjkAJlpG_RiGHZypDHacjWF9L-NkQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1oi8kjkAJlpG_RiGHZypDHacjWF9L-NkQ/preview",
+          "title": "Bazooka cut 4",
+          "kind": "",
+          "id": "1oi8kjkAJlpG_RiGHZypDHacjWF9L-NkQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1HTIwl68FIRm4tiBkb90ZBwjIwCR1Cd41/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1HTIwl68FIRm4tiBkb90ZBwjIwCR1Cd41/preview",
+          "title": "Bazooka cut 5",
+          "kind": "",
+          "id": "1HTIwl68FIRm4tiBkb90ZBwjIwCR1Cd41"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1riULaq3Yd0mEF49RrHChtQUgFkXNTd0Q/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1riULaq3Yd0mEF49RrHChtQUgFkXNTd0Q/preview",
+          "title": "Bazooka cut 6",
+          "kind": "",
+          "id": "1riULaq3Yd0mEF49RrHChtQUgFkXNTd0Q"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1CvxloiXwWoj85UKLZunoHNWrJ8BnEqb9/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1CvxloiXwWoj85UKLZunoHNWrJ8BnEqb9/preview",
+          "title": "Bazooka cut 7",
+          "kind": "",
+          "id": "1CvxloiXwWoj85UKLZunoHNWrJ8BnEqb9"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1BS9S4X5A-oUBLU4q53YK_qEMNODX36FF/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1BS9S4X5A-oUBLU4q53YK_qEMNODX36FF/preview",
+          "title": "Bazooka cut 8",
+          "kind": "",
+          "id": "1BS9S4X5A-oUBLU4q53YK_qEMNODX36FF"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Ctbxn95ppXrlqqUAI3irc1kLM3SFxLqR/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Ctbxn95ppXrlqqUAI3irc1kLM3SFxLqR/preview",
+          "title": "Bazooka cut 9",
+          "kind": "",
+          "id": "1Ctbxn95ppXrlqqUAI3irc1kLM3SFxLqR"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1YALXHw46USpLLhb06PFislc2nyHQePmD/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1YALXHw46USpLLhb06PFislc2nyHQePmD/preview",
+          "title": "Bazooka cut 10",
+          "kind": "",
+          "id": "1YALXHw46USpLLhb06PFislc2nyHQePmD"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1FmYLESefoH3_daO2Vie_GxZv7ndYNgYN/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1FmYLESefoH3_daO2Vie_GxZv7ndYNgYN/preview",
+          "title": "Mooz animation 1",
+          "kind": "animatic",
+          "id": "1FmYLESefoH3_daO2Vie_GxZv7ndYNgYN"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1g0o2X4Ncn4_FQxNAicdoHnjuAcDP_-1n/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1g0o2X4Ncn4_FQxNAicdoHnjuAcDP_-1n/preview",
+          "title": "Mooz animation 2",
+          "kind": "animatic",
+          "id": "1g0o2X4Ncn4_FQxNAicdoHnjuAcDP_-1n"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1i7hJQIRbHWl-glbsP5wO2KnC823IfDct/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1i7hJQIRbHWl-glbsP5wO2KnC823IfDct/preview",
+          "title": "Mooz animation 3",
+          "kind": "animatic",
+          "id": "1i7hJQIRbHWl-glbsP5wO2KnC823IfDct"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1z6NsNpr54i3tVrAxVjLEk-mFB9Tefnri/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1z6NsNpr54i3tVrAxVjLEk-mFB9Tefnri/preview",
+          "title": "Mooz animation 4",
+          "kind": "animatic",
+          "id": "1z6NsNpr54i3tVrAxVjLEk-mFB9Tefnri"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1PgvpJF2dZIG7P86t4RgwJFtmcruGd1tu/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1PgvpJF2dZIG7P86t4RgwJFtmcruGd1tu/preview",
+          "title": "Mooz animation 5",
+          "kind": "animatic",
+          "id": "1PgvpJF2dZIG7P86t4RgwJFtmcruGd1tu"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1JUvB7DyZFWizoEUgfWTE1UhL0oOhS2hx/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1JUvB7DyZFWizoEUgfWTE1UhL0oOhS2hx/preview",
+          "title": "Mooz animation 6",
+          "kind": "animatic",
+          "id": "1JUvB7DyZFWizoEUgfWTE1UhL0oOhS2hx"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ywPSx9z1LOC4NLUHZxvr3BV4Wf_MomF3/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ywPSx9z1LOC4NLUHZxvr3BV4Wf_MomF3/preview",
+          "title": "Mooz animation 7",
+          "kind": "animatic",
+          "id": "1ywPSx9z1LOC4NLUHZxvr3BV4Wf_MomF3"
+        },
+        {
+          "url": "https://drive.google.com/file/d/11obEXqV55KP6nZilfj9q-aoSBaJKOeDo/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/11obEXqV55KP6nZilfj9q-aoSBaJKOeDo/preview",
+          "title": "Mooz animation 8",
+          "kind": "animatic",
+          "id": "11obEXqV55KP6nZilfj9q-aoSBaJKOeDo"
+        },
+        {
+          "url": "https://drive.google.com/file/d/11gDKxCjKwzr-Bwn-_qwO77cbswMDlMXQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/11gDKxCjKwzr-Bwn-_qwO77cbswMDlMXQ/preview",
+          "title": "Mooz animation 9",
+          "kind": "animatic",
+          "id": "11gDKxCjKwzr-Bwn-_qwO77cbswMDlMXQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1BJ4XE5PAteC0UQzZB6SFfWQDpGGUzFhG/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1BJ4XE5PAteC0UQzZB6SFfWQDpGGUzFhG/preview",
+          "title": "Mooz animation 10",
+          "kind": "animatic",
+          "id": "1BJ4XE5PAteC0UQzZB6SFfWQDpGGUzFhG"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1JRn0G3ZsTXAM-RXzkGqzMkmZ-Gjw2qbn/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1JRn0G3ZsTXAM-RXzkGqzMkmZ-Gjw2qbn/preview",
+          "title": "Mooz animation 11",
+          "kind": "animatic",
+          "id": "1JRn0G3ZsTXAM-RXzkGqzMkmZ-Gjw2qbn"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1g0dE8cMJ-C38rxicWvPpoMTYH0mi3qg-/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1g0dE8cMJ-C38rxicWvPpoMTYH0mi3qg-/preview",
+          "title": "Mooz animation 12",
+          "kind": "animatic",
+          "id": "1g0dE8cMJ-C38rxicWvPpoMTYH0mi3qg-"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1LlV8kB55_j8TMS79xXYPvQSxiIgWbXqO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1LlV8kB55_j8TMS79xXYPvQSxiIgWbXqO/preview",
+          "title": "Mooz animation 13",
+          "kind": "animatic",
+          "id": "1LlV8kB55_j8TMS79xXYPvQSxiIgWbXqO"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1I5FbRbBIVw628D0CD6iUpG-q0dcSwSJ8/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1I5FbRbBIVw628D0CD6iUpG-q0dcSwSJ8/preview",
+          "title": "Mooz animation 14",
+          "kind": "animatic",
+          "id": "1I5FbRbBIVw628D0CD6iUpG-q0dcSwSJ8"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1trZ1yen0iRf-9-kric49dyv6_vbfCbH_/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1trZ1yen0iRf-9-kric49dyv6_vbfCbH_/preview",
+          "title": "Mooz animation 15",
+          "kind": "animatic",
+          "id": "1trZ1yen0iRf-9-kric49dyv6_vbfCbH_"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1XiMS70jhOmgYBFsJKo06JHobfIbMAxNS/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1XiMS70jhOmgYBFsJKo06JHobfIbMAxNS/preview",
+          "title": "Mooz still 1",
+          "kind": "photo",
+          "id": "1XiMS70jhOmgYBFsJKo06JHobfIbMAxNS"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1clcTu57g_w7Z8ViyqAHsP9Ne_j5TZYJp/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1clcTu57g_w7Z8ViyqAHsP9Ne_j5TZYJp/preview",
+          "title": "Mooz still 2",
+          "kind": "photo",
+          "id": "1clcTu57g_w7Z8ViyqAHsP9Ne_j5TZYJp"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1PrbFMXqu1OG-AN342kDYWQCyWpcG3YbC/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1PrbFMXqu1OG-AN342kDYWQCyWpcG3YbC/preview",
+          "title": "Mooz still 3",
+          "kind": "photo",
+          "id": "1PrbFMXqu1OG-AN342kDYWQCyWpcG3YbC"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1d6O75AXG2yUVZLFFFvPYN4qE1pAoVq-O/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1d6O75AXG2yUVZLFFFvPYN4qE1pAoVq-O/preview",
+          "title": "Mooz still 4",
+          "kind": "photo",
+          "id": "1d6O75AXG2yUVZLFFFvPYN4qE1pAoVq-O"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1GQwhr2sjZFbie1kOGjjJHgU1JVgN3vno/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1GQwhr2sjZFbie1kOGjjJHgU1JVgN3vno/preview",
+          "title": "Mooz still 5",
+          "kind": "photo",
+          "id": "1GQwhr2sjZFbie1kOGjjJHgU1JVgN3vno"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1gpE2ZBi66ZEh6vNIHM4YaYjvmXcfIgl_/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1gpE2ZBi66ZEh6vNIHM4YaYjvmXcfIgl_/preview",
+          "title": "Mooz still 6",
+          "kind": "photo",
+          "id": "1gpE2ZBi66ZEh6vNIHM4YaYjvmXcfIgl_"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1GXxJ0qvFX_EAaNksskn7U1HWk78_mNTo/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1GXxJ0qvFX_EAaNksskn7U1HWk78_mNTo/preview",
+          "title": "Mooz still 7",
+          "kind": "photo",
+          "id": "1GXxJ0qvFX_EAaNksskn7U1HWk78_mNTo"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Ctrfo0Equ2pe--Ot1iTXPMGR4oI42f09/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Ctrfo0Equ2pe--Ot1iTXPMGR4oI42f09/preview",
+          "title": "Mooz still 8",
+          "kind": "photo",
+          "id": "1Ctrfo0Equ2pe--Ot1iTXPMGR4oI42f09"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1LQSSxgMeri_gcdjhvu8lax7ECiUa9ETA/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1LQSSxgMeri_gcdjhvu8lax7ECiUa9ETA/preview",
+          "title": "Mooz still 9",
+          "kind": "photo",
+          "id": "1LQSSxgMeri_gcdjhvu8lax7ECiUa9ETA"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1HzwoPfnxarq46881vRoF6cCMFjjfkVzf/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1HzwoPfnxarq46881vRoF6cCMFjjfkVzf/preview",
+          "title": "Mooz still 10",
+          "kind": "photo",
+          "id": "1HzwoPfnxarq46881vRoF6cCMFjjfkVzf"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1IPIt60RrshS6hvvLoVoQ02yP7OA6qDN2/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1IPIt60RrshS6hvvLoVoQ02yP7OA6qDN2/preview",
+          "title": "Mooz still 11",
+          "kind": "photo",
+          "id": "1IPIt60RrshS6hvvLoVoQ02yP7OA6qDN2"
+        },
+        {
+          "url": "https://drive.google.com/file/d/191bpbK9ztK6QXj4ddKJ1TroSwsMwxNrb/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/191bpbK9ztK6QXj4ddKJ1TroSwsMwxNrb/preview",
+          "title": "Mooz still 12",
+          "kind": "photo",
+          "id": "191bpbK9ztK6QXj4ddKJ1TroSwsMwxNrb"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1VcXuMxPfdYuSfDJnHG2xFxGlvrnCPfwL/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1VcXuMxPfdYuSfDJnHG2xFxGlvrnCPfwL/preview",
+          "title": "Mooz still 13",
+          "kind": "photo",
+          "id": "1VcXuMxPfdYuSfDJnHG2xFxGlvrnCPfwL"
+        },
+        {
+          "url": "https://drive.google.com/file/d/14iau-oqKbRxzN9AYVv9o9bDrTyPcmaIM/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/14iau-oqKbRxzN9AYVv9o9bDrTyPcmaIM/preview",
+          "title": "Mooz still 14",
+          "kind": "photo",
+          "id": "14iau-oqKbRxzN9AYVv9o9bDrTyPcmaIM"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1o7i0MPCSX0KtaPxt5q_IUgaqtVAJsYQY/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1o7i0MPCSX0KtaPxt5q_IUgaqtVAJsYQY/preview",
+          "title": "Mooz still 15",
+          "kind": "photo",
+          "id": "1o7i0MPCSX0KtaPxt5q_IUgaqtVAJsYQY"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1W21cCdjnTQ1sqcAIPXJzGjCtbLVsgvuc/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1W21cCdjnTQ1sqcAIPXJzGjCtbLVsgvuc/preview",
+          "title": "Mooz still 16",
+          "kind": "photo",
+          "id": "1W21cCdjnTQ1sqcAIPXJzGjCtbLVsgvuc"
+        },
+        {
+          "url": "https://drive.google.com/file/d/100FesQS6gvk_VlQRFZ5-TL5kJdgTUqMq/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/100FesQS6gvk_VlQRFZ5-TL5kJdgTUqMq/preview",
+          "title": "Mooz still 17",
+          "kind": "photo",
+          "id": "100FesQS6gvk_VlQRFZ5-TL5kJdgTUqMq"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1itDTTK4wiTeo5IbL-fq2xJ-7rQaMBxmE/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1itDTTK4wiTeo5IbL-fq2xJ-7rQaMBxmE/preview",
+          "title": "Mooz still 18",
+          "kind": "photo",
+          "id": "1itDTTK4wiTeo5IbL-fq2xJ-7rQaMBxmE"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1NhM9QjKszQRpFIabS8Syua7JHH3fgQGz/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1NhM9QjKszQRpFIabS8Syua7JHH3fgQGz/preview",
+          "title": "Mooz still 19",
+          "kind": "photo",
+          "id": "1NhM9QjKszQRpFIabS8Syua7JHH3fgQGz"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-yJBegYdMzS98jQ46aYXsgWWCpkk62c8/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-yJBegYdMzS98jQ46aYXsgWWCpkk62c8/preview",
+          "title": "Mooz still 20",
+          "kind": "photo",
+          "id": "1-yJBegYdMzS98jQ46aYXsgWWCpkk62c8"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1DStXcC9Uh_I_g5v_hI0bDd2AUXpSgwvC/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1DStXcC9Uh_I_g5v_hI0bDd2AUXpSgwvC/preview",
+          "title": "Mooz still 21",
+          "kind": "photo",
+          "id": "1DStXcC9Uh_I_g5v_hI0bDd2AUXpSgwvC"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1C37r9rEnvE0z86TXLg5Hrrj2WMQq_0H6/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1C37r9rEnvE0z86TXLg5Hrrj2WMQq_0H6/preview",
+          "title": "Mooz still 22",
+          "kind": "photo",
+          "id": "1C37r9rEnvE0z86TXLg5Hrrj2WMQq_0H6"
+        },
+        {
+          "url": "https://drive.google.com/file/d/14az5QtqJdpzVgtq2vaQdcwA2G_2N9Myz/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/14az5QtqJdpzVgtq2vaQdcwA2G_2N9Myz/preview",
+          "title": "Mooz still 23",
+          "kind": "photo",
+          "id": "14az5QtqJdpzVgtq2vaQdcwA2G_2N9Myz"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1gIpbKHMJ6V78S-4mClo-Q60Zvs0l6jzV/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1gIpbKHMJ6V78S-4mClo-Q60Zvs0l6jzV/preview",
+          "title": "Mooz still 24",
+          "kind": "photo",
+          "id": "1gIpbKHMJ6V78S-4mClo-Q60Zvs0l6jzV"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1XFo0PSR79j3BYUM1C66oDiesyxHPFBIQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1XFo0PSR79j3BYUM1C66oDiesyxHPFBIQ/preview",
+          "title": "Mooz still 25",
+          "kind": "photo",
+          "id": "1XFo0PSR79j3BYUM1C66oDiesyxHPFBIQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ySH1bP5l_NI3rw8uEsDOAQHUeVR52-3y/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ySH1bP5l_NI3rw8uEsDOAQHUeVR52-3y/preview",
+          "title": "Mooz still 26",
+          "kind": "photo",
+          "id": "1ySH1bP5l_NI3rw8uEsDOAQHUeVR52-3y"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1QXgSn5d_en0IGo2RKNLaplB_kF1rnNmN/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1QXgSn5d_en0IGo2RKNLaplB_kF1rnNmN/preview",
+          "title": "Mooz still 27",
+          "kind": "photo",
+          "id": "1QXgSn5d_en0IGo2RKNLaplB_kF1rnNmN"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1FVysBl-xMCwTezFOJ30MwRkRlzGTR5rh/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1FVysBl-xMCwTezFOJ30MwRkRlzGTR5rh/preview",
+          "title": "Mooz still 28",
+          "kind": "photo",
+          "id": "1FVysBl-xMCwTezFOJ30MwRkRlzGTR5rh"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-2fvFY9HkWy7ys36KVOvm8jXsHFPl01J/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-2fvFY9HkWy7ys36KVOvm8jXsHFPl01J/preview",
+          "title": "Mooz still 29",
+          "kind": "photo",
+          "id": "1-2fvFY9HkWy7ys36KVOvm8jXsHFPl01J"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1D9SNqvXN_Uc2rIbZvaQJOCDLUz5cLlrI/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1D9SNqvXN_Uc2rIbZvaQJOCDLUz5cLlrI/preview",
+          "title": "Mooz still 30",
+          "kind": "photo",
+          "id": "1D9SNqvXN_Uc2rIbZvaQJOCDLUz5cLlrI"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1eygHt9TrlwkHqesaAgC2g664CRMkZFIo/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1eygHt9TrlwkHqesaAgC2g664CRMkZFIo/preview",
+          "title": "Mooz still 31",
+          "kind": "photo",
+          "id": "1eygHt9TrlwkHqesaAgC2g664CRMkZFIo"
+        },
+        {
+          "url": "https://drive.google.com/file/d/19MmzBsquQx537U27IW3CcDs-YM3sJ6eC/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/19MmzBsquQx537U27IW3CcDs-YM3sJ6eC/preview",
+          "title": "Mooz still 32",
+          "kind": "photo",
+          "id": "19MmzBsquQx537U27IW3CcDs-YM3sJ6eC"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1anClJKLSxj5TmjNNe4bDueVGmxFHlm-o/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1anClJKLSxj5TmjNNe4bDueVGmxFHlm-o/preview",
+          "title": "Mooz still 33",
+          "kind": "photo",
+          "id": "1anClJKLSxj5TmjNNe4bDueVGmxFHlm-o"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1H8Hn3t3XbhDO6d7LfbDUqkZ_rftQx5mA/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1H8Hn3t3XbhDO6d7LfbDUqkZ_rftQx5mA/preview",
+          "title": "Mooz still 34",
+          "kind": "photo",
+          "id": "1H8Hn3t3XbhDO6d7LfbDUqkZ_rftQx5mA"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1aEm5qbLn4sZl5akl3AMZHCY9A1hGtDKW/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1aEm5qbLn4sZl5akl3AMZHCY9A1hGtDKW/preview",
+          "title": "Mooz still 35",
+          "kind": "photo",
+          "id": "1aEm5qbLn4sZl5akl3AMZHCY9A1hGtDKW"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1CCpe16TUHqy7C9HBgi1Gd7q1WaU7UfsF/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1CCpe16TUHqy7C9HBgi1Gd7q1WaU7UfsF/preview",
+          "title": "Mooz still 36",
+          "kind": "photo",
+          "id": "1CCpe16TUHqy7C9HBgi1Gd7q1WaU7UfsF"
+        }
+      ],
+      "count": 69
     },
     "BIC-WNA": {
       "images": [],
@@ -54,17 +932,163 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1ZR5FqjHMAtLgeGlxs7MKnk2RBqiz-ekg/preview",
           "title": "BIC Flex 5 - Meet the Barber TVC",
+          "kind": "",
           "id": "1ZR5FqjHMAtLgeGlxs7MKnk2RBqiz-ekg"
         },
         {
-          "url": "https://drive.google.com/file/d/1qt2OhKmfTbIOPnONx4GkbN-WjP1zMvuX/view",
+          "url": "https://drive.google.com/file/d/1ql27rFtUAGpkeJbKV3dbLoRwPF1vi8td/view",
           "provider": "drive",
-          "embed": "https://drive.google.com/file/d/1qt2OhKmfTbIOPnONx4GkbN-WjP1zMvuX/preview",
+          "embed": "https://drive.google.com/file/d/1ql27rFtUAGpkeJbKV3dbLoRwPF1vi8td/preview",
           "title": "Light it right with BIC - BIC Lighters Egypt",
-          "id": "1qt2OhKmfTbIOPnONx4GkbN-WjP1zMvuX"
+          "kind": "",
+          "id": "1ql27rFtUAGpkeJbKV3dbLoRwPF1vi8td"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1HqjXaSbPLpxbgpNa_UI6liGfYYRewYbp/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1HqjXaSbPLpxbgpNa_UI6liGfYYRewYbp/preview",
+          "title": "Bic Cristal West Africa TV Commercial",
+          "kind": "",
+          "id": "1HqjXaSbPLpxbgpNa_UI6liGfYYRewYbp"
         }
       ],
-      "count": 2
+      "count": 3
+    },
+    "Bonny": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1OaChiAtV3wFxC5A2qgkIRbLQclKbGbDG/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1OaChiAtV3wFxC5A2qgkIRbLQclKbGbDG/preview",
+          "title": "Bonny cut",
+          "kind": "",
+          "id": "1OaChiAtV3wFxC5A2qgkIRbLQclKbGbDG"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-0ttH8X4DW25LQwusNHmKyMQZXkkzCCL/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-0ttH8X4DW25LQwusNHmKyMQZXkkzCCL/preview",
+          "title": "Bonny still 1",
+          "kind": "photo",
+          "id": "1-0ttH8X4DW25LQwusNHmKyMQZXkkzCCL"
+        },
+        {
+          "url": "https://drive.google.com/file/d/19lRR8sZc-Qg-0hN5j7ju2um3S_jz7VOe/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/19lRR8sZc-Qg-0hN5j7ju2um3S_jz7VOe/preview",
+          "title": "Bonny still 2",
+          "kind": "photo",
+          "id": "19lRR8sZc-Qg-0hN5j7ju2um3S_jz7VOe"
+        }
+      ],
+      "count": 3
+    },
+    "Delight-Parties": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/15WQ9jVlcw089sS2F8Q9nkGknsLj5-ui5/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/15WQ9jVlcw089sS2F8Q9nkGknsLj5-ui5/preview",
+          "title": "Social cut 1",
+          "kind": "",
+          "id": "15WQ9jVlcw089sS2F8Q9nkGknsLj5-ui5"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-J68vQw7X5HfsX2ajqcKynnlD8gKHLGz/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-J68vQw7X5HfsX2ajqcKynnlD8gKHLGz/preview",
+          "title": "Social cut 2",
+          "kind": "",
+          "id": "1-J68vQw7X5HfsX2ajqcKynnlD8gKHLGz"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1r6KTntpPPzeDrFtEys_pUswYhZ9kYfd3/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1r6KTntpPPzeDrFtEys_pUswYhZ9kYfd3/preview",
+          "title": "Social cut 3",
+          "kind": "",
+          "id": "1r6KTntpPPzeDrFtEys_pUswYhZ9kYfd3"
+        }
+      ],
+      "count": 3
+    },
+    "EA-FC-Mobile": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1X2-5jHf3BtLmkPAc_8JFs1ZmMk3eES3d/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1X2-5jHf3BtLmkPAc_8JFs1ZmMk3eES3d/preview",
+          "title": "EA Sports shoot 1",
+          "kind": "bts",
+          "id": "1X2-5jHf3BtLmkPAc_8JFs1ZmMk3eES3d"
+        },
+        {
+          "url": "https://drive.google.com/file/d/18IMwsTRrLFBHnWawbq1ashG3-8sW4piA/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/18IMwsTRrLFBHnWawbq1ashG3-8sW4piA/preview",
+          "title": "EA Sports shoot 2",
+          "kind": "bts",
+          "id": "18IMwsTRrLFBHnWawbq1ashG3-8sW4piA"
+        },
+        {
+          "url": "https://drive.google.com/file/d/15uwimYZe7od92kM5iMvAJkd584QeC87O/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/15uwimYZe7od92kM5iMvAJkd584QeC87O/preview",
+          "title": "EA Sports shoot 3",
+          "kind": "bts",
+          "id": "15uwimYZe7od92kM5iMvAJkd584QeC87O"
+        }
+      ],
+      "count": 3
+    },
+    "Em-Sherif-Cafe": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1DdGBo022Wnyqz5w7VdRCbVK2dkBzs8Qg/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1DdGBo022Wnyqz5w7VdRCbVK2dkBzs8Qg/preview",
+          "title": "Em Sherif still 1",
+          "kind": "photo",
+          "id": "1DdGBo022Wnyqz5w7VdRCbVK2dkBzs8Qg"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1pIaH5pqPTxJQIOBIhM2DOo_qQjVMUwLY/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1pIaH5pqPTxJQIOBIhM2DOo_qQjVMUwLY/preview",
+          "title": "Em Sherif still 2",
+          "kind": "photo",
+          "id": "1pIaH5pqPTxJQIOBIhM2DOo_qQjVMUwLY"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1TpOWC8RuTiZlwy3T44NseApeq2CIHx0x/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1TpOWC8RuTiZlwy3T44NseApeq2CIHx0x/preview",
+          "title": "Em Sherif still 3",
+          "kind": "photo",
+          "id": "1TpOWC8RuTiZlwy3T44NseApeq2CIHx0x"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1tf_OiNtnBldY1eVyOHMOJjGe-pnFZSrl/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1tf_OiNtnBldY1eVyOHMOJjGe-pnFZSrl/preview",
+          "title": "Em Sherif still 4",
+          "kind": "photo",
+          "id": "1tf_OiNtnBldY1eVyOHMOJjGe-pnFZSrl"
+        }
+      ],
+      "count": 4
     },
     "Fujifilm": {
       "images": [],
@@ -76,6 +1100,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1-WMz9e-YJU_w7h2_gOuePrPhlzIneEzp/preview",
           "title": "Tonic ignites the spirit of photography for Fujifilm",
+          "kind": "",
           "id": "1-WMz9e-YJU_w7h2_gOuePrPhlzIneEzp"
         }
       ],
@@ -91,6 +1116,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/12barOXeQeVlMMD8IzvP9Dd5Ob7Xq45po/preview",
           "title": "Say Hi to the Geely EX5",
+          "kind": "",
           "id": "12barOXeQeVlMMD8IzvP9Dd5Ob7Xq45po"
         },
         {
@@ -98,6 +1124,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1j1uz8Css4lO49ywt0kydIhBJuhEIbEaj/preview",
           "title": "The all-new Cityray",
+          "kind": "",
           "id": "1j1uz8Css4lO49ywt0kydIhBJuhEIbEaj"
         },
         {
@@ -105,6 +1132,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/16eINDvL6dJgLysk7gISBkRGxj_nsRc1g/preview",
           "title": "The new Coolray is coming",
+          "kind": "",
           "id": "16eINDvL6dJgLysk7gISBkRGxj_nsRc1g"
         },
         {
@@ -112,10 +1140,315 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1u9NdHLoxkd4rA-my9bDBqtLwvNkYerBJ/preview",
           "title": "The new Monjaro from Geely",
+          "kind": "",
           "id": "1u9NdHLoxkd4rA-my9bDBqtLwvNkYerBJ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1gQN_V2Qcj3swAQEJjnACrltV4qQOmnbR/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1gQN_V2Qcj3swAQEJjnACrltV4qQOmnbR/preview",
+          "title": "EX5 EMi, expect the unexpected",
+          "kind": "animatic",
+          "id": "1gQN_V2Qcj3swAQEJjnACrltV4qQOmnbR"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1cAvNw6uRfEKNdER_2K0HVp4Azoni7dZM/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1cAvNw6uRfEKNdER_2K0HVp4Azoni7dZM/preview",
+          "title": "Get yours at geely.com ME",
+          "kind": "animatic",
+          "id": "1cAvNw6uRfEKNdER_2K0HVp4Azoni7dZM"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1VJJ9yeIwu2f68lhNHZR_khMf43a6nsmc/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1VJJ9yeIwu2f68lhNHZR_khMf43a6nsmc/preview",
+          "title": "Concept cut",
+          "kind": "animatic",
+          "id": "1VJJ9yeIwu2f68lhNHZR_khMf43a6nsmc"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1lIvdgFMnRkvJIGUhq4IsUNLdyPZJ0sOj/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1lIvdgFMnRkvJIGUhq4IsUNLdyPZJ0sOj/preview",
+          "title": "My First Ramadan in the Driver's Seat - Suhoor Shenanigans",
+          "kind": "",
+          "id": "1lIvdgFMnRkvJIGUhq4IsUNLdyPZJ0sOj"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1SpEKD9oZMAx2EyapmIG60Lh2fvBl8m3Z/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1SpEKD9oZMAx2EyapmIG60Lh2fvBl8m3Z/preview",
+          "title": "Geely still 1",
+          "kind": "photo",
+          "id": "1SpEKD9oZMAx2EyapmIG60Lh2fvBl8m3Z"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1AB1Fgeo8-AFOfGTAXPXvCmfl-h3DW-qi/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1AB1Fgeo8-AFOfGTAXPXvCmfl-h3DW-qi/preview",
+          "title": "Geely still 2",
+          "kind": "photo",
+          "id": "1AB1Fgeo8-AFOfGTAXPXvCmfl-h3DW-qi"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1hmvYb5g-d3v3w6-iCdboIkuNIEiFo6Dx/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1hmvYb5g-d3v3w6-iCdboIkuNIEiFo6Dx/preview",
+          "title": "Geely still 3",
+          "kind": "photo",
+          "id": "1hmvYb5g-d3v3w6-iCdboIkuNIEiFo6Dx"
         }
       ],
-      "count": 4
+      "count": 11
+    },
+    "Hardees": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1mZ5sAkDhhSX_ROnuJXNzHYxBwpwQ9IzP/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1mZ5sAkDhhSX_ROnuJXNzHYxBwpwQ9IzP/preview",
+          "title": "Hardees still 1",
+          "kind": "photo",
+          "id": "1mZ5sAkDhhSX_ROnuJXNzHYxBwpwQ9IzP"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1WovPsjM_70uaf3mALi7rfoy6B3cE6d6A/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1WovPsjM_70uaf3mALi7rfoy6B3cE6d6A/preview",
+          "title": "Hardees still 2",
+          "kind": "photo",
+          "id": "1WovPsjM_70uaf3mALi7rfoy6B3cE6d6A"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1UZIA4aL0U6cgSoZEbYCCIkfuj-KVuler/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1UZIA4aL0U6cgSoZEbYCCIkfuj-KVuler/preview",
+          "title": "Hardees still 3",
+          "kind": "photo",
+          "id": "1UZIA4aL0U6cgSoZEbYCCIkfuj-KVuler"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1TRniAXWGtvRyLKVK5vrR9JZdvrGCfdni/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1TRniAXWGtvRyLKVK5vrR9JZdvrGCfdni/preview",
+          "title": "Hardees still 4",
+          "kind": "photo",
+          "id": "1TRniAXWGtvRyLKVK5vrR9JZdvrGCfdni"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1DtcTA0dfPh3DF0S1Fr7iF354QiKiC194/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1DtcTA0dfPh3DF0S1Fr7iF354QiKiC194/preview",
+          "title": "Hardees still 5",
+          "kind": "photo",
+          "id": "1DtcTA0dfPh3DF0S1Fr7iF354QiKiC194"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1wAJ0lc7265Fk_yiJUB8In4ATxyFG_3gQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1wAJ0lc7265Fk_yiJUB8In4ATxyFG_3gQ/preview",
+          "title": "Hardees still 6",
+          "kind": "photo",
+          "id": "1wAJ0lc7265Fk_yiJUB8In4ATxyFG_3gQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Lc5MV8wCflGhLQCf9xJmyKE154BxBZah/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Lc5MV8wCflGhLQCf9xJmyKE154BxBZah/preview",
+          "title": "Hardees still 7",
+          "kind": "photo",
+          "id": "1Lc5MV8wCflGhLQCf9xJmyKE154BxBZah"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1v1MWOt3EBORq92Xb4fdGa_IGXScK9wS0/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1v1MWOt3EBORq92Xb4fdGa_IGXScK9wS0/preview",
+          "title": "Hardees still 8",
+          "kind": "photo",
+          "id": "1v1MWOt3EBORq92Xb4fdGa_IGXScK9wS0"
+        }
+      ],
+      "count": 8
+    },
+    "Hayat-Water": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1Ic6pTJiMexDg0vMc9GMy03Q7OSVAvYkf/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Ic6pTJiMexDg0vMc9GMy03Q7OSVAvYkf/preview",
+          "title": "Hayat cut 1",
+          "kind": "",
+          "id": "1Ic6pTJiMexDg0vMc9GMy03Q7OSVAvYkf"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1CaMFURr8KbxIwqCv2tdhCRH_gCGL_vOv/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1CaMFURr8KbxIwqCv2tdhCRH_gCGL_vOv/preview",
+          "title": "Hayat cut 2",
+          "kind": "",
+          "id": "1CaMFURr8KbxIwqCv2tdhCRH_gCGL_vOv"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1zL3RELkje_nLXj29ssmbi4U9tCBiYgEb/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1zL3RELkje_nLXj29ssmbi4U9tCBiYgEb/preview",
+          "title": "Hayat cut 3",
+          "kind": "",
+          "id": "1zL3RELkje_nLXj29ssmbi4U9tCBiYgEb"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1p1EdDQX7LzA3zBJ2g0hbKCLi6dm-vW4A/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1p1EdDQX7LzA3zBJ2g0hbKCLi6dm-vW4A/preview",
+          "title": "Hayat cut 4",
+          "kind": "",
+          "id": "1p1EdDQX7LzA3zBJ2g0hbKCLi6dm-vW4A"
+        },
+        {
+          "url": "https://drive.google.com/file/d/15cxQl7u1T-JZce5ot2g9e7xC9ZpfDomh/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/15cxQl7u1T-JZce5ot2g9e7xC9ZpfDomh/preview",
+          "title": "Hayat cut 5",
+          "kind": "",
+          "id": "15cxQl7u1T-JZce5ot2g9e7xC9ZpfDomh"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Czk4_LtpNC117XoC6Id7oCiE4EdKRcby/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Czk4_LtpNC117XoC6Id7oCiE4EdKRcby/preview",
+          "title": "Hayat cut 6",
+          "kind": "",
+          "id": "1Czk4_LtpNC117XoC6Id7oCiE4EdKRcby"
+        }
+      ],
+      "count": 6
+    },
+    "Juicy-Drop": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1im8PshREWthQyxyzSEmbLetZ3EBdfChs/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1im8PshREWthQyxyzSEmbLetZ3EBdfChs/preview",
+          "title": "Juicy Drop calendar brief 2025",
+          "kind": "",
+          "id": "1im8PshREWthQyxyzSEmbLetZ3EBdfChs"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1vTNT5658EBReX0Be7kYaqbLw7qQxkKDe/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1vTNT5658EBReX0Be7kYaqbLw7qQxkKDe/preview",
+          "title": "Freaked out, what's the secret",
+          "kind": "",
+          "id": "1vTNT5658EBReX0Be7kYaqbLw7qQxkKDe"
+        }
+      ],
+      "count": 2
+    },
+    "Labanita": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1XF-m69wuhLY7u7z2d4Xh5laQwiOX-8bZ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1XF-m69wuhLY7u7z2d4Xh5laQwiOX-8bZ/preview",
+          "title": "Labanita cut 1",
+          "kind": "",
+          "id": "1XF-m69wuhLY7u7z2d4Xh5laQwiOX-8bZ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1XjmiUBlwN6Lz7F6hY5LWwzLzVgOTYf0v/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1XjmiUBlwN6Lz7F6hY5LWwzLzVgOTYf0v/preview",
+          "title": "Labanita cut 2",
+          "kind": "",
+          "id": "1XjmiUBlwN6Lz7F6hY5LWwzLzVgOTYf0v"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1YN4I7L4Q3RHb6ZowMicuQsLgqkoi9C4n/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1YN4I7L4Q3RHb6ZowMicuQsLgqkoi9C4n/preview",
+          "title": "Labanita cut 3",
+          "kind": "",
+          "id": "1YN4I7L4Q3RHb6ZowMicuQsLgqkoi9C4n"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1fjVizSjdg4WOmZNPnYQD8ovDY0Z2ZjhW/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1fjVizSjdg4WOmZNPnYQD8ovDY0Z2ZjhW/preview",
+          "title": "Labanita cut 4",
+          "kind": "",
+          "id": "1fjVizSjdg4WOmZNPnYQD8ovDY0Z2ZjhW"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1U38jepqmAJ3RgPm9sLcLdpdgrQkwLhtF/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1U38jepqmAJ3RgPm9sLcLdpdgrQkwLhtF/preview",
+          "title": "Labanita cut 5",
+          "kind": "",
+          "id": "1U38jepqmAJ3RgPm9sLcLdpdgrQkwLhtF"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1JE_uOq5lCSxKCSSEw7dSZ4bBE9OflXfD/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1JE_uOq5lCSxKCSSEw7dSZ4bBE9OflXfD/preview",
+          "title": "Labanita cut 6",
+          "kind": "",
+          "id": "1JE_uOq5lCSxKCSSEw7dSZ4bBE9OflXfD"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Yaunggi4sOpR0p6GKwmjrpbMJWy5hrZA/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Yaunggi4sOpR0p6GKwmjrpbMJWy5hrZA/preview",
+          "title": "Labanita Final Kitchen",
+          "kind": "",
+          "id": "1Yaunggi4sOpR0p6GKwmjrpbMJWy5hrZA"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1_TChdv1RTyASco7X71wyG8ti5QQHh765/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1_TChdv1RTyASco7X71wyG8ti5QQHh765/preview",
+          "title": "Labanita Kitchen",
+          "kind": "",
+          "id": "1_TChdv1RTyASco7X71wyG8ti5QQHh765"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ur2Q7wFuqXh7huL4N9JVqap10IT46I3Z/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ur2Q7wFuqXh7huL4N9JVqap10IT46I3Z/preview",
+          "title": "Star Jum Low",
+          "kind": "",
+          "id": "1ur2Q7wFuqXh7huL4N9JVqap10IT46I3Z"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1rKJuLUe9JTAqTARTQunk0OWcc3RkORIZ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1rKJuLUe9JTAqTARTQunk0OWcc3RkORIZ/preview",
+          "title": "Labanita still 1",
+          "kind": "photo",
+          "id": "1rKJuLUe9JTAqTARTQunk0OWcc3RkORIZ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/15fECqTbMFfmPEulYqyc5DiqicraSKWX3/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/15fECqTbMFfmPEulYqyc5DiqicraSKWX3/preview",
+          "title": "Labanita still 2",
+          "kind": "photo",
+          "id": "15fECqTbMFfmPEulYqyc5DiqicraSKWX3"
+        }
+      ],
+      "count": 11
     },
     "Molfix": {
       "images": [],
@@ -126,11 +1459,172 @@
           "url": "https://drive.google.com/file/d/1Jz76t18-S59OH7xR-hzTra0hIfXn223R/view",
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1Jz76t18-S59OH7xR-hzTra0hIfXn223R/preview",
-          "title": "Molfix behind the scenes",
+          "title": "Molfix shoot",
+          "kind": "bts",
           "id": "1Jz76t18-S59OH7xR-hzTra0hIfXn223R"
         }
       ],
       "count": 1
+    },
+    "MTM": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1ECfU-xZjHyIzY-NIRC2LA-GTlOugy_fU/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ECfU-xZjHyIzY-NIRC2LA-GTlOugy_fU/preview",
+          "title": "MTM still 1",
+          "kind": "photo",
+          "id": "1ECfU-xZjHyIzY-NIRC2LA-GTlOugy_fU"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1GBzTtrWA1r6yQm6xXCP1ZYX4Bj55KwJO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1GBzTtrWA1r6yQm6xXCP1ZYX4Bj55KwJO/preview",
+          "title": "MTM still 2",
+          "kind": "photo",
+          "id": "1GBzTtrWA1r6yQm6xXCP1ZYX4Bj55KwJO"
+        },
+        {
+          "url": "https://drive.google.com/file/d/17gBMKNkRI2O1Dys1Ecb1J843TH65U_cE/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/17gBMKNkRI2O1Dys1Ecb1J843TH65U_cE/preview",
+          "title": "MTM still 3",
+          "kind": "photo",
+          "id": "17gBMKNkRI2O1Dys1Ecb1J843TH65U_cE"
+        }
+      ],
+      "count": 3
+    },
+    "No-Limits-Furniture": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1ZlnW94CqMkda074nW6IAF3cYtqZzGyUs/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ZlnW94CqMkda074nW6IAF3cYtqZzGyUs/preview",
+          "title": "No Limits still 1",
+          "kind": "photo",
+          "id": "1ZlnW94CqMkda074nW6IAF3cYtqZzGyUs"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1hnrpUuK_Rrx-heCc42QxGvnGvTJngm1k/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1hnrpUuK_Rrx-heCc42QxGvnGvTJngm1k/preview",
+          "title": "No Limits still 2",
+          "kind": "photo",
+          "id": "1hnrpUuK_Rrx-heCc42QxGvnGvTJngm1k"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1UIkcnPQX2fciOjyRXsPS_07WSsvBwaz4/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1UIkcnPQX2fciOjyRXsPS_07WSsvBwaz4/preview",
+          "title": "No Limits still 3",
+          "kind": "photo",
+          "id": "1UIkcnPQX2fciOjyRXsPS_07WSsvBwaz4"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1W7xnE8V30hoCnLHerwZV3ky5iM3NTg06/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1W7xnE8V30hoCnLHerwZV3ky5iM3NTg06/preview",
+          "title": "No Limits still 4",
+          "kind": "photo",
+          "id": "1W7xnE8V30hoCnLHerwZV3ky5iM3NTg06"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1TnmSm3r3SPBr5EnHvidNoBj1HQcv3uqN/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1TnmSm3r3SPBr5EnHvidNoBj1HQcv3uqN/preview",
+          "title": "No Limits still 5",
+          "kind": "photo",
+          "id": "1TnmSm3r3SPBr5EnHvidNoBj1HQcv3uqN"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1WY9-15azPyrCMt_htus8CQlP5I07-mW1/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1WY9-15azPyrCMt_htus8CQlP5I07-mW1/preview",
+          "title": "No Limits still 6",
+          "kind": "photo",
+          "id": "1WY9-15azPyrCMt_htus8CQlP5I07-mW1"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ekGvdyuw08qwETYsaY5NLXhwXozxNZ2U/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ekGvdyuw08qwETYsaY5NLXhwXozxNZ2U/preview",
+          "title": "No Limits still 7",
+          "kind": "photo",
+          "id": "1ekGvdyuw08qwETYsaY5NLXhwXozxNZ2U"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-HukxW1SHMoQhE1uqJV6gcuWi4tUSn69/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-HukxW1SHMoQhE1uqJV6gcuWi4tUSn69/preview",
+          "title": "No Limits still 8",
+          "kind": "photo",
+          "id": "1-HukxW1SHMoQhE1uqJV6gcuWi4tUSn69"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1Fgu5eoZjfN1wF1NWQNHNLu8FB5d3qF0Y/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1Fgu5eoZjfN1wF1NWQNHNLu8FB5d3qF0Y/preview",
+          "title": "No Limits still 9",
+          "kind": "photo",
+          "id": "1Fgu5eoZjfN1wF1NWQNHNLu8FB5d3qF0Y"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1UvUQgWLIzH0ys5H787PgS0UDv1ALcZZU/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1UvUQgWLIzH0ys5H787PgS0UDv1ALcZZU/preview",
+          "title": "No Limits still 10",
+          "kind": "photo",
+          "id": "1UvUQgWLIzH0ys5H787PgS0UDv1ALcZZU"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1OZEvpPyqSfBMdG42qFGv9DHjLFikuDW3/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1OZEvpPyqSfBMdG42qFGv9DHjLFikuDW3/preview",
+          "title": "No Limits still 11",
+          "kind": "photo",
+          "id": "1OZEvpPyqSfBMdG42qFGv9DHjLFikuDW3"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1i8G7GY2iOG0rK-hXIQ0UYVLyz5OP-YWt/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1i8G7GY2iOG0rK-hXIQ0UYVLyz5OP-YWt/preview",
+          "title": "No Limits still 12",
+          "kind": "photo",
+          "id": "1i8G7GY2iOG0rK-hXIQ0UYVLyz5OP-YWt"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1YejcA3q28adCiw7xw1gJMdQEnPoqlfgQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1YejcA3q28adCiw7xw1gJMdQEnPoqlfgQ/preview",
+          "title": "No Limits still 13",
+          "kind": "photo",
+          "id": "1YejcA3q28adCiw7xw1gJMdQEnPoqlfgQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1CihExGtr6KgrY1CWkc9sFH2n4RXEkiZQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1CihExGtr6KgrY1CWkc9sFH2n4RXEkiZQ/preview",
+          "title": "No Limits still 14",
+          "kind": "photo",
+          "id": "1CihExGtr6KgrY1CWkc9sFH2n4RXEkiZQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1u5xvJ2w5HyxghiMBHPccdwNAtiOhI5oX/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1u5xvJ2w5HyxghiMBHPccdwNAtiOhI5oX/preview",
+          "title": "No Limits still 15",
+          "kind": "photo",
+          "id": "1u5xvJ2w5HyxghiMBHPccdwNAtiOhI5oX"
+        }
+      ],
+      "count": 15
     },
     "Quooker": {
       "images": [],
@@ -142,6 +1636,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1O5Ia47UtlMnVZpTJHwh3-ob4tX_XwFxq/preview",
           "title": "The tap that creates effortless moments",
+          "kind": "",
           "id": "1O5Ia47UtlMnVZpTJHwh3-ob4tX_XwFxq"
         },
         {
@@ -149,6 +1644,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/11ZBhkKHbCtUCAPRSQEGjPw2HzFoUlV21/preview",
           "title": "Switch to smarter hydration",
+          "kind": "",
           "id": "11ZBhkKHbCtUCAPRSQEGjPw2HzFoUlV21"
         },
         {
@@ -156,6 +1652,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1Jz30wtspNfT0YD0qjVvBh-Hovz5dq_zD/preview",
           "title": "The tap that makes your summer (Arabic)",
+          "kind": "",
           "id": "1Jz30wtspNfT0YD0qjVvBh-Hovz5dq_zD"
         },
         {
@@ -163,6 +1660,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1jD4tpflNv3qkAZF-CmncfkIWBCmQGAwX/preview",
           "title": "Boiling, chilled and sparkling from one tap (Arabic)",
+          "kind": "",
           "id": "1jD4tpflNv3qkAZF-CmncfkIWBCmQGAwX"
         },
         {
@@ -170,6 +1668,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/154kYnz_hcXsY2Sz44O6GWrpWH7L8r4kQ/preview",
           "title": "Tonic x Quooker - Making waves in UAE luxury homes",
+          "kind": "",
           "id": "154kYnz_hcXsY2Sz44O6GWrpWH7L8r4kQ"
         },
         {
@@ -177,6 +1676,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1BKeg4-hFHkED5Na0LoCXWLVx4aSZkDsz/preview",
           "title": "Social cut 1",
+          "kind": "",
           "id": "1BKeg4-hFHkED5Na0LoCXWLVx4aSZkDsz"
         },
         {
@@ -184,6 +1684,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1ABr9a6i6A6JzevGJeZsL6BngO2GQMW2w/preview",
           "title": "Social cut 2",
+          "kind": "",
           "id": "1ABr9a6i6A6JzevGJeZsL6BngO2GQMW2w"
         },
         {
@@ -191,6 +1692,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1IBFvo3qIpVIIyi1-wTMVUqDMwZP4PN42/preview",
           "title": "Social cut 3",
+          "kind": "",
           "id": "1IBFvo3qIpVIIyi1-wTMVUqDMwZP4PN42"
         },
         {
@@ -198,10 +1700,179 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/13DXIWuZeyEx9YEHIXZOALySPYgW-qaB2/preview",
           "title": "Social cut 4",
+          "kind": "",
           "id": "13DXIWuZeyEx9YEHIXZOALySPYgW-qaB2"
+        },
+        {
+          "url": "https://drive.google.com/file/d/16u6qj8fpVsT6YTtUqcwH7UbAuZzeWjs4/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/16u6qj8fpVsT6YTtUqcwH7UbAuZzeWjs4/preview",
+          "title": "Social cut 5",
+          "kind": "",
+          "id": "16u6qj8fpVsT6YTtUqcwH7UbAuZzeWjs4"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1nN0wDM9YCgU9XdowAaJDxxEz9MJ1UjTX/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1nN0wDM9YCgU9XdowAaJDxxEz9MJ1UjTX/preview",
+          "title": "Social cut 6",
+          "kind": "",
+          "id": "1nN0wDM9YCgU9XdowAaJDxxEz9MJ1UjTX"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1HjcDnlJctzEqKtwNQmqyreSboX_r43aE/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1HjcDnlJctzEqKtwNQmqyreSboX_r43aE/preview",
+          "title": "Social cut 7",
+          "kind": "",
+          "id": "1HjcDnlJctzEqKtwNQmqyreSboX_r43aE"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ZrnxFqYjV1TbyHA_JoJyEW1CXQgjz1DW/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ZrnxFqYjV1TbyHA_JoJyEW1CXQgjz1DW/preview",
+          "title": "Social cut 8",
+          "kind": "",
+          "id": "1ZrnxFqYjV1TbyHA_JoJyEW1CXQgjz1DW"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1ACqfvrOcKs33lX9TyKG_U4N_rZr2l8pp/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1ACqfvrOcKs33lX9TyKG_U4N_rZr2l8pp/preview",
+          "title": "Social cut 9",
+          "kind": "",
+          "id": "1ACqfvrOcKs33lX9TyKG_U4N_rZr2l8pp"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1PdPJuwuI3xEw0_NAiRryVacnWZi7QAKl/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1PdPJuwuI3xEw0_NAiRryVacnWZi7QAKl/preview",
+          "title": "Social cut 10",
+          "kind": "",
+          "id": "1PdPJuwuI3xEw0_NAiRryVacnWZi7QAKl"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1hTgyfVqNujVQCtDr7WPCKR4dsMZDdrwV/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1hTgyfVqNujVQCtDr7WPCKR4dsMZDdrwV/preview",
+          "title": "Social cut 11",
+          "kind": "",
+          "id": "1hTgyfVqNujVQCtDr7WPCKR4dsMZDdrwV"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1c4xUsY_jns41QqDx6FQE6ARL03JlAB80/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1c4xUsY_jns41QqDx6FQE6ARL03JlAB80/preview",
+          "title": "Social cut 12",
+          "kind": "",
+          "id": "1c4xUsY_jns41QqDx6FQE6ARL03JlAB80"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1KmOc_KwN35ZWATz6lGfElEigMfO8nwVh/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1KmOc_KwN35ZWATz6lGfElEigMfO8nwVh/preview",
+          "title": "Social cut 13",
+          "kind": "",
+          "id": "1KmOc_KwN35ZWATz6lGfElEigMfO8nwVh"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1aSErhs4kUBMZKIGT6WlggQ6QCVblgRUG/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1aSErhs4kUBMZKIGT6WlggQ6QCVblgRUG/preview",
+          "title": "Social cut 14",
+          "kind": "",
+          "id": "1aSErhs4kUBMZKIGT6WlggQ6QCVblgRUG"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1VUaAFQfaT4A5R3PVam65S54sJNFJ1GEa/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1VUaAFQfaT4A5R3PVam65S54sJNFJ1GEa/preview",
+          "title": "Social cut 15",
+          "kind": "",
+          "id": "1VUaAFQfaT4A5R3PVam65S54sJNFJ1GEa"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1x2Lr4wLZsSd7XdVEdmceuwXCjEwdqz8r/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1x2Lr4wLZsSd7XdVEdmceuwXCjEwdqz8r/preview",
+          "title": "Social cut 16",
+          "kind": "",
+          "id": "1x2Lr4wLZsSd7XdVEdmceuwXCjEwdqz8r"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1USID7_NW37oXC5tFMEPai0zk9HDZk8o6/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1USID7_NW37oXC5tFMEPai0zk9HDZk8o6/preview",
+          "title": "Social cut 17",
+          "kind": "",
+          "id": "1USID7_NW37oXC5tFMEPai0zk9HDZk8o6"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1LVpjivGakeXYldHiXgLD-6uOW28xKEPO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1LVpjivGakeXYldHiXgLD-6uOW28xKEPO/preview",
+          "title": "Social cut 18",
+          "kind": "",
+          "id": "1LVpjivGakeXYldHiXgLD-6uOW28xKEPO"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1aIpZwm7DxcLCn3P9V8JI5LbTGUfRIwXn/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1aIpZwm7DxcLCn3P9V8JI5LbTGUfRIwXn/preview",
+          "title": "Social cut 19",
+          "kind": "",
+          "id": "1aIpZwm7DxcLCn3P9V8JI5LbTGUfRIwXn"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1xxjtkMQb-YKjQ3UbNp1jPNpPK2ZMQ7jQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1xxjtkMQb-YKjQ3UbNp1jPNpPK2ZMQ7jQ/preview",
+          "title": "Social cut 20",
+          "kind": "",
+          "id": "1xxjtkMQb-YKjQ3UbNp1jPNpPK2ZMQ7jQ"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1TRtELPF88-fxGLUYCL0LlXSYbZxnhQAx/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1TRtELPF88-fxGLUYCL0LlXSYbZxnhQAx/preview",
+          "title": "Social cut 21",
+          "kind": "",
+          "id": "1TRtELPF88-fxGLUYCL0LlXSYbZxnhQAx"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1KoWR1XsgscFwszeXU5iaZDNKFsnf9362/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1KoWR1XsgscFwszeXU5iaZDNKFsnf9362/preview",
+          "title": "Social cut 22",
+          "kind": "",
+          "id": "1KoWR1XsgscFwszeXU5iaZDNKFsnf9362"
         }
       ],
-      "count": 9
+      "count": 27
+    },
+    "Subway-Oman": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1W8qlxcquW0u4OQ0bGX4PAbxvE_dUtBOu/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1W8qlxcquW0u4OQ0bGX4PAbxvE_dUtBOu/preview",
+          "title": "SubSavers campaign",
+          "kind": "",
+          "id": "1W8qlxcquW0u4OQ0bGX4PAbxvE_dUtBOu"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1h6woJOge4SbSk9xlRKgPlleu4C4fifRC/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1h6woJOge4SbSk9xlRKgPlleu4C4fifRC/preview",
+          "title": "SubSavers shoot",
+          "kind": "bts",
+          "id": "1h6woJOge4SbSk9xlRKgPlleu4C4fifRC"
+        }
+      ],
+      "count": 2
     },
     "Warba-Bank": {
       "images": [],
@@ -213,6 +1884,7 @@
           "provider": "drive",
           "embed": "https://drive.google.com/file/d/1NTp0iSPLfhH3YldFRoOXRw2PmwYN0mNl/preview",
           "title": "Warba Bank legacy campaign",
+          "kind": "",
           "id": "1NTp0iSPLfhH3YldFRoOXRw2PmwYN0mNl"
         }
       ],

@@ -11,41 +11,63 @@
 .pc-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
 .pc-shot{margin:0;border-radius:10px;overflow:hidden;background:var(--s1,#111118);
   border:1px solid var(--b,#252532);aspect-ratio:4/3}
+.pc-shot a{display:block;width:100%;height:100%}
 .pc-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
 .pc-shot:hover img{transform:scale(1.04)}
 
 /* films, split into the campaign and its making-of */
-.pc-tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b,#252532)}
+.pc-tabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b,#252532)}
 .pc-tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--m,#706c64);
   padding:8px 14px;font:700 11px/1 var(--font,Inter,system-ui,sans-serif);letter-spacing:.09em;
   text-transform:uppercase;cursor:pointer;transition:color .15s,border-color .15s}
 .pc-tab:hover{color:var(--m2,#b5b0a6)}
 .pc-tab.on{color:var(--gold,#f0c233);border-bottom-color:var(--gold,#f0c233)}
-.pc-films{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.pc-film{margin:0}
-.pc-film iframe,.pc-film video{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
+/* One film plays at a time. The note sits under the player and the rest of the
+   set runs down the right, so a brand with twenty cuts reads as a playlist
+   rather than a wall of players. */
+.pc-stage{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;align-items:start}
+.pc-stage-solo{grid-template-columns:minmax(0,1fr)}
+.pc-stage-main{min-width:0}
+.pc-frame iframe,.pc-frame video{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
   border-radius:10px;background:#000;display:block}
-.pc-film figcaption{font-size:11.5px;color:var(--m2,#b5b0a6);margin-top:7px}
-.pc-film figcaption a{color:var(--m2,#b5b0a6);text-decoration:none}
-.pc-film figcaption a:hover{color:var(--gold,#f0c233)}
-@media(max-width:700px){.pc-films{grid-template-columns:1fr}}
+.pc-now{padding:13px 2px 0}
+.pc-now-kind{margin:0;font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold,#f0c233);font-weight:700}
+.pc-now-title{margin:6px 0 0;font-size:15px;line-height:1.35;color:var(--text,#f3f0eb);font-weight:600}
+.pc-now-note{margin:8px 0 0;font-size:12.5px;line-height:1.65;color:var(--m2,#b5b0a6);max-width:62ch}
+.pc-now-open{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:.06em;
+  color:var(--m,#706c64);text-decoration:none;border-bottom:1px solid transparent}
+.pc-now-open:hover{color:var(--gold,#f0c233);border-bottom-color:var(--gold,#f0c233)}
 
-/* self-hosted films */
-.pc-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.pc-video{margin:0}
-.pc-video video{width:100%;aspect-ratio:16/9;border-radius:10px;background:#000;
-  border:1px solid var(--b,#252532);display:block}
-.pc-video figcaption{font-size:11.5px;color:var(--m2,#b5b0a6);margin-top:7px}
+.pc-rail{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;gap:4px;
+  max-height:min(62vh,430px);overflow-y:auto;scrollbar-width:thin}
+.pc-cue{display:flex;align-items:center;gap:10px;width:100%;text-align:left;cursor:pointer;
+  background:none;border:1px solid transparent;border-radius:8px;padding:8px 10px;
+  font:inherit;color:var(--m2,#b5b0a6);transition:background .16s,border-color .16s,color .16s}
+.pc-cue:hover{background:var(--s1,#111118);border-color:var(--b,#252532)}
+.pc-cue.on{background:var(--s2,#19191f);border-color:var(--gold,#f0c233);color:var(--text,#f3f0eb)}
+.pc-cue-n{flex-shrink:0;width:22px;font-size:10px;font-weight:700;text-align:center;
+  color:var(--m,#706c64);font-variant-numeric:tabular-nums}
+.pc-cue.on .pc-cue-n{color:var(--gold,#f0c233)}
+.pc-cue-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.pc-cue-title{font-size:12px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-cue-kind{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--m,#706c64)}
+
+@media(max-width:860px){
+  .pc-stage{grid-template-columns:minmax(0,1fr)}
+  .pc-rail{max-height:264px;padding:0}
+}
 
 /* Canva decks, YouTube films, Vimeo, Drive */
-.pc-embeds{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
 .pc-embed{margin:0}
 .pc-embed iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
   border-radius:10px;background:#000;display:block}
-.pc-embed-canva iframe{aspect-ratio:4/3}
-.pc-embed figcaption{font-size:11.5px;margin-top:7px}
-.pc-embed figcaption a{color:var(--m2,#b5b0a6);text-decoration:none}
-.pc-embed figcaption a:hover{color:var(--gold,#f0c233)}
+/* A deck is read, not glanced at, so it gets the full width of the section. */
+.pc-embed figcaption{display:flex;flex-direction:column;gap:9px;margin-top:11px}
+.pc-deck-note{font-size:12.5px;line-height:1.65;color:var(--m2,#b5b0a6);max-width:62ch}
+.pc-embed figcaption a{font-size:11px;letter-spacing:.06em;color:var(--m,#706c64);
+  text-decoration:none;align-self:flex-start;border-bottom:1px solid transparent}
+.pc-embed figcaption a:hover{color:var(--gold,#f0c233);border-bottom-color:var(--gold,#f0c233)}
 
 /* write-ups, decks, press */
 .pc-docs,.pc-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
@@ -61,5 +83,4 @@
 
 @media(max-width:700px){
   .pc-gallery{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-  .pc-videos,.pc-embeds{grid-template-columns:1fr}
 }
