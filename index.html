@@ -1048,7 +1048,9 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   Object.entries(store).forEach(([slug,bd])=>{
     const b=B[slug]||{s:slug,n:(bd.brand&&bd.brand.name)||slug.replace(/-/g," "),c:"#f0c233",t:"#000",i:slug.slice(0,2).toUpperCase()};
     (bd.projects||[]).forEach(proj=>{
-      (proj.vimeo||[]).filter(v=>v.id).forEach(v=>{
+      /* Drive only. Vimeo players demanded a sign-in, so they showed a login
+         wall instead of the film; films are hosted on Drive now. */
+      (proj.vimeo||[]).filter(v=>v.id&&(v.source||"")==="drive").forEach(v=>{
         const isVert=v.orientation==="vertical";
         push(vids,"youtube",{b,v,proj,slug});
         if(isVert) push(vids,"tiktok",{b,v,proj,slug});

@@ -104,38 +104,7 @@
      }
     ],
     "media": [],
-    "vimeo": [
-     {
-      "id": "1205307505",
-      "label": "Coolray Animatic",
-      "orientation": "horizontal",
-      "source": "vimeo"
-     },
-     {
-      "id": "1205309338",
-      "label": "Ex5 Animatic",
-      "orientation": "horizontal",
-      "source": "vimeo"
-     },
-     {
-      "id": "1205310616",
-      "label": "Ramadan Campaign",
-      "orientation": "horizontal",
-      "source": "vimeo"
-     },
-     {
-      "id": "1205310638",
-      "label": "Coolray SM Launch",
-      "orientation": "horizontal",
-      "source": "vimeo"
-     },
-     {
-      "id": "1205310491",
-      "label": "Geely Ex5 SM Launch",
-      "orientation": "horizontal",
-      "source": "vimeo"
-     }
-    ],
+    "vimeo": [],
     "types": [
      "AI Production",
      "Social Media"

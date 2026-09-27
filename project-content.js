@@ -43,15 +43,17 @@
       .then(function (d) { projectsCache = d; return d; });
   }
 
+  /* Films are hosted on Drive. Vimeo is deliberately not embeddable here: the
+     account's videos required a sign-in, so the players showed a login wall. */
   function embedFor(source, id) {
-    if (source === 'drive')  return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/preview';
+    if (source === 'drive')   return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/preview';
     if (source === 'youtube') return 'https://www.youtube.com/embed/' + encodeURIComponent(id);
-    return 'https://player.vimeo.com/video/' + encodeURIComponent(id) + '?color=f0c233&title=0&byline=0&portrait=0&dnt=1';
+    return '';
   }
   function watchFor(source, id) {
-    if (source === 'drive')  return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view';
+    if (source === 'drive')   return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view';
     if (source === 'youtube') return 'https://www.youtube.com/watch?v=' + encodeURIComponent(id);
-    return 'https://vimeo.com/' + encodeURIComponent(id);
+    return '';
   }
 
   /* Anything named as a making-of goes in the second tab; everything else is
@@ -67,8 +69,10 @@
 
       function add(title, source, id, watch) {
         if (!id || seen[source + ':' + id]) return;
+        var embed = embedFor(source, id);
+        if (!embed) return;                 // no player for this host, so skip it
         seen[source + ':' + id] = 1;
-        out.push({ title: title || 'Film', embed: embedFor(source, id),
+        out.push({ title: title || 'Film', embed: embed,
                    watch: watch || watchFor(source, id), bts: isBts(title) });
       }
 
