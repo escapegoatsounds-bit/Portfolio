@@ -1,0 +1,92 @@
+/* Shared site chrome: the phone navigator rail on the left and a standard
+   header across every page that is not index.html.
+
+   The rail is fixed rather than a grid column, so each page keeps whatever
+   layout it already had; only the left padding on <body> moves content across. */
+
+:root{
+  --pnav-w:300px;
+  --pnav-head:56px;
+  --pnav-bg:#09090c;
+  --pnav-border:#252532;
+  --pnav-gold:#f0c233;
+  --pnav-text:#f3f0eb;
+  --pnav-muted:#b5b0a6;
+  --pnav-font:"Inter",system-ui,-apple-system,sans-serif;
+}
+
+/* ---------- header ---------- */
+.pnav-head{
+  position:fixed;top:0;left:0;right:0;height:var(--pnav-head);z-index:900;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 22px;
+  background:rgba(5,5,6,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--pnav-border);font-family:var(--pnav-font)}
+.pnav-home{display:flex;align-items:center;gap:9px;flex-shrink:0;color:var(--pnav-muted);
+  font-size:13px;font-weight:600;letter-spacing:-.2px;text-decoration:none}
+.pnav-home:hover{color:var(--pnav-text)}
+.pnav-home img{height:28px;width:28px;object-fit:contain;border-radius:7px}
+.pnav-links{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.pnav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--pnav-muted);text-decoration:none;font-weight:500;transition:color .2s}
+.pnav-links a:hover,.pnav-links a.on{color:var(--pnav-text)}
+.pnav-links a.on{color:var(--pnav-gold)}
+.pnav-cta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:8px 16px;background:var(--pnav-gold);color:#000;border-radius:10px;
+  text-decoration:none;white-space:nowrap;transition:filter .2s}
+.pnav-cta:hover{filter:brightness(1.08)}
+
+/* ---------- left rail ---------- */
+.pnav-rail{
+  position:fixed;left:0;top:var(--pnav-head);bottom:0;width:var(--pnav-w);z-index:880;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:18px 16px;box-sizing:border-box;
+  background:var(--pnav-bg);border-right:1px solid var(--pnav-border);
+  background-image:radial-gradient(ellipse at 45% 50%,rgba(240,194,51,.07) 0%,transparent 70%);
+  overflow:hidden}
+.pnav-rail-inner{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+
+.pnav-phone{
+  width:100%;max-width:252px;aspect-ratio:340/724;max-height:100%;
+  background:#0c0c0c;border:2px solid #2c2c2c;border-radius:42px;
+  box-shadow:0 0 0 1px #111,inset 0 0 0 1px #1e1e1e,0 30px 60px -20px rgba(0,0,0,.95);
+  position:relative;overflow:hidden;flex-shrink:0}
+.pnav-screen{position:absolute;inset:0;border-radius:38px;overflow:hidden;
+  background:radial-gradient(ellipse at 30% 25%,#1a1530 0%,#0d0b15 45%,#0a0a0a 100%);
+  display:flex;flex-direction:column}
+.pnav-bar{display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px 4px;font:700 9px var(--pnav-font);color:rgba(255,255,255,.75);flex-shrink:0}
+.pnav-widget{padding:2px 14px 8px;flex-shrink:0}
+.pnav-widget b{display:block;font-size:11px;font-weight:800;color:rgba(255,255,255,.95)}
+.pnav-widget span{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.pnav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 4px;
+  padding:2px 12px 10px;align-content:start;overflow-y:auto;flex:1;scrollbar-width:none}
+.pnav-grid::-webkit-scrollbar{display:none}
+.pnav-app{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;
+  background:none;border:none;padding:0;font-family:inherit;-webkit-tap-highlight-color:transparent}
+.pnav-app-face{width:40px;height:40px;border-radius:11px;overflow:hidden;flex-shrink:0;
+  box-shadow:0 3px 8px rgba(0,0,0,.45);transition:transform .15s,filter .15s;display:block}
+.pnav-app:hover .pnav-app-face,.pnav-app:focus-visible .pnav-app-face{transform:scale(.92);filter:brightness(1.15)}
+.pnav-app-face svg,.pnav-app-face img{width:100%;height:100%;object-fit:cover;display:block}
+.pnav-app-label{font-size:7.5px;font-weight:500;color:rgba(255,255,255,.85);text-align:center;
+  line-height:1.2;max-width:46px;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.pnav-dock{margin:0 10px 12px;padding:7px 4px;background:rgba(255,255,255,.1);
+  backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:19px;
+  display:flex;justify-content:space-around;align-items:center;flex-shrink:0}
+.pnav-dock .pnav-app-face{width:36px;height:36px}
+
+.pnav-caption{font:600 10px var(--pnav-font);letter-spacing:.04em;color:var(--pnav-muted);
+  text-align:center;line-height:1.5;max-width:252px}
+.pnav-caption a{color:var(--pnav-gold);text-decoration:none;font-weight:700}
+.pnav-caption a:hover{text-decoration:underline}
+
+/* ---------- page offset ---------- */
+body.has-pnav{padding-left:var(--pnav-w);padding-top:var(--pnav-head);box-sizing:border-box}
+/* Pages with their own fixed header must clear the rail too. */
+body.has-pnav > nav[data-pnav-shifted]{left:var(--pnav-w)}
+
+@media(max-width:1000px){
+  .pnav-rail{display:none}
+  body.has-pnav{padding-left:0}
+  body.has-pnav > nav[data-pnav-shifted]{left:0}
+  .pnav-links{display:none}
+}

@@ -1,0 +1,65 @@
+/* Styling for content pulled from the per-brand drop folders.
+   Scoped to .pc-* so it can drop into the panel view and the standalone
+   case-study pages without colliding with either page's own rules. */
+
+.pc-section{padding:26px 0;border-top:1px solid var(--b,#252532)}
+.pc-section:first-child{border-top:0}
+.pc-label{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold,#f0c233);font-weight:700;margin:0 0 14px}
+
+/* stills, key visuals, designs, photography */
+.pc-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.pc-shot{margin:0;border-radius:10px;overflow:hidden;background:var(--s1,#111118);
+  border:1px solid var(--b,#252532);aspect-ratio:4/3}
+.pc-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.pc-shot:hover img{transform:scale(1.04)}
+
+/* films, split into the campaign and its making-of */
+.pc-tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b,#252532)}
+.pc-tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--m,#706c64);
+  padding:8px 14px;font:700 11px/1 var(--font,Inter,system-ui,sans-serif);letter-spacing:.09em;
+  text-transform:uppercase;cursor:pointer;transition:color .15s,border-color .15s}
+.pc-tab:hover{color:var(--m2,#b5b0a6)}
+.pc-tab.on{color:var(--gold,#f0c233);border-bottom-color:var(--gold,#f0c233)}
+.pc-films{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.pc-film{margin:0}
+.pc-film iframe,.pc-film video{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
+  border-radius:10px;background:#000;display:block}
+.pc-film figcaption{font-size:11.5px;color:var(--m2,#b5b0a6);margin-top:7px}
+.pc-film figcaption a{color:var(--m2,#b5b0a6);text-decoration:none}
+.pc-film figcaption a:hover{color:var(--gold,#f0c233)}
+@media(max-width:700px){.pc-films{grid-template-columns:1fr}}
+
+/* self-hosted films */
+.pc-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.pc-video{margin:0}
+.pc-video video{width:100%;aspect-ratio:16/9;border-radius:10px;background:#000;
+  border:1px solid var(--b,#252532);display:block}
+.pc-video figcaption{font-size:11.5px;color:var(--m2,#b5b0a6);margin-top:7px}
+
+/* Canva decks, YouTube films, Vimeo, Drive */
+.pc-embeds{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.pc-embed{margin:0}
+.pc-embed iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
+  border-radius:10px;background:#000;display:block}
+.pc-embed-canva iframe{aspect-ratio:4/3}
+.pc-embed figcaption{font-size:11.5px;margin-top:7px}
+.pc-embed figcaption a{color:var(--m2,#b5b0a6);text-decoration:none}
+.pc-embed figcaption a:hover{color:var(--gold,#f0c233)}
+
+/* write-ups, decks, press */
+.pc-docs,.pc-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pc-docs a,.pc-links a{display:flex;align-items:center;gap:11px;padding:11px 14px;
+  background:var(--s1,#111118);border:1px solid var(--b,#252532);border-radius:9px;
+  text-decoration:none;color:var(--text,#f3f0eb);font-size:13px;transition:border-color .18s,background .18s}
+.pc-docs a:hover,.pc-links a:hover{border-color:var(--gold,#f0c233);background:var(--s2,#19191f)}
+.pc-doc-ico{color:var(--gold,#f0c233);font-size:15px;flex-shrink:0}
+.pc-doc-name,.pc-link-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-doc-ext,.pc-link-provider{font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--m,#706c64);border:1px solid var(--b,#252532);border-radius:99px;
+  padding:3px 9px;flex-shrink:0}
+
+@media(max-width:700px){
+  .pc-gallery{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .pc-videos,.pc-embeds{grid-template-columns:1fr}
+}
