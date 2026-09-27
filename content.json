@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T10:07:37.772507+00:00",
+  "generated": "2026-09-27T23:07:06.756786+00:00",
   "brands": {
     "Audi": {
       "images": [],
@@ -1202,6 +1202,22 @@
       ],
       "count": 11
     },
+    "Gillette-Venus": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://drive.google.com/file/d/1iZjiojgNT484FrbT8Qp0RAKx4yD4LpSH/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1iZjiojgNT484FrbT8Qp0RAKx4yD4LpSH/preview",
+          "title": "We asked people what the ideal gift for Mother's Day is",
+          "kind": "",
+          "id": "1iZjiojgNT484FrbT8Qp0RAKx4yD4LpSH"
+        }
+      ],
+      "count": 1
+    },
     "Hardees": {
       "images": [],
       "videos": [],
@@ -1846,9 +1862,17 @@
           "title": "Social cut 22",
           "kind": "",
           "id": "1KoWR1XsgscFwszeXU5iaZDNKFsnf9362"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1xX9dNRpyv-YOYLwYS6RRk0cL4RStWGWQ/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1xX9dNRpyv-YOYLwYS6RRk0cL4RStWGWQ/preview",
+          "title": "Social cut 23",
+          "kind": "",
+          "id": "1xX9dNRpyv-YOYLwYS6RRk0cL4RStWGWQ"
         }
       ],
-      "count": 27
+      "count": 28
     },
     "Subway-Oman": {
       "images": [],
@@ -1870,9 +1894,81 @@
           "title": "SubSavers shoot",
           "kind": "bts",
           "id": "1h6woJOge4SbSk9xlRKgPlleu4C4fifRC"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1VzqnG6T4rA6HWXT68toqrZ9Vvdm_iL2M/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1VzqnG6T4rA6HWXT68toqrZ9Vvdm_iL2M/preview",
+          "title": "SubSavers vertical cut",
+          "kind": "",
+          "id": "1VzqnG6T4rA6HWXT68toqrZ9Vvdm_iL2M"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1lPCgt3qT1dR4zWPXT2wzKMt2o-6vSOxH/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1lPCgt3qT1dR4zWPXT2wzKMt2o-6vSOxH/preview",
+          "title": "Subway Oman reel 1",
+          "kind": "",
+          "id": "1lPCgt3qT1dR4zWPXT2wzKMt2o-6vSOxH"
+        },
+        {
+          "url": "https://drive.google.com/file/d/17uuqhKiJHSFuKySorzrjiBqMrON4kuCM/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/17uuqhKiJHSFuKySorzrjiBqMrON4kuCM/preview",
+          "title": "Subway Oman reel 2",
+          "kind": "",
+          "id": "17uuqhKiJHSFuKySorzrjiBqMrON4kuCM"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-LPcTH7U-OGx2-21CvyYNlKytWOAAFdi/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-LPcTH7U-OGx2-21CvyYNlKytWOAAFdi/preview",
+          "title": "Subway Oman reel 3",
+          "kind": "",
+          "id": "1-LPcTH7U-OGx2-21CvyYNlKytWOAAFdi"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1c6INr4JkjqLszl8gNtsyM3M0J4-oY5jS/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1c6INr4JkjqLszl8gNtsyM3M0J4-oY5jS/preview",
+          "title": "Subway Oman reel 4",
+          "kind": "",
+          "id": "1c6INr4JkjqLszl8gNtsyM3M0J4-oY5jS"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1QwoCivmkvD0_Kg1qXZt_Vt3dXEmHBPBf/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1QwoCivmkvD0_Kg1qXZt_Vt3dXEmHBPBf/preview",
+          "title": "Subway Oman reel 5",
+          "kind": "",
+          "id": "1QwoCivmkvD0_Kg1qXZt_Vt3dXEmHBPBf"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1-9y9dt_iRiIiR67AwOT_HS8uTgqMqv0v/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1-9y9dt_iRiIiR67AwOT_HS8uTgqMqv0v/preview",
+          "title": "Subway Oman reel 6",
+          "kind": "",
+          "id": "1-9y9dt_iRiIiR67AwOT_HS8uTgqMqv0v"
+        },
+        {
+          "url": "https://drive.google.com/file/d/1LCQN1P4767KQZQVAR1vJkDP--MGSwoL_/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/1LCQN1P4767KQZQVAR1vJkDP--MGSwoL_/preview",
+          "title": "Subway Oman reel 7",
+          "kind": "",
+          "id": "1LCQN1P4767KQZQVAR1vJkDP--MGSwoL_"
+        },
+        {
+          "url": "https://drive.google.com/file/d/18fA4gIBAd6RF_JvkW_BNpwkos7Qv4poO/view",
+          "provider": "drive",
+          "embed": "https://drive.google.com/file/d/18fA4gIBAd6RF_JvkW_BNpwkos7Qv4poO/preview",
+          "title": "Subway Oman reel 8",
+          "kind": "",
+          "id": "18fA4gIBAd6RF_JvkW_BNpwkos7Qv4poO"
         }
       ],
-      "count": 2
+      "count": 11
     },
     "Warba-Bank": {
       "images": [],
