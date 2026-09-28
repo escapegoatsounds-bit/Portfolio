@@ -2288,7 +2288,15 @@
  "Em-Sherif-Cafe": {
   "brand": {
    "about": "Em Sherif began in Beirut in 2011, when Mireille Hayek opened a restaurant named after her son. Em Sherif Café is its café offshoot, serving the same Lebanese home cooking."
-  }
+  },
+  "projects": [
+   {
+    "name": "",
+    "roles": [
+     "Social Media"
+    ]
+   }
+  ]
  },
  "Emirgan-Sutis": {
   "brand": {
@@ -2419,5 +2427,31 @@
   "brand": {
    "about": "Zooba is a Cairo restaurant brand, founded in 2012, that serves Egyptian street food such as ta'ameya and koshari in a modern setting."
   }
+ },
+ "Ruby-Pasta": {
+  "brand": {
+   "industry": "FMCG",
+   "about": "Ruby Pasta is an Egyptian pasta brand, fronted on its packs and posts by a young chef character."
+  },
+  "projects": [
+   {
+    "name": "",
+    "roles": [
+     "Social Media"
+    ],
+    "deliverables": "Character Design, Social Posts"
+   }
+  ]
+ },
+ "Oppa-App": {
+  "brand": {
+   "industry": "Tech & Telecom"
+  },
+  "projects": [
+   {
+    "name": "",
+    "deliverables": "Brand Identity, Brand Guidelines, Character Design"
+   }
+  ]
  }
 }

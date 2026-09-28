@@ -30,6 +30,8 @@
     'Noodle-House':'Food & Beverage',
     'Burger-Pump':'Food & Beverage',
     'Zooba':'Food & Beverage',
+    'Ruby-Pasta':'FMCG',
+    'Oppa-App':'Tech & Telecom',
     'Em-Sherif-Cafe':'Food & Beverage',
     'Emirgan-Sutis':'Food & Beverage',
     'Chouchou':'Food & Beverage',
