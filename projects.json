@@ -9,7 +9,8 @@
    "summary": "Bazooka Candy is a globally recognized confectionery brand known for its iconic bubble gum and candy range. The MENA campaign focused on building a vibrant, Gen Z-facing brand identity through original character design and social-first creative.",
    "cover": "",
    "logo": "assets/logo.png",
-   "logoBackground": "#003DA5"
+   "logoBackground": "#003DA5",
+   "about": "Bazooka Candy Brands is the American sweets maker behind Bazooka bubble gum, Ring Pop, Push Pop, Baby Bottle Pop and Juicy Drop."
   },
   "projects": [
    {
@@ -63,7 +64,10 @@
      "Facebook"
     ],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media"
+    ]
    }
   ],
   "active": 0
@@ -114,7 +118,11 @@
     ],
     "articles": [],
     "briefs": [],
-    "type": "AI Production"
+    "type": "AI Production",
+    "roles": [
+     "Social Media",
+     "TVC"
+    ]
    }
   ],
   "brand": {
@@ -125,7 +133,8 @@
    "summary": "Geely is China's largest privately-owned automotive manufacturer, operating brands including Geely Auto, Volvo, and Polestar. Their Coolray and Emgrand SUV range marks Geely's ambitious expansion into the MENA automotive market.",
    "industry": "Automotive",
    "website": "",
-   "logo": "assets/photos/Untitled_design__6_.png"
+   "logo": "assets/photos/Untitled_design__6_.png",
+   "about": "Geely is a Chinese carmaker founded in 1986. Its parent group also owns Volvo Cars and Polestar, and Geely entered the UAE market in 2024."
   },
   "active": 0
  },
@@ -188,9 +197,16 @@
     "vimeo": [],
     "briefs": [],
     "process": [],
-    "reportUrl": ""
+    "reportUrl": "",
+    "roles": [
+     "Social Media",
+     "Copywriting"
+    ]
    }
-  ]
+  ],
+  "brand": {
+   "about": "The Administrative Capital for Urban Development is the state company set up in 2016 to plan, build and run Egypt's New Administrative Capital, the new seat of government east of Cairo."
+  }
  },
  "Subway-Oman": {
   "brand": {
@@ -201,7 +217,8 @@
    "website": "",
    "summary": "Challenge: Developing an engaging animated Ramadan calendar campaign while ensuring precise motion timing and accurate product representation for the regional market.\nSolution: Directed the design and animation optimization process, refining motion speeds and sandwich sizing to align perfectly with brand guidelines and elevate the festive promotional rollout.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__4_.png"
+   "logo": "assets/photos/Untitled_design__4_.png",
+   "about": "Subway is the American sandwich chain founded in 1965 in Bridgeport, Connecticut. Subway Oman runs the brand's restaurants in the Sultanate."
   },
   "projects": [
    {
@@ -343,7 +360,8 @@
    "website": "https://www.audi-dubai.com/me/web/en.html",
    "summary": "Al Nabooda Automobiles is the exclusive and authorized dealer for Audi in Dubai and the Northern Emirates, a partnership they have maintained since 1976.\nOperations: They manage a vast network of premium showrooms and service centers. This includes operating one of the largest Audi terminals globally, which is located on Sheikh Zayed Road in Dubai.\nScope: Their business covers new car sales, the Audi Approved :plus pre-owned program, fleet sales, and comprehensive aftersales maintenance services.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__8_.png"
+   "logo": "assets/photos/Untitled_design__8_.png",
+   "about": "Audi is the German premium car maker based in Ingolstadt and part of the Volkswagen Group. In Dubai and the Northern Emirates, Al Nabooda Automobiles is its sole authorised dealer."
   },
   "projects": [
    {
@@ -462,7 +480,12 @@
      "Instagram"
     ],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media",
+     "TVC",
+     "YouTube"
+    ]
    }
   ],
   "active": 0
@@ -476,7 +499,8 @@
    "website": "",
    "summary": "Challenge: Expanding regional adoption and driving continuous engagement for Snapchat’s AR filters across a highly diverse, multi-lingual demographic.",
    "cover": "",
-   "logo": "assets/photos/snapchat-logo-snapchat-icon-transparent-free-png.webp"
+   "logo": "assets/photos/snapchat-logo-snapchat-icon-transparent-free-png.webp",
+   "about": "Snapchat is the camera and messaging app from Snap Inc., launched in 2011. Its AR Lenses let people change their faces and surroundings in real time."
   },
   "projects": [
    {
@@ -663,7 +687,8 @@
     "whatsapp": "",
     "pinterest": "",
     "threads": ""
-   }
+   },
+   "about": "Molfix is a baby diaper brand made by Hayat Holding of Turkey and sold across North Africa, the Arab world and beyond."
   },
   "projects": [
    {
@@ -782,7 +807,12 @@
     ],
     "articles": [],
     "briefs": [],
-    "process": []
+    "process": [],
+    "roles": [
+     "Social Media",
+     "TVC",
+     "Copywriting"
+    ]
    }
   ],
   "active": 0
@@ -796,7 +826,8 @@
    "website": "https://www.warbabank.com/",
    "summary": "Established in 2010, Warba Bank is a leading Kuwaiti Islamic financial institution offering a comprehensive suite of Sharia compliant retail, corporate, and investment banking services. The bank is widely recognized for its aggressive digital transformation strategy and focus on modern, youth oriented financial technologies.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__11_.png"
+   "logo": "assets/photos/Untitled_design__11_.png",
+   "about": "Warba Bank is a Kuwaiti Islamic bank founded in 2010. It offers Sharia-compliant banking to people, companies and investors."
   },
   "projects": [
    {
@@ -859,7 +890,12 @@
      "YouTube"
     ],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media",
+     "TVC",
+     "Copywriting"
+    ]
    }
   ],
   "active": 0
@@ -873,7 +909,8 @@
    "website": "",
    "summary": "Lifebox is an advanced integrated automotive and residential security ecosystem. The platform equips vehicles with a comprehensive 360 degree sensory and visual monitoring system that synchronizes seamlessly with home security networks.\nChallenge: Translating a highly technical, dual ecosystem security concept into a streamlined, trustworthy, and accessible brand identity from the ground up.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__12_.png"
+   "logo": "assets/photos/Untitled_design__12_.png",
+   "about": "Lifebox is a security system for cars and homes. It fits vehicles with sensors that watch all around them and links them to a residential setup."
   },
   "projects": [
    {
@@ -943,7 +980,8 @@
    "website": "",
    "summary": "Overview: Krispy Kreme is a globally recognized American doughnut company and coffeehouse chain, famous for its signature Original Glazed doughnuts.\nChallenge: Executing a highly anticipated, massive scale market entry into Egypt, requiring a launch campaign that matched the immense local hype and translated the global brand experience into a localized phenomenon.\nSolution: Engineered a strategic 7 day launch rollout, officially kicking off on August 19, 2021. Each day was meticulously dedicated to a highly specific mix of influencers, public figures, and the general public. This precise audience segmentation created immense online buzz and flawlessly managed the massive crowds, resulting in one of the most attended and successful franchise launches in Egypt.\nDeliverables: Comprehensive 7 day launch strategy, localized digital rollout, and influencer and public figure engagement pipeline.\nAchievements: Successfully managed extreme online buzz and massive physical footfall, orchestrating one of the highest performing franchise market entries in the region.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__13_.png"
+   "logo": "assets/photos/Untitled_design__13_.png",
+   "about": "Krispy Kreme is the American doughnut chain founded in 1937 in Winston-Salem, North Carolina, famous for its Original Glazed. It opened in Egypt in August 2021."
   },
   "projects": [
    {
@@ -1022,7 +1060,11 @@
      "YouTube"
     ],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media",
+     "UGC / Influencer"
+    ]
    }
   ],
   "active": 0
@@ -1036,7 +1078,8 @@
    "website": "",
    "summary": "Overview: A prominent local Egyptian pastry and dessert brand experiencing high operational demand during peak cultural seasons and special occasions.\nDeliverables: End to end digital marketing strategy, continuous social media content pipeline, and a fully operational call center infrastructure.\nAchievements: Scaled digital traffic to increase overall sales by 29 percent, successfully managed extreme order surges during Ramadan, and utilized centralized data to optimize production forecasting, drastically reducing operational waste.",
    "cover": "",
-   "logo": "assets/photos/Untitled_design__16_.png"
+   "logo": "assets/photos/Untitled_design__16_.png",
+   "about": "Delight is an Egyptian pastry house and artisan bakery that has made sweets and catered events since 2004. It serves Cairo, Alexandria and the North Coast."
   },
   "projects": [
    {
@@ -1137,7 +1180,9 @@
   "active": 0
  },
  "EA-FC-Mobile": {
-  "brand": {},
+  "brand": {
+   "about": "EA SPORTS FC Mobile is Electronic Arts' football game for phones. It carried the FIFA Mobile name until 2023, when EA's licence with FIFA ended."
+  },
   "projects": [
    {
     "name": "Portfolio Work",
@@ -1163,7 +1208,9 @@
   "active": 0
  },
  "Royal-Herbs": {
-  "brand": {},
+  "brand": {
+   "about": "Royal Herbs is an Egyptian brand that has grown and blended herbal teas since 1985. It is part of the Ottoman group and sells in about 20 countries."
+  },
   "projects": [
    {
     "name": "Portfolio Work",
@@ -1188,6 +1235,9 @@
       "src": "assets/portfolio-pages/extracted/Royal-Herbs/project-overview.jpg",
       "caption": ""
      }
+    ],
+    "roles": [
+     "UGC / Influencer"
     ]
    }
   ],
@@ -1300,7 +1350,9 @@
   "active": 0
  },
  "Carina": {
-  "brand": {},
+  "brand": {
+   "about": "Carina is an Egyptian women's wear brand that Al Kasm Group founded in 1996. It makes basics, loungewear and modest wear in Egyptian cotton and runs more than 120 stores across the Middle East."
+  },
   "projects": [
    {
     "name": "Portfolio Work",
@@ -1415,12 +1467,20 @@
     "vimeo": [],
     "briefs": [],
     "process": [],
-    "reportUrl": ""
+    "reportUrl": "",
+    "roles": [
+     "Website Copywriting"
+    ]
    }
-  ]
+  ],
+  "brand": {
+   "about": "WallPost is business management software. It covers HR, CRM, finance, performance management and advisory in one platform."
+  }
  },
  "Deraya": {
-  "brand": {},
+  "brand": {
+   "about": "Deraya is an Egyptian company founded in 2002 that runs sales teams, training and consultancy for insurance, real estate and banking clients. Its name is Arabic for knowledge and awareness."
+  },
   "projects": [
    {
     "name": "Social Media 2016-2017",
@@ -1548,13 +1608,18 @@
     ],
     "vimeo": [],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media"
+    ]
    }
   ],
   "active": 0
  },
  "Glow": {
-  "brand": {},
+  "brand": {
+   "about": "Glow is a Cairo juice and smoothie bar that makes fresh, raw drinks and delivers them to homes and offices every morning."
+  },
   "projects": [
    {
     "name": "Glow Brand Campaign",
@@ -1647,13 +1712,18 @@
     ],
     "vimeo": [],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media"
+    ]
    }
   ],
   "active": 0
  },
  "Imagine-Studio": {
-  "brand": {},
+  "brand": {
+   "about": "Imagine is the creative studio I co-founded in Alexandria. We shot, designed and filmed for brands, from photography and branding to video."
+  },
   "projects": [
    {
     "name": "Photography Samples",
@@ -1736,7 +1806,10 @@
     ],
     "vimeo": [],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media"
+    ]
    }
   ],
   "active": 0
@@ -1820,9 +1893,16 @@
     "vimeo": [],
     "briefs": [],
     "process": [],
-    "reportUrl": ""
+    "reportUrl": "",
+    "roles": [
+     "Social Media",
+     "Copywriting"
+    ]
    }
-  ]
+  ],
+  "brand": {
+   "about": "Mayo Clinic is an American nonprofit medical centre founded in Rochester, Minnesota, that treats patients, trains doctors and runs research."
+  }
  },
  "Eldib-Co": {
   "projects": [
@@ -1907,9 +1987,15 @@
     "vimeo": [],
     "briefs": [],
     "process": [],
-    "reportUrl": ""
+    "reportUrl": "",
+    "roles": [
+     "Website Copywriting"
+    ]
    }
-  ]
+  ],
+  "brand": {
+   "about": "Eldib & Co is a law firm with Egyptian roots and more than 150 years of practice. It works across North Africa and Turkey for clients with global interests."
+  }
  },
  "The-Recovery-Clinic": {
   "projects": [
@@ -1949,12 +2035,21 @@
     "vimeo": [],
     "briefs": [],
     "process": [],
-    "reportUrl": ""
+    "reportUrl": "",
+    "roles": [
+     "Social Media",
+     "Copywriting"
+    ]
    }
-  ]
+  ],
+  "brand": {
+   "about": "The Recovery Clinic is a London clinic. It opened in Riyadh in December 2023."
+  }
  },
  "Royal-Tulip-Hotel": {
-  "brand": {},
+  "brand": {
+   "about": "Royal Tulip is the five-star brand of Golden Tulip, part of Louvre Hotels Group. In Egypt it has run hotels in Cairo and Alexandria."
+  },
   "projects": [
    {
     "name": "Product & Advertising Photography",
@@ -2097,7 +2192,10 @@
     ],
     "vimeo": [],
     "articles": [],
-    "briefs": []
+    "briefs": [],
+    "roles": [
+     "Social Media"
+    ]
    }
   ],
   "active": true
@@ -2106,5 +2204,220 @@
   "brand": {},
   "projects": [],
   "active": true
+ },
+ "AXE-Unilever": {
+  "brand": {
+   "about": "AXE is Unilever's men's grooming brand, launched in France in 1983. It sells body sprays, shower gels and hair products, and goes by Lynx in the UK, Ireland and Australia."
+  }
+ },
+ "Aevapay": {
+  "brand": {
+   "about": "AevaPay is an Egyptian payments app launched in 2022. People use it to send money and pay bills, and shops use its AevaStore marketplace to buy wholesale stock."
+  }
+ },
+ "Al-Siddiqi-Holding": {
+  "brand": {
+   "about": "Al Siddiqi Holding started in Doha's Souq Waqif in 1922 as a family business. Today it runs retail, hospitality, brands, real estate and industrial divisions across the GCC and MENA."
+  }
+ },
+ "Almaza-Bay": {
+  "brand": {
+   "about": "Almaza Bay is a beach resort on Egypt's North Coast, 38 km before Marsa Matrouh, built by Travco Properties. It covers 6.5 million square metres with 5.5 km of white sand beach."
+  }
+ },
+ "BIC-WNA": {
+  "brand": {
+   "about": "BIC is the French company Marcel Bich founded in 1945. It makes the Cristal pen, lighters and shavers, and BIC West & North Africa runs the brand across that region."
+  }
+ },
+ "Bershka": {
+  "brand": {
+   "about": "Bershka is a Spanish fashion brand that Inditex, the group behind Zara, launched in 1998. It dresses a young crowd and follows street style and music culture."
+  }
+ },
+ "Biella": {
+  "brand": {
+   "about": "Biella is an Italian café and pizzeria that Alsiddiqi Hospitality runs in Doha. The kitchen bakes its pizzas in a wood-burning oven."
+  }
+ },
+ "Big-Baby-Pop": {
+  "brand": {
+   "about": "Big Baby Pop is the name Baby Bottle Pop carries in several markets. It is a candy pop shaped like a baby bottle that you dip into flavoured powder, made by Bazooka Candy Brands."
+  }
+ },
+ "Blue-Ocean-Sharm": {
+  "brand": {
+   "about": "Blue Ocean Dive Club is a team of Egyptian diving instructors in Sharm El Sheikh. They run boat trips to Ras Mohammed, Tiran Island and the SS Thistlegorm wreck, and teach PADI courses."
+  }
+ },
+ "Bohobun": {
+  "brand": {
+   "about": "BohoBun is a Cairo burger and doughnut spot, with branches in ZedPark, Sheikh Zayed and Mivida, New Cairo."
+  }
+ },
+ "Bonny": {
+  "brand": {
+   "about": "Bonny makes evaporated and condensed milk from fresh cow's milk, with no milk powder and no vegetable fat. Germany's Hochwald Foods produces it for shelves across the Middle East."
+  }
+ },
+ "Carzami": {
+  "brand": {
+   "about": "Carzami is an Egyptian online store for certified used cars, founded in 2022. It brings a car to your door for a test drive and offers financing and insurance on the purchase."
+  }
+ },
+ "Decoys-Real-Estate": {
+  "brand": {
+   "about": "Decoys is an Egyptian real estate developer."
+  }
+ },
+ "Defarm": {
+  "brand": {
+   "about": "DeFarm is an Egyptian brand that sells fresh herbs and vegetables through its stores in Cairo."
+  }
+ },
+ "Delight-Pastries": {
+  "brand": {
+   "about": "Delight is an Egyptian pastry house and artisan bakery that has made sweets and catered events since 2004. It serves Cairo, Alexandria and the North Coast."
+  }
+ },
+ "El-Gouna": {
+  "brand": {
+   "about": "El Gouna is a resort town on the Red Sea, north of Hurghada, built by Orascom Development. It spreads across islands and lagoons and hosts the El Gouna Film Festival."
+  }
+ },
+ "Em-Sherif-Cafe": {
+  "brand": {
+   "about": "Em Sherif began in Beirut in 2011, when Mireille Hayek opened a restaurant named after her son. Em Sherif Café is its café offshoot, serving the same Lebanese home cooking."
+  }
+ },
+ "Emirgan-Sutis": {
+  "brand": {
+   "about": "Emirgan Sütiş is a Turkish restaurant from Istanbul, known for its breakfast spreads, pastries and desserts. It runs several branches in Doha, including one at The Pearl."
+  }
+ },
+ "Escapegoat-Sound": {
+  "brand": {
+   "about": "Escapegoat Sounds is my own music label. I write, produce and sell original music, custom DJ tracks and lyrics under the Escapegoat name."
+  }
+ },
+ "Fujifilm": {
+  "brand": {
+   "about": "Fujifilm is the Japanese company that began making photographic film in 1934. Today it builds the X Series and instax cameras and works in medical imaging and materials."
+  }
+ },
+ "GDK": {
+  "brand": {
+   "about": "GDK, German Doner Kebab, takes its recipes from Berlin's kebab scene. It opened its first site in Dubai in 2013 and now has restaurants in six countries, from the UK to North America."
+  }
+ },
+ "Gillette-Venus": {
+  "brand": {
+   "about": "Venus is Gillette's line of razors and shaving care for women, launched in 2001. Gillette belongs to Procter & Gamble."
+  }
+ },
+ "Gourmet": {
+  "brand": {
+   "about": "Gourmet Egypt began in 2006 supplying Cairo's hotels with meat and seafood, then opened its first store in Maadi in 2008. It now runs more than 20 stores and a delivery service."
+  }
+ },
+ "Hardees": {
+  "brand": {
+   "about": "Hardee's is an American burger chain that Wilber Hardee started in North Carolina in 1960. Americana Restaurants runs it across the Middle East and North Africa."
+  }
+ },
+ "Hayat-Water": {
+  "brand": {
+   "about": "Hayat is an Egyptian bottled water brand that Mansour Manufacturing & Distribution launched in 2000. It sells natural mineral water in sizes from 330 ml bottles to 19-litre gallons."
+  }
+ },
+ "Juicy-Drop": {
+  "brand": {
+   "about": "Juicy Drop is a Bazooka Candy Brands sweet that pairs a candy pop with a sour gel you squeeze on top."
+  }
+ },
+ "Kappa": {
+  "brand": {
+   "about": "Kappa is an Italian sportswear brand from Turin, known for its logo of two people sitting back to back. It belongs to BasicNet."
+  }
+ },
+ "Labanita": {
+  "brand": {
+   "about": "Labanita is an Egyptian dairy brand from Mansour Group, made at the SECLAM plant in Alexandria. It came back as a pasteurised milk in 2001 and now covers yoghurt, rayeb and cheese."
+  }
+ },
+ "Lord-of-the-Wings": {
+  "brand": {
+   "about": "Lord of the Wings is a casual diner built around chicken wings, burgers and pizza. It has branches in Cairo and in Doha, where Alsiddiqi Hospitality runs it."
+  }
+ },
+ "Mansour": {
+  "brand": {
+   "about": "Mansour Group is an Egyptian family business. It brought McDonald's to Egypt through Manfoods in 1994, opened Metro Markets in 2000, and makes Hayat water and Labanita dairy."
+  }
+ },
+ "Memaar-Al-Morshedy": {
+  "brand": {
+   "about": "Memaar Al Morshedy is an Egyptian real estate developer that Mohamed Morshedy founded in 1983. It began with apartment buildings in Maadi and has since built more than 21 large projects."
+  }
+ },
+ "Mooz": {
+  "brand": {
+   "about": "Mooz is the character universe I created for Bazooka Candy in the MENA region, built to work on packs, social and campaigns."
+  }
+ },
+ "Nineteen84": {
+  "brand": {
+   "about": "Nineteen84 is a Cairo agency for marketing, PR, events and influencer work. It is the parent company of Scoop Empire and works across Egypt, the UAE and Saudi Arabia."
+  }
+ },
+ "No-Limits-Furniture": {
+  "brand": {
+   "about": "No Limits is a Cairo furniture maker founded in 1999. It designs and builds its own pieces in Egypt and has sold Italian sofas as an agent since 2007."
+  }
+ },
+ "Noodle-House": {
+  "brand": {
+   "about": "The Noodle House is a pan-Asian restaurant brand that Alsiddiqi Hospitality runs in Qatar. Its menu mixes Thai curries, Indonesian satay and Japanese ramen."
+  }
+ },
+ "One-Zaabeel": {
+  "brand": {
+   "about": "One Za'abeel is a Dubai development by Ithra Dubai: two towers joined high up by The Link, the world's longest cantilevered building. It holds hotels, homes and offices."
+  }
+ },
+ "Polo-Ralph-Lauren": {
+  "brand": {
+   "about": "Polo Ralph Lauren is the main line of Ralph Lauren Corporation, the American fashion house Ralph Lauren started in New York in 1967."
+  }
+ },
+ "Quooker": {
+  "brand": {
+   "about": "Quooker is the Dutch family company behind the boiling-water tap. Its taps give boiling, chilled and sparkling water from one spout."
+  }
+ },
+ "Revitalash": {
+  "brand": {
+   "about": "RevitaLash is an American eyelash and brow care brand. An eye doctor created it for his wife when her cancer treatment made her lashes fall out."
+  }
+ },
+ "Ring-Pop": {
+  "brand": {
+   "about": "Ring Pop is a lollipop shaped like a jewelled ring, made by Bazooka Candy Brands since 1979."
+  }
+ },
+ "The-G-Hotels": {
+  "brand": {
+   "about": "The G Hotel is a five-star resort on Egypt's North Coast, near El Alamein, with a private beach, a spa and a kids' club."
+  }
+ },
+ "Tonic-International": {
+  "brand": {
+   "about": "Tonic International is an independent creative agency founded in Dubai in 2004. It handles advertising, branding, digital and media buying."
+  }
+ },
+ "Zooba": {
+  "brand": {
+   "about": "Zooba is a Cairo restaurant brand, founded in 2012, that serves Egyptian street food such as ta'ameya and koshari in a modern setting."
+  }
  }
 }

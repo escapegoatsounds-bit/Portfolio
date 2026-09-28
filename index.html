@@ -817,6 +817,11 @@ const SCREENS={
   brands:()=>'<div style="padding:10px 14px;font-size:11px;color:var(--m2)">180+ brands handled since 2011 — 71 featured. Tap any to open its storyboard.</div>'+BRANDS.slice(0,12).map(b=>cardLink(b,b.s.replace(/-/g," "))).join(""),
   phone:()=>`<div style="display:flex;flex-direction:column;align-items:center;padding:20px 14px 8px;gap:6px"><div style="width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid var(--b)"><img src="assets/photos/WhatsApp_Image_2026-03-22_at_06.38.10.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.parentNode.innerHTML='<div style=\\'width:100%;height:100%;background:#1a1a24;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#f0c233\\'>AZ</div>'"></div><div style="font-size:15px;font-weight:800">Abdelaziz Askar</div><div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--m2)">Abdelaziz Askar · Dubai</div></div><div style="padding:0 14px;display:flex;flex-direction:column;gap:8px"><a href="tel:+01099197988" style="display:flex;align-items:center;gap:10px;background:#1a1a24;border-radius:12px;padding:12px 14px;text-decoration:none"><span style="font-size:18px">📞</span><div><div style="font-size:10px;color:var(--m2);letter-spacing:.08em;text-transform:uppercase">Phone</div><div style="font-size:13px;font-weight:700;color:#fff">+01099197988</div></div></a><a href="mailto:Escapegoatssounds@gmail.com" style="display:flex;align-items:center;gap:10px;background:#1a1a24;border-radius:12px;padding:12px 14px;text-decoration:none"><span style="font-size:18px">✉️</span><div><div style="font-size:10px;color:var(--m2);letter-spacing:.08em;text-transform:uppercase">Work</div><div style="font-size:12px;font-weight:600;color:#fff">Escapegoatssounds@gmail.com</div></div></a><a href="mailto:azaskar@yahoo.com" style="display:flex;align-items:center;gap:10px;background:#1a1a24;border-radius:12px;padding:12px 14px;text-decoration:none"><span style="font-size:18px">✉️</span><div><div style="font-size:10px;color:var(--m2);letter-spacing:.08em;text-transform:uppercase">Personal</div><div style="font-size:12px;font-weight:600;color:#fff">azaskar@yahoo.com</div></div></a><a href="contact.html" style="display:block;margin-top:4px;background:var(--gold);color:#000;text-align:center;padding:13px;border-radius:12px;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none">Open full contact page →</a></div>`,
 };
+/* Browser (website copy) and Gallery (personal posts). Browser windows are
+   injected from projects.json by the feed builder below; Gallery reads its own
+   gallery.json, the same post format as My Everyday's feed.json. */
+SCREENS.browser=()=>'<div class="br-intro" style="padding:12px 14px 4px;font-size:11px;color:var(--m2);line-height:1.6">Website copy I wrote for brands, page by page.</div>';
+SCREENS.gallery=()=>'<div data-gal="screen"><div style="padding:18px 14px;font-size:11px;color:var(--m2)">Loading…</div></div>';
 function buildAppScreens(){document.getElementById("appScreens").innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];const body=SCREENS[key]?SCREENS[key]():'<div style="padding:20px;color:var(--m2);font-size:12px">Coming soon.</div>';return `<div class="screen hidden app-screen" id="screen-${key}"><div class="app-topbar"><button class="back-btn" onclick="showHome()">‹</button><div class="mini-ico">${icoMarkup(key)}</div><span class="app-screen-title">${a.label}</span></div><div class="app-body">${body}</div></div>`;}).join("");}
 buildAppScreens();
 
@@ -914,8 +919,40 @@ const PLATFORM_CHROME={
   messages:b=>`<div style="background:#0D1418;color:#E9EDEF;margin:calc(var(--panel-pt) * -1) calc(var(--panel-px) * -1) calc(var(--panel-pb) * -1)"><div style="background:#1F2C34;padding:10px 14px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:2"><span style="color:#00A884;font-size:22px;cursor:pointer;line-height:1">‹</span><div style="width:38px;height:38px;border-radius:50%;background:#00A884;overflow:hidden;flex-shrink:0"><img src="assets/photos/WhatsApp_Image_2026-03-22_at_06.38.10.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.parentNode.style.background='#00A884'"></div><div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:700;color:#E9EDEF">Abdelaziz Askar</div><div style="font-size:12px;color:#00A884">online</div></div><span style="font-size:18px;cursor:pointer">📹</span><span style="font-size:18px;cursor:pointer">📞</span><span style="font-size:16px;color:#8696A0;cursor:pointer">⋮</span></div><div style="flex:1;padding:12px 14px 8px;overflow-y:auto;background:#0D1418">${b}</div><div style="background:#1F2C34;padding:8px 12px;display:flex;align-items:center;gap:8px"><span style="font-size:20px;cursor:pointer">😊</span><div style="flex:1;background:#2A3942;border-radius:22px;padding:9px 14px;color:#8696A0;font-size:13px">Message</div><a href="https://wa.me/201099197988" style="width:42px;height:42px;border-radius:50%;background:#00A884;display:flex;align-items:center;justify-content:center;font-size:20px;text-decoration:none">🎤</a></div></div>`,
   spotify:b=>`<div style="background:#121212;color:#fff;margin:calc(var(--panel-pt) * -1) calc(var(--panel-px) * -1) calc(var(--panel-pb) * -1)"><div style="padding:70px 20px 20px;background:linear-gradient(to bottom,#5e2d8c 0%,#121212 100%)"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;font-weight:700">Artist</div><div style="font-size:42px;font-weight:900;letter-spacing:-1.5px;margin-bottom:8px">Escapegoat</div><div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px">125,439 monthly listeners</div><div style="display:flex;gap:12px;align-items:center"><div style="width:52px;height:52px;border-radius:50%;background:#1DB954;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer">▶</div><div style="border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:7px 18px;font-size:13px;font-weight:700;cursor:pointer">Follow</div></div></div><div style="padding:0 20px 52px">${b}</div></div>`,
 };
+PANELS.browser=()=>'';
+PANELS.gallery=()=>'<div data-gal="panel"><p style="color:var(--m2)">Loading…</p></div><div style="margin-top:18px"><a class="btn btn-ghost" href="gallery.html">Open the Gallery page →</a></div>';
+function galleryPost(p,compact){
+  const esc2=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const d=p.date?new Date(p.date).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}):"";
+  let media="";
+  if(p.type==="video"&&p.videoSrc) media=`<video src="${esc2(p.videoSrc)}" controls preload="metadata" playsinline style="width:100%;aspect-ratio:16/9;display:block;background:#000;border-radius:8px"></video>`;
+  else if(p.type==="video"&&p.youtube) media=`<div style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000"><iframe src="https://www.youtube.com/embed/${encodeURIComponent(p.youtube)}?rel=0" loading="lazy" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>`;
+  else if(p.type==="image"&&p.thumb) media=`<img src="${esc2(p.thumb)}" alt="${esc2(p.title)}" loading="lazy" style="width:100%;display:block;border-radius:8px">`;
+  const tags=(p.tags||[]).map(t=>`<span style="font-size:10px;padding:3px 9px;border:1px solid var(--b);border-radius:99px;color:var(--m2)">${esc2(t)}</span>`).join("");
+  const fs=compact?12:14;
+  return `<div style="border:1px solid var(--b);border-radius:12px;background:var(--s1);padding:${compact?"12px":"18px 20px"};margin:${compact?"0 10px 12px":"0 0 16px"}">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:30px;height:30px;border-radius:50%;background:var(--gold);color:#000;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0">AA</div><div style="flex:1;min-width:0"><div style="font-size:${fs}px;font-weight:700">Abdelaziz Askar</div><div style="font-size:10.5px;color:var(--m)">${d}</div></div>${p.pinned?'<span style="font-size:10px;color:var(--gold)">📌 Pinned</span>':""}</div>
+    ${p.title?`<div style="font-size:${fs+1}px;font-weight:800;margin-bottom:5px">${esc2(p.title)}</div>`:""}
+    ${p.body?`<p style="font-size:${fs}px;line-height:1.65;color:var(--m2);margin-bottom:${media||tags?"10px":"0"}">${esc2(p.body)}</p>`:""}
+    ${media}
+    ${tags?`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${tags}</div>`:""}
+  </div>`;
+}
+function fillGallery(){
+  fetch("gallery.json?t="+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]).then(posts=>{
+    posts=Array.isArray(posts)?posts:[];
+    const ordered=posts.filter(p=>p.pinned).concat(posts.filter(p=>!p.pinned));
+    document.querySelectorAll("[data-gal]").forEach(el=>{
+      const compact=el.dataset.gal==="screen";
+      el.innerHTML=ordered.length
+        ? (compact?'<div style="height:10px"></div>':"")+ordered.map(p=>galleryPost(p,compact)).join("")
+        : `<div style="padding:${compact?"22px 16px":"8px 0"};font-size:${compact?11:14}px;color:var(--m2);line-height:1.7">Nothing here yet. Moments from my life outside work will show up here.${compact?' <a href="gallery.html" style="color:var(--gold)">Open the Gallery →</a>':""}</div>`;
+    });
+  });
+}
 function buildAppPanels(){document.getElementById("appPanels").innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];let body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';if(PLATFORM_CHROME[key])body=PLATFORM_CHROME[key](body);const noHdr=!!PLATFORM_CHROME[key]||key==="instagram";return `<div class="panel-app" id="panel-${key}">${noHdr?'':`<div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div>`}<div class="panel-app-body" style="">${body}</div></div>`;}).join("");}
 buildAppPanels();
+fillGallery();
 
 const _VP={};let _vpN=0;
 function _vFmt(s){s=Math.floor(s||0);return Math.floor(s/60)+":"+(("0"+(s%60)).slice(-2));}
@@ -1042,25 +1079,93 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   }
   function push(bucket,key,item){ (bucket[key]=bucket[key]||[]).push(item); }
 
+  /* Which app a piece of work lands in follows the roles picked in the brand
+     page header (projects.json -> project.roles). Keep these labels in step
+     with WORK_ROLES in projects.js:
+       Social Media -> Instagram       TVC / YouTube -> YouTube
+       Copywriting -> X and LinkedIn   Website Copywriting -> Browser only
+       UGC / Influencer, Behind the Scenes -> TikTok
+     TikTok otherwise takes only vertical films and behind-the-scenes cuts.
+     A project with no roles picked keeps the old behaviour: every film to
+     YouTube and Instagram, vertical ones to TikTok too, every still to
+     Instagram, every article to X and LinkedIn. */
+  const hasRole=(roles,...want)=>(roles||[]).some(r=>want.includes(r));
+  const REEL_TITLE=/\b(reels?|vertical|ugc|influencer|tiktok|stor(?:y|ies))\b/i;
+  const BTS_TITLE=/\b(bts|behind[\s_-]*the[\s_-]*scenes|making[\s_-]*of|b-?roll)\b/i;
+  const _feedIds=new Set();
+  const b4=slug=>B[slug]||{s:slug,n:(store[slug]&&store[slug].brand&&store[slug].brand.name)||slug.replace(/-/g," "),c:"#f0c233",t:"#000",i:slug.slice(0,2).toUpperCase()};
+
   Object.entries(store).forEach(([slug,bd])=>{
-    const b=B[slug]||{s:slug,n:(bd.brand&&bd.brand.name)||slug.replace(/-/g," "),c:"#f0c233",t:"#000",i:slug.slice(0,2).toUpperCase()};
+    const b=b4(slug);
     (bd.projects||[]).forEach(proj=>{
+      const roles=proj.roles||[], picked=roles.length>0;
+      const toYouTube=!picked||hasRole(roles,"TVC","YouTube");
+      const toInsta=!picked||hasRole(roles,"Social Media");
+      const creator=hasRole(roles,"UGC / Influencer","Behind the Scenes");
       /* Drive only. Vimeo players demanded a sign-in, so they showed a login
          wall instead of the film; films are hosted on Drive now. */
       (proj.vimeo||[]).filter(v=>v.id&&(v.source||"")==="drive").forEach(v=>{
+        _feedIds.add(v.id);
         const isVert=v.orientation==="vertical";
-        push(vids,"youtube",{b,v,proj,slug});
-        if(isVert) push(vids,"tiktok",{b,v,proj,slug});
+        const item={b,v,proj,slug};
+        if(toYouTube) push(vids,"youtube",item);
+        if(toInsta) push(vids,"instagram",item);
+        if(isVert||creator||BTS_TITLE.test(v.label||"")) push(vids,"tiktok",item);
       });
-      (proj.media||[]).filter(m=>m.src&&(m.kind==="img"||!m.kind)).forEach(m=>push(imgs,"instagram",{b,m,proj,slug}));
+      (proj.media||[]).filter(m=>m.src&&(m.kind==="img"||!m.kind)).forEach(m=>{
+        if(toInsta) push(imgs,"instagram",{b,m,proj,slug});
+        if(creator) push(imgs,"tiktok",{b,m,proj,slug});
+      });
+      const webCopy=hasRole(roles,"Website Copywriting");
       (proj.articles||[]).filter(a=>(a.body||a.title)&&!a.socialUrl).forEach(a=>{
-        push(arts,"x",{b,a,proj,slug});
-        push(arts,"linkedin",{b,a,proj,slug});
+        if(webCopy) push(arts,"browser",{b,a,proj,slug});
+        if(!webCopy||hasRole(roles,"Copywriting")){
+          push(arts,"x",{b,a,proj,slug});
+          push(arts,"linkedin",{b,a,proj,slug});
+        }
       });
       (proj.articles||[]).filter(a=>a.socialUrl).forEach(a=>{
         const key=detectSocPlat(a.socialUrl); if(!key) return;
         push(socialLinks,key,{b,a,proj,slug});
       });
+    });
+  });
+
+  /* Drop-folder work (clients/<Brand>/links -> content.json) joins the feeds
+     too, routed by the brand's roles. It is opt-in: a brand with no roles
+     picked adds nothing here, except behind-the-scenes cuts, which always go
+     to TikTok. Capped per brand so one big folder can't take over a feed. */
+  let dropped={};
+  try{ const r=await fetch("content.json?t="+Date.now()); if(r.ok) dropped=(await r.json()).brands||{}; }catch(e){}
+  const DROP_CAP={youtube:3,instagram:3,tiktok:4,photo:4};
+  Object.entries(dropped).forEach(([slug,entry])=>{
+    const projs=(store[slug]&&store[slug].projects)||[];
+    const roles=[...new Set(projs.flatMap(p=>p.roles||[]))];
+    const picked=roles.length>0;
+    const creator=hasRole(roles,"UGC / Influencer","Behind the Scenes");
+    const b=b4(slug), n={};
+    const room=k=>(n[k]=(n[k]||0))<DROP_CAP[k]&&++n[k];
+    (entry.links||[]).filter(l=>l.provider==="drive"&&l.id&&!_feedIds.has(l.id)).forEach(l=>{
+      const title=l.title||b.n;
+      const kind=l.kind||(BTS_TITLE.test(title)?"bts":"");
+      if(kind==="animatic") return;                       // concept cuts stay on the brand page
+      const proj={name:title,date:""};
+      if(kind==="photo"){
+        if(!picked) return;
+        const m={src:"https://drive.google.com/thumbnail?id="+encodeURIComponent(l.id)+"&sz=w1200",caption:""};
+        if(hasRole(roles,"Social Media")&&room("photo")) push(imgs,"instagram",{b,m,proj,slug});
+        if(creator) push(imgs,"tiktok",{b,m,proj,slug});
+        return;
+      }
+      const reel=kind==="bts"||REEL_TITLE.test(title);
+      const v={id:l.id,source:"drive",label:title,orientation:reel?"vertical":"horizontal"};
+      const item={b,v,proj,slug};
+      _feedIds.add(l.id);
+      if(kind==="bts"){ if(room("tiktok")) push(vids,"tiktok",item); return; }
+      if(!picked) return;
+      if((reel||creator)&&room("tiktok")) push(vids,"tiktok",item);
+      if(!reel&&hasRole(roles,"TVC","YouTube")&&room("youtube")) push(vids,"youtube",item);
+      if(!reel&&hasRole(roles,"Social Media")&&room("instagram")) push(vids,"instagram",item);
     });
   });
 
@@ -1153,7 +1258,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   Object.values(imgs).forEach(_shuffle);
   Object.values(arts).forEach(_shuffle);
 
-  if(vids.youtube&&vids.youtube.length){
+  if((vids.youtube&&vids.youtube.length)||(vids.instagram&&vids.instagram.length)){
     const _la=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,"50%")}</div>`;
     const videoCard=({b,v,proj},padding)=>{
       const uid="vp"+(++_vpN);const isVm=v.source!=="drive";
@@ -1187,15 +1292,17 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
         </div>
       </div>`;
     };
-    const panelHtml=sectionHdr("📹 From Campaigns")+vids.youtube.map(v=>videoCard(v,"12px")).join("");
-    const screenHtml=sectionHdr("📹 From Campaigns")+vids.youtube.map(v=>videoCard(v,"8px")).join("");
-    inject("screen-youtube",screenHtml); inject("panel-youtube",panelHtml);
+    if(vids.youtube&&vids.youtube.length){
+      const panelHtml=sectionHdr("📹 From Campaigns")+vids.youtube.map(v=>videoCard(v,"12px")).join("");
+      const screenHtml=sectionHdr("📹 From Campaigns")+vids.youtube.map(v=>videoCard(v,"8px")).join("");
+      inject("screen-youtube",screenHtml); inject("panel-youtube",panelHtml);
+    }
 
     /* Instagram is the campaign feed, so it carries film as well as stills.
        Capped at two per brand and eight overall: it is a scroll feed, not the
        full archive, and every player is another iframe to load. */
     const igSeen={}, igPick=[];
-    for(const item of vids.youtube){
+    for(const item of (vids.instagram||[])){
       const k=item.b.s;
       if((igSeen[k]||0)<2 && igPick.length<8){ igPick.push(item); igSeen[k]=(igSeen[k]||0)+1; }
     }
@@ -1242,6 +1349,50 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
     const panelHtml=sectionHdr("📹 Campaign Videos")+vids.tiktok.map(v=>tkCard(v,"12px")).join("");
     const screenHtml=sectionHdr("📹 Campaign Videos")+vids.tiktok.map(v=>tkCard(v,"8px")).join("");
     inject("screen-tiktok",screenHtml); inject("panel-tiktok",panelHtml);
+  }
+
+  /* UGC and influencer campaigns: stills grouped per brand on TikTok. */
+  if(imgs.tiktok&&imgs.tiktok.length){
+    const byBrand={};
+    imgs.tiktok.forEach(it=>{ (byBrand[it.slug]=byBrand[it.slug]||{b:it.b,proj:it.proj,m:[]}).m.push(it.m); });
+    const card=({b,proj,m})=>`<div class="fi-wrap" style="margin:0 0 20px;padding:0 12px"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none"><div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,"50%")}</div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:#fff">${b.n}</div><div style="font-size:11px;color:#aaa">Creator & influencer campaign</div></div></a>
+      <a href="${brandLink(b.s)}" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:10px;overflow:hidden;text-decoration:none">${m.slice(0,4).map(x=>`<img src="${/^(https?:|\/\/)/.test(x.src)?x.src:x.src.replace(/^\//,"")}" alt="${b.n}" loading="lazy" style="width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#111">`).join("")}</a>
+    </div>`;
+    const html=sectionHdr("📱 Creator & Influencer Campaigns")+Object.values(byBrand).map(card).join("");
+    inject("screen-tiktok",html); inject("panel-tiktok",html);
+  }
+
+  /* Website copywriting lives in its own app, one browser window per site. */
+  if(arts.browser&&arts.browser.length){
+    const bySite={};
+    arts.browser.forEach(({b,a,proj,slug})=>{
+      const k=slug+"|"+(proj.name||"");
+      (bySite[k]=bySite[k]||{b,proj,link:"",items:[]}).items.push(a);
+      if(!bySite[k].link&&a.link) bySite[k].link=a.link;
+    });
+    const host=u=>{ try{ return new URL(u).hostname.replace(/^www\./,""); }catch(e){ return ""; } };
+    const win=({b,proj,link,items},pad)=>{
+      const site=host(link)||b.n;
+      return `<div class="fi-wrap" style="margin:0 0 20px;padding:0 ${pad}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <div style="border:1px solid #2c2c33;border-radius:12px;overflow:hidden;background:#fff;color:#1c1c1e">
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#ececef;border-bottom:1px solid #d6d6db">
+          <span style="display:flex;gap:5px;flex-shrink:0"><i style="width:9px;height:9px;border-radius:50%;background:#ff5f57;display:block"></i><i style="width:9px;height:9px;border-radius:50%;background:#febc2e;display:block"></i><i style="width:9px;height:9px;border-radius:50%;background:#28c840;display:block"></i></span>
+          <div style="flex:1;min-width:0;background:#fff;border-radius:7px;padding:5px 10px;font-size:11px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">🔒 ${site}</div>
+        </div>
+        <div style="padding:14px 16px 12px">
+          <a href="${brandLink(b.s)}" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;margin-bottom:10px"><div style="width:28px;height:28px;border-radius:7px;background:${b.c};color:${b.t};display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;position:relative;overflow:hidden;flex-shrink:0">${b.i}${logoOverlay(b,"6px")}</div><div><div style="font-size:13px;font-weight:800">${b.n}</div><div style="font-size:10.5px;color:#6b6b73">${proj.name||"Website copy"}</div></div></a>
+          ${items.slice(0,4).map(a=>`<div style="padding:9px 0;border-top:1px solid #ececef">${a.title?`<div style="font-size:12px;font-weight:700;margin-bottom:3px">${a.title}</div>`:""}<div style="font-size:12px;line-height:1.6;color:#3a3a40">${String(a.body||"").replace(/<[^>]+>/g,"").trim().slice(0,240)}${String(a.body||"").length>240?"…":""}</div></div>`).join("")}
+          <div style="display:flex;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid #ececef;font-size:11px">
+            <a href="${brandLink(b.s)}" style="color:#1D6FE8;text-decoration:none;font-weight:700">Read the case study →</a>
+            ${link?`<a href="${link}" target="_blank" rel="noopener" style="color:#6b6b73;text-decoration:none">Visit ${site} ↗</a>`:""}
+          </div>
+        </div>
+      </div></div>`;
+    };
+    const sites=Object.values(bySite);
+    inject("screen-browser", sectionHdr("🌐 Website Copywriting")+sites.map(s=>win(s,"12px")).join(""));
+    inject("panel-browser",  sectionHdr("🌐 Website Copywriting")+sites.map(s=>win(s,"0")).join(""));
   }
 
   if(imgs.instagram&&imgs.instagram.length){
@@ -1744,6 +1895,7 @@ function bmSave(){
   catch(_){alert("Could not save locally — browser storage is unavailable.");return;}
   buildAppScreens();
   buildAppPanels();
+  fillGallery();
   openBrandMgr();
 }
 

@@ -1590,7 +1590,236 @@
     i.click();
   },true);
 
-  function applyDisplay(){ applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyProcess(); applyArticles(); applyGallery(); applyReports(); applyDropped(); }
+  /* ---------- header band under the banner ----------
+     Role · Agency · Deliverables · The challenge · What was delivered, then
+     About the brand. Visitors see only the rows that have something in them;
+     edit mode shows every field as an input.
+
+     Role is a pick-list, and the pick also decides which phone app the work
+     turns up in - the feed builder in index.html reads the same labels, so
+     keep the two lists in step. */
+  const WORK_ROLES=['Social Media','TVC','YouTube','Copywriting','Website Copywriting','UGC / Influencer','Behind the Scenes'];
+  const ROLE_APP={'Social Media':'Instagram','TVC':'YouTube','YouTube':'YouTube','Copywriting':'X & LinkedIn','Website Copywriting':'Browser','UGC / Influencer':'TikTok','Behind the Scenes':'TikTok'};
+  const DELIVERABLE_OPTS=['TVC','Animatic','Social Posts','Reels','Stories','Key Visual','OOH','Copywriting','Website Copy','Brand Identity','Photography','Influencer Campaign','Event Coverage','Strategy Deck'];
+
+  /* Pages without a projects.json entry still carry the old static brief, so
+     the band falls back to what those pages already say. */
+  function staticMeta(label){
+    for(const it of document.querySelectorAll('.mg .mi')){
+      const l=it.querySelector('.ml');
+      if(l && l.textContent.trim().toLowerCase()===label) return ((it.querySelector('.mv')||{}).textContent||'').trim();
+    }
+    return '';
+  }
+  function staticDelivered(){
+    for(const h of document.querySelectorAll('h2.st')){
+      if(/what was delivered/i.test(h.textContent)){ const n=h.nextElementSibling; if(n&&n.classList.contains('desc')) return n.textContent.trim(); }
+    }
+    return '';
+  }
+  function staticChips(sel){ return [...document.querySelectorAll(sel)].map(e=>e.textContent.trim()).filter(Boolean); }
+  /* Older write-ups pack everything into desc as "Challenge: … Solution: …".
+     These are the labels actually used across projects.json; text before the
+     first label is usually the challenge stated without one. */
+  const DESC_LABELS={
+    'the challenge':'challenge','challenge':'challenge',
+    'the work':'delivered','solution':'delivered','execution':'delivered',
+    'deliverables & technical specs':'deliverables','deliverables':'deliverables','key assets':'deliverables','media types':'deliverables',
+    'impact & outcomes':'results','achievements':'results','results':'results','impact':'results',
+    'overview':'overview','the brand':'overview',
+    'brand':'skip','industry':'skip','market':'skip','primary role':'skip','operations':'skip','scope':'skip'
+  };
+  function descParts(desc){
+    const s=String(desc||''), out={}, marks=[];
+    const names=Object.keys(DESC_LABELS).sort((a,b)=>b.length-a.length).map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+    const re=new RegExp('(^|[\\s.])('+names.join('|')+')\\s*:','gi');
+    let m; while((m=re.exec(s))) marks.push({k:DESC_LABELS[m[2].toLowerCase()],at:m.index+m[1].length,from:re.lastIndex});
+    const lead=(marks.length?s.slice(0,marks[0].at):'').trim();
+    marks.forEach((mk,i)=>{
+      if(mk.k==='skip') return;
+      const t=s.slice(mk.from, i+1<marks.length?marks[i+1].at:s.length).trim();
+      if(t) out[mk.k]=out[mk.k]?out[mk.k]+' '+t:t;
+    });
+    if(lead && !out.challenge && marks.length) out.challenge=lead;
+    return out;
+  }
+
+  let _headCss=false;
+  function headCss(){
+    if(_headCss) return; _headCss=true;
+    const st=el('style'); st.textContent=
+      '#zz-head{padding:44px 0 40px;border-bottom:1px solid var(--b,#2c2c33)}'
+     +'#zz-head .zh-in{max-width:1100px;margin:0 auto;padding:0 40px}'
+     +'#zz-head .zh-grid{display:grid;grid-template-columns:var(--zh-cols,minmax(0,1fr) minmax(0,1fr) minmax(0,2fr));gap:1px;background:var(--b,#2c2c33);border:1px solid var(--b,#2c2c33);border-radius:8px;overflow:hidden}'
+     +'#zz-head .zh-duo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b,#2c2c33);border:1px solid var(--b,#2c2c33);border-top:0;border-radius:0 0 8px 8px;overflow:hidden;margin-top:-1px}'
+     +'#zz-head .zh-grid.zh-solo{border-radius:8px}#zz-head .zh-grid.zh-top{border-radius:8px 8px 0 0}'
+     +'#zz-head .zh-cell{background:var(--s1,#16161a);padding:20px 22px;min-width:0}'
+     +'#zz-head .zh-l{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--m,#9a958c);margin-bottom:8px}'
+     +'#zz-head .zh-v{font-size:14px;font-weight:700;color:var(--text,#f4f2ed);line-height:1.4}'
+     +'#zz-head .zh-sub{font-size:11.5px;font-weight:500;color:var(--m2,#c2bcb2);margin-top:5px}'
+     +'#zz-head .zh-p{font-size:14px;line-height:1.75;color:var(--m2,#c2bcb2);white-space:pre-line}'
+     +'#zz-head .zh-chips{display:flex;flex-wrap:wrap;gap:6px}'
+     +'#zz-head .zh-chip{font-size:10.5px;letter-spacing:.06em;padding:5px 11px;border:1px solid var(--accent,#f0c233);border-radius:99px;color:var(--text,#f4f2ed);font-weight:600}'
+     +'#zz-head .zh-chip.dim{border-color:var(--b,#2c2c33);color:var(--m2,#c2bcb2);font-weight:500}'
+     +'#zz-head .zh-about{margin-top:28px;padding:24px 28px;background:var(--s1,#16161a);border-left:3px solid var(--accent,#f0c233);border-radius:0 8px 8px 0}'
+     +'#zz-head .zh-about .zh-p{max-width:760px}'
+     /* edit mode */
+     +'#zz-head input,#zz-head textarea{width:100%;background:#0d0d0f;border:1px solid var(--b,#2c2c33);border-radius:7px;color:var(--text,#f4f2ed);font:500 13px var(--font,Inter,sans-serif);padding:8px 10px;outline:none}'
+     +'#zz-head textarea{min-height:92px;resize:vertical;line-height:1.6}'
+     +'#zz-head input:focus,#zz-head textarea:focus{border-color:#f0c233}'
+     +'#zz-head .zh-dd{position:relative}'
+     +'#zz-head .zh-dd-btn{width:100%;text-align:left;background:#0d0d0f;border:1px solid var(--b,#2c2c33);border-radius:7px;color:var(--text,#f4f2ed);font:600 13px var(--font,Inter,sans-serif);padding:8px 28px 8px 10px;cursor:pointer;position:relative;min-height:36px}'
+     +'#zz-head .zh-dd-btn:after{content:"▾";position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--m,#9a958c)}'
+     +'#zz-head .zh-dd-btn.ph{color:var(--m,#9a958c);font-weight:500}'
+     +'#zz-head .zh-dd-list{position:absolute;z-index:40;left:0;right:0;top:calc(100% + 4px);background:#141418;border:1px solid var(--b,#2c2c33);border-radius:8px;padding:6px;box-shadow:0 14px 34px rgba(0,0,0,.6);display:none;max-height:300px;overflow-y:auto}'
+     +'#zz-head .zh-dd.open .zh-dd-list{display:block}'
+     +'#zz-head .zh-opt{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:6px;cursor:pointer;font-size:12.5px;color:var(--text,#f4f2ed)}'
+     +'#zz-head .zh-opt:hover{background:#1f1f25}'
+     +'#zz-head .zh-opt input{width:auto;margin:0;accent-color:#f0c233}'
+     +'#zz-head .zh-opt small{margin-left:auto;font-size:10px;color:var(--m,#9a958c)}'
+     +'#zz-head .zh-hint{font-size:10.5px;color:var(--m,#9a958c);margin-top:6px}'
+     +'#zz-head.zh-editing .zh-grid,#zz-head.zh-editing .zh-duo{overflow:visible}'
+     +'#zz-head.zh-editing .zh-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1.6fr)}'
+     +'#zz-head .zh-dd-list{min-width:250px}'
+     +'#zz-head select.zh-add{margin-top:8px;width:100%;background:#0d0d0f;border:1px solid var(--b,#2c2c33);border-radius:7px;color:var(--m2,#c2bcb2);font:500 12.5px var(--font,Inter,sans-serif);padding:8px 10px;outline:none;cursor:pointer}'
+     +'#zz-head .zh-save{margin-top:18px;background:#f0c233;color:#000;border:none;border-radius:8px;padding:10px 20px;font:800 12px var(--font,Inter,sans-serif);letter-spacing:.05em;text-transform:uppercase;cursor:pointer}'
+     +'@media(max-width:800px){#zz-head .zh-in{padding:0 20px}#zz-head .zh-grid,#zz-head .zh-duo{grid-template-columns:1fr}}';
+    document.head.append(st);
+  }
+
+  /* Multi-pick dropdown: a button that opens a checklist. */
+  function multiDrop(options, selected, placeholder, hint, onChange){
+    const w=el('div'); w.className='zh-dd';
+    const btn=el('button'); btn.type='button'; btn.className='zh-dd-btn';
+    const list=el('div'); list.className='zh-dd-list';
+    function label(){ btn.textContent=selected.length?selected.join(', '):placeholder; btn.classList.toggle('ph',!selected.length); }
+    options.forEach(opt=>{
+      const row=el('label'); row.className='zh-opt';
+      const cb=el('input'); cb.type='checkbox'; cb.checked=selected.includes(opt);
+      cb.onchange=()=>{ const i=selected.indexOf(opt); if(cb.checked&&i<0) selected.push(opt); if(!cb.checked&&i>-1) selected.splice(i,1); label(); onChange(selected); };
+      row.append(cb, document.createTextNode(opt));
+      if(hint&&hint[opt]){ const s=el('small'); s.textContent='→ '+hint[opt]; row.append(s); }
+      list.append(row);
+    });
+    btn.onclick=e=>{ e.stopPropagation(); document.querySelectorAll('#zz-head .zh-dd.open').forEach(d=>{ if(d!==w) d.classList.remove('open'); }); w.classList.toggle('open'); };
+    list.onclick=e=>e.stopPropagation();
+    label(); w.append(btn,list); return w;
+  }
+  document.addEventListener('click',()=>document.querySelectorAll('#zz-head .zh-dd.open').forEach(d=>d.classList.remove('open')));
+
+  function applyHeader(){
+    const hero=document.querySelector('.hero'); if(!hero) return;
+    headCss();
+    const p=DATA.projects[DATA.active]||{};
+    const b=DATA.brand||{};
+    if(!Array.isArray(p.roles)) p.roles=[];
+    const parts=descParts(p.desc);
+    const name=(document.querySelector('.hn')||{}).textContent||brandName;
+
+    // What a visitor sees, with the old static page as the fallback.
+    // The newer page template has only [industry, service] chips in the hero,
+    // so the service chip stands in for a role there - and nowhere else.
+    const fullTemplate=!!document.querySelector('.mg');
+    const roles=p.roles.length?p.roles:(fullTemplate?[]:staticChips('.hc .cp').filter(c=>WORK_ROLES.includes(c)));
+    const title=p.role||staticMeta('role');
+    const agency=p.agency||staticMeta('agency');
+    const delivSrc=p.deliverables||parts.deliverables||'';
+    const deliverables=delivSrc
+      ? String(delivSrc).split(/\s*[,·;]\s*|\.\s+/).map(x=>x.replace(/^and\s+/i,'').replace(/\.$/,'').trim()).filter(Boolean)
+      : (fullTemplate?staticChips('.dg .dt'):[]);
+    // A long written-out list reads better as a sentence than as chips.
+    const delivProse=deliverables.some(x=>x.length>38);
+    const challenge=p.challenge||parts.challenge||'';
+    const delivered=p.delivered||[parts.delivered,parts.results].filter(Boolean).join('\n\n')||staticDelivered()||'';
+    const about=b.about||'';
+
+    let sec=document.getElementById('zz-head');
+    if(!sec){ sec=el('section'); sec.id='zz-head'; sec.setAttribute('data-ze-skip',''); hero.parentNode.insertBefore(sec, hero.nextSibling); }
+    else if(sec.previousElementSibling!==hero){ hero.parentNode.insertBefore(sec, hero.nextSibling); }
+    sec.innerHTML='';
+    const inner=el('div'); inner.className='zh-in'; sec.append(inner);
+
+    function cell(labelText, body, cls){
+      const c=el('div'); c.className='zh-cell'+(cls?' '+cls:'');
+      const l=el('div'); l.className='zh-l'; l.textContent=labelText; c.append(l);
+      if(body) c.append(body);
+      return c;
+    }
+    function chips(arr, dim){ const w=el('div'); w.className='zh-chips'; arr.forEach(t=>{ const s=el('span'); s.className='zh-chip'+(dim?' dim':''); s.textContent=t; w.append(s); }); return w; }
+    function para(t){ const x=el('p'); x.className='zh-p'; x.textContent=t; return x; }
+
+    if(!editing()){
+      sec.classList.remove('zh-editing');
+      const top=[], duo=[];
+      if(roles.length||title){
+        const v=el('div'); if(roles.length) v.append(chips(roles));
+        if(title){ const s=el('div'); s.className=roles.length?'zh-sub':'zh-v'; s.textContent=roles.length?'As '+title:title; v.append(s); }
+        top.push(cell('Role',v));
+      }
+      if(agency){ const v=el('div'); v.className='zh-v'; v.textContent=agency; top.push(cell('Agency',v)); }
+      if(deliverables.length) top.push(cell('Deliverables',delivProse?para(String(delivSrc)):chips(deliverables,true)));
+      if(challenge) duo.push(cell('The challenge',para(challenge)));
+      if(delivered) duo.push(cell('What was delivered',para(delivered)));
+      if(top.length){
+        const g=el('div'); g.className='zh-grid '+(duo.length?'zh-top':'zh-solo');
+        if(top.length!==3) g.style.setProperty('--zh-cols','repeat('+top.length+',minmax(0,1fr))');
+        top.forEach(c=>g.append(c)); inner.append(g);
+      }
+      if(duo.length){
+        const d=el('div'); d.className='zh-duo';
+        if(!top.length){ d.style.borderTop='1px solid var(--b,#2c2c33)'; d.style.borderRadius='8px'; d.style.marginTop='0'; }
+        if(duo.length===1) d.style.gridTemplateColumns='1fr';
+        duo.forEach(c=>d.append(c)); inner.append(d);
+      }
+      if(about){ const a=el('div'); a.className='zh-about'; const l=el('div'); l.className='zh-l'; l.textContent='About '+name.trim(); a.append(l, para(about)); inner.append(a); }
+      if(!inner.children.length) sec.remove();
+      return;
+    }
+
+    // ----- edit mode: every field, prefilled with what visitors currently see -----
+    sec.classList.add('zh-editing');
+    const g=el('div'); g.className='zh-grid zh-top';
+    const roleWrap=el('div');
+    roleWrap.append(multiDrop(WORK_ROLES, p.roles, 'Choose one or more roles', ROLE_APP, ()=>persist(false)));
+    const titleIn=field('input', p.role, 'Your title, e.g. Creative Director', v=>{ p.role=v; });
+    titleIn.style.marginTop='8px'; roleWrap.append(titleIn);
+    const rh=el('div'); rh.className='zh-hint'; rh.textContent='The role decides which phone app shows this work.'; roleWrap.append(rh);
+    g.append(cell('Role',roleWrap));
+
+    const ag=field('input', p.agency||agency, 'Agency', v=>{ p.agency=v; });
+    const dlId='zh-ag-'+SLUG; ag.setAttribute('list',dlId);
+    const dl=el('datalist'); dl.id=dlId; AGENCY_OPTS.filter(Boolean).forEach(o=>{ const op=el('option'); op.value=o; dl.append(op); });
+    const agWrap=el('div'); agWrap.append(ag,dl); g.append(cell('Agency',agWrap));
+
+    const dWrap=el('div');
+    const dIn=field('input', p.deliverables||(delivSrc?String(delivSrc):deliverables.join(', ')), 'Comma separated, e.g. TVC, Reels, Key Visual', v=>{ p.deliverables=v; });
+    const add=el('select'); add.className='zh-add';
+    [['','＋ Add a common deliverable']].concat(DELIVERABLE_OPTS.map(o=>[o,o])).forEach(([v,t])=>{ const o=el('option'); o.value=v; o.textContent=t; add.append(o); });
+    add.onchange=()=>{
+      const v=add.value; add.value=''; if(!v) return;
+      const cur=dIn.value.split(/\s*,\s*/).filter(Boolean);
+      if(!cur.some(x=>x.toLowerCase()===v.toLowerCase())) cur.push(v);
+      dIn.value=cur.join(', '); p.deliverables=dIn.value; persist(false);
+    };
+    dWrap.append(dIn,add); g.append(cell('Deliverables',dWrap));
+    inner.append(g);
+
+    const d=el('div'); d.className='zh-duo';
+    d.append(cell('The challenge', field('textarea', p.challenge||challenge, 'What stood in the way?', v=>{ p.challenge=v; })));
+    d.append(cell('What was delivered', field('textarea', p.delivered||delivered, 'What did you make, and what did it do?', v=>{ p.delivered=v; })));
+    inner.append(d);
+
+    const a=el('div'); a.className='zh-about';
+    const al=el('div'); al.className='zh-l'; al.textContent='About '+name.trim();
+    a.append(al, field('textarea', b.about, 'A short, factual note on the brand itself.', v=>{ DATA.brand.about=v; }));
+    inner.append(a);
+
+    const save=el('button'); save.type='button'; save.className='zh-save'; save.textContent='💾 Save header';
+    save.onclick=()=>persist(true, save);
+    inner.append(save);
+  }
+
+  function applyDisplay(){ applyHeader(); applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyProcess(); applyArticles(); applyGallery(); applyReports(); applyDropped(); }
   function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyDisplay(); }
   function mount(){
     if(!root.parentNode){
