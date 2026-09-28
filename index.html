@@ -38,7 +38,7 @@
   "sameAs": ["https://www.linkedin.com/in/abdel-aziz-askar","https://www.instagram.com/ziaskar/","https://www.youtube.com/@Escapegoatsounds","https://www.tiktok.com/@escapegoatmusic","https://www.facebook.com/Ziaskar"]
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Grand+Hotel&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#09090c; --s1:#111118; --s2:#19191f; --b:#252532;
@@ -98,6 +98,11 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
 .phone::after{content:"";position:absolute;right:-3px;top:120px;width:3px;height:62px;background:#1c1c1c;border-radius:0 2px 2px 0}
 .phone::before{content:"";position:absolute;left:-3px;top:90px;width:3px;height:40px;background:#1c1c1c;border-radius:2px 0 0 2px;box-shadow:0 52px 0 #1c1c1c}
 .phone-screen{position:absolute;inset:0;border-radius:var(--phone-screen-r);overflow:hidden}
+.phone-back{position:absolute;top:15px;left:16px;z-index:60;display:none;align-items:center;gap:3px;height:24px;padding:0 10px 0 8px;border-radius:99px;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2)!important;color:#fff;font:700 11.5px/1 -apple-system,Inter,sans-serif;cursor:pointer}
+.phone-back:hover{background:rgba(0,0,0,.75)}
+.phone.in-app .phone-back{display:flex}
+.phone.in-app .status-time{visibility:hidden}
 .dynamic-island{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:96px;height:28px;background:#000;border-radius:20px;z-index:50}
 
 .status-bar{position:absolute;top:0;left:0;right:0;height:48px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 7px;z-index:40;font-size:12px;font-weight:700}
@@ -167,6 +172,45 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
 .app-body::-webkit-scrollbar{display:none}
 
 .feed-post{border-bottom:1px solid var(--b)}
+/* Feed posts built from projects.json: one frame per post (4:5, 1:1 or 16:9),
+   several stills from one project become a swipeable carousel. */
+.fp{margin:0 0 30px;color:#fff}
+.fp-head{display:flex;align-items:center;gap:10px;padding:0 12px 9px;text-decoration:none}
+.fp-av{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;position:relative;overflow:hidden}
+.fp-name{font-size:13px;font-weight:700;color:#fff}
+.fp-sub{font-size:11px;color:#8e8e93;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fp-frame{position:relative;width:100%;overflow:hidden;background:#0b0b0d}
+.fp-track{display:flex;width:100%;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.fp-track::-webkit-scrollbar{display:none}
+.fp-slide{flex:0 0 100%;height:100%;position:relative;overflow:hidden;scroll-snap-align:center;scroll-snap-stop:always}
+.fp-slide .fp-bg{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(24px) brightness(.5);display:none}
+.fp-slide .fp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.fp-slide.fit .fp-bg{display:block}
+.fp-slide.fit .fp-img{object-fit:contain}
+.fp-count{position:absolute;top:10px;right:10px;z-index:2;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px;pointer-events:none}
+.fp-nav{position:absolute;top:50%;z-index:2;width:26px;height:26px;margin-top:-13px;border:0;border-radius:50%;background:rgba(255,255,255,.85);color:#111;font-size:15px;line-height:26px;cursor:pointer;padding:0;opacity:.9}
+.fp-nav.prev{left:8px}.fp-nav.next{right:8px}
+.fp-nav[hidden]{display:none}
+.fp-dots{display:flex;justify-content:center;gap:4px;height:6px;margin-top:10px}
+.fp-dots i{width:6px;height:6px;border-radius:50%;background:#48484e;transition:background .2s}
+.fp-dots i.on{background:#0095f6}
+.fp-acts{display:flex;gap:14px;align-items:center;padding:10px 12px 6px;font-size:21px}
+.fp-acts span:last-child{margin-left:auto}
+.fp-cap{padding:0 12px;font-size:13px;line-height:1.5;color:#e0e0e0}
+.fp-cap b{color:#fff;margin-right:5px}
+/* Feed films: native players from Drive, muted autoplay while in view. */
+.fv{position:relative;width:100%;overflow:hidden;background:#000;margin:0 auto}
+.fv video,.fv-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.fv.cover video,.fv.cover .fv-poster{object-fit:cover}
+.fv iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.fv video{cursor:pointer}
+.fv-ctl{position:absolute;right:8px;bottom:10px;z-index:2;display:flex;align-items:center;gap:6px;padding:4px;border-radius:99px;background:rgba(0,0,0,.62)}
+.fv-snd{width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0}
+.fv-vol{width:0;opacity:0;margin:0;accent-color:var(--gold);cursor:pointer;transition:width .2s,opacity .2s}
+.fv-ctl:hover .fv-vol,.fv-ctl:focus-within .fv-vol,.fv.loud .fv-vol{width:64px;opacity:1;margin-right:6px}
+.fv-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.18);z-index:2;pointer-events:none}
+.fv-bar i{display:block;height:100%;width:0;background:var(--gold)}
+.fv-full{position:absolute;left:10px;bottom:12px;z-index:2;border:0;border-radius:99px;background:rgba(0,0,0,.66);color:#fff;font:600 11px/1 inherit;padding:7px 11px;cursor:pointer;display:flex;align-items:center;gap:6px}
 .feed-head{display:flex;align-items:center;gap:9px;padding:9px 12px}
 .feed-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;position:relative;overflow:hidden}
 .feed-user{font-size:11px;font-weight:700}
@@ -423,6 +467,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .bm-check.on{border-color:var(--gold);color:var(--gold)}
 </style>
   <link rel="stylesheet" href="project-content.css">
+  <link rel="stylesheet" href="apps-native.css?v=5">
 </head>
 <body>
 
@@ -499,6 +544,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
     <div class="phone">
       <div class="phone-screen">
         <div class="dynamic-island"></div>
+        <button type="button" class="phone-back" onclick="showHome()" aria-label="Back to the home screen">‹ Home</button>
         <div class="status-bar" style="color:#fff">
           <span class="status-time" id="clockDisplay">9:41</span>
           <div class="status-icons">
@@ -710,6 +756,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 <script src="tools-data.js"></script>
 <script src="apps-data.js"></script>
 <script src="project-content.js"></script>
+<script src="apps-native.js?v=4"></script>
 <script>
 
 const BRANDS=[
@@ -786,7 +833,7 @@ function tweet(txt,meta){return `<div class="tweet"><div class="tweet-av">AZ</di
 function cardLink(b,meta){return `<a class="acard" href="${brandLink(b.s)}"><div class="acard-body" style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;background:${b.c};border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};flex-shrink:0;position:relative;overflow:hidden">${b.i}${logoOverlay(b,"8px")}</div><div><div class="acard-name">${b.n}</div><div class="acard-meta">${meta}</div></div></div></a>`;}
 
 const SCREENS={
-  instagram:()=>bcFilter("instagram").slice(0,6).map(b=>feedPost(b,bcGet(b.s).desc||"Lead creative campaign. Tap to open the case study.")).join(""),
+  instagram:()=>"",   // filled with real posts by the feed builder
   x:()=>'<div style="padding:10px 12px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Headlines & scripts</div>'+tweet('"You earned the drive. We built the ride." — Geely UAE launch TVC. 🚗',"Geely")+tweet('"Ramadan tastes different when it\'s made right." — Kappa Egypt.',"Kappa")+tweet('"Taste the boldness. Every single bite." — Subway Oman.',"Subway"),
   tiktok:()=>bcFilter("tiktok").map(b=>cardLink(b,(bcGet(b.s).tags||[]).join(" · ")||"Social · Campaign")).join(""),
   youtube:()=>'<div class="tabs"><span class="tab on" data-tb="ytP" data-tk="pf" onclick="tabShow(\'ytP\',\'pf\')">Portfolio</span><span class="tab" data-tb="ytP" data-tk="lr" onclick="tabShow(\'ytP\',\'lr\')">Land of Rebirth</span><span class="tab" data-tb="ytP" data-tk="sk" onclick="tabShow(\'ytP\',\'sk\')">Skippy</span><span class="tab" data-tb="ytP" data-tk="ec" onclick="tabShow(\'ytP\',\'ec\')">Escape Code</span></div><div data-ts="ytP" data-tk="pf">'+bcFilter("youtube").map(b=>cardLink(b,(bcGet(b.s).tags||[]).join(" · ")||"TVC · Production")).join("")+'</div><div data-ts="ytP" data-tk="lr" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🌍 Land of Rebirth</div><div class="acard-meta">Original YouTube series · storytelling</div></div></div></div><div data-ts="ytP" data-tk="sk" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">🐶 Learn English with Skippy</div><div class="acard-meta">Edutainment series for kids</div></div></div></div><div data-ts="ytP" data-tk="ec" style="display:none"><div class="acard"><div class="acard-body"><div class="acard-name">💻 Escape Code</div><div class="acard-meta">Tech & creativity series</div></div></div></div>',
@@ -796,7 +843,17 @@ const SCREENS={
   powerpoint:()=>[B["Snapchat"],B["Carina"],B["Krispy-Kreme"],B["Quooker"]].map(b=>cardLink(b,"Strategy · Tactics")).join(""),
   spotify:()=>'<div class="tabs"><span class="tab on" data-tb="musP" data-tk="eg" onclick="tabShow(\'musP\',\'eg\')">Escapegoat</span><span class="tab alt" data-tb="musP" data-tk="dj" onclick="tabShow(\'musP\',\'dj\')">Music Production</span></div><div data-ts="musP" data-tk="eg"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.jpg" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div style="font-size:15px;font-weight:800">Escapegoat Sounds</div><div style="font-size:11px;color:var(--m2)">Abdelaziz Askar · 4 tracks</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join("")+'</div><div data-ts="musP" data-tk="dj" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
   wikipedia:()=>'<div style="padding:14px;font-size:13px;font-weight:700">Abdelaziz Askar</div><div style="padding:0 14px 12px;font-size:11px;color:var(--m2);line-height:1.7">Head of Social & AI at Tonic International (Dubai). 18 years across Egypt, Qatar & the UAE — Nineteen84, Al Siddiqi, Deraya. Songwriter, photographer, AI pioneer.</div><a class="acard" href="about.html"><div class="acard-body"><div class="acard-name" style="color:var(--gold)">Full bio & achievements →</div></div></a>',
-  skills:()=>'<div style="height:100%;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:20px 18px;background:radial-gradient(circle at 50% 0%,#1a1145,#0b0714);font-family:monospace;text-align:center"><div><div style="font-size:24px;font-weight:900;color:#ff7ad9;letter-spacing:1px;text-shadow:0 0 14px rgba(255,122,217,.6)">ESCAPEGOAT</div><div style="font-size:12px;font-weight:800;color:var(--gold);letter-spacing:4px;margin-top:4px">★ ARCADE ★</div></div><button onclick="gameNav(\'play\')" style="background:#ff7ad9;color:#000;border:none;border-radius:8px;padding:13px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">▶ START GAME</button><button onclick="gameNav(\'skills\')" style="background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:8px;padding:12px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">📊 SKILLS</button><button onclick="showHome()" style="background:transparent;color:var(--m2);border:2px solid #333;border-radius:8px;padding:12px;font:800 13px monospace;letter-spacing:2px;cursor:pointer">✕ EXIT GAME</button><div style="font-size:9px;color:var(--m2);letter-spacing:1px">GAME PLAYS ON THE BIG SCREEN →</div></div>',
+  skills:()=>`<div class="arc"><span class="arc-sun"></span>
+    <svg class="arc-city" viewBox="0 0 340 90" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <polygon points="6,90 44,52 82,90" fill="#dcbf8e"/><polygon points="60,90 88,64 116,90" fill="#d4b47f"/>
+      <rect x="130" y="58" width="26" height="32" fill="#a9b8c9"/><rect x="160" y="44" width="20" height="46" fill="#a9b8c9"/>
+      <path d="M196 90V66a22 22 0 0 1 44 0v24z" fill="#98a9bd"/><rect x="188" y="30" width="4" height="60" fill="#98a9bd"/><rect x="244" y="30" width="4" height="60" fill="#98a9bd"/>
+      <rect x="262" y="60" width="30" height="30" fill="#a9b8c9"/><rect x="306" y="14" width="6" height="76" fill="#8ea3bb"/><polygon points="302,16 309,2 316,16" fill="#8ea3bb"/>
+    </svg>
+    <div class="arc-head"><b>ESCAPEGOAT</b><span>★ ARCADE ★</span></div>
+    <div class="arc-list">${[["play","🥊","Alley Brawler","Smash robots, collect likes"],["rash","🏍️","Highway Rash","Race the desert highway"],["cross","🛺","Cross Cairo","Dodge tuk-tuks and taxis"],["bonetoss","🦴","Bone Toss","Sling bones, Skippy fetches"]].map(g=>`<button type="button" class="arc-game" onclick="gameNav('${g[0]}')"><span class="arc-ic">${g[1]}</span><span class="arc-t"><b>${g[2]}</b><small>${g[3]}</small></span><span class="arc-go">▶</span></button>`).join("")}</div>
+    <div class="arc-row"><button type="button" onclick="gameNav('skills')">📊 Skills</button><button type="button" onclick="gameNav('menu')">☰ Game menu</button></div>
+    <p class="arc-note">The game plays on the big screen →</p></div>`,
   linkedin:()=>{
     const exp=[
       ["Head of Social & AI","Tonic International · Dubai · 2024–Present","Directed Geely Coolray national launch — full ATL, TVC direction, OOH. Built the first AI-animated TVC pitch in MENA for Warba Bank."],
@@ -822,8 +879,9 @@ const SCREENS={
    gallery.json, the same post format as My Everyday's feed.json. */
 SCREENS.browser=()=>'<div class="br-intro" style="padding:12px 14px 4px;font-size:11px;color:var(--m2);line-height:1.6">Website copy I wrote for brands, page by page.</div>';
 SCREENS.gallery=()=>'<div data-gal="screen"><div style="padding:18px 14px;font-size:11px;color:var(--m2)">Loading…</div></div>';
-function buildAppScreens(){document.getElementById("appScreens").innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];const body=SCREENS[key]?SCREENS[key]():'<div style="padding:20px;color:var(--m2);font-size:12px">Coming soon.</div>';return `<div class="screen hidden app-screen" id="screen-${key}"><div class="app-topbar"><button class="back-btn" onclick="showHome()">‹</button><div class="mini-ico">${icoMarkup(key)}</div><span class="app-screen-title">${a.label}</span></div><div class="app-body">${body}</div></div>`;}).join("");}
-buildAppScreens();
+/* Apps with a native look (apps-native.js) build their own screen; the rest keep the plain one. */
+function buildAppScreens(){document.getElementById("appScreens").innerHTML=Object.keys(APPS).map(key=>{if(window.NX&&NX.apps[key])return NX.screen(key);const a=APPS[key];const body=SCREENS[key]?SCREENS[key]():'<div style="padding:20px;color:var(--m2);font-size:12px">Coming soon.</div>';return `<div class="screen hidden app-screen" id="screen-${key}"><div class="app-topbar"><button class="back-btn" onclick="showHome()">‹</button><div class="mini-ico">${icoMarkup(key)}</div><span class="app-screen-title">${a.label}</span></div><div class="app-body">${body}</div></div>`;}).join("");}
+buildAppScreens();if(window.NX)NX.loadAll();
 
 function workCard(b,meta,role){const _t=(bcGet(b.s).title)||b.n;return `<a class="work-card" href="${brandLink(b.s)}"><div class="wc-color" style="background:${b.c}"></div><div class="wc-dot" style="background:${b.c};color:${b.t};overflow:hidden">${b.i}${logoOverlay(b,"8px")}</div><div class="wc-info"><div class="wc-meta">${meta}</div><div class="wc-title">${_t}</div><div class="wc-role">${role}</div></div></a>`;}
 const PANELS={
@@ -851,12 +909,11 @@ const PANELS={
     const sb=[B["Geely"],B["Kappa"],B["Bazooka-Candy"],B["Subway-Oman"],B["Molfix"],B["Audi"],B["Snapchat"]];
     const igStories=sb.map(b=>`<div style="flex-shrink:0;text-align:center;cursor:pointer"><div style="width:62px;height:62px;border-radius:50%;padding:2.5px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"><div style="width:100%;height:100%;border-radius:50%;background:${b.c};overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};position:relative">${b.i}${logoOverlay(b,"50%")}</div></div><div style="font-size:10px;color:#ccc;margin-top:5px;max-width:66px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${b.n}</div></div>`).join("");
     const igMore=[B["Subway-Oman"],B["Molfix"],B["Delight-Parties"],B["Glow"],B["Kappa"],B["Audi"]].map(b=>`<a href="${brandLink(b.s)}" style="aspect-ratio:1/1;background:linear-gradient(145deg,${b.c}66,#050505);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-decoration:none;min-height:80px">${logoOverlay(b,"0")}</a>`).join("");
-    const igPosts=cases.map(c=>`<div style="border-bottom:1px solid #262626;margin-bottom:0"><div style="padding:10px 14px;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:${c.b.c};overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${c.b.t};position:relative">${c.b.i}${logoOverlay(c.b,"50%")}</div><div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">ziaskar</div><div style="font-size:11px;color:#8e8e93">${c.b.n} · ${c.year}</div></div><div style="color:#fff;font-size:18px;letter-spacing:3px;cursor:pointer">···</div></div><a href="${brandLink(c.b.s)}" style="display:block;width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,${c.b.c}cc,${c.b.c}44,#050505);position:relative;overflow:hidden;text-decoration:none"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px"><div style="width:100px;height:100px;border-radius:20px;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)">${c.b.i}<img src="${c.b.logo||`clients/${c.b.s}/assets/logo.png`}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px"></div><div style="text-align:center;padding:0 24px"><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">${c.project}</div><div style="font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.1em">${c.role}</div></div></div></a><div style="padding:12px 14px"><div style="display:flex;gap:14px;margin-bottom:8px;align-items:center"><span style="font-size:24px;cursor:pointer">♡</span><span style="font-size:22px;cursor:pointer">💬</span><span style="font-size:22px;cursor:pointer;transform:rotate(-30deg);display:inline-block">✈</span><span style="margin-left:auto;font-size:22px;cursor:pointer">🔖</span></div><div style="font-size:13px;color:#fff;line-height:1.5"><span style="font-weight:700">ziaskar</span> ${c.result.slice(0,90)}…</div><div style="font-size:12px;color:#0095f6;margin-top:4px">${c.tags.map(t=>"#"+t.toLowerCase().replace(/[\s&]/g,"")).join(" ")}</div></div></div>`).join("");
-    return `<div style="background:#000;color:#fff;margin:calc(var(--panel-pt) * -1) calc(var(--panel-px) * -1) calc(var(--panel-pb) * -1)"><div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#000;z-index:2"><span style="font-size:22px;font-style:italic;font-family:Georgia,serif;letter-spacing:-.5px">Instagram</span><div style="display:flex;gap:18px;font-size:22px"><span style="cursor:pointer">♡</span><span style="cursor:pointer">✉</span></div></div><div style="display:flex;gap:10px;padding:12px 14px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #262626">${igStories}</div><div id="panel-instagram-feed">${igPosts}</div><div style="padding:8px 14px 14px;border-top:1px solid #262626"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8e8e93;margin:8px 0 10px;font-weight:700;display:flex;align-items:center;justify-content:space-between"><span>More Work</span><span style="cursor:pointer">⊞</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">${igMore}</div></div></div>`;
+    return `<div style="background:#000;color:#fff;margin:calc(var(--panel-pt) * -1) calc(var(--panel-px) * -1) calc(var(--panel-pb) * -1)"><div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#000;z-index:2"><span style="font-size:22px;font-style:italic;font-family:Georgia,serif;letter-spacing:-.5px">Instagram</span><div style="display:flex;gap:18px;font-size:22px"><span style="cursor:pointer">♡</span><span style="cursor:pointer">✉</span></div></div><div style="display:flex;gap:10px;padding:12px 14px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #262626">${igStories}</div><div id="panel-instagram-feed"></div><div style="padding:8px 14px 14px;border-top:1px solid #262626"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8e8e93;margin:8px 0 10px;font-weight:700;display:flex;align-items:center;justify-content:space-between"><span>More Work</span><span style="cursor:pointer">⊞</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">${igMore}</div></div></div>`;
   },
-  youtube:()=>{const ytVids=[[B["Geely"],"Geely Coolray UAE — National Launch TVC","Creative Director","2:34","1.2M views · 2024"],[B["Audi"],"Audi UAE — Brand Campaign & Photography","Creative Director","1:48","847K views · 2023"],[B["EA-FC-Mobile"],"EA FC Mobile — Regional TVC","Production Manager","0:30","2.1M views · 2024"],[B["Warba-Bank"],"Warba Bank — First AI-Animated TVC Pitch","Creative Director","3:12","634K views · 2024"],[B["Molfix"],"Molfix — TVC Production Full Reel","Lead Creative","1:22","421K views · 2023"],[B["Hardees"],"Hardee's — Brand TVC Direction","Creative Director","0:45","788K views · 2022"]];const ytSeries=[[B["Imagine-Studio"],"🐶 Learn English with Skippy","Edutainment for kids — Abdelaziz and his dog Skippy teach English through original episodes.","8 episodes","44K subscribers"],[B["WallPost"],"💻 Escape Code","Tech meets creativity — AI tools, creative coding and how modern creators escape the ordinary.","6 episodes","28K subscribers"]];const thumb=b=>`<div style="width:100%;aspect-ratio:16/9;background:linear-gradient(145deg,${b.c}99,${b.c}22,#050505);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:8px">${logoOverlay(b,"0")}<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);border:1.5px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg></div></div></div>`;return '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px 16px;margin-bottom:28px">'+ytVids.map(v=>`<div style="cursor:pointer"><a href="${brandLink(v[0].s)}">${thumb(v[0])}</a><div style="display:flex;gap:8px"><div style="width:32px;height:32px;border-radius:50%;background:${v[0].c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${v[0].t};overflow:hidden;position:relative">${v[0].i}${logoOverlay(v[0],"50%")}</div><div><div style="font-size:13px;font-weight:600;color:#fff;line-height:1.4;margin-bottom:2px">${v[1]}</div><div style="font-size:12px;color:#aaa">${v[2]}</div><div style="font-size:12px;color:#aaa">${v[4]}</div></div></div></div>`).join("")+'</div><div style="font-size:13px;font-weight:700;color:#aaa;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;border-top:1px solid #3f3f3f;padding-top:18px">Original Series</div><div style="display:flex;flex-direction:column;gap:12px">'+ytSeries.map(s=>`<div style="display:flex;gap:12px;padding:12px;background:#1a1a1a;border-radius:10px;cursor:pointer"><div style="width:100px;height:60px;background:linear-gradient(145deg,${s[0].c}55,#050505);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px">${s[1].slice(0,2)}</div><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">${s[1]}</div><div style="font-size:12px;color:#aaa;line-height:1.5;margin-bottom:4px">${s[2]}</div><div style="font-size:11px;color:#717171">${s[3]} · ${s[4]}</div></div></div>`).join("")+'</div>';},
+  youtube:()=>{const ytSeries=[[B["Imagine-Studio"],"🐶 Learn English with Skippy","Edutainment for kids — Abdelaziz and his dog Skippy teach English through original episodes.","8 episodes","44K subscribers"],[B["WallPost"],"💻 Escape Code","Tech meets creativity — AI tools, creative coding and how modern creators escape the ordinary.","6 episodes","28K subscribers"]];return '<div style="font-size:13px;font-weight:700;color:#aaa;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;border-top:1px solid #3f3f3f;padding-top:18px">Original Series</div><div style="display:flex;flex-direction:column;gap:12px">'+ytSeries.map(s=>`<div style="display:flex;gap:12px;padding:12px;background:#1a1a1a;border-radius:10px;cursor:pointer"><div style="width:100px;height:60px;background:linear-gradient(145deg,${s[0].c}55,#050505);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px">${s[1].slice(0,2)}</div><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">${s[1]}</div><div style="font-size:12px;color:#aaa;line-height:1.5;margin-bottom:4px">${s[2]}</div><div style="font-size:11px;color:#717171">${s[3]} · ${s[4]}</div></div></div>`).join("")+'</div>';},
   x:()=>{const xTweets=[["Hero Headline · TVC 30s",'"You earned the drive. We built the ride."',"Geely UAE Launch · Full ATL Campaign","2.4K","847","12.1K","312K"],["Social Caption · Ramadan",'"Ramadan tastes different when it\'s made right."',"Kappa Egypt · Seasonal Campaign","1.8K","523","8.9K","244K"],["BTL Tagline · QSR",'"Taste the boldness. Every single bite."',"Subway Oman · SubSavers Promotion","3.1K","1.2K","21K","487K"],["Brand Voice · Automotive",'"Built for the road you actually take."',"Geely Coolray UAE · OOH Copy","956","341","6.2K","198K"],["Campaign Hook · FMCG",'"Your skin called. It wants Glow back."',"Glow Skincare · Social Launch","4.2K","1.9K","34K","721K"]];return xTweets.map(t=>`<div style="border-bottom:1px solid #2f3336;padding:14px 16px"><div style="display:flex;gap:10px"><div style="width:40px;height:40px;border-radius:50%;background:#1d9bf0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;flex-shrink:0">AZ</div><div style="flex:1;min-width:0"><div style="display:flex;gap:6px;align-items:baseline;margin-bottom:3px"><span style="font-weight:700;font-size:15px">Abdelaziz Askar</span><span style="color:#71767b;font-size:14px">@AbdelazizAskar · Creative</span></div><div style="font-size:11px;color:#1d9bf0;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-weight:600">${t[0]}</div><div style="font-size:17px;color:#e7e9ea;line-height:1.5;margin-bottom:8px">${t[1]}</div><div style="font-size:13px;color:#71767b;margin-bottom:10px">— ${t[2]}</div><div style="display:flex;gap:20px;color:#71767b;font-size:13px"><span style="cursor:pointer;display:flex;align-items:center;gap:4px">💬 ${t[3]}</span><span style="cursor:pointer;display:flex;align-items:center;gap:4px">🔁 ${t[4]}</span><span style="cursor:pointer;display:flex;align-items:center;gap:4px">♡ ${t[5]}</span><span style="display:flex;align-items:center;gap:4px">👁 ${t[6]}</span></div></div></div></div>`).join("");},
-  tiktok:()=>{const ttCards=[{b:B["Snapchat"],cat:"PR · Influencer",desc:"Gulf-wide lead gen campaign. 12 influencers. 3 markets.",stats:["4.2M views","18.4K shares","92K likes"],tags:["#Snapchat","#Gulf","#Influencer"]},{b:B["Molfix"],cat:"FMCG · TVC",desc:"Molfix TVC — brand direction, shoot and full delivery in 48 hours.",stats:["2.8M views","9.1K shares","64K likes"],tags:["#Molfix","#FMCG","#TVC"]},{b:B["Royal-Herbs"],cat:"Organic · PR",desc:"Authentic influencer push for herbal brand — zero paid media.",stats:["1.1M views","5.3K shares","41K likes"],tags:["#RoyalHerbs","#Organic","#MENA"]},{b:B["Bazooka-Candy"],cat:"Character · FMCG",desc:"Mascot reveal video — character intro, built for virality.",stats:["6.7M views","31K shares","189K likes"],tags:["#Bazooka","#FMCG","#Character"]}];return ttCards.map(c=>`<div style="border-bottom:1px solid #1a1a1a;padding:14px 0"><div style="display:flex;gap:14px;align-items:flex-start"><div style="width:52px;height:52px;border-radius:50%;background:${c.b.c};display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:${c.b.t};flex-shrink:0;position:relative;overflow:hidden">${c.b.i}${logoOverlay(c.b,"50%")}</div><div style="flex:1;min-width:0"><div style="font-size:14px;font-weight:700;margin-bottom:2px">${c.b.n}</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px">${c.cat}</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.5;margin-bottom:8px">${c.desc}</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">${c.tags.map(t=>`<span style="font-size:12px;color:#fe2c55;font-weight:600">${t}</span>`).join("")}</div><div style="display:flex;gap:16px"><span style="font-size:12px;color:rgba(255,255,255,.5)">▶ ${c.stats[0]}</span><span style="font-size:12px;color:rgba(255,255,255,.5)">↗ ${c.stats[1]}</span><span style="font-size:12px;color:rgba(255,255,255,.5)">♡ ${c.stats[2]}</span></div></div><div style="width:88px;height:120px;border-radius:8px;background:linear-gradient(160deg,${c.b.c}66,#050505);flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">${logoOverlay(c.b,"8px")}<div style="position:absolute;bottom:6px;right:6px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-size:14px">▶</div></div></div></div>`).join("");},
+  tiktok:()=>"",   // filled with real films and creator posts by the feed builder
   camera:()=>'<div class="work-grid">'+[[B["Audi"],"Automotive · 2023","Photographer"],[B["AXE-Unilever"],"Commercial","Photographer"],[B["Kappa"],"Ramadan","Photographer"],[B["Royal-Tulip-Hotel"],"Hospitality · Social","Photographer"]].map(x=>workCard(...x)).join("")+'</div>',
   photoshop:()=>'<div class="work-grid">'+[[B["Brew-Craft"],"Logo · Branding","Designer"],[B["AXE-Unilever"],"Key Visuals","Art Director"],[B["Imagine-Studio"],"Studio Work","Co-founder"],[B["Bazooka-Candy"],"Character Design","Lead Creative"]].map(x=>workCard(...x)).join("")+'</div>',
   chatgpt:()=>{const AI=[["furniture","🛋️","Furniture","AI that sells sofas while you sleep.","Built content-and-sales automation for the furniture trade: photoreal room visualisation, auto-generated catalogues, and lead pipelines that qualify, nurture and follow up on their own.",["Catalogues in hours, not weeks","Photoreal room & product visualisation","Lead capture → qualify → follow-up, hands-free"]],["medical","🏥","Medical","Bedside manner, automated.","Automation for medical practices — patient communication, smart scheduling and content workflows that keep clinics responsive without burning out the front desk.",["24/7 patient comms & intake","Smart scheduling & reminders","Compliant content workflows"]],["music","🎚️","Music Production","A studio engineer that never sleeps.","AI-assisted production pipelines — stem separation, mastering chains and release automation. The same systems that power the Escapegoat releases.",["Stem separation & cleanup","Automated mastering chains","Release & distribution automation"]],["security","🔐","Security Systems","AI on watch, so humans don't have to.","Intelligent monitoring and alert automation — anomaly detection and smart alerts that only ping a human when it truly matters.",["Always-on monitoring","Anomaly detection & smart alerts","Noise filtered, signal surfaced"]]];
@@ -943,6 +1000,7 @@ function fillGallery(){
     posts=Array.isArray(posts)?posts:[];
     const ordered=posts.filter(p=>p.pinned).concat(posts.filter(p=>!p.pinned));
     document.querySelectorAll("[data-gal]").forEach(el=>{
+      if(el.dataset.gal==="photos"){ el.innerHTML=window.NX?NX.galleryGrid(ordered):""; return; }
       const compact=el.dataset.gal==="screen";
       el.innerHTML=ordered.length
         ? (compact?'<div style="height:10px"></div>':"")+ordered.map(p=>galleryPost(p,compact)).join("")
@@ -953,6 +1011,147 @@ function fillGallery(){
 function buildAppPanels(){document.getElementById("appPanels").innerHTML=Object.keys(APPS).map(key=>{const a=APPS[key];let body=PANELS[key]?PANELS[key]():'<p style="color:var(--m2)">Coming soon.</p>';if(PLATFORM_CHROME[key])body=PLATFORM_CHROME[key](body);const noHdr=!!PLATFORM_CHROME[key]||key==="instagram";return `<div class="panel-app" id="panel-${key}">${noHdr?'':`<div class="panel-app-header"><div class="panel-app-ico">${icoMarkup(key)}</div><div class="panel-app-htext"><p class="panel-app-eyebrow">${a.eyebrow}</p><h2 class="panel-app-title">${a.title}</h2><p class="panel-app-sub">${a.sub}</p></div></div>`}<div class="panel-app-body" style="">${body}</div></div>`;}).join("");}
 buildAppPanels();
 fillGallery();
+
+/* ---------- feed carousels ----------
+   A post's frame (4:5, 1:1 or 16:9) is picked from its stills' ratios. A still
+   that is close to the frame fills it; one that isn't sits whole inside it over
+   a blurred copy of itself, so nothing gets cropped away. */
+const FP_FRAMES=[["4/5",.8],["1/1",1],["16/9",16/9]];
+function fpFrame(r){return !r?FP_FRAMES[1]:r<.9?FP_FRAMES[0]:r<1.3?FP_FRAMES[1]:FP_FRAMES[2];}
+function fpFits(r,frameR){return r&&Math.abs(Math.log(r/frameR))<.12;}
+function fpLoad(img){
+  const s=img.closest(".fp-slide"); if(!s||s.dataset.r) return;
+  const r=img.naturalWidth/img.naturalHeight; if(!r) return;
+  const post=s.closest(".fp");
+  // a lone still with no stored ratio (Drive photos) takes the frame that suits it
+  if(post.querySelectorAll(".fp-slide").length===1){
+    const fr=fpFrame(r); post.dataset.fr=fr[1]; post.querySelector(".fp-frame").style.aspectRatio=fr[0];
+  }
+  s.dataset.r=r; s.classList.toggle("fit",!fpFits(r,+post.dataset.fr));
+}
+function fpErr(img){
+  const post=img.closest(".fp"), s=img.closest(".fp-slide"); if(!post||!s) return;
+  s.remove();
+  const left=post.querySelectorAll(".fp-slide").length;
+  if(!left){ (post.closest(".fi-wrap")||post).remove(); return; }
+  const dots=post.querySelector(".fp-dots"); if(dots) dots.innerHTML=left>1?"<i></i>".repeat(left):"";
+  fpScroll(post.querySelector(".fp-track"));
+}
+function fpScroll(track){
+  if(!track) return;
+  const post=track.closest(".fp"), n=track.children.length;
+  const i=Math.round(track.scrollLeft/Math.max(1,track.clientWidth));
+  const c=post.querySelector(".fp-count"); if(c){ c.textContent=(i+1)+"/"+n; c.hidden=n<2; }
+  post.querySelectorAll(".fp-dots i").forEach((d,k)=>d.classList.toggle("on",k===i));
+  const p=post.querySelector(".fp-nav.prev"), x=post.querySelector(".fp-nav.next");
+  if(p) p.hidden=i<=0; if(x) x.hidden=i>=n-1;
+}
+function fpGo(btn,dir){
+  const t=btn.closest(".fp").querySelector(".fp-track");
+  t.scrollBy({left:dir*t.clientWidth,behavior:"smooth"});
+}
+
+/* ---------- feed films ----------
+   Drive refuses to stream a file to a <video> on another site (403 once the
+   request says it is cross-site), so each feed film plays a light copy kept
+   in assets/previews/ (make_previews.py makes them; index.json lists each
+   with its frame size and whether it has sound). A film plays muted while at
+   least half of it is inside its scroll box and its app is on screen. The
+   speaker button and slider turn its sound on and set the volume, one film
+   at a time. Scrolled out of view it pauses and goes quiet again; far out of
+   view, or with its app closed, it is unloaded. A film with no copy yet
+   shows the Drive player. */
+let _fvVol=1;
+/* Sound is a choice that sticks, the way Instagram and TikTok treat it: once
+   a visitor turns it on, whichever film is in view plays with sound, and each
+   one goes quiet as it scrolls away. Turning it off, or starting music in
+   Spotify or Escapegoat, sets it back to silent. */
+let _fvSoundOn=false;
+const _fvOn='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" width="15" height="15"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+const _fvOff='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" width="15" height="15"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+function fvFull(el){
+  const box=(el.closest(".fi-wrap")||el).querySelector(".fv")||el.closest(".fv"); if(!box) return;
+  box.classList.remove("cover");
+  box.innerHTML=`<iframe src="https://drive.google.com/file/d/${encodeURIComponent(box.dataset.id)}/preview" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe>`;
+}
+function fvFail(v){ if(v.getAttribute("src")) fvFull(v); }
+// a film's controls can sit outside its frame (TikTok's side rail), so look in the whole card
+function fvRoot(el){ return el.closest(".fi-wrap")||el.closest(".fv"); }
+function fvShowSound(v){
+  const root=fvRoot(v); if(!root) return;
+  const on=!v.muted&&v.volume>0;
+  root.querySelectorAll(".fv-snd").forEach(b=>{ b.innerHTML=on?_fvOn:_fvOff; b.setAttribute("aria-pressed",on?"true":"false"); b.setAttribute("aria-label",on?"Mute":"Turn the sound on"); });
+  const sl=root.querySelector(".fv-vol"); if(sl) sl.value=on?v.volume:0;
+  root.classList.toggle("loud",on);
+}
+function fvMute(v){ if(!v.muted){ v.muted=true; fvShowSound(v); } }
+/* Everything else that makes sound stops when a film speaks. */
+function fvHush(except){
+  document.querySelectorAll(".fv video").forEach(o=>{ if(o!==except) fvMute(o); });
+  document.querySelectorAll("audio").forEach(a=>{ if(!a.paused) a.pause(); });
+  if(window.NX&&NX.stopMusic) NX.stopMusic();
+  if(typeof egPlaying!=="undefined"&&egPlaying&&typeof toggleEgMusic==="function") toggleEgMusic();
+}
+function fvLoud(v,vol){
+  fvHush(v);
+  if(vol!=null) _fvVol=vol;
+  v.volume=_fvVol||1; v.muted=false; _fvSoundOn=true;
+  if(v.paused) v.play().catch(()=>{});
+  fvShowSound(v);
+}
+function fvSound(el){
+  const root=fvRoot(el), v=root&&root.querySelector("video"); if(!v) return;
+  if(v.muted||v.volume===0) fvLoud(v); else { _fvSoundOn=false; fvMute(v); }
+}
+function fvVolume(sl){
+  const v=fvRoot(sl).querySelector("video"); if(!v) return;
+  const vol=+sl.value;
+  if(vol>0) fvLoud(v,vol); else { _fvSoundOn=false; v.volume=0; fvMute(v); }
+}
+/* Music started anywhere on the page silences the films. */
+function fvMusicStarted(){
+  _fvSoundOn=false;
+  document.querySelectorAll(".fv video").forEach(fvMute);
+}
+document.addEventListener("play",e=>{ if(e.target.tagName==="AUDIO") fvMusicStarted(); },true);
+function fvTime(v){
+  const i=fvRoot(v)&&fvRoot(v).querySelector(".fv-bar i");
+  if(i&&v.duration) i.style.width=(v.currentTime/v.duration*100)+"%";
+}
+function fvUnload(v){ fvMute(v); if(v.getAttribute("src")){ v.pause(); v.removeAttribute("src"); v.load(); } }
+function _fvSync(){
+  let best=null, bestSeen=0;
+  document.querySelectorAll(".fv video[data-src]").forEach(v=>{
+    const r=v.getBoundingClientRect();
+    const off=document.hidden||!r.height||v.closest(".screen.hidden")||v.closest(".panel-app:not(.active)");
+    if(off){ fvUnload(v); return; }
+    const box=v.closest(".app-body,.panel-app-body");
+    const c=box?box.getBoundingClientRect():{top:0,bottom:innerHeight};
+    const seen=Math.max(0,Math.min(r.bottom,c.bottom)-Math.max(r.top,c.top))/r.height;
+    const near=r.bottom>c.top-500&&r.top<c.bottom+500;
+    if(!near){ fvUnload(v); return; }
+    if(!v.getAttribute("src")){ v.addEventListener("canplay",fvSchedule,{once:true}); v.src=v.dataset.src; }
+    if(seen>=.5){ if(v.paused) v.play().catch(()=>{}); if(seen>bestSeen){ best=v; bestSeen=seen; } }
+    else { if(!v.paused) v.pause(); fvMute(v); }
+  });
+  // with sound on, only the film most in view speaks
+  document.querySelectorAll(".fv video[data-src]").forEach(v=>{ if(v!==best) fvMute(v); });
+  if(_fvSoundOn&&best&&best.muted&&fvRoot(best)&&fvRoot(best).querySelector(".fv[data-audio]")){
+    best.volume=_fvVol||1; best.muted=false; fvShowSound(best);
+  }
+  // other players in the apps (Gallery posts) stop when out of view or when their app closes
+  document.querySelectorAll(".app-body video:not([data-src])").forEach(v=>{
+    if(v.paused) return;
+    const r=v.getBoundingClientRect(), box=v.closest(".app-body"), c=box.getBoundingClientRect();
+    const seen=r.height?Math.max(0,Math.min(r.bottom,c.bottom)-Math.max(r.top,c.top))/r.height:0;
+    if(document.hidden||v.closest(".screen.hidden")||seen<.3) v.pause();
+  });
+}
+let _fvT=0;
+function fvSchedule(){ if(_fvT) return; _fvT=setTimeout(()=>{ _fvT=0; _fvSync(); },80); }
+document.addEventListener("scroll",fvSchedule,true);
+window.addEventListener("resize",fvSchedule);
+document.addEventListener("visibilitychange",fvSchedule);
 
 const _VP={};let _vpN=0;
 function _vFmt(s){s=Math.floor(s||0);return Math.floor(s/60)+":"+(("0"+(s%60)).slice(-2));}
@@ -1137,6 +1336,9 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
      to TikTok. Capped per brand so one big folder can't take over a feed. */
   let dropped={};
   try{ const r=await fetch("content.json?t="+Date.now()); if(r.ok) dropped=(await r.json()).brands||{}; }catch(e){}
+  // short muted loops of the Drive films, keyed by Drive id (see make_previews.py)
+  let PREV={};
+  try{ const r=await fetch("assets/previews/index.json?t="+Date.now()); if(r.ok) PREV=await r.json(); }catch(e){}
   const DROP_CAP={youtube:3,instagram:3,tiktok:4,photo:4};
   Object.entries(dropped).forEach(([slug,entry])=>{
     const projs=(store[slug]&&store[slug].projects)||[];
@@ -1145,6 +1347,15 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
     const creator=hasRole(roles,"UGC / Influencer","Behind the Scenes");
     const b=b4(slug), n={};
     const room=k=>(n[k]=(n[k]||0))<DROP_CAP[k]&&++n[k];
+    /* A film made in Canva ([Reel] or [Video] in links.txt) plays in Canva's
+       own player. A reel goes to TikTok, and to Instagram for social work. */
+    (entry.links||[]).filter(l=>picked&&l.provider==="canva"&&l.video&&l.embed&&!_feedIds.has(l.id)).forEach(l=>{
+      _feedIds.add(l.id);
+      const vert=l.orient==="vertical";
+      const item={b,v:{id:l.id,source:"canva",embed:l.embed,url:l.url,label:l.title||b.n,orientation:vert?"vertical":"horizontal"},proj:{name:l.title||"",date:""},slug};
+      if(vert){ if(room("tiktok")) push(vids,"tiktok",item); if(hasRole(roles,"Social Media")&&room("instagram")) push(vids,"instagram",item); }
+      else if(room("youtube")) push(vids,"youtube",item);
+    });
     (entry.links||[]).filter(l=>l.provider==="drive"&&l.id&&!_feedIds.has(l.id)).forEach(l=>{
       const title=l.title||b.n;
       const kind=l.kind||(BTS_TITLE.test(title)?"bts":"");
@@ -1206,21 +1417,22 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
     (root||document).querySelectorAll("iframe.feed-vid").forEach(f=>{
       if(f.src && !f.dataset.src){ f.dataset.src=f.src; f.src=""; }
     });
+    (root||document).querySelectorAll(".fv video").forEach(fvUnload);
   }
   window._stopFeedVideos=_stopFeedVideos;
   function inject(id,html){
     if(!html) return;
     const feedEl=document.getElementById(id+"-feed");
-    if(feedEl){const sec=document.createElement("div");sec.className="dyn-content";sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);_observeLazyFrames(sec);return;}
+    if(feedEl){const sec=document.createElement("div");sec.className="dyn-content";sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);_observeLazyFrames(sec);fvSchedule();return;}
     const wrap=document.getElementById(id); if(!wrap) return;
     const body=wrap.querySelector(".app-body,.panel-app-body"); if(!body) return;
     const sec=document.createElement("div"); sec.className="dyn-content";
-    sec.innerHTML=html; body.insertBefore(sec,body.firstChild); _observeLazyFrames(sec);
+    sec.innerHTML=html; body.insertBefore(sec,body.firstChild); _observeLazyFrames(sec); fvSchedule();
   }
   function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
-  function vidSrc(v){return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/preview":"https://player.vimeo.com/video/"+v.id+"?color=f0c233&title=0&byline=0&portrait=0&dnt=1";}
-  function vidLink(v){return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/view":"https://vimeo.com/"+v.id;}
-  function vidPlatformLabel(v){return v.source==="drive"?"Google Drive":"Vimeo";}
+  function vidSrc(v){if(v.source==="canva")return v.embed;return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/preview":"https://player.vimeo.com/video/"+v.id+"?color=f0c233&title=0&byline=0&portrait=0&dnt=1";}
+  function vidLink(v){if(v.source==="canva")return v.url;return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/view":"https://vimeo.com/"+v.id;}
+  function vidPlatformLabel(v){if(v.source==="canva")return "Canva";return v.source==="drive"?"Google Drive":"Vimeo";}
   function vidPlatformColor(v){return v.source==="drive"?"#4285f4":"#00adef";}
   function vimeoEmbed(b,v,proj,aspect){
     const src=vidSrc(v);
@@ -1255,112 +1467,163 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   }
 
   Object.values(vids).forEach(_shuffle);
-  Object.values(imgs).forEach(_shuffle);
   Object.values(arts).forEach(_shuffle);
 
-  if((vids.youtube&&vids.youtube.length)||(vids.instagram&&vids.instagram.length)){
-    const _la=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,"50%")}</div>`;
-    const videoCard=({b,v,proj},padding)=>{
-      const uid="vp"+(++_vpN);const isVm=v.source!=="drive";
-      _VP[uid]={dur:0,playing:isVm,muted:isVm};
-      const src=isVm?"https://player.vimeo.com/video/"+v.id+"?background=1&api=1&player_id="+uid+"&dnt=1":vidSrc(v);
-      const label=v.label||proj.name||b.n;const link=vidLink(v);
-      const isVert=v.orientation==="vertical";const aspect=isVert?"9/16":"16/9";const maxW=isVert?"320px":"100%";
-      const ctrl=isVm?`<div style="background:#111;padding:6px 10px 8px;border-top:1px solid #1e1e2a">
-        <div id="${uid}-bar" onclick="vpSeek('${uid}',event)" style="height:3px;background:#2a2a34;border-radius:2px;margin-bottom:9px;cursor:pointer;position:relative">
-          <div id="${uid}-p" style="height:100%;background:var(--gold);border-radius:2px;width:0%;pointer-events:none;transition:width .15s linear"></div>
+  const _av=b=>`<div class="fp-av" style="background:${b.c};color:${b.t}">${b.i}${logoOverlay(b,"50%")}</div>`;
+  const _handle=b=>b.n.toLowerCase().replace(/[^a-z0-9]+/g,"");
+
+  /* The player inside a film card: the light copy from assets/previews with
+     its poster, or Drive's (or Canva's) own player when there is no copy. */
+  const fvPlayer=(v,loop,label,tap)=>{
+    const id=encodeURIComponent(v.id), aria=label.replace(/"/g,"&quot;");
+    return loop
+      ?`<img class="fv-poster" src="assets/previews/${id}.jpg" alt="" aria-hidden="true" onerror="this.remove()"><video data-src="assets/previews/${id}.mp4" muted loop playsinline preload="none" onerror="fvFail(this)" ontimeupdate="fvTime(this)"${tap?` onclick="${tap}"`:""} aria-label="${aria}"></video>`
+      :`<iframe class="feed-vid" data-src="${vidSrc(v)}" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+  };
+  /* Sound on a full copy: the speaker button and a volume slider. A short
+     silent clip (not yet remade by make_previews.py) keeps "Full film". */
+  const fvControls=(loop,withSpeaker)=>loop&&loop.full
+    ?(loop.audio&&withSpeaker!==false?`<div class="fv-ctl"><input class="fv-vol" type="range" min="0" max="1" step="0.05" value="0" oninput="fvVolume(this)" aria-label="Volume"><button class="fv-snd" onclick="fvSound(this)" aria-label="Turn the sound on" aria-pressed="false">${_fvOff}</button></div>`:"")+`<div class="fv-bar"><i></i></div>`
+    :loop?`<button class="fv-full" onclick="fvFull(this)" aria-label="Watch the full film with sound"><svg viewBox="0 0 24 24" fill="#fff" width="10" height="10"><polygon points="5,3 19,12 5,21"/></svg>Full film</button>`:"";
+
+  /* One film per card, dressed as the app it sits in: Instagram edge to edge
+     with its action row, YouTube full bleed with the channel row under it,
+     TikTok one full screen per film with the side rail. */
+  const fvCard=({b,v,proj},plat)=>{
+    const label=v.label||proj.name||b.n, link=vidLink(v);
+    const loop=v.source==="drive"&&PREV[v.id];
+    const r=loop&&loop.w&&loop.h?loop.w/loop.h:(v.orientation==="vertical"?9/16:16/9);
+    const sound=!!(loop&&loop.full&&loop.audio);
+    const tap=loop&&loop.full?(sound?"fvSound(this)":""):(loop?"fvFull(this)":"");
+    const data=`data-id="${v.id}"${sound?' data-audio="1"':""}`;
+
+    if(plat==="tiktok"){
+      const cover=r<.8;
+      return `<div class="fi-wrap tk-item"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+        <div class="fv tk-fv${cover?" cover":""}" ${data}>${fvPlayer(v,loop,label,tap)}${fvControls(loop,false)}</div>
+        <div class="tk-rail">
+          <a class="tk-av" href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}<i class="tk-follow">+</i></a>
+          <span class="tk-act" aria-hidden="true">${NX.icon("heartFill")}</span>
+          <span class="tk-act" aria-hidden="true">${NX.icon("commentFill")}</span>
+          <span class="tk-act" aria-hidden="true">${NX.icon("bookmarkFill")}</span>
+          <a class="tk-act" href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("shareFill")}</a>
+          ${sound?`<button class="tk-act fv-snd" onclick="fvSound(this)" aria-label="Turn the sound on" aria-pressed="false">${_fvOff}</button>`:""}
         </div>
-        <div style="display:flex;align-items:center;gap:10px">
-          <button id="${uid}-pb" onclick="vpPlay('${uid}')" title="Play/Pause" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vPauseIco}</button>
-          <button id="${uid}-mb" onclick="vpMute('${uid}')" title="Mute/Unmute" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vMuteIco}</button>
-          <span id="${uid}-t" style="font-size:11px;color:#555;flex:1">0:00 / 0:00</span>
-          <span style="font-size:10px;color:#3a3a52;letter-spacing:.03em;font-style:italic">Like this?</span>
-          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" data-brand="${b.n.replace(/"/g,"&quot;")}" data-proj="${label.replace(/"/g,"&quot;")}" title="Like this campaign" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
-          <button onclick="vpCmt('${uid}')" title="Comment" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vCmtIco}</button>
-          <a href="${link}" target="_blank" rel="noopener" title="Open on Vimeo" style="display:flex;align-items:center;color:#00adef;text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </div>
-      </div>
-      <div id="${uid}-cm" style="display:none;padding:8px 10px;background:#0a0a12;border-top:1px solid #1a1a24">
-        <div style="display:flex;gap:6px"><input id="${uid}-ci" type="text" placeholder="Add a comment…" onkeydown="if(event.key==='Enter')vpPost('${uid}')" style="flex:1;background:#141420;border:1px solid #2a2a34;border-radius:6px;padding:6px 10px;color:#fff;font-size:12px;outline:none;font-family:inherit"><button onclick="vpPost('${uid}')" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer">Post</button></div>
-        <div id="${uid}-cl" style="margin-top:6px;max-height:140px;overflow-y:auto"></div>
-      </div>`:`<div style="padding:6px 10px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#4285f4;text-decoration:none">Open on Drive ↗</a></div>`;
-      return `<div class="fi-wrap" style="margin-bottom:22px;padding:0 ${padding}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||""}</div></div></a>
-        <div style="width:100%;max-width:${maxW};margin:${isVert?"0 auto":"0"};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
-          <div style="aspect-ratio:${aspect};position:relative;touch-action:manipulation"><iframe id="${uid}" class="feed-vid" data-src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-          ${ctrl}
-        </div>
+        <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${label}</div><div class="tk-sound">${NX.icon("note")} original sound · ${b.n}</div></div>
       </div>`;
-    };
-    if(vids.youtube&&vids.youtube.length){
-      const panelHtml=sectionHdr("📹 From Campaigns")+vids.youtube.map(v=>videoCard(v,"12px")).join("");
-      const screenHtml=sectionHdr("📹 From Campaigns")+vids.youtube.map(v=>videoCard(v,"8px")).join("");
-      inject("screen-youtube",screenHtml); inject("panel-youtube",panelHtml);
     }
 
-    /* Instagram is the campaign feed, so it carries film as well as stills.
-       Capped at two per brand and eight overall: it is a scroll feed, not the
-       full archive, and every player is another iframe to load. */
-    const igSeen={}, igPick=[];
+    if(plat==="youtube"){
+      const f=v.source==="canva"?r:(r<.9?9/16:16/9);
+      const cover=Math.abs(Math.log(r/f))<.25;
+      return `<div class="fi-wrap yt-card"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+        <div class="fv${cover?" cover":""}" ${data} style="aspect-ratio:${f};max-width:${f<1?"300px":"100%"}">${fvPlayer(v,loop,label,tap)}${fvControls(loop)}</div>
+        <div class="yt-meta"><a href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}</a>
+          <div class="yt-txt"><div class="yt-title">${label}</div><div class="yt-sub">${b.n}${proj.date?" · "+proj.date:""}</div></div>
+          <a class="yt-more" href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("more")}</a></div>
+      </div>`;
+    }
+
+    // Instagram
+    const f=v.source==="canva"?r:(r<.9?.8:r<1.25?1:16/9);
+    const cover=Math.abs(Math.log(r/f))<.25;
+    return `<div class="fi-wrap fp"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <a href="${brandLink(b.s)}" class="fp-head">${_av(b)}<div style="flex:1;min-width:0"><div class="fp-name">${b.n}</div><div class="fp-sub">${label}</div></div><span class="fp-more">${NX.icon("more")}</span></a>
+      <div class="fv${cover?" cover":""}" ${data} style="aspect-ratio:${f};max-width:${f<.8?"320px":"100%"}">${fvPlayer(v,loop,label,tap)}${fvControls(loop)}</div>
+      <div class="fp-acts">${NX.icon("heart")}${NX.icon("comment")}${NX.icon("send")}<a href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("bookmark")}</a></div>
+      <div class="fp-cap"><b>${b.n}</b>${label}</div>
+    </div>`;
+  };
+
+  /* Stills from one project that share a frame become one post; more than one
+     still makes it a carousel. A project with portrait and landscape shots
+     gives one post of each. Posts marked feed:false in projects.json (logos,
+     presentation slides, grid collages, missing files) stay off the feeds. */
+  function fpGroups(list,perPost,total,perBrand){
+    const groups={}, order=[];
+    (list||[]).forEach(({b,m,proj,slug})=>{
+      if(m.feed===false) return;
+      const fr=fpFrame(m.ratio);
+      const k=slug+"|"+(proj.name||"")+"|"+fr[0];
+      if(!groups[k]){ groups[k]={b,proj,slug,fr,ms:[]}; order.push(k); }
+      if(groups[k].ms.length<perPost) groups[k].ms.push(m);
+    });
+    const seen={}, out=[];
+    _shuffle(order).forEach(k=>{
+      const g=groups[k];
+      if((seen[g.slug]||0)<perBrand&&out.length<total){ out.push(g); seen[g.slug]=(seen[g.slug]||0)+1; }
+    });
+    return out;
+  }
+  const fpSlides=(ms,frameR,b)=>ms.map(m=>{
+    const src=/^(https?:|\/\/)/.test(m.src)?m.src:m.src.replace(/^\//,"");
+    const r=m.ratio||0;
+    return `<div class="fp-slide${r&&!fpFits(r,frameR)?" fit":""}"${r?` data-r="${r}"`:""}><img class="fp-bg" src="${src}" alt="" aria-hidden="true" loading="lazy"><img class="fp-img" src="${src}" alt="${b.n}" loading="lazy" onload="fpLoad(this)" onerror="fpErr(this)"></div>`;
+  }).join("");
+  const fpCaption=(ms,proj)=>{
+    const raw=((ms.find(m=>m.caption)||{}).caption)||(proj.desc?proj.desc.replace(/<[^>]+>/g,"").trim():"");
+    return raw.length>200?raw.slice(0,200).replace(/\s+\S*$/,"")+"…":raw;
+  };
+  const fpPost=({b,proj,ms,fr},sub)=>{
+    const n=ms.length, cap=fpCaption(ms,proj);
+    return `<div class="fi-wrap fp" data-fr="${fr[1]}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <a href="${brandLink(b.s)}" class="fp-head">${_av(b)}<div style="flex:1;min-width:0"><div class="fp-name">${b.n}</div><div class="fp-sub">${sub||proj.name||"Campaign"}</div></div><span class="fp-more">${NX.icon("more")}</span></a>
+      <div class="fp-frame" style="aspect-ratio:${fr[0]}">
+        <div class="fp-track" onscroll="fpScroll(this)">${fpSlides(ms,fr[1],b)}</div>
+        ${n>1?`<span class="fp-count">1/${n}</span><button class="fp-nav prev" onclick="fpGo(this,-1)" aria-label="Previous photo" hidden>‹</button><button class="fp-nav next" onclick="fpGo(this,1)" aria-label="Next photo">›</button>`:""}
+      </div>
+      <div class="fp-acts">${NX.icon("heart")}${NX.icon("comment")}${NX.icon("send")}${n>1?`<div class="fp-dots"><i class="on"></i>${"<i></i>".repeat(n-1)}</div>`:""}${NX.icon("bookmark")}</div>
+      ${cap?`<div class="fp-cap"><b>${b.n}</b>${cap}</div>`:""}
+    </div>`;
+  };
+  /* TikTok photo mode: a creator campaign's stills as one full-screen swipe. */
+  const tkPhotos=({b,proj,ms},sub)=>{
+    const n=ms.length, cap=fpCaption(ms,proj);
+    return `<div class="fi-wrap tk-item fp" data-fr="0.5625"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <div class="fp-frame tk-frame"><div class="fp-track" onscroll="fpScroll(this)">${fpSlides(ms,.5625,b)}</div>
+        ${n>1?`<span class="fp-count">1/${n}</span>`:""}</div>
+      ${n>1?`<div class="fp-dots tk-dots"><i class="on"></i>${"<i></i>".repeat(n-1)}</div>`:""}
+      <div class="tk-rail">
+        <a class="tk-av" href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}<i class="tk-follow">+</i></a>
+        <span class="tk-act" aria-hidden="true">${NX.icon("heartFill")}</span>
+        <span class="tk-act" aria-hidden="true">${NX.icon("commentFill")}</span>
+        <span class="tk-act" aria-hidden="true">${NX.icon("bookmarkFill")}</span>
+        <a class="tk-act" href="${brandLink(b.s)}" aria-label="Open the case study">${NX.icon("shareFill")}</a>
+      </div>
+      <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${sub}${cap?" · "+cap:""}</div></div>
+    </div>`;
+  };
+
+  if(vids.youtube&&vids.youtube.length){
+    inject("screen-youtube",vids.youtube.map(v=>fvCard(v,"youtube")).join(""));
+  }
+
+  /* Instagram mixes films and photo posts in one feed, two photo posts to
+     each film. Capped: two films and two photo posts a brand, eight films
+     and fourteen photo posts in all. */
+  {
+    const igSeen={}, igVids=[];
     for(const item of (vids.instagram||[])){
       const k=item.b.s;
-      if((igSeen[k]||0)<2 && igPick.length<8){ igPick.push(item); igSeen[k]=(igSeen[k]||0)+1; }
+      if((igSeen[k]||0)<2&&igVids.length<8){ igVids.push(item); igSeen[k]=(igSeen[k]||0)+1; }
     }
-    if(igPick.length){
-      inject("screen-instagram", sectionHdr("📹 Campaign Videos")+igPick.map(v=>videoCard(v,"8px")).join(""));
-      inject("panel-instagram",  sectionHdr("📹 Campaign Videos")+igPick.map(v=>videoCard(v,"12px")).join(""));
+    const igPhotos=fpGroups(imgs.instagram,6,14,2);
+    const mixed=[];
+    let vi=0, pi=0;
+    while(vi<igVids.length||pi<igPhotos.length){
+      for(let k=0;k<2&&pi<igPhotos.length;k++) mixed.push(fpPost(igPhotos[pi++]));
+      if(vi<igVids.length) mixed.push(fvCard(igVids[vi++],"instagram"));
     }
+    if(mixed.length) inject("screen-instagram",mixed.join(""));
   }
 
+  /* TikTok: every film full screen, then the creator campaigns in photo mode. */
+  {
+    const posts=fpGroups(imgs.tiktok,6,8,2);
+    if(posts.length) inject("screen-tiktok",posts.map(g=>tkPhotos(g,"Creator & influencer campaign")).join(""));
+  }
   if(vids.tiktok&&vids.tiktok.length){
-    const _la=b=>`<div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,"50%")}</div>`;
-    const tkCard=({b,v,proj},padding)=>{
-      const uid="vp"+(++_vpN);const isVm=v.source!=="drive";
-      _VP[uid]={dur:0,playing:isVm,muted:isVm};
-      const src=isVm?"https://player.vimeo.com/video/"+v.id+"?background=1&api=1&player_id="+uid+"&dnt=1":vidSrc(v);
-      const label=v.label||proj.name||b.n;const link=vidLink(v);
-      const isVert=v.orientation==="vertical";const aspect=isVert?"9/16":"16/9";const maxW=isVert?"320px":"100%";
-      const ctrl=isVm?`<div style="background:#111;padding:6px 10px 8px;border-top:1px solid #1e1e2a">
-        <div id="${uid}-bar" onclick="vpSeek('${uid}',event)" style="height:3px;background:#2a2a34;border-radius:2px;margin-bottom:9px;cursor:pointer;position:relative">
-          <div id="${uid}-p" style="height:100%;background:var(--gold);border-radius:2px;width:0%;pointer-events:none;transition:width .15s linear"></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px">
-          <button id="${uid}-pb" onclick="vpPlay('${uid}')" title="Play/Pause" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vPauseIco}</button>
-          <button id="${uid}-mb" onclick="vpMute('${uid}')" title="Mute/Unmute" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vMuteIco}</button>
-          <span id="${uid}-t" style="font-size:11px;color:#555;flex:1">0:00 / 0:00</span>
-          <span style="font-size:10px;color:#3a3a52;letter-spacing:.03em;font-style:italic">Like this?</span>
-          <button id="${uid}-lb" onclick="vpLike('${uid}')" data-on="0" data-brand="${b.n.replace(/"/g,"&quot;")}" data-proj="${label.replace(/"/g,"&quot;")}" title="Like this campaign" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vHeartOff}</button>
-          <button onclick="vpCmt('${uid}')" title="Comment" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center">${_vCmtIco}</button>
-          <a href="${link}" target="_blank" rel="noopener" title="Open on Vimeo" style="display:flex;align-items:center;color:#00adef;text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </div>
-      </div>
-      <div id="${uid}-cm" style="display:none;padding:8px 10px;background:#0a0a12;border-top:1px solid #1a1a24">
-        <div style="display:flex;gap:6px"><input id="${uid}-ci" type="text" placeholder="Add a comment…" onkeydown="if(event.key==='Enter')vpPost('${uid}')" style="flex:1;background:#141420;border:1px solid #2a2a34;border-radius:6px;padding:6px 10px;color:#fff;font-size:12px;outline:none;font-family:inherit"><button onclick="vpPost('${uid}')" style="background:var(--gold);color:#000;border:none;border-radius:6px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer">Post</button></div>
-        <div id="${uid}-cl" style="margin-top:6px;max-height:140px;overflow-y:auto"></div>
-      </div>`:`<div style="padding:6px 10px;text-align:right"><a href="${link}" target="_blank" style="font-size:11px;color:#4285f4;text-decoration:none">Open on Drive ↗</a></div>`;
-      return `<div class="fi-wrap" style="margin-bottom:22px;padding:0 ${padding}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-        <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none">${_la(b)}<div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${label}</div><div style="font-size:11px;color:#aaa">${b.n} · ${proj.date||""}</div></div></a>
-        <div style="width:100%;max-width:${maxW};margin:${isVert?"0 auto":"0"};border-radius:10px;overflow:hidden;background:#000;border:1px solid #1e1e2a">
-          <div style="aspect-ratio:${aspect};position:relative;touch-action:manipulation"><iframe id="${uid}" class="feed-vid" data-src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-          ${ctrl}
-        </div>
-      </div>`;
-    };
-    const panelHtml=sectionHdr("📹 Campaign Videos")+vids.tiktok.map(v=>tkCard(v,"12px")).join("");
-    const screenHtml=sectionHdr("📹 Campaign Videos")+vids.tiktok.map(v=>tkCard(v,"8px")).join("");
-    inject("screen-tiktok",screenHtml); inject("panel-tiktok",panelHtml);
-  }
-
-  /* UGC and influencer campaigns: stills grouped per brand on TikTok. */
-  if(imgs.tiktok&&imgs.tiktok.length){
-    const byBrand={};
-    imgs.tiktok.forEach(it=>{ (byBrand[it.slug]=byBrand[it.slug]||{b:it.b,proj:it.proj,m:[]}).m.push(it.m); });
-    const card=({b,proj,m})=>`<div class="fi-wrap" style="margin:0 0 20px;padding:0 12px"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-      <a href="${brandLink(b.s)}" style="display:flex;gap:8px;align-items:center;margin-bottom:8px;text-decoration:none"><div style="width:30px;height:30px;border-radius:50%;background:${b.c};flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,"50%")}</div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;color:#fff">${b.n}</div><div style="font-size:11px;color:#aaa">Creator & influencer campaign</div></div></a>
-      <a href="${brandLink(b.s)}" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:10px;overflow:hidden;text-decoration:none">${m.slice(0,4).map(x=>`<img src="${/^(https?:|\/\/)/.test(x.src)?x.src:x.src.replace(/^\//,"")}" alt="${b.n}" loading="lazy" style="width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#111">`).join("")}</a>
-    </div>`;
-    const html=sectionHdr("📱 Creator & Influencer Campaigns")+Object.values(byBrand).map(card).join("");
-    inject("screen-tiktok",html); inject("panel-tiktok",html);
+    inject("screen-tiktok",vids.tiktok.map(v=>fvCard(v,"tiktok")).join(""));
   }
 
   /* Website copywriting lives in its own app, one browser window per site. */
@@ -1372,53 +1635,20 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
       if(!bySite[k].link&&a.link) bySite[k].link=a.link;
     });
     const host=u=>{ try{ return new URL(u).hostname.replace(/^www\./,""); }catch(e){ return ""; } };
-    const win=({b,proj,link,items},pad)=>{
-      const site=host(link)||b.n;
-      return `<div class="fi-wrap" style="margin:0 0 20px;padding:0 ${pad}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-      <div style="border:1px solid #2c2c33;border-radius:12px;overflow:hidden;background:#fff;color:#1c1c1e">
-        <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#ececef;border-bottom:1px solid #d6d6db">
-          <span style="display:flex;gap:5px;flex-shrink:0"><i style="width:9px;height:9px;border-radius:50%;background:#ff5f57;display:block"></i><i style="width:9px;height:9px;border-radius:50%;background:#febc2e;display:block"></i><i style="width:9px;height:9px;border-radius:50%;background:#28c840;display:block"></i></span>
-          <div style="flex:1;min-width:0;background:#fff;border-radius:7px;padding:5px 10px;font-size:11px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">🔒 ${site}</div>
+    /* Each site is a page in the Safari app: the brand's own header, then the
+       copy as written for the site. Safari's address bar and tab switcher
+       (apps-native.js) move between them. */
+    const page=({b,proj,link,items})=>{
+      const site=host(link)||b.n.toLowerCase().replace(/[^a-z0-9]+/g,"")+".com";
+      return `<article class="fi-wrap sf-page" data-site="${site}" data-title="${b.n}" data-link="${link||""}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+        <header class="sf-hd" style="background:${b.c};color:${b.t}"><span class="sf-logo">${b.i}${logoOverlay(b,"8px")}</span><b>${b.n}</b><span class="sf-menu">${NX.icon("menu")}</span></header>
+        <div class="sf-body"><p class="sf-kicker">${proj.name||"Website copy"}</p>
+          ${items.slice(0,6).map(a=>`<section>${a.title?`<h2>${a.title}</h2>`:""}<p>${String(a.body||"").replace(/<[^>]+>/g,"").trim()}</p></section>`).join("")}
         </div>
-        <div style="padding:14px 16px 12px">
-          <a href="${brandLink(b.s)}" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;margin-bottom:10px"><div style="width:28px;height:28px;border-radius:7px;background:${b.c};color:${b.t};display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;position:relative;overflow:hidden;flex-shrink:0">${b.i}${logoOverlay(b,"6px")}</div><div><div style="font-size:13px;font-weight:800">${b.n}</div><div style="font-size:10.5px;color:#6b6b73">${proj.name||"Website copy"}</div></div></a>
-          ${items.slice(0,4).map(a=>`<div style="padding:9px 0;border-top:1px solid #ececef">${a.title?`<div style="font-size:12px;font-weight:700;margin-bottom:3px">${a.title}</div>`:""}<div style="font-size:12px;line-height:1.6;color:#3a3a40">${String(a.body||"").replace(/<[^>]+>/g,"").trim().slice(0,240)}${String(a.body||"").length>240?"…":""}</div></div>`).join("")}
-          <div style="display:flex;justify-content:space-between;gap:10px;padding-top:10px;border-top:1px solid #ececef;font-size:11px">
-            <a href="${brandLink(b.s)}" style="color:#1D6FE8;text-decoration:none;font-weight:700">Read the case study →</a>
-            ${link?`<a href="${link}" target="_blank" rel="noopener" style="color:#6b6b73;text-decoration:none">Visit ${site} ↗</a>`:""}
-          </div>
-        </div>
-      </div></div>`;
+        <footer class="sf-ft"><a href="${brandLink(b.s)}">Read the case study →</a>${link?`<a href="${link}" target="_blank" rel="noopener">Visit ${site} ↗</a>`:""}</footer>
+      </article>`;
     };
-    const sites=Object.values(bySite);
-    inject("screen-browser", sectionHdr("🌐 Website Copywriting")+sites.map(s=>win(s,"12px")).join(""));
-    inject("panel-browser",  sectionHdr("🌐 Website Copywriting")+sites.map(s=>win(s,"0")).join(""));
-  }
-
-  if(imgs.instagram&&imgs.instagram.length){
-    const _seen={},_cap=[];
-    for(const item of imgs.instagram){const k=item.b.s;if((_seen[k]||0)<2&&_cap.length<12){_cap.push(item);_seen[k]=(_seen[k]||0)+1;}}
-    const html=sectionHdr("📸 Campaign Photos")+_cap.map(({b,m,proj})=>{
-      const src=/^(https?:|\/\/)/.test(m.src)?m.src:m.src.replace(/^\//,"");
-      const rawCaption=m.caption||(proj.desc?proj.desc.replace(/<[^>]+>/g,"").trim().slice(0,220)+(proj.desc.length>220?"…":""):"");
-      const caption=rawCaption?`<div style="margin-top:4px;font-size:13px;color:#e0e0e0;line-height:1.55">${rawCaption}</div><button onclick="fEdit(this)" style="background:none;border:1px solid #333;border-radius:4px;color:#555;font-size:10px;cursor:pointer;padding:1px 7px;margin-top:3px" title="Edit caption">✏ edit</button>`:"";
-      const hashtags=m.tags?`<div style="margin-top:6px;font-size:12px;color:#6f9fd8;line-height:1.6">${m.tags.map(t=>"#"+t.replace(/\s+/g,"")).join(" ")}</div>`:"";
-      const dateStr=proj.date?`<div style="margin-top:8px;font-size:10px;color:#8e8e93;text-transform:uppercase;letter-spacing:.04em">${proj.date}</div>`:"";
-      return `<div class="fi-wrap" style="border-bottom:1px solid #262626;margin-bottom:0"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-        <a href="${brandLink(b.s)}" style="padding:10px 14px;display:flex;align-items:center;gap:10px;text-decoration:none">
-          <div style="width:32px;height:32px;border-radius:50%;background:${b.c};overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:${b.t};position:relative">${b.i}${logoOverlay(b,"50%")}</div>
-          <div style="flex:1"><div style="font-size:13px;font-weight:700;color:#fff">${b.n}</div><div style="font-size:11px;color:#8e8e93">Instagram · ${proj.name||"Campaign"}</div></div>
-          <div style="color:#fff;font-size:18px;letter-spacing:3px">···</div>
-        </a>
-        <div style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#111">
-          <img src="${src}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,${b.c}88,#050505)';this.parentNode.innerHTML+='<div style=\\'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.5\\'><div style=\\'width:80px;height:80px;border-radius:16px;background:${b.c};display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:${b.t}\\'>${b.i}</div></div>'">
-        </div>
-        <div style="padding:10px 14px 16px">
-          <div style="display:flex;gap:14px;margin-bottom:10px;align-items:center"><span style="font-size:24px;cursor:pointer;color:#fff">♡</span><span style="font-size:22px;cursor:pointer;color:#fff">💬</span><span style="font-size:22px;cursor:pointer;color:#fff;transform:rotate(-30deg);display:inline-block">✈</span><span style="margin-left:auto;font-size:22px;cursor:pointer;color:#fff">🔖</span></div>
-          <div style="font-size:13px;color:#fff;line-height:1.5"><span style="font-weight:700">${b.n}</span>${caption}${hashtags}${dateStr}</div>
-        </div>
-      </div>`;}).join("");
-    inject("screen-instagram",html); inject("panel-instagram",html);
+    inject("screen-browser",Object.values(bySite).map(page).join(""));
   }
 
   if(arts.instagram&&arts.instagram.length){
@@ -1435,20 +1665,15 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   }
 
   if(arts.x&&arts.x.length){
-    const html=sectionHdr("📰 Campaign Posts")+arts.x.map(({b,a})=>`
-      <div class="fi-wrap" style="border-bottom:1px solid #2f3336;padding:14px 16px"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-        <div style="display:flex;gap:10px">
-          <a href="${brandLink(b.s)}" style="text-decoration:none;flex-shrink:0"><div style="width:38px;height:38px;border-radius:50%;background:${b.c};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${b.t};overflow:hidden;position:relative">${b.i}${logoOverlay(b,"50%")}</div></a>
-          <div style="flex:1;min-width:0">
-            <div style="display:flex;gap:6px;align-items:baseline;margin-bottom:3px"><a href="${brandLink(b.s)}" style="font-weight:700;font-size:14px;color:#fff;text-decoration:none">${b.n}</a><span style="color:#71767b;font-size:12px">@AbdelazizAskar · Campaign</span></div>
-            ${a.title?'<div style="font-size:11px;color:#1d9bf0;font-weight:600;margin-bottom:4px">'+a.title+'</div>':""}
-            <div style="font-size:15px;color:#e7e9ea;line-height:1.5;margin-bottom:6px">${a.body}</div>
-            ${a.link?'<div style="border:1px solid #2f3336;border-radius:8px;padding:8px 10px;margin-bottom:6px"><a href="'+a.link+'" style="color:#1d9bf0;font-size:12px">'+a.link+'</a></div>':""}
-            <div style="display:flex;gap:20px;color:#71767b;font-size:13px"><span>💬</span><span>🔁</span><span>♡</span></div>
-          </div>
-        </div>
-      </div>`).join("");
-    inject("screen-x",html); inject("panel-x",html);
+    /* Campaign copy as posts from the brand's account, laid out like X. */
+    const html=arts.x.map(({b,a})=>`<article class="fi-wrap x-post"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+        <a href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}</a>
+        <div class="x-main"><div class="x-hd"><b>${b.n}</b><span>@${_handle(b)} · Campaign</span></div>
+          ${a.title?`<div class="x-label">${a.title}</div>`:""}<p>${String(a.body||"").replace(/<[^>]+>/g,"").trim()}</p>
+          ${a.link?`<a class="x-card" href="${a.link}" target="_blank" rel="noopener">${(()=>{try{return new URL(a.link).hostname.replace(/^www\./,"")}catch(e){return a.link}})()}</a>`:""}
+          <div class="x-acts">${NX.icon("comment")}${NX.icon("shuffle")}${NX.icon("heart")}${NX.icon("bookmark")}${NX.icon("share")}</div></div>
+      </article>`).join("");
+    inject("screen-x",html);
   }
 
   if(arts.linkedin&&arts.linkedin.length){
@@ -1464,7 +1689,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
           ${a.link?'<div style="margin-top:6px"><a href="'+a.link+'" style="color:var(--gold);font-size:12px">Read more →</a></div>':""}
         </div>
       </div>`).join("");
-    inject("screen-linkedin",html); inject("panel-linkedin",html);
+    inject("screen-linkedin",html.replace(sectionHdr("📰 Campaign Posts"),""));
   }
 
   const socColors={youtube:"#ff0000",tiktok:"#fe2c55",instagram:"#e1306c",x:"#1d9bf0",linkedin:"#0a66c2"};
@@ -1489,6 +1714,8 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
       </div></div>`).join("");
     inject("panel-"+key,html);
   });
+  // the native app screens (apps-native.js) arrange what was just injected
+  if(window.NX&&NX.feedReady) NX.feedReady();
 })();
 
 (function(){const sl=document.querySelectorAll(".hero-slides img");if(!sl.length)return;const dots=document.querySelector(".hero-dots");sl.forEach((_,i)=>{const d=document.createElement("span");if(i===0)d.classList.add("on");d.onclick=()=>go(i);dots.appendChild(d);});let cur=0,timer;function go(i){sl[cur].classList.remove("on");dots.children[cur].classList.remove("on");cur=i;sl[cur].classList.add("on");dots.children[cur].classList.add("on");clearInterval(timer);timer=setInterval(()=>go((cur+1)%sl.length),3800);}timer=setInterval(()=>go((cur+1)%sl.length),3800);})();
@@ -1625,11 +1852,14 @@ updateClock();setInterval(updateClock,30000);
 /* Screens are opacity-hidden, not removed, so any playing feed video in one
    being left keeps running invisibly (and audibly) unless stopped explicitly. */
 function showScreen(id){
+  // inside an app the status bar's clock gives way to a Home button
+  const ph=document.querySelector(".phone"); if(ph)ph.classList.toggle("in-app",/^screen-/.test(id||""));
   document.querySelectorAll(".screen").forEach(s=>{
     const hide=s.id!==id;
     s.classList.toggle("hidden",hide);
     if(hide&&window._stopFeedVideos)window._stopFeedVideos(s);
   });
+  fvSchedule();
 }
 function unlockPhone(){showScreen("homeScreen");showPanel(null);}
 
@@ -1699,6 +1929,7 @@ function showPanel(key){
   p.classList.add("active");
   const body=p.querySelector(".panel-app-body");
   if(body)body.scrollTop=0;
+  fvSchedule();
 }
 
 /* Opening an app changes the phone only. The right-hand side keeps showing the
@@ -1893,7 +2124,7 @@ function bmSave(){
   ov[bmCurrent]=patch;
   try{localStorage.setItem("bc_overrides",JSON.stringify(ov));}
   catch(_){alert("Could not save locally — browser storage is unavailable.");return;}
-  buildAppScreens();
+  buildAppScreens();if(window.NX)NX.loadAll();
   buildAppPanels();
   fillGallery();
   openBrandMgr();

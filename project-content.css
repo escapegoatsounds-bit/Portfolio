@@ -63,6 +63,8 @@
 .pc-embed iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
   border-radius:10px;background:#000;display:block}
 /* A deck is read, not glanced at, so it gets the full width of the section. */
+.pc-embed-vertical{max-width:380px;margin:0 auto}
+.pc-embed-vertical iframe{aspect-ratio:9/16}
 .pc-embed figcaption{display:flex;flex-direction:column;gap:9px;margin-top:11px}
 .pc-deck-note{font-size:12.5px;line-height:1.65;color:var(--m2,#b5b0a6);max-width:62ch}
 .pc-embed figcaption a{font-size:11px;letter-spacing:.06em;color:var(--m,#706c64);

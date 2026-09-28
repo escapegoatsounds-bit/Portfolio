@@ -159,7 +159,8 @@
           addFilm({ title: l.title, embed: l.embed, watch: l.url, note: l.note, kind: l.kind });
         } else {
           decks.push({ title: l.title, embed: l.embed, url: l.url,
-                       provider: l.provider, note: l.note });
+                       provider: l.provider, note: l.note,
+                       orient: l.orient, video: l.video });
         }
       });
       (entry.videos || []).forEach(function (v) {
@@ -184,6 +185,9 @@
         byDeck[d.embed] = 1;
         return true;
       });
+      // films made in Canva open first, ahead of the decks
+      decks = decks.filter(function (d) { return d.video; })
+        .concat(decks.filter(function (d) { return !d.video; }));
 
       return { films: films, decks: decks, shots: shots };
     });
@@ -312,8 +316,11 @@
 
   /* A deck is a whole presentation, so two of them stacked is a very long page.
      Past the first, each one gets its own tab and only the open one is built. */
+  /* A reel made in Canva is 9:16, tagged [Reel] or [Vertical] in links.txt;
+     it gets a phone-shaped frame instead of the 16:9 slide frame. */
   function deck(l) {
-    return '<figure class="pc-embed pc-embed-' + esc(l.provider) + '">' +
+    return '<figure class="pc-embed pc-embed-' + esc(l.provider) +
+      (l.orient === 'vertical' ? ' pc-embed-vertical' : '') + '">' +
       '<iframe src="' + esc(l.embed) + '" title="' + esc(l.title) + '" loading="lazy" ' +
       'allow="autoplay; fullscreen" allowfullscreen></iframe>' +
       '<figcaption>' +
@@ -323,9 +330,18 @@
       '</figure>';
   }
 
+  /* Canva holds films as well as decks ([Reel] and [Video] in links.txt),
+     so the heading says which this brand has. */
+  function decksLabel(list) {
+    var vids = list.filter(function (l) { return l.video; }).length;
+    if (vids === list.length) return vids > 1 ? 'Videos' : 'Video';
+    if (vids) return 'Decks and videos';
+    return list.length > 1 ? 'Decks' : 'Deck';
+  }
+
   function decksSection(list) {
     if (!list.length) return '';
-    if (list.length === 1) return section('Deck', deck(list[0]));
+    if (list.length === 1) return section(decksLabel(list), deck(list[0]));
 
     var base = nextId();
     var tabs = '<div class="pc-tabs" role="tablist">' + list.map(function (l, i) {
@@ -339,7 +355,7 @@
         (i ? ' hidden' : '') + '>' + deck(l) + '</div>';
     }).join('');
 
-    return section('Decks', tabs + panes);
+    return section(decksLabel(list), tabs + panes);
   }
 
   var DOC_ICON = { pdf: '▤', doc: '▤', docx: '▤', md: '✎', txt: '✎', rtf: '✎', odt: '✎' };

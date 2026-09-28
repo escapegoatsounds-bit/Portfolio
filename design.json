@@ -1,0 +1,801 @@
+[
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 1",
+  "src": "assets/photos/subway-post-051051.jpg",
+  "ratio": 0.797
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 2",
+  "src": "assets/photos/subway-post-051042.jpg",
+  "ratio": 0.791
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 3",
+  "src": "assets/photos/subway-post-051027.jpg",
+  "ratio": 0.794
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 4",
+  "src": "assets/photos/subway-post-051013.jpg",
+  "ratio": 0.798
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 5",
+  "src": "assets/photos/subway-post-050509.jpg",
+  "ratio": 0.805
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 6",
+  "src": "assets/photos/subway-post-050502.jpg",
+  "ratio": 0.797
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 7",
+  "src": "assets/photos/Screenshot_2026-06-29_050454.png",
+  "ratio": 0.803
+ },
+ {
+  "brand": "Subway-Oman",
+  "group": "Social posts",
+  "title": "Subway Oman post 8",
+  "src": "assets/photos/subway-post-050448.jpg",
+  "ratio": 0.807
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 1",
+  "src": "assets/photos/Screenshot_2026-06-29_091824.png",
+  "ratio": 1.057
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 2",
+  "src": "assets/portfolio-pages/extracted/Snapchat/ai-campaigns-1.png",
+  "ratio": 1.929
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 3",
+  "src": "assets/portfolio-pages/extracted/Snapchat/ai-campaigns-2.png",
+  "ratio": 0.81
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 4",
+  "src": "assets/portfolio-pages/extracted/Snapchat/media-formats-1.jpg",
+  "ratio": 0.667
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 5",
+  "src": "assets/portfolio-pages/extracted/Snapchat/media-formats-2.png",
+  "ratio": 0.798
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 6",
+  "src": "assets/portfolio-pages/extracted/Snapchat/memories-1.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 7",
+  "src": "assets/portfolio-pages/extracted/Snapchat/memories-2.jpg",
+  "ratio": 0.667
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 8",
+  "src": "assets/portfolio-pages/extracted/Snapchat/my-ai-1.jpg",
+  "ratio": 0.667
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 9",
+  "src": "assets/portfolio-pages/extracted/Snapchat/my-ai-2.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 10",
+  "src": "assets/portfolio-pages/extracted/Snapchat/project-overview.png",
+  "ratio": 1.915
+ },
+ {
+  "brand": "Snapchat",
+  "group": "Social posts",
+  "title": "Snapchat post 11",
+  "src": "assets/portfolio-pages/extracted/Snapchat/storyboard-u23-2.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Lifebox",
+  "group": "Key visuals",
+  "title": "Lifebox visual 1",
+  "src": "assets/photos/Gemini_Generated_Image_l7gdy7l7gdy7l7gd.png",
+  "ratio": 1.281
+ },
+ {
+  "brand": "Lifebox",
+  "group": "Key visuals",
+  "title": "Lifebox visual 2",
+  "src": "assets/photos/Gemini_Generated_Image_na6ilwna6ilwna6i.png",
+  "ratio": 1.281
+ },
+ {
+  "brand": "Krispy-Kreme",
+  "group": "Social posts",
+  "title": "Krispy Kreme post 1",
+  "src": "assets/portfolio-pages/extracted/Krispy-Kreme/project-overview.jpg",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 1",
+  "src": "assets/portfolio-pages/extracted/The-Center/copy-ar-2.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 2",
+  "src": "assets/portfolio-pages/extracted/The-Center/copy-ar2-1.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 3",
+  "src": "assets/portfolio-pages/extracted/The-Center/copy-ar2-2.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 4",
+  "src": "assets/portfolio-pages/extracted/The-Center/mental-health-2.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 5",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-12.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 6",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-14.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 7",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-3.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 8",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-4.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 9",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-5.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 10",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-6.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 11",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-7.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 12",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-8.png",
+  "ratio": 1.0
+ },
+ {
+  "brand": "The-Center",
+  "group": "Social posts",
+  "title": "The Center post 13",
+  "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-9.jpg",
+  "ratio": 1.0
+ },
+ {
+  "brand": "Carina",
+  "group": "Key visuals",
+  "title": "Carina visual 1",
+  "src": "assets/portfolio-pages/extracted/Carina/production.jpg",
+  "ratio": 1.778
+ },
+ {
+  "brand": "Carina",
+  "group": "Key visuals",
+  "title": "Carina visual 2",
+  "src": "assets/portfolio-pages/extracted/Carina/visual-02.jpg",
+  "ratio": 1.778
+ },
+ {
+  "brand": "Carina",
+  "group": "Key visuals",
+  "title": "Carina visual 3",
+  "src": "assets/portfolio-pages/extracted/Carina/visual-03-1.png",
+  "ratio": 0.663
+ },
+ {
+  "brand": "Carina",
+  "group": "Key visuals",
+  "title": "Carina visual 4",
+  "src": "assets/portfolio-pages/extracted/Carina/visual-03-2.png",
+  "ratio": 0.661
+ },
+ {
+  "brand": "Carina",
+  "group": "Key visuals",
+  "title": "Carina visual 5",
+  "src": "assets/portfolio-pages/extracted/Carina/visual-03-3.png",
+  "ratio": 0.648
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 1",
+  "src": "assets/behance/social-2016-2017/01-7385be50328991.58cdb26c455dd.jpg",
+  "ratio": 1.0
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 2",
+  "src": "assets/behance/social-2016-2017/02-1c683e50328991.58cdb26c485a1.jpg",
+  "ratio": 1.0
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 3",
+  "src": "assets/behance/social-2016-2017/03-19253f50328991.58cdb26c46419.jpg",
+  "ratio": 1.0
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 4",
+  "src": "assets/behance/social-2016-2017/04-a3662550328991.58cdb26c473b8.jpg",
+  "ratio": 1.0
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 5",
+  "src": "assets/behance/social-2016-2017/14-96c25350328991.58cdb7cb988da.jpg",
+  "ratio": 1.143
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 6",
+  "src": "assets/behance/social-2016-2017/15-84550550328991.58cdb7cb957bf.jpg",
+  "ratio": 0.714
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 7",
+  "src": "assets/behance/social-2016-2017/16-5bc10f50328991.58cdb7cb96091.jpg",
+  "ratio": 1.094
+ },
+ {
+  "brand": "Deraya",
+  "group": "Social posts",
+  "title": "Deraya post 8",
+  "src": "assets/behance/social-2016-2017/17-e11eae50328991.58cdb7cb9681b.jpg",
+  "ratio": 0.686
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 1",
+  "src": "assets/behance/social-2017-2018/01-c9a82965403941.5af30d4977591.jpg",
+  "ratio": 1.389
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 2",
+  "src": "assets/behance/social-2017-2018/02-a48b6665403941.5af30d497806f.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 3",
+  "src": "assets/behance/social-2017-2018/03-37f9a865403941.5af30d4977be0.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 4",
+  "src": "assets/behance/social-2017-2018/04-7f419465403941.5af30d497a1b1.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 5",
+  "src": "assets/behance/social-2017-2018/05-377b4665403941.5af30d49756be.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 6",
+  "src": "assets/behance/social-2017-2018/06-a35a5965403941.5af30d4979767.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 7",
+  "src": "assets/behance/social-2017-2018/07-8876b965403941.5af30d4976f1d.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 8",
+  "src": "assets/behance/social-2017-2018/08-42f91d65403941.5af30d4978b68.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 9",
+  "src": "assets/behance/social-2017-2018/09-c2a90665403941.5af30d4974a01.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 10",
+  "src": "assets/behance/social-2017-2018/10-f7179865403941.5af30d497653d.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 11",
+  "src": "assets/behance/social-2017-2018/11-8bfab665403941.5af30d497919b.jpg",
+  "ratio": 1.707
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 12",
+  "src": "assets/behance/social-2017-2018/12-5f7ea465403941.5af30d4975e39.jpg",
+  "ratio": 1.923
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 13",
+  "src": "assets/behance/social-2017-2018/13-5aa87065403941.5af30d4978801.jpg",
+  "ratio": 1.777
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 14",
+  "src": "assets/behance/social-2017-2018/14-86b20565403941.5af30d4976b5e.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 15",
+  "src": "assets/behance/social-2017-2018/15-e7a1d065403941.5af30d497a763.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 16",
+  "src": "assets/behance/social-2017-2018/16-5d9e0265403941.5af30d4979d2b.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Glow",
+  "group": "Social posts",
+  "title": "Glow post 17",
+  "src": "assets/behance/social-2017-2018/17-cb76c465403941.5af30d4978403.jpg",
+  "ratio": 1.911
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 1",
+  "drive": "1Z3ltGw8dkncWYkg7S4JW_BZCAf2tW40w"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 2",
+  "drive": "1SP97YqXUA2K9L3z8_QRWHCi8jCDKUD0L"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 3",
+  "drive": "1pAUoZ5l2FNg_xFJjvmeaLZ-B6uosOeKm"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 4",
+  "drive": "11whC1ZldjrBiZvDmgBYjHk45ni1d2q1d"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 5",
+  "drive": "1pmdICSn5y8MU5Czf1ZL8zla31LzsFfMh"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 6",
+  "drive": "1FUv_RCWQcmwmxi8OhX9bSNaJYzzI8Wb9"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 7",
+  "drive": "162IV-HAH5QqVnQhwCSOgNrqX8MIsq-7N"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 8",
+  "drive": "1RJWyRhNECBMTjMv0HlJHxfEquy7MIWRK"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 9",
+  "drive": "1q_ZMeyq9BSR7pjSLKmeg-aeia6znUr9n"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 10",
+  "drive": "1iT8OnGp0DAaDO09jI16y5sy-mmYeeWdW"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 11",
+  "drive": "1eNv0CBV6vEBUEIpKgopricHb_vH3C6OO"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Social posts",
+  "title": "Ruby Pasta post 12",
+  "drive": "17LJpaqxFg0hjAu0J-Em72xrEftXzq2G2"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Characters",
+  "title": "Ruby chef, character sketch 1",
+  "drive": "1GyGjI-gFODeUx1Lb8LB9J4WPFXaDWsYP"
+ },
+ {
+  "brand": "Ruby-Pasta",
+  "group": "Characters",
+  "title": "Ruby chef, character sketch 2",
+  "drive": "1g3UsnU1673UCet7-NIKYdlJvWFCm0-Ao"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 1",
+  "drive": "1-5loK9ikQH7gAjQxEFYnt7-eOuEtZ7rl"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 2",
+  "drive": "1ZFBvb1pp9R3Sig2elz4wY-ofjEq3_n67"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 3",
+  "drive": "1j2ApWfbbbG2wtnghWxZO1MfxX_3uLLuT"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 4",
+  "drive": "1D1qChB5VMxLn9XOYKFmy6fZcpKNsP9ZD"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 5",
+  "drive": "1hN2mjmprU-haXohQaZwlc1yPCw575rJk"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 6",
+  "drive": "1PCxAidp955SLa_x4qPJusPS1lpZIPVeV"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Characters",
+  "title": "Oppa character 7",
+  "drive": "1BKvN65BC_zhLqwy9w-nSz2JA3wIAxD24"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Branding",
+  "title": "Oppa brand guidelines 1",
+  "drive": "1jzpgFpdSStY34kalMsN221S8qx3Kpdv_"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Branding",
+  "title": "Oppa brand guidelines 2",
+  "drive": "1cvvW3uGOt3AaRtYK_OmQ-9KOogLmJC0M"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Branding",
+  "title": "Oppa brand guidelines 3",
+  "drive": "1m1LLgCqLBt3sSxC1QRG5tfR9NFfEtDzR"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 1",
+  "drive": "1XiMS70jhOmgYBFsJKo06JHobfIbMAxNS"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 2",
+  "drive": "1clcTu57g_w7Z8ViyqAHsP9Ne_j5TZYJp"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 3",
+  "drive": "1PrbFMXqu1OG-AN342kDYWQCyWpcG3YbC"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 4",
+  "drive": "1d6O75AXG2yUVZLFFFvPYN4qE1pAoVq-O"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 5",
+  "drive": "1GQwhr2sjZFbie1kOGjjJHgU1JVgN3vno"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 6",
+  "drive": "1gpE2ZBi66ZEh6vNIHM4YaYjvmXcfIgl_"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 7",
+  "drive": "1GXxJ0qvFX_EAaNksskn7U1HWk78_mNTo"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 8",
+  "drive": "1Ctrfo0Equ2pe--Ot1iTXPMGR4oI42f09"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 9",
+  "drive": "1LQSSxgMeri_gcdjhvu8lax7ECiUa9ETA"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 10",
+  "drive": "1HzwoPfnxarq46881vRoF6cCMFjjfkVzf"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 11",
+  "drive": "1IPIt60RrshS6hvvLoVoQ02yP7OA6qDN2"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 12",
+  "drive": "191bpbK9ztK6QXj4ddKJ1TroSwsMwxNrb"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 13",
+  "drive": "1VcXuMxPfdYuSfDJnHG2xFxGlvrnCPfwL"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 14",
+  "drive": "14iau-oqKbRxzN9AYVv9o9bDrTyPcmaIM"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 15",
+  "drive": "1o7i0MPCSX0KtaPxt5q_IUgaqtVAJsYQY"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 16",
+  "drive": "1W21cCdjnTQ1sqcAIPXJzGjCtbLVsgvuc"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 17",
+  "drive": "100FesQS6gvk_VlQRFZ5-TL5kJdgTUqMq"
+ },
+ {
+  "brand": "Bazooka-Candy",
+  "group": "Characters",
+  "title": "Mooz still 18",
+  "drive": "1itDTTK4wiTeo5IbL-fq2xJ-7rQaMBxmE"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 1",
+  "drive": "1s-NNiLKEsl4tayFE_1dXqP1zjWPRb0Pf"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 2",
+  "drive": "1YArcwHijRZ8ilc7DIF9e5lZhEwX0sAad"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 3",
+  "drive": "1AaHfja6H12WbMPHxoRshKn09cmVLKHfW"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 4",
+  "drive": "1XA-rhgc5TgOlXqAb8wM0WKGXX9tdVqQH"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 5",
+  "drive": "1h1DeyBmoK8K83vrJavREiPj6V5gTx-eM"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 6",
+  "drive": "16rYvpVTHwT0p7hpv7n9iw9-ow0P36cJW"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 7",
+  "drive": "1u5vh0shWQPvxdzd8O8NtOQ-u08QiojCR"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 8",
+  "drive": "1hXVf9nJeycv8LzrwR_pUGArbOtfTVq3e"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 9",
+  "drive": "18Pg5QmRIlysr7xNvBEW8ke414wBskR8P"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 10",
+  "drive": "1oc0NQ-Lc7UbdOoWHNvhv90oXWQ73ND14"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 11",
+  "drive": "1FqktZjPyxMmR6KVMlHpP_TRxMaPTNvlc"
+ },
+ {
+  "brand": "Audi",
+  "group": "Storyboards",
+  "title": "Audi concept frame 12",
+  "drive": "1jrm9DmD-RWv5SWPzGfPyRR2YUe80tq3i"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Branding",
+  "title": "Oppa Instagram grid Arabic",
+  "src": "clients/Oppa-App/images/.gitkeep"
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Branding",
+  "title": "Oppa Instagram grid English",
+  "src": "clients/Oppa-App/images/01_oppa-instagram-english-posts.webp",
+  "ratio": 1.508
+ },
+ {
+  "brand": "Oppa-App",
+  "group": "Branding",
+  "title": "Oppa Instagram grid Arabic",
+  "src": "clients/Oppa-App/images/02_oppa-instagram-arabic-posts.webp",
+  "ratio": 1.512
+ }
+]

@@ -54,7 +54,7 @@
     'Bershka':'Fashion & Apparel',
     'Polo-Ralph-Lauren':'Fashion & Apparel',
     'Mostique':'Fashion & Apparel',
-    'MTM':'Fashion & Apparel',
+    'MTM':'Media & Entertainment',
     'Biella':'Food & Beverage',
     'Glow':'FMCG',
     'Revitalash':'Beauty & Personal Care',

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-28T06:50:32.089083+00:00",
+  "generated": "2026-09-28T14:47:57.382304+00:00",
   "brands": {
     "Audi": {
       "images": [],
@@ -366,6 +366,16 @@
       "videos": [],
       "articles": [],
       "links": [
+        {
+          "url": "https://www.canva.com/design/DAG3PaWNGRE/_OPbbij96LsY8GGPR2Gwgg/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG3PaWNGRE/_OPbbij96LsY8GGPR2Gwgg/view?embed",
+          "title": "Bazooka 2025 reel compilation",
+          "kind": "",
+          "orient": "vertical",
+          "video": true,
+          "id": "DAG3PaWNGRE"
+        },
         {
           "url": "https://www.canva.com/design/DAHA0tbWcFM/LQzLhF7GZfPfeRCEWBw3oQ/view",
           "provider": "canva",
@@ -920,7 +930,7 @@
           "id": "1CCpe16TUHqy7C9HBgi1Gd7q1WaU7UfsF"
         }
       ],
-      "count": 69
+      "count": 70
     },
     "BIC-WNA": {
       "images": [],
@@ -1614,9 +1624,17 @@
           "title": "Freaked out, what's the secret",
           "kind": "",
           "id": "1vTNT5658EBReX0Be7kYaqbLw7qQxkKDe"
+        },
+        {
+          "url": "https://www.canva.com/design/DAHAYUf2lU4/hwtuFrHghxyUR2EXGj-0FA/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAHAYUf2lU4/hwtuFrHghxyUR2EXGj-0FA/view?embed",
+          "title": "Calendar brief 2025 (deck)",
+          "kind": "",
+          "id": "DAHAYUf2lU4"
         }
       ],
-      "count": 2
+      "count": 3
     },
     "Labanita": {
       "images": [],
@@ -1714,6 +1732,22 @@
       ],
       "count": 11
     },
+    "Mayo-Clinic": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAG4rCOp2Qc/oL6ztwaU2zre3AVwf9wiJA/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG4rCOp2Qc/oL6ztwaU2zre3AVwf9wiJA/view?embed",
+          "title": "GCC paid media strategy: podcast and KOL activation",
+          "kind": "",
+          "id": "DAG4rCOp2Qc"
+        }
+      ],
+      "count": 1
+    },
     "Molfix": {
       "images": [],
       "videos": [],
@@ -1726,6 +1760,23 @@
           "title": "Molfix shoot",
           "kind": "bts",
           "id": "1Jz76t18-S59OH7xR-hzTra0hIfXn223R"
+        }
+      ],
+      "count": 1
+    },
+    "Mooz": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAHA0tbWcFM/LQzLhF7GZfPfeRCEWBw3oQ/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAHA0tbWcFM/LQzLhF7GZfPfeRCEWBw3oQ/view?embed",
+          "title": "Mooz animations",
+          "kind": "",
+          "id": "DAHA0tbWcFM",
+          "note": "The Mooz character in motion - 22 boards covering the profile, the poses and the animation set built for social."
         }
       ],
       "count": 1
@@ -1891,7 +1942,22 @@
       "count": 15
     },
     "Oppa-App": {
-      "images": [],
+      "images": [
+        {
+          "src": "clients/Oppa-App/images/01_oppa-instagram-english-posts.webp",
+          "file": "01_oppa-instagram-english-posts.webp",
+          "title": "oppa instagram english posts",
+          "ext": "webp",
+          "size": 249040
+        },
+        {
+          "src": "clients/Oppa-App/images/02_oppa-instagram-arabic-posts.webp",
+          "file": "02_oppa-instagram-arabic-posts.webp",
+          "title": "oppa instagram arabic posts",
+          "ext": "webp",
+          "size": 236010
+        }
+      ],
       "videos": [],
       "articles": [],
       "links": [
@@ -1976,7 +2042,7 @@
           "id": "1BKvN65BC_zhLqwy9w-nSz2JA3wIAxD24"
         }
       ],
-      "count": 10
+      "count": 12
     },
     "Quooker": {
       "images": [],
@@ -2206,9 +2272,25 @@
           "title": "Social cut 23",
           "kind": "",
           "id": "1xX9dNRpyv-YOYLwYS6RRk0cL4RStWGWQ"
+        },
+        {
+          "url": "https://www.canva.com/design/DAG31mLDIIM/ZiInPRjzLgp7F4AURWpp1w/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG31mLDIIM/ZiInPRjzLgp7F4AURWpp1w/view?embed",
+          "title": "November-December 2025 content calendar",
+          "kind": "",
+          "id": "DAG31mLDIIM"
+        },
+        {
+          "url": "https://www.canva.com/design/DAG0jlw7coQ/c3juzUiaCY-SOe73i9GBTg/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG0jlw7coQ/c3juzUiaCY-SOe73i9GBTg/view?embed",
+          "title": "Q4 influencer campaign",
+          "kind": "",
+          "id": "DAG0jlw7coQ"
         }
       ],
-      "count": 28
+      "count": 30
     },
     "Ruby-Pasta": {
       "images": [],
@@ -2422,9 +2504,34 @@
           "title": "Subway Oman reel 8",
           "kind": "",
           "id": "18fA4gIBAd6RF_JvkW_BNpwkos7Qv4poO"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGfdUC0K-s/TdPIBPsUZWk1qLiAcsahdg/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGfdUC0K-s/TdPIBPsUZWk1qLiAcsahdg/view?embed",
+          "title": "April creative brief",
+          "kind": "",
+          "id": "DAGfdUC0K-s"
         }
       ],
-      "count": 11
+      "count": 12
+    },
+    "Tonic-International": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAGygp5dGkM/7G2JFX5x8ErCgzCps7pTzQ/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGygp5dGkM/7G2JFX5x8ErCgzCps7pTzQ/view?embed",
+          "title": "The Team System: team video",
+          "kind": "",
+          "video": true,
+          "id": "DAGygp5dGkM"
+        }
+      ],
+      "count": 1
     },
     "Warba-Bank": {
       "images": [],

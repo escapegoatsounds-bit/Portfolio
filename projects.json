@@ -299,39 +299,49 @@
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_051051.png"
+      "src": "assets/photos/subway-post-051051.jpg",
+      "ratio": 0.797
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_051042.png"
+      "src": "assets/photos/subway-post-051042.jpg",
+      "ratio": 0.791
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_051027.png"
+      "src": "assets/photos/subway-post-051027.jpg",
+      "ratio": 0.794
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_051013.png"
+      "src": "assets/photos/subway-post-051013.jpg",
+      "ratio": 0.798
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_050950.png"
+      "src": "assets/photos/Screenshot_2026-06-29_050950.png",
+      "feed": false,
+      "ratio": 1.204
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_050509.png"
+      "src": "assets/photos/subway-post-050509.jpg",
+      "ratio": 0.805
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_050502.png"
+      "src": "assets/photos/subway-post-050502.jpg",
+      "ratio": 0.797
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_050454.png"
+      "src": "assets/photos/Screenshot_2026-06-29_050454.png",
+      "ratio": 0.803
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_050448.png"
+      "src": "assets/photos/subway-post-050448.jpg",
+      "ratio": 0.807
      }
     ],
     "vimeo": [
@@ -400,35 +410,43 @@
     "media": [
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-img6-img7-minimal-lines-p__83305.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-img6-img7-minimal-lines-p__83305.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__pencil-hand-drawn-doodle-sketches-free-lines-unfin__83287.png"
+      "src": "assets/photos/freepik__pencil-hand-drawn-doodle-sketches-free-lines-unfin__83287.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-img6-img7-pencil-hand-dra__83301.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-img6-img7-pencil-hand-dra__83301.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83275.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83275.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83278.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83278.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83273.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-pencil-hand-drawn-doodle-sketc__83273.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-create-a-scanned-image-oa__83315.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-create-a-scanned-image-oa__83315.png",
+      "feed": false
      },
      {
       "kind": "img",
-      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-phone-photo-of-sketchbook__83316.png"
+      "src": "assets/photos/freepik__img1-img2-img3-img4-img5-phone-photo-of-sketchbook__83316.png",
+      "feed": false
      }
     ],
     "vimeo": [
@@ -539,102 +557,133 @@
     "media": [
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_091913.png"
+      "src": "assets/photos/Screenshot_2026-06-29_091913.png",
+      "feed": false,
+      "ratio": 1.787
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_091844.png"
+      "src": "assets/photos/Screenshot_2026-06-29_091844.png",
+      "feed": false,
+      "ratio": 1.791
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_091824.png"
+      "src": "assets/photos/Screenshot_2026-06-29_091824.png",
+      "ratio": 1.057
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_091542.png"
+      "src": "assets/photos/Screenshot_2026-06-29_091542.png",
+      "feed": false,
+      "ratio": 3.073
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_091520.png"
+      "src": "assets/photos/Screenshot_2026-06-29_091520.png",
+      "feed": false,
+      "ratio": 1.575
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_091515.png"
+      "src": "assets/photos/Screenshot_2026-06-29_091515.png",
+      "feed": false,
+      "ratio": 1.527
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/ai-campaigns-1.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.929
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/ai-campaigns-2.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.81
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/hero-1.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/hero-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/media-formats-1.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/media-formats-2.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.798
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/memories-1.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.911
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/memories-2.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/my-ai-1.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/my-ai-2.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.911
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/project-overview.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.915
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/storyboard-01.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.494
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/storyboard-02-1.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.506
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/storyboard-02-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.934
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Snapchat/storyboard-u23-2.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.911
      }
     ],
     "vimeo": [
@@ -728,42 +777,58 @@
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/copy-details.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.272
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/project-tvc-2.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/social-media-4.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.601
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/social-media-5.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.606
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/visual-01.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/visual-02-4.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.268
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/visual-03.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Molfix/visual-04.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.778
      }
     ],
     "vimeo": [
@@ -949,15 +1014,19 @@
     "media": [
      {
       "kind": "img",
-      "src": "assets/photos/Gemini_Generated_Image_l7gdy7l7gdy7l7gd.png"
+      "src": "assets/photos/Gemini_Generated_Image_l7gdy7l7gdy7l7gd.png",
+      "ratio": 1.281
      },
      {
       "kind": "img",
-      "src": "assets/photos/Gemini_Generated_Image_na6ilwna6ilwna6i.png"
+      "src": "assets/photos/Gemini_Generated_Image_na6ilwna6ilwna6i.png",
+      "ratio": 1.281
      },
      {
       "kind": "img",
-      "src": "assets/photos/Untitled_design__12_.png"
+      "src": "assets/photos/Untitled_design__12_.png",
+      "feed": false,
+      "ratio": 1.0
      }
     ],
     "vimeo": [],
@@ -1021,22 +1090,29 @@
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Krispy-Kreme/hero-1.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 2.723
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Krispy-Kreme/hero-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 2.723
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Krispy-Kreme/project-overview.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Krispy-Kreme/visual-01.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.479
      }
     ],
     "vimeo": [
@@ -1118,31 +1194,45 @@
     "media": [
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_112057.png"
+      "src": "assets/photos/Screenshot_2026-06-29_112057.png",
+      "feed": false,
+      "ratio": 1.253
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_112003.png"
+      "src": "assets/photos/Screenshot_2026-06-29_112003.png",
+      "feed": false,
+      "ratio": 1.172
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_111855.png"
+      "src": "assets/photos/Screenshot_2026-06-29_111855.png",
+      "feed": false,
+      "ratio": 1.23
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_111845.png"
+      "src": "assets/photos/Screenshot_2026-06-29_111845.png",
+      "feed": false,
+      "ratio": 1.179
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_111835.png"
+      "src": "assets/photos/Screenshot_2026-06-29_111835.png",
+      "feed": false,
+      "ratio": 1.501
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_111808.png"
+      "src": "assets/photos/Screenshot_2026-06-29_111808.png",
+      "feed": false,
+      "ratio": 1.259
      },
      {
       "kind": "img",
-      "src": "assets/photos/Screenshot_2026-06-29_111800.png"
+      "src": "assets/photos/Screenshot_2026-06-29_111800.png",
+      "feed": false,
+      "ratio": 1.262
      }
     ],
     "vimeo": [
@@ -1190,17 +1280,23 @@
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/EA-FC-Mobile/hero-1.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 2.787
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/EA-FC-Mobile/hero-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 2.787
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/EA-FC-Mobile/project-overview.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.564
      }
     ]
    }
@@ -1218,22 +1314,30 @@
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Royal-Herbs/hero-1.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.278
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Royal-Herbs/hero-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.278
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Royal-Herbs/pr-campaign.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Royal-Herbs/project-overview.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.778
      }
     ],
     "roles": [
@@ -1252,97 +1356,122 @@
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/copy-ar-1.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.494
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/copy-ar-2.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/copy-ar2-1.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/copy-ar2-2.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/mental-health-2.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-1.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.898
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-10.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-11.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.898
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-12.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-13.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-14.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-3.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-4.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-5.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-6.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-7.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-8.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/The-Center/recovery-clinic-9.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      }
     ]
    }
@@ -1360,32 +1489,39 @@
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/hero-2.png",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 2.667
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/production.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/visual-02.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/visual-03-1.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.663
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/visual-03-2.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.661
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/visual-03-3.png",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.648
      }
     ]
    }
@@ -1523,87 +1659,113 @@
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/01-7385be50328991.58cdb26c455dd.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/02-1c683e50328991.58cdb26c485a1.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/03-19253f50328991.58cdb26c46419.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/04-a3662550328991.58cdb26c473b8.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/05-752f1d50328991.58cdb7cb98347.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.825
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/06-bfc22450328991.58cdb7cb996f5.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.587
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/07-1107ab50328991.58cdb7cb946f3.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.9
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/08-c3210050328991.58cdb7cb97528.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.897
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/09-396b9950328991.58cdb7cb941f7.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.781
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/10-5a28e650328991.58cdb7cb97d5e.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.849
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/11-d7912450328991.58cdb7cb99123.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.763
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/12-0c25ee50328991.58cdb7cb94b46.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.587
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/13-38ea8150328991.58cdb7cb96fd0.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.807
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/14-96c25350328991.58cdb7cb988da.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.143
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/15-84550550328991.58cdb7cb957bf.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.714
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/16-5bc10f50328991.58cdb7cb96091.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.094
      },
      {
       "kind": "img",
       "src": "assets/behance/social-2016-2017/17-e11eae50328991.58cdb7cb9681b.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.686
      }
     ],
     "vimeo": [],
@@ -1662,52 +1824,62 @@
      {
       "kind": "img",
       "src": "assets/behance/glow/01-cc8ab959774515.5a2efbf9163b4.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.501
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/02-66143a59774515.5a2efbf914f8d.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/03-35dfe259774515.5a2efbf914500.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/04-7e35db59774515.5a2efbf915d88.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.06
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/05-009c4c59774515.5a2efbf9156ef.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/06-eb8ce659774515.5a2efbf915b44.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.8
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/07-c421d559774515.5a2efbf91534f.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/08-930c7659774515.5a2efbf91371c.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.84
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/09-75095859774515.5a2efbf914b22.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      },
      {
       "kind": "img",
       "src": "assets/behance/glow/10-f56aaa59774515.5a2efbf913c29.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.0
      }
     ],
     "vimeo": [],
@@ -1766,42 +1938,54 @@
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/01-4b3dee50330045.58cdbc1eadd7f.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.872
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/02-2f3a4450330045.58cdbc1eafd39.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.862
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/03-eb8ee650330045.58cdbc1eb9129.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.794
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/04-2925a950330045.58cdbc1eb29d6.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 0.804
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/05-53a6e250330045.58cdbc1eb4c97.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.672
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/06-b5c0a250330045.58cdbc1eb6e9f.jpg",
-      "caption": ""
+      "caption": "",
+      "feed": false,
+      "ratio": 1.617
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/07-a205d150330045.58cdbc1eb0673.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.666
      },
      {
       "kind": "img",
       "src": "assets/behance/photography-samples/08-29dfc550330045.58cdbc1eb01bd.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.681
      }
     ],
     "vimeo": [],
@@ -2092,102 +2276,122 @@
      {
       "kind": "img",
       "src": "assets/behance/photography/01-26618712671389.5626b500bce4e.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/02-013bc112671389.5626b55edc84e.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.676
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/03-fd513512671389.5626b4bb0c33e.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/04-03da6212671389.5626b37e62185.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/05-3301a912671389.5626b5012401a.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.535
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/06-0eaff812671389.5626b48011e2e.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.548
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/07-19aea812671389.5626b37d40b95.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.705
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/08-eddeac12671389.5626b37da508b.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.581
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/09-e3bd4712671389.5626b37f084c6.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.508
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/10-4086a112671389.5626b37f12ab6.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.456
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/11-6b65fd12671389.5626b55cadbf7.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.5
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/12-442b9e12671389.5626b4dd4c0f2.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.5
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/13-3d68cc12671389.5626b500d1ef1.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.667
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/14-5cff2a12671389.5626b4810016e.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.5
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/15-e9494e12671389.5626b37eb557d.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.517
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/16-64f8e212671389.5626b37e07222.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 0.697
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/17-ceacf412671389.5626b4dbc76c5.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.5
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/18-69275712671389.5626b47ef14c7.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.571
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/19-97c6ab12671389.5626b37f4f0e0.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.487
      },
      {
       "kind": "img",
       "src": "assets/behance/photography/20-1a6d7312671389.5626b55ff38f0.jpg",
-      "caption": ""
+      "caption": "",
+      "ratio": 1.554
      }
     ],
     "vimeo": [],
@@ -2431,7 +2635,8 @@
  "Ruby-Pasta": {
   "brand": {
    "industry": "FMCG",
-   "about": "Ruby Pasta is an Egyptian pasta brand, fronted on its packs and posts by a young chef character."
+   "about": "Ruby Pasta is an Egyptian pasta brand, fronted on its packs and posts by a young chef character.",
+   "circleBg": "#B32E8B"
   },
   "projects": [
    {
@@ -2445,12 +2650,17 @@
  },
  "Oppa-App": {
   "brand": {
-   "industry": "Tech & Telecom"
+   "industry": "Tech & Telecom",
+   "about": "Oppa is a no-code platform from Egypt's Oppa for Information Technology. It lets people build a mobile app in three steps, without writing code.",
+   "circleBg": "#FFFFFF"
   },
   "projects": [
    {
     "name": "",
-    "deliverables": "Brand Identity, Brand Guidelines, Character Design"
+    "deliverables": "Brand Identity, Brand Guidelines, Character Design, Social Posts",
+    "roles": [
+     "Social Media"
+    ]
    }
   ]
  }
