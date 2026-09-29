@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Everyday — Abdelaziz Askar</title>
-<link rel="icon" href="assets/photos/escapegoat-logo.png">
+<link rel="icon" href="assets/photos/escapegoat-logo.webp">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <meta name="description" content="Abdelaziz Askar's live creative feed — ideas, work-in-progress, client results, and video guides.">
 <style>
@@ -340,7 +340,7 @@ body.ze-on #me-composer{display:block}
   let dirty = false;
   const host = document.getElementById('me-composer');
 
-  function load(){ return fetch('feed.json?t='+Date.now()).then(r=>r.ok?r.json():[]).then(d=>{ FEED=Array.isArray(d)?d:[]; }).catch(()=>{ FEED=[]; }); }
+  function load(){ return fetch('feed.json'+(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'?t='+Date.now():'')).then(r=>r.ok?r.json():[]).then(d=>{ FEED=Array.isArray(d)?d:[]; }).catch(()=>{ FEED=[]; }); }
   function nextId(){ return (FEED.reduce((m,p)=>Math.max(m,+p.id||0),0))+1; }
   function ytId(u){ if(!u)return''; const m=String(u).match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/); return m?m[1]:(/^[\w-]{11}$/.test(u)?u:''); }
 

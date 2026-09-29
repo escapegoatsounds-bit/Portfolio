@@ -27,7 +27,7 @@
 
   function load() {
     if (cache) return Promise.resolve(cache);
-    return fetch(url('content.json') + '?t=' + Date.now())
+    return fetch(url('content.json') + (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? '?t=' + Date.now() : ''))
       .then(function (r) { return r.ok ? r.json() : { brands: {} }; })
       .catch(function () { return { brands: {} }; })
       .then(function (d) { cache = d; return d; });
@@ -38,7 +38,7 @@
   var projectsCache = null;
   function loadProjects() {
     if (projectsCache) return Promise.resolve(projectsCache);
-    return fetch(url('projects.json') + '?t=' + Date.now())
+    return fetch(url('projects.json') + (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? '?t=' + Date.now() : ''))
       .then(function (r) { return r.ok ? r.json() : {}; })
       .catch(function () { return {}; })
       .then(function (d) { projectsCache = d; return d; });

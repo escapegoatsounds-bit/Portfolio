@@ -104,9 +104,9 @@
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   NX.esc = esc;
 
-  var ME_PHOTO = 'assets/photos/WhatsApp_Image_2026-03-22_at_06.38.10.jpeg';
+  var ME_PHOTO = 'assets/photos/WhatsApp_Image_2026-03-22_at_06.38.10.webp';
   function me(size) {
-    return '<span class="nx-av nx-me" style="width:' + size + 'px;height:' + size + 'px"><img src="' + ME_PHOTO + '" alt="Abdelaziz Askar" onerror="this.remove()">AA</span>';
+    return '<span class="nx-av nx-me" style="width:' + size + 'px;height:' + size + 'px"><img src="' + ME_PHOTO + '" alt="Abdelaziz Askar" loading="lazy" onerror="this.remove()">AA</span>';
   }
   function brandAv(b, size) {
     return '<span class="nx-av" style="width:' + size + 'px;height:' + size + 'px;background:' + b.c + ';color:' + b.t + '">' + b.i + logoOverlay(b, '50%') + '</span>';
@@ -127,7 +127,9 @@
   function driveImg(id, w) { return 'https://drive.google.com/thumbnail?id=' + encodeURIComponent(id) + '&sz=w' + (w || 800); }
   function itemSrc(it, w) { return it.drive ? driveImg(it.drive, w) : it.src; }
   function getJSON(url) {
-    return fetch(url + (url.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now())
+    // fresh copies only while editing locally; the live site lets the browser cache them
+    var bust = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? (url.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now() : '';
+    return fetch(url + bust)
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
   }
 
@@ -135,7 +137,7 @@
   NX.apps = {};
   NX.screen = function (key) {
     var a = NX.apps[key];
-    return '<div class="screen hidden app-screen nx nx-' + key + '" id="screen-' + key + '">' +
+    return '<div class="screen hidden app-screen gone nx nx-' + key + '" id="screen-' + key + '">' +
       (a.top ? a.top() : '') +
       '<div class="app-body">' + a.body() + '</div>' +
       (a.tabs ? a.tabs() : '') +
@@ -331,9 +333,9 @@
     },
     body: function () {
       var rows = tracks().map(function (t, i) {
-        return '<button type="button" class="sp-row" onclick="NX.spPlay(' + i + ')"><span class="sp-n">' + (i + 1) + '</span><img src="assets/photos/escapegoat-album.jpg" alt="" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><span class="sp-rt"><b>' + esc(t[0]) + '</b><span>Escapegoat</span></span>' + icon('moreV') + '</button>';
+        return '<button type="button" class="sp-row" onclick="NX.spPlay(' + i + ')"><span class="sp-n">' + (i + 1) + '</span><img src="assets/photos/escapegoat-album.webp" alt="" onerror="this.src=\'assets/photos/escapegoat-logo.webp\'"><span class="sp-rt"><b>' + esc(t[0]) + '</b><span>Escapegoat</span></span>' + icon('moreV') + '</button>';
       }).join('');
-      return '<section class="sp-hero"><img src="assets/photos/escapegoat-album.jpg" alt="Escapegoat" onerror="this.src=\'assets/photos/escapegoat-logo.png\'"><div><h1>Escapegoat</h1></div></section>' +
+      return '<section class="sp-hero"><img src="assets/photos/escapegoat-album.webp" alt="Escapegoat" onerror="this.src=\'assets/photos/escapegoat-logo.webp\'"><div><h1>Escapegoat</h1></div></section>' +
         '<div class="sp-bar"><span class="sp-follow">Follow</span>' + icon('more') + '<span class="nx-grow"></span>' + icon('shuffle', 'sp-shuf') +
         '<button type="button" class="sp-bigplay" onclick="NX.spToggle()" aria-label="Play">' + icon('play') + '</button></div>' +
         '<h3 class="sp-h">Popular</h3>' + rows +
@@ -343,7 +345,7 @@
         }).join('') + '</div><div style="height:64px"></div>';
     },
     tabs: function () {
-      return '<div class="sp-mini" hidden><img src="assets/photos/escapegoat-album.jpg" alt="" onerror="this.remove()"><span class="sp-mini-txt"><b class="sp-mini-t"></b><span>Escapegoat</span></span>' +
+      return '<div class="sp-mini" hidden><img src="assets/photos/escapegoat-album.webp" alt="" onerror="this.remove()"><span class="sp-mini-txt"><b class="sp-mini-t"></b><span>Escapegoat</span></span>' +
         '<button type="button" class="sp-mini-play" onclick="NX.spToggle()" aria-label="Play or pause">' + icon('play') + '</button><div class="sp-mini-bar"><i></i></div></div>' +
         tabbar([{ icon: 'home', onIcon: 'homeFill', on: true, label: 'Home' }, { icon: 'search', label: 'Search' },
           { icon: 'library', label: 'Your Library' }, { icon: 'plus', label: 'Create' }], 'sp-tabs');
@@ -565,7 +567,7 @@
     body: function () {
       var careers = EXP.map(function (e) { return '<li><b>' + esc(e[3]) + '</b> ' + esc(e[0]) + ', ' + esc(e[1]) + ' (' + esc(e[2]) + ')</li>'; }).join('');
       return '<article class="wk-art"><h1>Abdelaziz Askar</h1><p class="wk-desc">Creative director, social media lead and music producer</p>' +
-        '<figure class="wk-lead"><img src="assets/photos/img-12.jpg" alt="Abdelaziz Askar" onerror="this.parentNode.remove()"></figure>' +
+        '<figure class="wk-lead"><img src="assets/photos/img-12.webp" alt="Abdelaziz Askar" onerror="this.parentNode.remove()"></figure>' +
         '<table class="wk-box"><tr><th>Known for</th><td>Social and AI production, TVC direction</td></tr><tr><th>Current role</th><td>Head of Social & AI, Tonic International</td></tr>' +
         '<tr><th>Years active</th><td>2007 – present</td></tr><tr><th>Markets</th><td>Egypt, Qatar, United Arab Emirates</td></tr><tr><th>Label</th><td>Escapegoat Sounds</td></tr></table>' +
         '<p><b>Abdelaziz Askar</b> is a creative director who has built brand voices and campaigns across Egypt, Qatar and the UAE since 2007, from PR at the Bibliotheca Alexandrina to Head of Social & AI at Tonic International. He is also a songwriter, photographer and music producer.</p>' +

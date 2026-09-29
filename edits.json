@@ -8,7 +8,7 @@
       "img": "assets/photos/freepik__zzio-standing-in-music-studio-creative-wall-hangin__93740.png"
     },
     "body>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(5)>div:nth-child(11)>div:nth-child(2)>img:nth-child(1)": {
-      "img": "assets/photos/Gemini_Generated_Image_89us7q89us7q89us.png"
+      "img": "assets/photos/Gemini_Generated_Image_89us7q89us7q89us.webp"
     },
     "body>div:nth-child(3)>div:nth-child(2)>div:nth-child(2)>div:nth-child(8)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>img:nth-child(1)": {
       "img": "assets/photos/freepik__zzio-standing-in-a-white-space-sporting-oversized-__93725-1.png"
@@ -57,10 +57,10 @@
       "adds": []
     },
     "body>div:nth-child(6)>div:nth-child(2)>div:nth-child(2)>div:nth-child(13)>div:nth-child(2)>div:nth-child(2)>a:nth-child(1)>div:nth-child(1)>div:nth-child(2)>img:nth-child(1)": {
-      "img": "assets/photos/Untitled_design__5_.png"
+      "img": "assets/photos/Untitled_design__5_.webp"
     },
     "body>div:nth-child(11)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-      "img": "assets/photos/Untitled_design__8_.png"
+      "img": "assets/photos/Untitled_design__8_.webp"
     },
     "body>div:nth-child(11)>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)": {
       "html": "<br>"
@@ -204,10 +204,10 @@
     "body>div:nth-child(9)>div:nth-child(22)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": true,
       "align": "right",
-      "img": "assets/photos/Screenshot_2026-06-30_103742.png"
+      "img": "assets/photos/Screenshot_2026-06-30_103742.webp"
     },
     "body>div:nth-child(9)>div:nth-child(31)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-      "img": "assets/photos/Screenshot_2026-06-30_103853.png",
+      "img": "assets/photos/Screenshot_2026-06-30_103853.webp",
       "cover": true,
       "w": "88%"
     },
@@ -230,10 +230,10 @@
     },
     "body>div:nth-child(9)>div:nth-child(43)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": false,
-      "img": "assets/photos/AXE-Logo-1.png"
+      "img": "assets/photos/AXE-Logo-1.webp"
     },
     "body>div:nth-child(9)>div:nth-child(44)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-      "img": "assets/photos/png-transparent-gillette-venus-logo-thumbnail.png"
+      "img": "assets/photos/png-transparent-gillette-venus-logo-thumbnail.webp"
     },
     "body>div:nth-child(9)>div:nth-child(45)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "w": "100%",
@@ -251,7 +251,7 @@
     "body>div:nth-child(9)>div:nth-child(53)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": true,
       "w": "100%",
-      "img": "assets/photos/Screenshot_2026-06-30_105308.png"
+      "img": "assets/photos/Screenshot_2026-06-30_105308.webp"
     },
     "body>div:nth-child(9)>div:nth-child(54)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": true,
@@ -262,12 +262,12 @@
       "w": "100%"
     },
     "body>div:nth-child(9)>div:nth-child(57)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-      "img": "assets/photos/images__6_.jpg",
+      "img": "assets/photos/images__6_.webp",
       "cover": true
     },
     "body>div:nth-child(9)>div:nth-child(58)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": true,
-      "img": "assets/photos/images__1_.png"
+      "img": "assets/photos/images__1_.webp"
     },
     "body>div:nth-child(9)>div:nth-child(61)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "w": "100%"
@@ -287,13 +287,13 @@
     "body>div:nth-child(9)>div:nth-child(66)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": true,
       "w": "100%",
-      "img": "assets/photos/Copy_of_Untitled__Instagram_Post_.png"
+      "img": "assets/photos/Copy_of_Untitled__Instagram_Post_.webp"
     },
     "body>div:nth-child(9)>div:nth-child(70)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
       "cover": true
     },
     "body>div:nth-child(9)>div:nth-child(69)>div:nth-child(1)>div:nth-child(1)>img:nth-child(1)": {
-      "img": "assets/photos/Untitled_design__11_.png",
+      "img": "assets/photos/Untitled_design__11_.webp",
       "cover": true,
       "w": "100%"
     },
@@ -353,7 +353,7 @@
   },
   "clients/Bazooka-Candy/index.html": {
     "body>div:nth-child(2)>div:nth-child(2)>div:nth-child(1)>img:nth-child(1)": {
-      "img": "assets/photos/freepik__design-a-b-logo-using-img1-font-chunky-white-lette__40596.jpeg",
+      "img": "assets/photos/freepik__design-a-b-logo-using-img1-font-chunky-white-lette__40596.webp",
       "w": "100%"
     },
     "body>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)": {

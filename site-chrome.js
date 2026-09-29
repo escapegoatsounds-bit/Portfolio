@@ -62,7 +62,7 @@
     head.className = 'pnav-head';
     head.innerHTML =
       '<a class="pnav-home" href="index.html" title="Back to the home page">' +
-        '<img src="assets/photos/escapegoat-logo.png" alt="">' +
+        '<img src="assets/photos/escapegoat-logo.webp" alt="">' +
         '<span>Abdelaziz Askar</span>' +
       '</a>' +
       '<ul class="pnav-links">' +
