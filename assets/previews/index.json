@@ -12,7 +12,7 @@
   "dur": 42.3,
   "full": true,
   "h": 1080,
-  "kb": 766,
+  "kb": 925,
   "w": 1920
  },
  "12rY81FQfcNENKF1QcpjsldWdswtpKTl3": {
@@ -68,7 +68,7 @@
   "dur": 25.9,
   "full": true,
   "h": 1080,
-  "kb": 410,
+  "kb": 998,
   "w": 1920
  },
  "18IMwsTRrLFBHnWawbq1ashG3-8sW4piA": {
@@ -156,7 +156,7 @@
   "dur": 124.8,
   "full": true,
   "h": 1920,
-  "kb": 1458,
+  "kb": 6658,
   "w": 1080
  },
  "1RJbpbDJIPgMEWfO8lVirhd6YT3Bxcq6W": {
@@ -266,8 +266,56 @@
  "1zzyMS9aJmGOXINMCrPmjmyhUIqZOhvBb": {
   "dur": 31.0,
   "h": 1080,
-  "kb": 95,
+  "kb": 718,
   "w": 1920
+ },
+ "local-Bazooka-Candy-Bazooka-Arabia-Reel-1": {
+  "audio": true,
+  "dur": 6.8,
+  "full": true,
+  "h": 1920,
+  "kb": 402,
+  "w": 1080
+ },
+ "local-Bazooka-Candy-Bazooka-Arabia-Reel-2": {
+  "audio": true,
+  "dur": 8.5,
+  "full": true,
+  "h": 1920,
+  "kb": 330,
+  "w": 1080
+ },
+ "local-Bazooka-Candy-Bazooka-Arabia-Reel-3": {
+  "audio": true,
+  "dur": 8.5,
+  "full": true,
+  "h": 1920,
+  "kb": 251,
+  "w": 1080
+ },
+ "local-Carina-Ramadan-collection-2023": {
+  "audio": true,
+  "dur": 42.9,
+  "full": true,
+  "h": 720,
+  "kb": 1676,
+  "w": 1280
+ },
+ "local-Carina-Stay-comfy-with-Carina": {
+  "audio": true,
+  "dur": 60.2,
+  "full": true,
+  "h": 720,
+  "kb": 2622,
+  "w": 1280
+ },
+ "local-Carina-Winter-pajamas-collection-FW21": {
+  "audio": true,
+  "dur": 37.8,
+  "full": true,
+  "h": 720,
+  "kb": 1842,
+  "w": 1280
  },
  "local-EA-FC-Mobile-FIFA-Mobile-launch-ad": {
   "audio": true,
@@ -276,5 +324,29 @@
   "h": 1280,
   "kb": 7257,
   "w": 720
+ },
+ "local-Juicy-Drop-Juicy-Drop-Arabia-Reel-1": {
+  "audio": true,
+  "dur": 13.6,
+  "full": true,
+  "h": 1920,
+  "kb": 540,
+  "w": 1080
+ },
+ "local-Juicy-Drop-Juicy-Drop-Arabia-Reel-2": {
+  "audio": true,
+  "dur": 6.2,
+  "full": true,
+  "h": 1920,
+  "kb": 147,
+  "w": 1080
+ },
+ "local-Juicy-Drop-Juicy-Drop-Arabia-Reel-3": {
+  "audio": true,
+  "dur": 10.0,
+  "full": true,
+  "h": 1920,
+  "kb": 197,
+  "w": 1080
  }
 }

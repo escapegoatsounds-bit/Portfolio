@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-04T06:16:46.791182+00:00",
+  "generated": "2026-10-04T07:13:52.208422+00:00",
   "brands": {
     "Almaza-Bay": {
       "images": [],
@@ -380,7 +380,29 @@
     },
     "Bazooka-Candy": {
       "images": [],
-      "videos": [],
+      "videos": [
+        {
+          "src": "clients/Bazooka-Candy/videos/Bazooka-Arabia-Reel-1.mp4",
+          "file": "Bazooka-Arabia-Reel-1.mp4",
+          "title": "Bazooka Arabia Reel 1",
+          "ext": "mp4",
+          "size": 4568417
+        },
+        {
+          "src": "clients/Bazooka-Candy/videos/Bazooka-Arabia-Reel-2.mp4",
+          "file": "Bazooka-Arabia-Reel-2.mp4",
+          "title": "Bazooka Arabia Reel 2",
+          "ext": "mp4",
+          "size": 4706741
+        },
+        {
+          "src": "clients/Bazooka-Candy/videos/Bazooka-Arabia-Reel-3.mp4",
+          "file": "Bazooka-Arabia-Reel-3.mp4",
+          "title": "Bazooka Arabia Reel 3",
+          "ext": "mp4",
+          "size": 3810827
+        }
+      ],
       "articles": [],
       "links": [
         {
@@ -980,7 +1002,7 @@
           "id": "DAGXr7s6mwM"
         }
       ],
-      "count": 74
+      "count": 77
     },
     "BIC-WNA": {
       "images": [],
@@ -1806,7 +1828,29 @@
     },
     "Juicy-Drop": {
       "images": [],
-      "videos": [],
+      "videos": [
+        {
+          "src": "clients/Juicy-Drop/videos/Juicy-Drop-Arabia-Reel-1.mp4",
+          "file": "Juicy-Drop-Arabia-Reel-1.mp4",
+          "title": "Juicy Drop Arabia Reel 1",
+          "ext": "mp4",
+          "size": 7315233
+        },
+        {
+          "src": "clients/Juicy-Drop/videos/Juicy-Drop-Arabia-Reel-2.mp4",
+          "file": "Juicy-Drop-Arabia-Reel-2.mp4",
+          "title": "Juicy Drop Arabia Reel 2",
+          "ext": "mp4",
+          "size": 2004340
+        },
+        {
+          "src": "clients/Juicy-Drop/videos/Juicy-Drop-Arabia-Reel-3.mp4",
+          "file": "Juicy-Drop-Arabia-Reel-3.mp4",
+          "title": "Juicy Drop Arabia Reel 3",
+          "ext": "mp4",
+          "size": 2897421
+        }
+      ],
       "articles": [],
       "links": [
         {
@@ -1843,7 +1887,7 @@
           "note": "TV, YouTube, social and influencer results for 2025."
         }
       ],
-      "count": 4
+      "count": 7
     },
     "Krispy-Kreme": {
       "images": [],

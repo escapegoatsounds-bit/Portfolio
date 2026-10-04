@@ -44,6 +44,25 @@
       .then(function (d) { projectsCache = d; return d; });
   }
 
+  /* campaigns.json: a short note and the target audience for each campaign,
+     keyed by brand and then by the item's title. It fills in what links.txt
+     leaves out, so a film without its own note still says what it was for. */
+  var campaignsCache = null;
+  function loadCampaigns() {
+    if (campaignsCache) return Promise.resolve(campaignsCache);
+    return fetch(url('campaigns.json') + (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? '?t=' + Date.now() : ''))
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; })
+      .then(function (d) { campaignsCache = d; return d; });
+  }
+  var KIND_KEY = { final: 'film', animatic: 'animatic', bts: 'bts' };
+  function describe(c, item, kind) {
+    var hit = (c.items || {})[item.title];
+    var note = typeof hit === 'string' ? hit : hit && hit.note;
+    if (!item.note) item.note = note || c[kind] || '';
+    item.audience = (hit && typeof hit === 'object' && hit.audience) || c.audience || '';
+  }
+
   /* Films are hosted on Drive. Vimeo is deliberately not embeddable here: the
      account's videos required a sign-in, so the players showed a login wall. */
   function embedFor(source, id) {
@@ -93,8 +112,8 @@
     opts = opts || {};
     var wantStills = opts.projectStills !== false;
     var wantDecks = opts.projectDecks !== false;
-    return Promise.all([loadProjects(), load()]).then(function (res) {
-      var store = res[0] || {}, dropped = res[1] || {};
+    return Promise.all([loadProjects(), load(), loadCampaigns()]).then(function (res) {
+      var store = res[0] || {}, dropped = res[1] || {}, camp = (res[2] || {})[slug] || {};
       var films = [], decks = [], shots = [], seen = {};
 
       /* A social cut exported straight off a phone carries no usable name, so
@@ -189,6 +208,9 @@
       decks = decks.filter(function (d) { return d.video; })
         .concat(decks.filter(function (d) { return !d.video; }));
 
+      films.forEach(function (f) { describe(camp, f, KIND_KEY[f.kind] || 'film'); });
+      decks.forEach(function (d) { describe(camp, d, d.video ? 'film' : 'deck'); });
+
       return { films: films, decks: decks, shots: shots };
     });
   }
@@ -215,6 +237,7 @@
     return '<p class="pc-now-kind">' + esc(bits.join(' · ')) + '</p>' +
       '<h4 class="pc-now-title">' + esc(v.title) + '</h4>' +
       (v.note ? '<p class="pc-now-note">' + esc(v.note) + '</p>' : '') +
+      (v.audience ? '<p class="pc-aud"><b>Target audience</b>' + esc(v.audience) + '</p>' : '') +
       (v.watch ? '<a class="pc-now-open" href="' + esc(v.watch) + '" target="_blank" rel="noopener">Open the file ↗</a>' : '');
   }
 
@@ -340,6 +363,7 @@
       'allow="autoplay; fullscreen" allowfullscreen></iframe>' +
       '<figcaption>' +
       (l.note ? '<span class="pc-deck-note">' + esc(l.note) + '</span>' : '') +
+      (l.audience ? '<span class="pc-aud"><b>Target audience</b>' + esc(l.audience) + '</span>' : '') +
       '<span class="pc-deck-actions"><button type="button" class="pc-fs" data-href="' + esc(l.url) + '">Full screen ⤢</button>' +
       '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
       esc(l.title) + ' ↗</a></span></figcaption>' +
@@ -399,6 +423,80 @@
       }).join('') + '</ul>');
   }
 
+
+  /* ---- the numbers -------------------------------------------------------
+     charts.json holds what the strategy decks and the case form say in
+     numbers: results against targets, audience splits, the plan in steps.
+     Drawn here in the brand's colours with plain SVG and CSS. */
+  var chartsCache = null;
+  function loadCharts() {
+    if (chartsCache) return Promise.resolve(chartsCache);
+    return fetch(url('charts.json') + (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? '?t=' + Date.now() : ''))
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; })
+      .then(function (d) { chartsCache = d; return d; });
+  }
+  function fmtNum(n, unit) {
+    if (unit === '%') return (Math.round(n * 100) / 100) + '%';
+    if (n >= 1e6) return (Math.round(n / 1e5) / 10) + 'M';
+    if (n >= 1e3) return (Math.round(n / 100) / 10) + 'K';
+    return String(n);
+  }
+  function chartBars(c, col) {
+    var max = 0;
+    c.rows.forEach(function (r) { max = Math.max(max, r.result || 0, r.target || 0); });
+    return '<div class="pc-bars">' + c.rows.map(function (r) {
+      var w = max ? (r.result / max * 100) : 0, tw = r.target ? (r.target / max * 100) : 0;
+      var beat = r.target ? r.result >= r.target : null;
+      return '<div class="pc-bar"><div class="pc-bar-hd"><span>' + esc(r.label) + '</span><b>' + fmtNum(r.result, c.unit) +
+        (r.target ? '<small> / ' + fmtNum(r.target, c.unit) + ' target</small>' : '') + '</b></div>' +
+        '<div class="pc-bar-track"><i style="width:' + w.toFixed(1) + '%;background:' + (beat === false ? col[1] || '#888' : col[0]) + '"></i>' +
+        (r.target ? '<em style="left:' + tw.toFixed(1) + '%" title="Target"></em>' : '') + '</div></div>';
+    }).join('') + '</div>' +
+    (c.rows.some(function (r) { return r.target; }) ? '<p class="pc-chart-key"><i style="background:' + col[0] + '"></i>Result <em></em>Target</p>' : '');
+  }
+  function chartPie(c, col) {
+    var total = c.data.reduce(function (s, d) { return s + d[1]; }, 0) || 1, a = -Math.PI / 2, R = 42, r = 26;
+    var pal = col.concat(['#f0c233', '#8b5cf6', '#2ecc71', '#e67e22', '#95a5a6']);
+    var segs = c.data.map(function (d, i) {
+      var f = d[1] / total, a2 = a + f * Math.PI * 2, big = f > 0.5 ? 1 : 0;
+      var p = function (rad, ang) { return (50 + rad * Math.cos(ang)).toFixed(2) + ' ' + (50 + rad * Math.sin(ang)).toFixed(2); };
+      var path = f >= 0.9999
+        ? '<circle cx="50" cy="50" r="' + ((R + r) / 2) + '" fill="none" stroke="' + pal[i] + '" stroke-width="' + (R - r) + '"/>'
+        : '<path d="M' + p(R, a) + ' A' + R + ' ' + R + ' 0 ' + big + ' 1 ' + p(R, a2) + ' L' + p(r, a2) + ' A' + r + ' ' + r + ' 0 ' + big + ' 0 ' + p(r, a) + 'Z" fill="' + pal[i] + '"/>';
+      a = a2; return path;
+    }).join('');
+    return '<div class="pc-pie"><svg viewBox="0 0 100 100" role="img" aria-label="' + esc(c.title) + '">' + segs + '</svg><ul>' +
+      c.data.map(function (d, i) {
+        return '<li><i style="background:' + pal[i] + '"></i>' + esc(d[0]) + '<b>' + (c.unit === '%' ? fmtNum(d[1], '%') : Math.round(d[1] / total * 100) + '%') + '</b></li>';
+      }).join('') + '</ul></div>';
+  }
+  function chartTiles(c, col) {
+    return '<div class="pc-tiles">' + c.data.map(function (d) {
+      return '<div class="pc-tile" style="border-color:' + col[0] + '"><b style="color:' + col[0] + '">' + esc(d[1]) + '</b><span>' + esc(d[0]) + '</span></div>';
+    }).join('') + '</div>';
+  }
+  function chartTimeline(c, col) {
+    return '<ol class="pc-steps">' + c.steps.map(function (s, i) {
+      return '<li><span class="pc-step-dot" style="background:' + col[i % col.length] + '">' + (i + 1) + '</span><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span></li>';
+    }).join('') + '</ol>';
+  }
+  var CHART = { bars: chartBars, pie: chartPie, tiles: chartTiles, timeline: chartTimeline };
+  function chartsSection(spec) {
+    if (!spec || !spec.charts || !spec.charts.length) return '';
+    // a brand colour too dark to read on the page gives way to the next one
+    var col = (spec.colors || ['#f0c233']).filter(function (h) {
+      var m = /^#?([0-9a-f]{6})$/i.exec(h); if (!m) return true;
+      var n = parseInt(m[1], 16), l = 0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255);
+      return l > 45;
+    });
+    if (!col.length) col = ['#f0c233', '#8b5cf6'];
+    return section('The numbers', '<div class="pc-charts">' + spec.charts.map(function (c) {
+      var draw = CHART[c.type]; if (!draw) return '';
+      return '<figure class="pc-chart pc-chart-' + c.type + '"><figcaption>' + esc(c.title) + '</figcaption>' + draw(c, col) + '</figure>';
+    }).join('') + '</div>' + (spec.source ? '<p class="pc-chart-src">Source: ' + esc(spec.source) + '</p>' : ''));
+  }
+
   /* Kept for callers that hand over a raw content.json entry. */
   function render(entry) {
     if (!entry) return '';
@@ -414,10 +512,11 @@
     render: render,
     /* Films first, then decks, stills and writing. */
     for: function (slug, opts) {
-      return Promise.all([load(), mediaFor(slug, opts)]).then(function (res) {
+      return Promise.all([load(), mediaFor(slug, opts), loadCharts()]).then(function (res) {
         var entry = (res[0].brands || {})[slug] || {};
         var m = res[1];
-        return filmsSection(m.films) +
+        return chartsSection((res[2] || {})[slug]) +
+               filmsSection(m.films) +
                decksSection(m.decks) +
                images(m.shots) +
                links(entry.links || []) +
@@ -425,11 +524,11 @@
       });
     },
     has: function (slug) {
-      return Promise.all([load(), loadProjects()]).then(function (res) {
-        return !!((res[0].brands || {})[slug] || (res[1] || {})[slug]);
+      return Promise.all([load(), loadProjects(), loadCharts()]).then(function (res) {
+        return !!((res[0].brands || {})[slug] || (res[1] || {})[slug] || (res[2] || {})[slug]);
       });
     },
     // drop the cached content.json so the next call picks up newly added files
-    refresh: function () { cache = null; projectsCache = null; }
+    refresh: function () { cache = null; projectsCache = null; chartsCache = null; campaignsCache = null; }
   };
 })(window);

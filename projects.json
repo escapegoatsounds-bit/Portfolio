@@ -202,7 +202,12 @@
     "roles": [
      "Social Media",
      "Copywriting"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Young professionals, families and companies in Egypt, 21 and up, plus embassies weighing a move to the new capital."
+    }
    }
   ],
   "brand": {
@@ -235,7 +240,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Families and friends in Oman, and urban 19 to 23 year olds for Subway Savers."
     },
     "chartType": "bar",
     "chartData": [
@@ -389,7 +394,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Premium car buyers in Dubai and the Northern Emirates."
     },
     "chartType": "bar",
     "chartData": [
@@ -755,7 +760,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Mothers of babies across North Africa, the Gulf and Turkey."
     },
     "chartType": "bar",
     "chartData": [
@@ -910,7 +915,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Young people in Kuwait who ignore traditional bank ads."
     },
     "chartType": "bar",
     "chartData": [
@@ -993,7 +998,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Car owners and homeowners in Egypt who want one security system for both."
     },
     "chartType": "bar",
     "chartData": [
@@ -1068,7 +1073,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Families and young people in Cairo."
     },
     "chartType": "bar",
     "chartData": [
@@ -1173,7 +1178,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Families in Cairo, Alexandria and the North Coast who order sweets for occasions."
     },
     "chartType": "bar",
     "chartData": [
@@ -1300,7 +1305,12 @@
       "feed": false,
       "ratio": 0.564
      }
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Football fans in Egypt and Saudi Arabia who play on their phones."
+    }
    }
   ],
   "active": 0
@@ -1344,7 +1354,12 @@
     ],
     "roles": [
      "UGC / Influencer"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Tea drinkers in Egypt who want herbal blends."
+    }
    }
   ],
   "active": 0
@@ -1475,7 +1490,12 @@
       "caption": "",
       "ratio": 1.0
      }
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Arabic and English speakers looking for mental health content."
+    }
    }
   ],
   "active": 0
@@ -1499,12 +1519,14 @@
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/production.webp",
       "caption": "",
+      "feed": false,
       "ratio": 1.778
      },
      {
       "kind": "img",
       "src": "assets/portfolio-pages/extracted/Carina/visual-02.webp",
       "caption": "",
+      "feed": false,
       "ratio": 1.778
      },
      {
@@ -1525,7 +1547,12 @@
       "caption": "",
       "ratio": 0.648
      }
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Women in Egypt and the Middle East who buy loungewear and basics."
+    }
    }
   ],
   "active": 0
@@ -1608,7 +1635,12 @@
     "reportUrl": "",
     "roles": [
      "Website Copywriting"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Business owners and managers in Saudi Arabia and the UAE choosing an ERP platform."
+    }
    }
   ],
   "brand": {
@@ -1637,7 +1669,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Insurance, real estate and banking firms looking for sales teams and training, and the people who join them."
     },
     "chartType": "bar",
     "chartData": [
@@ -1720,30 +1752,6 @@
       "caption": "",
       "feed": false,
       "ratio": 0.807
-     },
-     {
-      "kind": "img",
-      "src": "assets/behance/social-2016-2017/14-96c25350328991.58cdb7cb988da.webp",
-      "caption": "",
-      "ratio": 1.143
-     },
-     {
-      "kind": "img",
-      "src": "assets/behance/social-2016-2017/15-84550550328991.58cdb7cb957bf.webp",
-      "caption": "",
-      "ratio": 0.714
-     },
-     {
-      "kind": "img",
-      "src": "assets/behance/social-2016-2017/16-5bc10f50328991.58cdb7cb96091.webp",
-      "caption": "",
-      "ratio": 1.094
-     },
-     {
-      "kind": "img",
-      "src": "assets/behance/social-2016-2017/17-e11eae50328991.58cdb7cb9681b.webp",
-      "caption": "",
-      "ratio": 0.686
      }
     ],
     "vimeo": [],
@@ -1778,7 +1786,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Health-minded people in Cairo who want fresh juice delivered to home or the office."
     },
     "chartType": "bar",
     "chartData": [
@@ -1892,7 +1900,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Brands in Alexandria that needed photos, design and video."
     },
     "chartType": "bar",
     "chartData": [
@@ -2059,7 +2067,12 @@
     "roles": [
      "Social Media",
      "Copywriting"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "High-net-worth people and C-suite executives in the GCC, and patients and caregivers looking into complex care."
+    }
    }
   ],
   "brand": {
@@ -2152,7 +2165,12 @@
     "reportUrl": "",
     "roles": [
      "Website Copywriting"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Companies and investors with interests in North Africa and Turkey who need a law firm."
+    }
    }
   ],
   "brand": {
@@ -2201,7 +2219,12 @@
     "roles": [
      "Social Media",
      "Copywriting"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Adults in Saudi Arabia looking for therapy and mental health support."
+    }
    }
   ],
   "brand": {
@@ -2230,7 +2253,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Travellers and event planners booking a five-star hotel in Egypt."
     },
     "chartType": "bar",
     "chartData": [
@@ -2439,7 +2462,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Families and friends eating out in Doha."
     },
     "chartType": "bar",
     "chartData": [
@@ -2525,7 +2548,12 @@
     "name": "",
     "roles": [
      "Social Media"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Families and food lovers in Cairo who know Lebanese home cooking."
+    }
    }
   ]
  },
@@ -2636,7 +2664,7 @@
     "analytics": {
      "reach": "",
      "duration": "",
-     "audience": ""
+     "audience": "Diners in Qatar who like pan-Asian food."
     },
     "chartType": "bar",
     "chartData": [
@@ -2737,7 +2765,12 @@
     "roles": [
      "Social Media"
     ],
-    "deliverables": "Character Design, Social Posts"
+    "deliverables": "Character Design, Social Posts",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Families in Egypt, with the kids drawn in by the young chef."
+    }
    }
   ]
  },
@@ -2753,8 +2786,78 @@
     "deliverables": "Brand Identity, Brand Guidelines, Character Design, Social Posts",
     "roles": [
      "Social Media"
-    ]
+    ],
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Small business owners in Egypt who want an app without hiring developers."
+    }
    }
   ]
+ },
+ "Steam-Cola": {
+  "brand": {
+   "industry": "FMCG",
+   "market": "",
+   "since": "2024",
+   "services": "Branding",
+   "website": "",
+   "summary": "Steam Cola is a cola soft drink. The job was its brand identity: the logo, the colours, the type, the bottle label and the brand guidelines.",
+   "cover": "assets/photos/steam-cola/Bottle-and-merchandise.webp",
+   "logo": "clients/Steam-Cola/assets/logo.png",
+   "about": "Steam Cola is a cola soft drink. Its Arabic line on the label reads إنعش حياتك, \"refresh your life\"."
+  },
+  "projects": [
+   {
+    "name": "Brand identity",
+    "client": "Steam Cola",
+    "date": "2024",
+    "role": "Brand designer",
+    "agency": "",
+    "status": "Delivered",
+    "deliverables": "Logo, colour palette, typography, bottle label, brand guidelines",
+    "desc": "I built Steam Cola's identity from the logo up: a bold black wordmark on a red and white bubble badge, a palette of cola red, carbon black and cream white, Avenir for type, and the 500ml bottle label. It all sits in a 2024 brand guidelines book with clear space, logo versions and the don'ts. The shots here are mockups of the bottle, the merchandise and the guidelines.",
+    "cover": "assets/photos/steam-cola/Bottle-and-merchandise.webp",
+    "analytics": {
+     "reach": "",
+     "duration": "",
+     "audience": "Young soft drink buyers."
+    },
+    "media": [
+     {
+      "kind": "img",
+      "src": "assets/photos/steam-cola/Brand-guidelines-2024.webp",
+      "caption": "Brand guidelines 2024",
+      "ratio": 1.013
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/steam-cola/Bottle-label.webp",
+      "caption": "Bottle label",
+      "ratio": 1.013
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/steam-cola/Bottle-and-merchandise.webp",
+      "caption": "Bottle and merchandise",
+      "ratio": 1.013
+     },
+     {
+      "kind": "img",
+      "src": "assets/photos/steam-cola/Brand-profile-on-screen.webp",
+      "caption": "Brand profile on screen",
+      "ratio": 1.013
+     }
+    ],
+    "vimeo": [],
+    "types": [
+     "Branding"
+    ],
+    "platforms": [],
+    "articles": [],
+    "briefs": []
+   }
+  ],
+  "active": 0
  }
 }

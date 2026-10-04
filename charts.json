@@ -1,0 +1,163 @@
+{
+  "_note": "Charts on brand pages, from the numbers and plans in the Canva strategy decks and the Brand Case Form (project-content.js draws them). Types: bars (result against target), pie, tiles (big numbers), timeline (a plan in steps). Numbers only; budgets and fees stay out. colors = the brand's own, first is the main one.",
+
+  "Bazooka-Candy": {
+    "colors": ["#E8192C", "#FFD100", "#003DA5"],
+    "source": "Bazooka Candy Brands 2026 plan with 2025 results, Tonic International",
+    "charts": [
+      {"type": "bars", "title": "2025 social: result against target", "rows": [
+        {"label": "Instagram views", "target": 3000000, "result": 5100000},
+        {"label": "TikTok views", "target": 3000000, "result": 4100000},
+        {"label": "TikTok engagements", "target": 22000, "result": 41000},
+        {"label": "TikTok impressions", "target": 5800000, "result": 4500000},
+        {"label": "TikTok followers", "target": 7300, "result": 2900}
+      ]},
+      {"type": "tiles", "title": "YouTube, February to August 2025", "data": [["Reach", "15M+"], ["Views", "45M+"], ["Impressions", "81M+"], ["View-through rate", "36%"]]},
+      {"type": "tiles", "title": "TV on OSN, April to August 2025", "data": [["Kids subscribers reached", "70%+"], ["Spots", "78"], ["TikTok engagement rate", "5.7–7.2%"]]},
+      {"type": "pie", "title": "Monthly content mix", "data": [["Production reels", 3], ["UGC videos", 3], ["UGC photos", 3], ["Design stills", 2], ["AR filter", 1], ["Animated post", 1]]}
+    ]
+  },
+
+  "Juicy-Drop": {
+    "colors": ["#FF4500", "#7B2CBF", "#00B4D8"],
+    "source": "Bazooka Candy Brands 2026 plan with 2025 results, Tonic International",
+    "charts": [
+      {"type": "bars", "title": "2025 social: result against target", "rows": [
+        {"label": "TikTok views", "target": 2900000, "result": 6500000},
+        {"label": "TikTok engagements", "target": 16000, "result": 51000},
+        {"label": "Instagram followers gained", "target": 2048, "result": 6300},
+        {"label": "Instagram engagements", "target": 33000, "result": 46000},
+        {"label": "Instagram views", "target": 3000000, "result": 3800000},
+        {"label": "TikTok impressions", "target": 6500000, "result": 7000000},
+        {"label": "TikTok followers gained", "target": 8000, "result": 7100}
+      ]},
+      {"type": "tiles", "title": "YouTube, March to September 2025", "data": [["Reach", "9.7M+"], ["Impressions", "100M+"], ["Views", "30M+"], ["View-through rate", "41%"]]},
+      {"type": "pie", "title": "YouTube impressions by market", "unit": "%", "data": [["Saudi Arabia", 58], ["Other markets", 42]]},
+      {"type": "tiles", "title": "TV, May to August 2025", "data": [["Spots on SpaceToon and Cartoon Network", "268"], ["Target audience reached", "80%+"]]}
+    ]
+  },
+
+  "Big-Baby-Pop": {
+    "colors": ["#E84393", "#6C5CE7"],
+    "source": "Bazooka Candy Brands 2026 plan with 2025 results, Tonic International",
+    "charts": [
+      {"type": "bars", "title": "YouTube, February to June 2025", "unit": "%", "rows": [{"label": "Impressions, share of target", "target": 100, "result": 75}]},
+      {"type": "tiles", "title": "TV in 2025", "data": [["Target audience reached", "80%+"], ["Markets", "3"]]}
+    ]
+  },
+
+  "Quooker": {
+    "colors": ["#C8963E", "#4A4A4A", "#8FB8DE"],
+    "source": "Quooker 2024 performance review and 2025 strategy, Tonic International",
+    "charts": [
+      {"type": "tiles", "title": "2024 in numbers", "data": [["Impressions", "22.71M"], ["Video views", "2.56M"], ["Link clicks", "199.74K"], ["Followers", "19.19K (+31%)"]]},
+      {"type": "pie", "title": "Audience by gender", "unit": "%", "data": [["Women", 63], ["Men", 26], ["Unknown", 11]]},
+      {"type": "bars", "title": "Engagements by platform, 2024", "rows": [{"label": "TikTok", "result": 10830}, {"label": "Instagram", "result": 6140}, {"label": "LinkedIn", "result": 473}]},
+      {"type": "bars", "title": "Audience by country", "rows": [{"label": "UAE", "result": 12720}, {"label": "India", "result": 973}, {"label": "Pakistan", "result": 719}, {"label": "Saudi Arabia", "result": 341}, {"label": "Egypt", "result": 323}]},
+      {"type": "pie", "title": "Share of engagement against competitors", "unit": "%", "data": [["Quooker", 53.04], ["Grohe", 45.62], ["Zip Water", 1.34]]},
+      {"type": "bars", "title": "Instagram engagement rate: organic against paid", "unit": "%", "rows": [{"label": "Organic posts", "result": 5.73}, {"label": "Paid posts", "result": 0.12}]}
+    ]
+  },
+
+  "Krispy-Kreme": {
+    "colors": ["#007A3D", "#E2231A"],
+    "source": "Krispy Kreme Egypt launch, portfolio deck",
+    "charts": [
+      {"type": "tiles", "title": "The Egypt launch", "data": [["Guests on launch days", "5,000+"], ["People reached on social", "3M+"]]}
+    ]
+  },
+
+  "ACUD": {
+    "colors": ["#7D0D0D", "#B5B5B5"],
+    "source": "ACUD social media strategy",
+    "charts": [
+      {"type": "tiles", "title": "Targets, both beaten", "data": [["Followers gained", "15K target"], ["Impressions", "6.7M target"]]},
+      {"type": "pie", "title": "Reach against interactions", "unit": "%", "data": [["Reach", 70], ["Interactions", 30]]}
+    ]
+  },
+
+  "Carzami": {
+    "colors": ["#5543FF", "#00D3F4", "#15044A"],
+    "source": "Carzami strategy deck and brand book",
+    "charts": [
+      {"type": "tiles", "title": "The 2024 goal", "data": [["Sales growth target", "+200%"], ["Off market price", "20%+"], ["Financing", "up to 60 months"]]},
+      {"type": "pie", "title": "Audience by gender", "unit": "%", "data": [["Men", 75], ["Women", 25]]},
+      {"type": "timeline", "title": "Three buyer groups", "steps": [["18–28", "Buying a first car"], ["25–28", "Moving up to a family car"], ["25–65", "Upgrading to a better model"]]}
+    ]
+  },
+
+  "Bonny": {
+    "colors": ["#F39C12", "#1F5AA6"],
+    "source": "Bonny Q2 2025 creative briefs, Tonic International",
+    "charts": [
+      {"type": "pie", "title": "Monthly mix in the low season", "data": [["Stills", 2], ["Dynamic posts", 1], ["Reels", 1]]},
+      {"type": "timeline", "title": "The plan", "steps": [["Feb 2024", "Ramadan posts"], ["Apr 2024", "Monthly calendar"], ["May–Jul 2025", "Creamy Creations with Bonny"]]}
+    ]
+  },
+
+  "Snapchat": {
+    "colors": ["#FFFC00", "#111111"],
+    "source": "Snapchat Lenses, portfolio deck",
+    "charts": [
+      {"type": "tiles", "title": "How the Lenses did", "data": [["2019", "Most used Lens"], ["Ramadan", "Most used Lens with 28–35s"], ["Languages", "5"]]}
+    ]
+  },
+
+  "Hardees": {
+    "colors": ["#E31837", "#FFC72C"],
+    "source": "Hardee's #MyFirstChoice campaign plan, Nineteen84",
+    "charts": [
+      {"type": "tiles", "title": "#MyFirstChoice", "data": [["Days of activations", "10"], ["Posts in the month", "10"]]},
+      {"type": "timeline", "title": "On the ground", "steps": [["Universities", "Campus visits"], ["Bike stops", "Guerrilla activation"], ["Influencers", "Media and influencer drops"], ["Merch", "Branded giveaways"]]}
+    ]
+  },
+
+  "Chouchou": {
+    "colors": ["#C2185B", "#F8BBD0"],
+    "source": "Chouchou launch social media strategy, Nineteen84",
+    "charts": [
+      {"type": "timeline", "title": "Launch plan", "steps": [["March", "Opening at Arkan, Zayed"], ["April", "Ramadan"], ["May", "Eid and summer, with influencers and PR"]]}
+    ]
+  },
+
+  "Mayo-Clinic": {
+    "colors": ["#0057B8", "#7FB3E8"],
+    "source": "GCC paid media strategy: podcast and KOL activation, Tonic International",
+    "charts": [
+      {"type": "timeline", "title": "Two phases", "steps": [["Q1", "Premium podcast placements: #ABtalks, Conversations with Loulou, Finjan"], ["Q2", "3 to 5 doctor influencers on Instagram and Snapchat"]]}
+    ]
+  },
+
+  "Almaza-Bay": {
+    "colors": ["#0E7C9E", "#F2C14E"],
+    "source": "Shorelines 2023 festival plan, Nineteen84",
+    "charts": [
+      {"type": "timeline", "title": "Shorelines 2023 plan", "steps": [["Before", "Throwback reels, line-up posts, countdown, tickets"], ["During", "Same-day recap reels, 10+ edited photos per band"], ["After", "Recaps and stories with polls"]]},
+      {"type": "tiles", "title": "Who it targeted", "data": [["Ages", "18–35"], ["Where", "Cairo and the North Coast"]]}
+    ]
+  },
+
+  "Ring-Pop": {
+    "colors": ["#E3170A", "#FFD100"],
+    "source": "Bazooka Candy Brands 2026 plan, Tonic International",
+    "charts": [
+      {"type": "timeline", "title": "\"Act of Love\" launch proposal, 2026", "steps": [["April", "Party Pack launch, purple turns yellow"], ["April–May", "Ring Pop Party Starter UGC contest for parents"], ["May", "#RingPopProposal for social natives"]]}
+    ]
+  },
+
+  "Subway-Oman": {
+    "colors": ["#009B3A", "#FFC20E"],
+    "source": "Subway Oman growth plan and Ramadan 2024 calendar, Tonic International",
+    "charts": [
+      {"type": "timeline", "title": "Ramadan 2024 week", "steps": [["Sun–Mon", "Mega Share Box, Iftar and Suhoor collections"], ["Fri–Sat", "30% off best sellers on Talabat"], ["All month", "#SubwayOmanRamadanChallenge with a Fitbit prize"]]}
+    ]
+  },
+
+  "Tonic-International": {
+    "colors": ["#F0C233", "#555555"],
+    "source": "Tonic KSA expansion content plan",
+    "charts": [
+      {"type": "tiles", "title": "What Tonic brings", "data": [["Years in the region", "21+"], ["Content themes", "6"], ["Formats", "Videos, carousels, articles"]]}
+    ]
+  }
+}

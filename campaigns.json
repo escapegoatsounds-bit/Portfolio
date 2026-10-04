@@ -1,0 +1,194 @@
+{
+  "_note": "Campaign notes and target audiences shown on brand pages (project-content.js). Per brand: audience = who the work was for; film / deck / animatic / bts = the note for any item of that kind without its own; items = notes keyed by the exact title in links.txt or the video file name (a string, or {note, audience}). _inferred lists brands whose audience comes from the product, not from a brief: check those.",
+  "_inferred": ["Audi", "BIC-WNA", "Delight-Pastries", "Em-Sherif-Cafe", "Fujifilm", "Gillette-Venus", "Glow", "Hayat-Water", "Labanita", "Carina", "CAPA", "Royal-Herbs", "Krispy-Kreme", "Chouchou", "Hardees", "Warba-Bank", "Steam-Cola", "Lifebox", "Eldib-Co", "WallPost", "Deraya", "Noodle-House", "Biella", "Royal-Tulip-Hotel", "Imagine-Studio", "Ruby-Pasta", "Oppa-App", "The-Center", "EA-FC-Mobile", "Big-Baby-Pop", "Ring-Pop"],
+
+  "ACUD": {"audience": "Young professionals, families and companies in Egypt, 21 and up, plus embassies weighing a move to the new capital."},
+  "Al-Siddiqi-Holding": {"audience": "Families and young diners in Qatar, 14 to 55."},
+  "Almaza-Bay": {
+    "audience": "High-income buyers, 18 and up, who love beach life.",
+    "items": {
+      "Shorelines 2023 festival plan": {"note": "The social plan for Shorelines, a two-day music festival on the beach at Almaza Bay: line-up posts, countdowns, same-day recap reels.", "audience": "18 to 35 year olds in Cairo and on the North Coast who follow EDM, travel and festivals."}
+    }
+  },
+  "Audi": {"audience": "Premium car buyers in Dubai and the Northern Emirates.", "film": "Concept frames for Audi's social content, made for Al Nabooda Automobiles."},
+  "BIC-WNA": {
+    "audience": "Everyday shoppers across West and North Africa.",
+    "items": {
+      "BIC Flex 5 - Meet the Barber TVC": {"note": "A TV spot that sells the Flex 5 razor as a barber-grade shave at home. Line: \"Meet the barber in you.\"", "audience": "Men in West Africa who shave at home."},
+      "Light it right with BIC - BIC Lighters Egypt": {"note": "A spot for BIC lighters in Egypt, built on the line \"Light it right\".", "audience": "Adults in Egypt who buy lighters at the kiosk."},
+      "Bic Cristal West Africa TV Commercial": {"note": "A TV commercial for the Cristal pen in West Africa.", "audience": "Students, parents and office workers in West Africa."}
+    }
+  },
+  "Bazooka-Candy": {
+    "audience": "Teens across the GCC, with sponsored media in Saudi Arabia.",
+    "film": "A reel from Bazooka's always-on social in the GCC, built on the line \"Share Your Fun\".",
+    "animatic": "An AI concept cut for Bazooka and its Mooz characters, made before the final reels.",
+    "items": {
+      "Bazooka 2025 reel compilation": "The 2025 reels for Bazooka and Juicy Drop in one cut.",
+      "Bazooka reels": "Two minutes of Bazooka reels from 2025: product, characters and trends in one cut.",
+      "Share Your Fun!": "The \"Share Your Fun\" film, named after Bazooka's brand line in the GCC.",
+      "Bazooka Arabia Reel 1": "A reel from Bazooka Arabia's Instagram, 2025.",
+      "Bazooka Arabia Reel 2": "A reel from Bazooka Arabia's Instagram, 2025.",
+      "Bazooka Arabia Reel 3": "A reel from Bazooka Arabia's Instagram, 2025.",
+      "Mooz animations": "The Mooz character in motion: 22 boards with the profile, the poses and the animation set for social.",
+      "Bazooka 2025 social strategy": "The 2025 plan: three pillars (The Candy, The Mooz, The Sharing) and a monthly mix of reels, UGC and AR.",
+      "2025 social media strategy": "The 2025 social plan for Bazooka in the GCC.",
+      "Push Pop social strategy": {"note": "The social strategy for Push Pop in the GCC.", "audience": "Kids and teens in the GCC."},
+      "2025 results and 2026 plan": "Results for 2025 across TV, YouTube, TikTok, Instagram and influencers, then the plan for 2026."
+    }
+  },
+  "Big-Baby-Pop": {"audience": "Kids and their parents in the GCC.", "items": {"2025 results": "TV and YouTube results for 2025 across three countries, with new seasonal edits planned for 2026."}},
+  "Biella": {"audience": "Families and friends eating out in Doha."},
+  "Bonny": {
+    "audience": "Women running family homes in the UAE, Kuwait and Saudi Arabia.",
+    "film": "A recipe film for Bonny evaporated milk.",
+    "items": {"Q2 2025 creative briefs": "The briefs for \"Creamy Creations with Bonny\", the 2025 low-season campaign. Line: \"For tasty and creamy, it better be Bonny!\""}
+  },
+  "CAPA": {"audience": "Women in Egypt shopping for Ramadan.", "items": {"Cappa, from my portfolio": "A Ramadan 2021 TVC for Cappa womenswear, with Amina Khalil in the winter Ramadan collection."}},
+  "Carina": {
+    "audience": "Women in Egypt and the Middle East who buy loungewear and basics.",
+    "items": {
+      "Carina, from my portfolio": "Carina's main campaigns over the years, from storyboards to the finished social films.",
+      "Ramadan collection 2023": "The film for Carina's Ramadan 2023 collection.",
+      "Stay comfy with Carina": "A one-minute film for Carina's loungewear, built on the line \"Stay comfy\".",
+      "Winter pajamas collection FW21": "The film for Carina's winter pajamas, autumn-winter 2021."
+    }
+  },
+  "Carzami": {"audience": "Car buyers in Egypt: 18 to 28 buying a first car, 25 to 28 moving up to a family car, 25 to 65 upgrading. Three in four are men."},
+  "Chouchou": {"audience": "Dessert lovers in and around Sheikh Zayed.", "items": {"Launch social media strategy": "The launch plan for Chouchou, the first éclair bar in Cairo: a March opening, Ramadan in April, then influencers and PR for Eid and summer."}},
+  "Delight-Pastries": {"audience": "Families in Cairo, Alexandria and the North Coast who order sweets for occasions.", "film": "A short social film for Delight, the Egyptian pastry house."},
+  "Deraya": {"audience": "Insurance, real estate and banking firms looking for sales teams and training, and the people who join them."},
+  "Deraya-Real-Estate": {"audience": "Home buyers in Egypt as the market moved online in 2015."},
+  "EA-FC-Mobile": {
+    "audience": "Football fans in Egypt and Saudi Arabia who play on their phones.",
+    "bts": "Behind the scenes at the FIFA Mobile UGC shoot.",
+    "items": {
+      "FIFA Mobile launch ad": "The UGC launch ad for FIFA Mobile in 2021, with copy written for Egyptian and Saudi players.",
+      "FIFA Mobile, from my portfolio": "The FIFA Mobile launch: copy, storyboards, animation, filming and the edit."
+    }
+  },
+  "Eldib-Co": {"audience": "Companies and investors with interests in North Africa and Turkey who need a law firm."},
+  "Em-Sherif-Cafe": {
+    "audience": "Families and food lovers in Cairo who know Lebanese home cooking.",
+    "film": "A film for Em Sherif Café's Cairo page.",
+    "items": {
+      "Opening soon teaser": "The teaser that announced Em Sherif Café in Cairo.",
+      "We stand together - opening soon": "A pre-opening film for Em Sherif Café in Cairo.",
+      "What the future holds - opening soon": "A pre-opening film for Em Sherif Café in Cairo.",
+      "Ramadan Kareem from Em Sherif Café": "Em Sherif Café's Ramadan greeting.",
+      "Mloukhiyeh bil zeit": "A dish film: mloukhiyeh bil zeit, from the Lebanese home kitchen.",
+      "Em Ali": "A dish film: Em Ali, the warm bread pudding.",
+      "Tea with breakfast": "A film for Em Sherif Café's breakfast.",
+      "Frakeh jnoubieh": "A dish film: frakeh jnoubieh, raw meat with bulgur from south Lebanon.",
+      "Man'oushe zaatar w jebneh": "A dish film: man'oushe with zaatar and cheese.",
+      "Em Sherif Café reel": "A reel from Em Sherif Café's Cairo page."
+    }
+  },
+  "Fujifilm": {"audience": "Photographers and camera buyers in the Middle East.", "items": {"Tonic ignites the spirit of photography for Fujifilm": "A Tonic film for Fujifilm about the joy of taking pictures."}},
+  "Geely": {
+    "audience": "Young drivers in the UAE choosing a first new car.",
+    "animatic": "An AI concept cut for Geely, made for the pitch before the final film.",
+    "items": {
+      "Say Hi to the Geely EX5": "The launch film for the electric Geely EX5 in the UAE.",
+      "The all-new Cityray": "The launch film for the Geely Cityray in the UAE.",
+      "The new Coolray is coming": "The teaser for the new Geely Coolray in the UAE.",
+      "The new Monjaro from Geely": "The launch film for the Geely Monjaro in the UAE.",
+      "My First Ramadan in the Driver's Seat - Suhoor Shenanigans": "A Ramadan film about a first Ramadan behind the wheel.",
+      "Geely, from my portfolio": "The Geely TVC animatic from the UAE launch."
+    }
+  },
+  "Gillette-Venus": {"audience": "Women in the Middle East.", "items": {"We asked people what the ideal gift for Mother's Day is": "A street-interview film for Mother's Day: we asked people what the ideal gift would be."}},
+  "Glow": {"audience": "Health-minded people in Cairo who want fresh juice delivered to home or the office."},
+  "Hardees": {"audience": "University students and young people in Egypt.", "items": {"#MyFirstChoice campaign plan": "The #MyFirstChoice plan: ten days of posts, university visits, a bike-stop activation and influencer drops for Hardee's new meal deals."}},
+  "Hayat-Water": {"audience": "Families in Egypt.", "film": "A social film for Hayat bottled water."},
+  "Imagine-Studio": {"audience": "Brands in Alexandria that needed photos, design and video."},
+  "Juicy-Drop": {
+    "audience": "Kids and teens, 8 to 12, in the GCC.",
+    "film": "A Juicy Drop reel, styled as influencer content.",
+    "items": {
+      "Juicy Drop calendar brief 2025": "The 2025 calendar brief for the Chew Dipperz launch.",
+      "Calendar brief 2025 (deck)": "The 2025 calendar brief for the Chew Dipperz launch on TikTok and Instagram.",
+      "Freaked out, what's the secret": "A Juicy Drop reel: \"Freaked out, what's the secret?\"",
+      "2025 results": "TV, YouTube, social and influencer results for 2025.",
+      "Juicy Drop Arabia Reel 1": "A reel from Juicy Drop Arabia's Instagram, 2025.",
+      "Juicy Drop Arabia Reel 2": "A reel from Juicy Drop Arabia's Instagram, 2025.",
+      "Juicy Drop Arabia Reel 3": "A reel from Juicy Drop Arabia's Instagram, 2025."
+    }
+  },
+  "Krispy-Kreme": {"audience": "Families and young people in Cairo.", "items": {"Krispy Kreme Egypt launch, from my portfolio": "The Krispy Kreme launch in Egypt: the campaign, on-ground events and PR. More than 5,000 guests came."}},
+  "Labanita": {
+    "audience": "Families in Egypt who buy fresh dairy.",
+    "film": "A social film for Labanita dairy.",
+    "items": {
+      "Labanita Kitchen": "A kitchen film for Labanita.",
+      "Labanita Final Kitchen": "The final cut of the Labanita kitchen film.",
+      "Star Jum Low": "A short product film for Labanita."
+    }
+  },
+  "Lifebox": {"audience": "Car owners and homeowners in Egypt who want one security system for both."},
+  "Mayo-Clinic": {
+    "audience": "High-net-worth people and C-suite executives in the GCC, and patients and caregivers looking into complex care.",
+    "items": {"GCC paid media strategy: podcast and KOL activation": "A two-phase plan: premium podcast spots first, then three to five doctor influencers on Instagram and Snapchat."}
+  },
+  "Molfix": {
+    "audience": "Mothers of babies across North Africa, the Gulf and Turkey.",
+    "bts": "Behind the scenes at the Molfix TVC shoot.",
+    "items": {"Molfix, from my portfolio": "The Molfix TVC about the bond between mother and baby, translated for Morocco, the GCC and Algeria."}
+  },
+  "Mooz": {
+    "audience": "Teens in the GCC who follow Bazooka.",
+    "items": {
+      "Mooz animations": "The Mooz character in motion: 22 boards with the profile, the poses and the animation set for social.",
+      "Bringing the Mooz back with AI": "A proposal to revive the Mooz with AI image, animation and voice tools, so it costs less and speaks local languages."
+    }
+  },
+  "Noodle-House": {"audience": "Diners in Qatar who like pan-Asian food."},
+  "Oppa-App": {"audience": "Small business owners in Egypt who want an app without hiring developers."},
+  "Quooker": {
+    "audience": "High-net-worth homeowners in the UAE, mostly women, plus the architects and designers who plan their kitchens.",
+    "film": "A social film for Quooker in the UAE: boiling, chilled and sparkling water from one tap.",
+    "items": {
+      "The tap that creates effortless moments": "A film about the small daily moments a Quooker tap makes easier.",
+      "Switch to smarter hydration": "A film for Quooker's chilled and sparkling water, as a swap for bottled water.",
+      "The tap that makes your summer (Arabic)": "A summer film for Quooker, in Arabic.",
+      "Boiling, chilled and sparkling from one tap (Arabic)": "The Quooker promise in Arabic: boiling, chilled and sparkling water from one tap.",
+      "Tonic x Quooker - Making waves in UAE luxury homes": "Tonic's case film for Quooker in UAE luxury homes.",
+      "Q4 influencer campaign": {"note": "The Q4 influencer plan to build awareness and bring in showroom leads.", "audience": "UAE residents and high-net-worth buyers."},
+      "2024 results and 2025 social strategy": "The 2024 numbers, a look at Grohe and Zip Water, and the plan for 2025.",
+      "November-December 2025 content calendar": "The content calendar for November and December 2025.",
+      "July 2025 content calendar": "The content calendar for July 2025.",
+      "March 2025 content calendar": "The content calendar for March 2025."
+    }
+  },
+  "Ring-Pop": {"audience": "Parents planning kids' parties, and young people on social.", "items": {"2026 launch proposal": "The \"Act of Love\" launch proposal for Ring Pop's Party Pack, April to May 2026."}},
+  "Royal-Herbs": {"audience": "Tea drinkers in Egypt who want herbal blends.", "items": {"Royal Herbs, from my portfolio": "A Royal Herbs TVC with Salma Abodeif and other influencers, backed by PR and media buying."}},
+  "Royal-Tulip-Hotel": {"audience": "Travellers and event planners booking a five-star hotel in Egypt."},
+  "Ruby-Pasta": {"audience": "Families in Egypt, with the kids drawn in by the young chef."},
+  "Snapchat": {
+    "audience": "Snapchatters across MENA and Turkey, with a push on 28 to 35 year olds.",
+    "items": {"Snapchat Lenses, from my portfolio": "Bi-monthly campaigns for new Snapchat Lenses, dubbed into Arabic, English, French, Turkish and Hebrew."}
+  },
+  "Steam-Cola": {"audience": "Young soft drink buyers."},
+  "Subway-Oman": {
+    "audience": "Families and friends in Oman, and urban 19 to 23 year olds for Subway Savers.",
+    "film": "A reel from Subway Oman's social calendar.",
+    "bts": "Behind the scenes at the Subway Savers shoot.",
+    "items": {
+      "SubSavers campaign": {"note": "The Subway Savers film. Line: \"Fuel your hustle for less.\"", "audience": "Urban 19 to 23 year olds in Oman."},
+      "SubSavers vertical cut": {"note": "The vertical cut of the Subway Savers film.", "audience": "Urban 19 to 23 year olds in Oman."},
+      "April creative brief": "The April creative brief for Subway Oman.",
+      "February 2025 creative brief": "The February 2025 creative brief for Subway Oman."
+    }
+  },
+  "The-Center": {"audience": "Arabic and English speakers looking for mental health content."},
+  "The-Recovery-Clinic": {"audience": "Adults in Saudi Arabia looking for therapy and mental health support.", "items": {"The Recovery Clinic, from my portfolio": "Pre-launch awareness for The Recovery Clinic in Riyadh, in Arabic and English."}},
+  "Tonic-International": {
+    "audience": "Marketing directors, CEOs, CMOs, GMs and small business owners looking for an agency.",
+    "items": {
+      "The Team System: team video": "A film about how Tonic's teams work together.",
+      "KSA expansion content plan": "The content plan for Tonic's expansion into Saudi Arabia, tied to Vision 2030."
+    }
+  },
+  "WallPost": {"audience": "Business owners and managers in Saudi Arabia and the UAE choosing an ERP platform.", "items": {"WallPost, from my portfolio": "Arabic and English website copy for WallPost, plus its digital marketing strategy."}},
+  "Warba-Bank": {"audience": "Young people in Kuwait who ignore traditional bank ads.", "items": {"Warba Bank legacy campaign": "A film from Warba Bank's legacy campaign."}}
+}
