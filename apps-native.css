@@ -101,7 +101,9 @@
 .tk-act.fv-snd svg{width:24px;height:24px}
 .tk-meta{position:absolute;left:12px;right:64px;bottom:16px;z-index:4;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 .tk-user{font-weight:700;font-size:15px}
-.tk-cap{font-size:13px;line-height:1.4;margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tk-cap{font-size:13px;line-height:1.4;margin-top:4px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.tk-label{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;margin-right:4px;border-radius:4px;background:rgba(255,255,255,.18)}
+.tk-tags{font-weight:700}
 .tk-sound{display:flex;align-items:center;gap:6px;font-size:12px;margin-top:8px}
 .tk-sound .nx-i{width:13px;height:13px}
 .tk-item::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(transparent,rgba(0,0,0,.5));pointer-events:none;z-index:2}

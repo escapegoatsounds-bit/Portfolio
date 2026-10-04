@@ -6,7 +6,7 @@
    "since": "2021",
    "services": "Social Media, Character Design",
    "website": "",
-   "summary": "Bazooka Candy is a globally recognized confectionery brand known for its iconic bubble gum and candy range. The MENA campaign focused on building a vibrant, Gen Z-facing brand identity through original character design and social-first creative.",
+   "summary": "Bazooka Candies is a globally recognized confectionery brand known for its iconic bubble gum and candy range. The MENA campaign focused on building a vibrant, Gen Z-facing brand identity through original character design and social-first creative.",
    "cover": "",
    "logo": "assets/logo.png",
    "logoBackground": "#003DA5",
@@ -15,13 +15,13 @@
   "projects": [
    {
     "name": "Mooz, Character Design",
-    "client": "Bazooka Candy",
+    "client": "Bazooka Candies",
     "date": "2021",
     "role": "Lead Creative",
     "agency": "",
     "status": "Delivered",
     "deliverables": "Character Design, Social Media",
-    "desc": "Created Mooz — an original character universe for Bazooka Candy across the MENA region. The character design system was built to work across packaging, social media activations, and digital campaigns, giving the brand a recognizable personality that resonated with Gen Z consumers.",
+    "desc": "Created Mooz — an original character universe for Bazooka Candies across the MENA region. The character design system was built to work across packaging, social media activations, and digital campaigns, giving the brand a recognizable personality that resonated with Gen Z consumers.",
     "cover": "",
     "analytics": {
      "reach": "",
@@ -273,35 +273,59 @@
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4C_JEbNIIOZmVideo_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4C_JEbNIIOZmVideo_by_subwayoman.mp4",
+      "w": 360,
+      "h": 640,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4C0toIyjoDHDVideo_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4C0toIyjoDHDVideo_by_subwayoman.mp4",
+      "w": 720,
+      "h": 1280,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4C5JMoS6v5l7Video_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4C5JMoS6v5l7Video_by_subwayoman.mp4",
+      "w": 720,
+      "h": 1280,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4DGQtNnlob-WVideo_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4DGQtNnlob-WVideo_by_subwayoman.mp4",
+      "w": 720,
+      "h": 1280,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4DAHBpyDOwjqVideo_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4DAHBpyDOwjqVideo_by_subwayoman.mp4",
+      "w": 720,
+      "h": 1280,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4C-41wRIuCkOVideo_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4C-41wRIuCkOVideo_by_subwayoman.mp4",
+      "w": 360,
+      "h": 640,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4C24u2GEIZZ6Video_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4C24u2GEIZZ6Video_by_subwayoman.mp4",
+      "w": 720,
+      "h": 1280,
+      "audio": true
      },
      {
       "kind": "video",
-      "src": "assets/videos/Video_by_subwayoman.mp4C8RpzW2KsB4Video_by_subwayoman.mp4"
+      "src": "assets/videos/Video_by_subwayoman.mp4C8RpzW2KsB4Video_by_subwayoman.mp4",
+      "w": 720,
+      "h": 1280,
+      "audio": true
      },
      {
       "kind": "img",
@@ -2629,7 +2653,7 @@
  },
  "Mooz": {
   "brand": {
-   "about": "Mooz is the character universe I created for Bazooka Candy in the MENA region, built to work on packs, social and campaigns."
+   "about": "Mooz is the character universe I created for Bazooka Candies in the MENA region, built to work on packs, social and campaigns."
   }
  },
  "Nineteen84": {
@@ -2859,5 +2883,20 @@
    }
   ],
   "active": 0
+ },
+ "Nillens": {
+  "brand": {
+   "industry": "Fashion & Apparel",
+   "market": "Egypt",
+   "since": "2011",
+   "website": "https://nillens.com",
+   "logo": "clients/Nillens/assets/logo.png",
+   "about": "Nillens is a Cairo brand founded in 2011. It makes loungewear, bedding, towels and baby linen from Egyptian cotton, with prints by Egyptian designers."
+  }
+ },
+ "Chouchou": {
+  "brand": {
+   "about": "Chouchou is the first éclair bar in Cairo. It opened in Sheikh Zayed and sells éclairs, ice cream and drinks."
+  }
  }
 }

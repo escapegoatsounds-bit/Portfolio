@@ -133,6 +133,7 @@
     'Deraya-Real-Estate':{instagram:'derayaeg',facebook:'DerayaRealEstate',linkedin:'deraya-real-estate'},
     'The-Recovery-Clinic':{instagram:'therecoveryclinic',facebook:'TheRecoveryClinic',linkedin:'the-recovery-clinic'},
     'Chouchou':          {instagram:'chouchoueg',facebook:'ChouchouEgypt'},
+    'Nillens':           {instagram:'nillenslinens',facebook:'nillens'},
     'Lifebox':           {instagram:'lifeboxme',facebook:'LifeboxME'},
     'Big-Baby-Pop':      {instagram:'bigbabypop',facebook:'BigBabyPop'},
     'Mostique':          {instagram:'mostique.eg',facebook:'Mostique'},

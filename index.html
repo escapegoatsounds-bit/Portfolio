@@ -470,9 +470,10 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .bm-check.on{border-color:var(--gold);color:var(--gold)}
 </style>
   <link rel="stylesheet" href="project-content.css">
-  <link rel="stylesheet" href="apps-native.css?v=6">
+  <link rel="stylesheet" href="apps-native.css?v=7">
+  <script src="brands-data.js?v=3"></script>
   <link rel="stylesheet" href="feed-social.css?v=2">
-  <link rel="stylesheet" href="highlights.css?v=1">
+  <link rel="stylesheet" href="highlights.css?v=2">
 </head>
 <body>
 
@@ -764,7 +765,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 <script src="apps-native.js?v=7"></script>
 <script src="feed-social.js?v=1"></script>
 <script src="phone-actions.js?v=1"></script>
-<script src="highlights.js?v=1" defer></script>
+<script src="highlights.js?v=2" defer></script>
 <script>
 // JSON is fetched fresh only while editing locally; the live site lets the browser cache it
 const NOCACHE=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?"?t="+Date.now():"";
@@ -775,13 +776,13 @@ const BRANDS=[
   {s:"Snapchat",n:"Snapchat",c:"#FFFC00",t:"#000",i:"S"},{s:"Warba-Bank",n:"Warba Bank",c:"#006341",t:"#fff",i:"WB"},
   {s:"Kappa",n:"Kappa",c:"#FF0000",t:"#fff",i:"K"},{s:"EA-FC-Mobile",n:"EA FC Mobile",c:"#003087",t:"#fff",i:"EA"},
   {s:"Molfix",n:"Molfix",c:"#00AEEF",t:"#fff",i:"M"},{s:"Carina",n:"Carina",c:"#8B1A1A",t:"#fff",i:"C"},
-  {s:"Bazooka-Candy",n:"Bazooka",c:"#E8192C",t:"#fff",i:"BC"},{s:"Hardees",n:"Hardee's",c:"#E31837",t:"#fff",i:"H"},
+  {s:"Bazooka-Candy",n:"Bazooka Candies",c:"#E8192C",t:"#fff",i:"BC"},{s:"Hardees",n:"Hardee's",c:"#E31837",t:"#fff",i:"H"},
 {s:"AXE-Unilever",n:"AXE",c:"#1a1a1a",t:"#fff",i:"AX"},
   {s:"Bershka",n:"Bershka",c:"#000",t:"#fff",i:"B"},{s:"Krispy-Kreme",n:"Krispy Kreme",c:"#007A3D",t:"#fff",i:"KK"},
   {s:"Quooker",n:"Quooker",c:"#1A1A1A",t:"#fff",i:"Q"},{s:"Royal-Herbs",n:"Royal Herbs",c:"#2D6A2D",t:"#fff",i:"RH"},
   {s:"Glow",n:"Glow",c:"#00C4B4",t:"#fff",i:"GL"},
   {s:"Gourmet",n:"Gourmet",c:"#8B0000",t:"#fff",i:"GO"},{s:"Royal-Tulip-Hotel",n:"Royal Tulip",c:"#6B2D8B",t:"#fff",i:"RT"},
-  {s:"Tonic-International",n:"Tonic",c:"#222",t:"#fff",i:"T"},{s:"Delight-Pastries",n:"Delight Pastries",c:"#C8960C",t:"#fff",i:"DP"},
+  {s:"Tonic-International",n:"Tonic",c:"#222",t:"#fff",i:"T"},{s:"Delight-Pastries",n:"Delight Pastries",c:"#DE7D30",t:"#fff",i:"DP"},
   {s:"Juicy-Drop",n:"Juicy Drop",c:"#FF4500",t:"#fff",i:"JD"},{s:"Deraya-Real-Estate",n:"Deraya Real Estate",c:"#1A3A5C",t:"#fff",i:"DR",logo:"assets/logos/Deraya.png"},
   {s:"No-Limits-Furniture",n:"No Limits",c:"#5B3A29",t:"#fff",i:"NL"},{s:"Lord-of-the-Wings",n:"Lord of Wings",c:"#C00000",t:"#fff",i:"LW"},
   {s:"GDK",n:"GDK",c:"#D4A017",t:"#000",i:"GD"},{s:"Brew-Craft",n:"Brew",c:"#4A2C2A",t:"#fff",i:"BR"},
@@ -792,7 +793,7 @@ const BRANDS=[
   {s:"Biella",n:"Biella",c:"#5C4033",t:"#fff",i:"BI"},
   {s:"Big-Baby-Pop",n:"Big Baby Pop",c:"#E84393",t:"#fff",i:"BP"},{s:"Bonny",n:"Bonny",c:"#F39C12",t:"#000",i:"BO"},
   {s:"Burger-Pump",n:"Burger Pump",c:"#D35400",t:"#fff",i:"BU"},{s:"CAPA",n:"CAPA",c:"#34495E",t:"#fff",i:"CA"},
-  {s:"Chouchou",n:"Chouchou",c:"#C2185B",t:"#fff",i:"CH"},{s:"Defarm",n:"Defarm",c:"#27AE60",t:"#fff",i:"DF"},
+  {s:"Chouchou",n:"Chouchou",c:"#C2185B",t:"#fff",i:"CH"},{s:"Nillens",n:"Nillens",c:"#66717C",t:"#fff",i:"NL"},{s:"Defarm",n:"Defarm",c:"#27AE60",t:"#fff",i:"DF"},
   {s:"Deraya",n:"Deraya",c:"#8E44AD",t:"#fff",i:"DR"},{s:"El-Gouna",n:"El Gouna",c:"#E67E22",t:"#fff",i:"EG"},
   {s:"Eldib-Co",n:"Eldib & Co",c:"#1F3A5F",t:"#fff",i:"EC"},{s:"Em-Sherif-Cafe",n:"Em Sherif",c:"#00343D",t:"#fff",i:"ES"},
   {s:"Emirgan-Sutis",n:"Emirgan Sutis",c:"#B5121B",t:"#fff",i:"EM"},{s:"Gillette-Venus",n:"Gillette Venus",c:"#00A4E4",t:"#fff",i:"GV"},
@@ -810,10 +811,26 @@ const BRANDS=[
 ];
 const B=Object.fromEntries(BRANDS.map(b=>[b.s,b]));
 function brandLink(s){return "clients/"+s+"/index.html";}
+// the circle behind a logo takes the logo's own background colour; a see-through
+// logo gets white behind dark ink and keeps the brand colour behind light ink
+function logoFill(img){
+  const p=img.parentNode; if(!p)return; p.style.color="transparent";
+  try{
+    const n=24,cv=document.createElement("canvas");cv.width=cv.height=n;
+    const x=cv.getContext("2d");x.drawImage(img,0,0,n,n);const d=x.getImageData(0,0,n,n).data;
+    const R=[],G=[],Bl=[];let al=0,edge=0,ink=0,inkN=0;
+    for(let y=0;y<n;y++)for(let i=0;i<n;i++){const k=(y*n+i)*4,a=d[k+3];
+      if(y===0||y===n-1||i===0||i===n-1){edge++;al+=a;if(a>200){R.push(d[k]);G.push(d[k+1]);Bl.push(d[k+2]);}}
+      if(a>128){ink+=.299*d[k]+.587*d[k+1]+.114*d[k+2];inkN++;}}
+    const med=v=>v.sort((a,b)=>a-b)[v.length>>1];
+    if(al/edge>200){p.style.background=`rgb(${med(R)},${med(G)},${med(Bl)})`;return;}
+    if(inkN&&ink/inkN/255<.6)p.style.background="#fff";
+  }catch(e){p.style.background="#fff";}
+}
 function logoOverlay(b,radius){
   const src=b.logo||`assets/logos/${b.s}.png`;
   const fb=`clients/${b.s}/assets/logo.png`;
-  return `<img src="${src}" alt="${b.n} logo" loading="lazy" onload="this.parentNode.style.background='#0e0e0e';this.parentNode.style.color='transparent'" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${fb}';}else{this.remove();}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:${radius}">`;
+  return `<img src="${src}" alt="${b.n} logo" loading="lazy" onload="logoFill(this)" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${fb}';}else{this.remove();}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:${radius}">`;
 }
 function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};}
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
@@ -821,7 +838,7 @@ function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filte
 const SKILLS=[["Creative Direction",85],["Social Strategy",92],["AI Integration",88],["Copywriting",80],["Photography",70],["Music Production",72],["Team Management",85],["Storyboarding",88]];
 const TRACKS=[["Elli Kan Kan","elli-kan-kan"],["La Bali","la-bali"],["Ya Ghayba","ya-ghayba"],["Escapegoat IV","track-04"]];
 const JINGLES=[
-  {slug:"Bazooka-Candy",title:"Bazooka Brand Music",desc:"Original brand music composed for the Bazooka Candy MENA campaign — crafted for social reels, digital activations and product launch moments.",year:"2024",type:"audio",src:""},
+  {slug:"Bazooka-Candy",title:"Bazooka Brand Music",desc:"Original brand music composed for the Bazooka Candies MENA campaign — crafted for social reels, digital activations and product launch moments.",year:"2024",type:"audio",src:""},
   {slug:"Juicy-Drop",title:"Juicy Drop — The Earworm",desc:"The Juicy Drop brand jingle ran across social, radio and in-store activations across MENA. An audio ID engineered to be impossible to unhear.",year:"2021",type:"audio",src:""},
   {slug:"Molfix",title:"Molfix TVC Score",desc:"Original score composed for the Molfix TVC campaign — a musical bed that underscores the emotional narrative and lifts the film.",year:"2023",type:"audio",src:""},
   {slug:"GLC",title:"GLC Brand Track",desc:"Brand music track produced for GLC — composed and produced to match the energy and identity of the campaign brief.",year:"2022",type:"audio",src:""},
@@ -962,7 +979,7 @@ const PANELS={
     const expHTML=exp.map(e=>`<div style="position:relative;padding-left:20px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid #2a3040"><div style="position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:#0a66c2"></div><div style="font-size:11px;color:#5b9bd5;letter-spacing:.04em;margin-bottom:3px">${e.p}</div><div style="font-size:16px;font-weight:700;margin-bottom:2px">${e.t}</div><div style="font-size:13px;color:#9ab0c0;margin-bottom:9px">${e.c} · ${e.l}</div><p style="font-size:13px;color:#b0b8c8;line-height:1.65;margin-bottom:9px">${e.d}</p><div style="display:flex;flex-wrap:wrap;gap:5px">${e.tags.map(t=>`<span style="font-size:10px;padding:2px 9px;background:#252c34;border:1px solid #3a4450;border-radius:99px;color:#8899aa">${t}</span>`).join("")}</div></div>`).join("");
     const brandCats=[
       ["Branding / Design",["Defarm","Glow","Deraya","Lifebox","MTM","Brew-Craft"]],
-      ["Social Media Content",["El-Gouna","Revitalash","Polo-Ralph-Lauren","Subway-Oman","Quooker","Emirgan-Sutis","Molfix","Delight-Pastries","Medina","Chouchou","Hayat-Water","Bazooka-Candy","Juicy-Drop","Bonny"]],
+      ["Social Media Content",["El-Gouna","Revitalash","Polo-Ralph-Lauren","Subway-Oman","Quooker","Emirgan-Sutis","Molfix","Delight-Pastries","Medina","Chouchou","Nillens","Hayat-Water","Bazooka-Candy","Juicy-Drop","Bonny"]],
       ["Production & TVC",["The-G-Hotels","Warba-Bank","Snapchat","Geely","Lord-of-the-Wings","Hardees","Carina","Subway-Oman","Bazooka-Candy","Juicy-Drop","Delight-Pastries","Molfix"]],
       ["Strategy / PR",["ACUD","Almaza-Bay","Quooker","Warba-Bank","Geely","Bazooka-Candy","Juicy-Drop","Delight-Pastries"]],
       ["TVC Creative Planning",["Audi","ACUD","Quooker","Mayo-Clinic","Krispy-Kreme","Zooba"]],
@@ -1269,7 +1286,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
           if(!img){img=document.createElement("img");img.loading="lazy";dot.appendChild(img);}
           img.src=logo; img.alt=B[slug].n+" logo";
           img.style.cssText="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:1px;border-radius:50%";
-          img.onload=function(){dot.style.background="#0e0e0e";dot.style.color="transparent";};
+          img.onload=function(){logoFill(this);};
           img.onerror=function(){this.remove();};
         }
       }
@@ -1277,6 +1294,13 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   });
 
   function _shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+  // short muted loops of the Drive films, keyed by Drive id (see make_previews.py)
+  let PREV={};
+  try{ const r=await fetch("assets/previews/index.json"+NOCACHE); if(r.ok) PREV=await r.json(); }catch(e){}
+  // a film is tall when its copy is taller than wide; without a copy, trust its flag
+  const _tall=v=>{const p=PREV[v.id]; return p&&p.w&&p.h?p.h>p.w*1.05:v.orientation==="vertical";};
+  const TALL_PIC=.85;                                       // 4:5 and taller counts as a tall picture
 
   const vids={}, imgs={}, arts={}, socialLinks={};
   function detectSocPlat(url){
@@ -1318,7 +1342,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
          wall instead of the film; films are hosted on Drive now. */
       (proj.vimeo||[]).filter(v=>v.id&&(v.source||"")==="drive").forEach(v=>{
         _feedIds.add(v.id);
-        const isVert=v.orientation==="vertical";
+        const isVert=_tall(v);
         const item={b,v,proj,slug};
         if(toYouTube) push(vids,"youtube",item);
         if(toInsta) push(vids,"instagram",item);
@@ -1326,7 +1350,13 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
       });
       (proj.media||[]).filter(m=>m.src&&(m.kind==="img"||!m.kind)).forEach(m=>{
         if(toInsta) push(imgs,"instagram",{b,m,proj,slug});
-        if(creator) push(imgs,"tiktok",{b,m,proj,slug});
+        if(creator||(m.ratio&&m.ratio<TALL_PIC)) push(imgs,"tiktok",{b,m,proj,slug});
+      });
+      // video files kept with the project: the tall ones play on TikTok
+      (proj.media||[]).filter(m=>m.kind==="video"&&m.src&&m.w&&m.h>m.w*1.05).forEach(m=>{
+        const id="file-"+m.src.replace(/[^A-Za-z0-9]+/g,"-").slice(-80);
+        if(_feedIds.has(id)) return; _feedIds.add(id);
+        push(vids,"tiktok",{b,v:{id,source:"file",src:m.src,url:brandLink(slug),label:m.caption||proj.name||"",w:m.w,h:m.h,audio:!!m.audio,orientation:"vertical"},proj,slug});
       });
       const webCopy=hasRole(roles,"Website Copywriting");
       (proj.articles||[]).filter(a=>(a.body||a.title)&&!a.socialUrl).forEach(a=>{
@@ -1349,13 +1379,10 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
      to TikTok. Capped per brand so one big folder can't take over a feed. */
   let dropped={};
   try{ const r=await fetch("content.json"+NOCACHE); if(r.ok) dropped=(await r.json()).brands||{}; }catch(e){}
-  // short muted loops of the Drive films, keyed by Drive id (see make_previews.py)
-  let PREV={};
-  try{ const r=await fetch("assets/previews/index.json"+NOCACHE); if(r.ok) PREV=await r.json(); }catch(e){}
   // the grey line under the brand name and the caption, per brand (feed-copy.json)
   let FCOPY={};
   try{ const r=await fetch("feed-copy.json"+NOCACHE); if(r.ok) FCOPY=await r.json(); }catch(e){}
-  const DROP_CAP={youtube:3,instagram:3,tiktok:4,photo:4};
+  const DROP_CAP={youtube:3,instagram:3,tiktok:8,photo:4};
   Object.entries(dropped).forEach(([slug,entry])=>{
     const projs=(store[slug]&&store[slug].projects)||[];
     const roles=[...new Set(projs.flatMap(p=>p.roles||[]))];
@@ -1384,15 +1411,24 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
         if(creator) push(imgs,"tiktok",{b,m,proj,slug});
         return;
       }
-      const reel=kind==="bts"||REEL_TITLE.test(title);
+      const tall=_tall({id:l.id}), reel=kind==="bts"||REEL_TITLE.test(title)||tall;
       const v={id:l.id,source:"drive",label:title,orientation:reel?"vertical":"horizontal"};
       const item={b,v,proj,slug};
       _feedIds.add(l.id);
-      if(kind==="bts"){ if(room("tiktok")) push(vids,"tiktok",item); return; }
+      if(kind==="bts"||tall){ if(room("tiktok")) push(vids,"tiktok",item); if(kind==="bts") return; }
       if(!picked) return;
-      if((reel||creator)&&room("tiktok")) push(vids,"tiktok",item);
+      if((reel||creator)&&!tall&&room("tiktok")) push(vids,"tiktok",item);
       if(!reel&&hasRole(roles,"TVC","YouTube")&&room("youtube")) push(vids,"youtube",item);
       if(!reel&&hasRole(roles,"Social Media")&&room("instagram")) push(vids,"instagram",item);
+    });
+  });
+
+  /* Tall pictures dropped in clients/<Brand>/images join TikTok's photo mode;
+     the pictures of one brand share a post, so several make a carousel. */
+  Object.entries(dropped).forEach(([slug,entry])=>{
+    const b=b4(slug);
+    (entry.images||[]).filter(f=>f.w&&f.h&&f.w/f.h<TALL_PIC).forEach(f=>{
+      push(imgs,"tiktok",{b,m:{src:f.src,ratio:f.w/f.h,caption:""},proj:{name:"",date:""},slug});
     });
   });
 
@@ -1467,8 +1503,8 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   }
   function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
   function vidSrc(v){if(v.source==="canva")return v.embed;return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/preview":"https://player.vimeo.com/video/"+v.id+"?color=f0c233&title=0&byline=0&portrait=0&dnt=1";}
-  function vidLink(v){if(v.source==="canva"||v.source==="local")return v.url;return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/view":"https://vimeo.com/"+v.id;}
-  function vidPlatformLabel(v){if(v.source==="canva")return "Canva";if(v.source==="local")return "Brand page";return v.source==="drive"?"Google Drive":"Vimeo";}
+  function vidLink(v){if(v.source==="canva"||v.source==="local"||v.source==="file")return v.url;return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/view":"https://vimeo.com/"+v.id;}
+  function vidPlatformLabel(v){if(v.source==="canva")return "Canva";if(v.source==="local"||v.source==="file")return "Brand page";return v.source==="drive"?"Google Drive":"Vimeo";}
   function vidPlatformColor(v){return v.source==="drive"?"#4285f4":"#00adef";}
   function vimeoEmbed(b,v,proj,aspect){
     const src=vidSrc(v);
@@ -1517,6 +1553,19 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   const fLine=(b,fb)=>_fc(b.s).line||(!_generic(fb)?fb:"")||(window.BRAND_INDUSTRY&&BRAND_INDUSTRY[b.s])||"";
   // a brand can list several captions; each post keeps the same one across visits
   const fCap=(b,kind,fb,pid)=>{let c=_fc(b.s)[kind]; if(Array.isArray(c)) c=c[parseInt(_hash(pid||""),36)%c.length]; return c||(!_generic(fb)?fb:"")||_about(b.s);};
+  /* TikTok, the tall feed: every caption opens with a label saying what the
+     post is and ends with hashtags. */
+  const TK_IND={"Food & Beverage":"FoodTok","Fashion & Apparel":"Fashion","Automotive":"CarTok","FMCG":"FMCG","Hospitality & Real Estate":"RealEstate","Tech & Telecom":"Tech","Media & Entertainment":"Entertainment","Beauty & Personal Care":"Beauty","Healthcare":"Health","Banking & Finance":"Finance","Home & Living":"HomeDecor","Web Design & Copywriting":"WebDesign","Other / Agency":"Creative"};
+  const tkKind=(label,photo,n)=>BTS_TITLE.test(label)?"Behind the scenes":/\b(ugc|influencer|creator)\b/i.test(label)?"Creator campaign":photo?(n>1?"Photo carousel":"Photo"):"Social film";
+  const tkLabel=(b,label,photo,n)=>(label&&!_generic(label)&&label!==b.n&&label.length<60&&!/^creator/i.test(label))?label:tkKind(label||"",photo,n);
+  const tkTags=(b,label,photo,n)=>{
+    const tag=s=>String(s||"").replace(/&/g," and ").split(/[^A-Za-z0-9]+/).filter(Boolean).map(w=>w[0].toUpperCase()+w.slice(1)).join("");
+    const kind={"Behind the scenes":"BehindTheScenes","Creator campaign":"UGC","Photo carousel":"Carousel","Photo":"Photography","Social film":"Reels"}[tkKind(label||"",photo,n)];
+    const ln=_fc(b.s).line||"", place=ln.includes("·")?ln.split("·")[0].trim():"";
+    const list=[tag(b.n),kind,TK_IND[(window.BRAND_INDUSTRY||{})[b.s]],/^[A-Za-z ]{2,20}$/.test(place)?tag(place):"","fyp"];
+    return [...new Set(list.filter(Boolean))].map(s=>"#"+s).join(" ");
+  };
+  const tkCap=(b,label,cap,photo,n)=>{const l=tkLabel(b,label,photo,n); return `<b class="tk-label">${l}</b> ${cap&&cap!==l?cap:""} <span class="tk-tags">${tkTags(b,label,photo,n)}</span>`;};
   const _hash=s=>{let h=0; for(const ch of s) h=(h*31+ch.charCodeAt(0))>>>0; return h.toString(36);};
   const pidFilm=v=>("v-"+v.id).replace(/[^A-Za-z0-9_\-:.]/g,"").slice(0,140);
   const pidPhotos=(b,proj,fr)=>"p-"+b.s+"-"+_hash((proj.name||"")+"|"+fr[0]);
@@ -1531,7 +1580,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   const fvPlayer=(v,loop,label,tap)=>{
     const id=encodeURIComponent(v.id), aria=label.replace(/"/g,"&quot;");
     return loop
-      ?`<img class="fv-poster" src="assets/previews/${id}.jpg" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()"><video data-src="assets/previews/${id}.mp4" muted loop playsinline preload="none" onerror="fvFail(this)" ontimeupdate="fvTime(this)"${tap?` onclick="${tap}"`:""} aria-label="${aria}"></video>`
+      ?`${v.src?"":`<img class="fv-poster" src="assets/previews/${id}.jpg" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">`}<video data-src="${v.src||`assets/previews/${id}.mp4`}" muted loop playsinline preload="none" onerror="fvFail(this)" ontimeupdate="fvTime(this)"${tap?` onclick="${tap}"`:""} aria-label="${aria}"></video>`
       :`<iframe class="feed-vid" data-src="${vidSrc(v)}" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
   };
   /* Sound on a full copy: the speaker button and a volume slider. A short
@@ -1545,7 +1594,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
      TikTok one full screen per film with the side rail. */
   const fvCard=({b,v,proj},plat)=>{
     const label=v.label||proj.name||b.n, link=vidLink(v);
-    const loop=(v.source==="drive"||v.source==="local")&&PREV[v.id];
+    const loop=((v.source==="drive"||v.source==="local")&&PREV[v.id])||(v.source==="file"&&{w:v.w,h:v.h,full:true,audio:v.audio});
     const r=loop&&loop.w&&loop.h?loop.w/loop.h:(v.orientation==="vertical"?9/16:16/9);
     const sound=!!(loop&&loop.full&&loop.audio);
     const tap=loop&&loop.full?(sound?"fvSound(this)":""):(loop?"fvFull(this)":"");
@@ -1562,7 +1611,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
           <a class="tk-act" href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("shareFill")}</a>
           ${sound?`<button class="tk-act fv-snd" onclick="fvSound(this)" aria-label="Turn the sound on" aria-pressed="false">${_fvOff}</button>`:""}
         </div>
-        <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${fCap(b,"film",label,pidFilm(v))}</div><div class="tk-sound">${NX.icon("note")} original sound · ${b.n}</div></div>
+        <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${tkCap(b,label,fCap(b,"film",label,pidFilm(v)),false,1)}</div><div class="tk-sound">${NX.icon("note")} original sound · ${b.n}</div></div>
         ${fsBox}
       </div>`;
     }
@@ -1647,7 +1696,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
         <span class="tk-act" aria-hidden="true">${NX.icon("bookmarkFill")}</span>
         <a class="tk-act" href="${brandLink(b.s)}" aria-label="Open the case study">${NX.icon("shareFill")}</a>
       </div>
-      <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${cap||sub}</div></div>
+      <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${tkCap(b,sub,cap,true,n)}</div></div>
       ${fsBox}
     </div>`;
   };
@@ -1675,13 +1724,19 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
     if(mixed.length) inject("screen-instagram",mixed.join(""));
   }
 
-  /* TikTok: every film full screen, then the creator campaigns in photo mode. */
+  /* TikTok: every tall film full screen, with the tall pictures in photo mode
+     (a carousel when a project has several) after every second film. Brands
+     take turns so one big folder doesn't fill the feed. */
   {
-    const posts=fpGroups(imgs.tiktok,6,8,2);
-    if(posts.length) inject("screen-tiktok",posts.map(g=>tkPhotos(g,"Creator & influencer campaign")).join(""));
-  }
-  if(vids.tiktok&&vids.tiktok.length){
-    inject("screen-tiktok",vids.tiktok.map(v=>fvCard(v,"tiktok")).join(""));
+    const turns=list=>{const by={},keys=[];list.forEach(x=>{const k=x.b.s;if(!by[k]){by[k]=[];keys.push(k);}by[k].push(x);});
+      const out=[];for(let i=0;out.length<list.length;i++)keys.forEach(k=>{if(by[k][i])out.push(by[k][i]);});return out;};
+    const tkVids=turns(vids.tiktok||[]), tkPosts=turns(fpGroups(imgs.tiktok,8,24,3));
+    const mixed=[]; let vi=0, pi=0;
+    while(vi<tkVids.length||pi<tkPosts.length){
+      for(let k=0;k<2&&vi<tkVids.length;k++) mixed.push(fvCard(tkVids[vi++],"tiktok"));
+      if(pi<tkPosts.length) mixed.push(tkPhotos(tkPosts[pi++],""));
+    }
+    if(mixed.length) inject("screen-tiktok",mixed.join(""));
   }
 
   /* Website copywriting lives in its own app, one browser window per site. */

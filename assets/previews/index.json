@@ -317,6 +317,22 @@
   "kb": 1842,
   "w": 1280
  },
+ "local-Chouchou-Chouchou-at-Lake-House": {
+  "audio": true,
+  "dur": 18.5,
+  "full": true,
+  "h": 1280,
+  "kb": 853,
+  "w": 720
+ },
+ "local-Chouchou-Chouchou-launch-reel": {
+  "audio": true,
+  "dur": 37.0,
+  "full": true,
+  "h": 1280,
+  "kb": 2000,
+  "w": 720
+ },
  "local-EA-FC-Mobile-FIFA-Mobile-launch-ad": {
   "audio": true,
   "dur": 30.0,
@@ -348,5 +364,13 @@
   "h": 1920,
   "kb": 197,
   "w": 1080
+ },
+ "local-Nillens-Nillens-summer-lookbook": {
+  "audio": true,
+  "dur": 17.8,
+  "full": true,
+  "h": 1280,
+  "kb": 701,
+  "w": 720
  }
 }

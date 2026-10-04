@@ -357,7 +357,7 @@
       "w": "100%"
     },
     "body>div:nth-child(3)>div:nth-child(1)>div:nth-child(1)": {
-      "html": "<div style=\"font-size:24px;font-weight:900;letter-spacing:-.5px\" class=\"\">Bazooka Candy MENA</div><div style=\"font-size:12px;color:#e4e4e4;margin-top:2px\" class=\"\">FMCG</div>",
+      "html": "<div style=\"font-size:24px;font-weight:900;letter-spacing:-.5px\" class=\"\">Bazooka Candies MENA</div><div style=\"font-size:12px;color:#e4e4e4;margin-top:2px\" class=\"\">FMCG</div>",
       "adds": [
         {
           "kind": "video",

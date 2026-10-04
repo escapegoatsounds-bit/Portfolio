@@ -35,6 +35,7 @@
     'Em-Sherif-Cafe':'Food & Beverage',
     'Emirgan-Sutis':'Food & Beverage',
     'Chouchou':'Food & Beverage',
+    'Nillens':'Fashion & Apparel',
     'Defarm':'FMCG',
     'Lifebox':'Food & Beverage',
     'Nineteen84':'Other / Agency',

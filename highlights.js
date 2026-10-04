@@ -6,10 +6,10 @@
   var P = 'assets/previews/';
   var SLIDES = [
     { slug: 'Geely', brand: 'Geely', title: 'Say Hi to the Geely EX5', role: 'Production Manager · Tonic International', src: P + '12barOXeQeVlMMD8IzvP9Dd5Ob7Xq45po.mp4', poster: P + '12barOXeQeVlMMD8IzvP9Dd5Ob7Xq45po.jpg' },
-    { slug: 'Bazooka-Candy', brand: 'Bazooka', title: 'Share Your Fun!', role: 'Lead Creative · Tonic International', src: P + '1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO.mp4', poster: P + '1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO.jpg' },
+    { slug: 'Bazooka-Candy', brand: 'Bazooka Candies', title: 'Share Your Fun!', role: 'Lead Creative · Tonic International', src: P + '1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO.mp4', poster: P + '1WxWKnLeO5oakZKMrGDA7GgDB70wVTNLO.jpg' },
     { slug: 'Molfix', brand: 'Molfix', title: 'North Africa TVC', role: 'Creative Director', src: P + '1zzyMS9aJmGOXINMCrPmjmyhUIqZOhvBb.mp4', poster: P + '1zzyMS9aJmGOXINMCrPmjmyhUIqZOhvBb.jpg' },
     { slug: 'EA-FC-Mobile', brand: 'FIFA Mobile', title: 'FIFA Mobile launch ad', role: 'Copywriter, storyboards, animation and edit', src: P + 'local-EA-FC-Mobile-FIFA-Mobile-launch-ad.mp4', poster: P + 'local-EA-FC-Mobile-FIFA-Mobile-launch-ad.jpg' },
-    { slug: 'Mooz', brand: 'Mooz', title: 'The Mooz in motion', role: 'Character creator · Tonic International', src: 'assets/highlights/mooz.mp4', poster: 'assets/highlights/mooz.webp' },
+    { slug: 'Mooz', brand: 'Bazooka Candies', title: 'Mooz, the Bazooka moose', role: 'Character creator · Tonic International', src: 'assets/highlights/bazooka-moose.mp4', poster: 'assets/highlights/bazooka-moose.webp' },
     { slug: 'Quooker', brand: 'Quooker', title: 'Making waves in UAE luxury homes', role: 'Head of Social & AI · Tonic International', src: 'assets/highlights/quooker.mp4', poster: 'assets/highlights/quooker.webp' }
   ];
   var MAX_MUTED = 20;          // seconds a muted slide plays before the next

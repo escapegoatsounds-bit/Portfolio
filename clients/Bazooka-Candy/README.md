@@ -1,4 +1,4 @@
-# Bazooka Candy
+# Bazooka Candies
 
 **Domain:** bazookacandy.com  
 **Category:** Social Media, Lead Creative, Character Design
