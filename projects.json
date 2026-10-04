@@ -50,6 +50,7 @@
      {
       "kind": "canva",
       "src": "https://www.canva.com/design/DAHA0hQUhxc/ILgOe2lL_y9RRv3v-ePFCA/view?embed",
+      "ratio": "1366/768",
       "label": "Mooz — Character Design Presentation"
      }
     ],
@@ -356,7 +357,8 @@
     "platforms": [],
     "articles": [],
     "briefs": [],
-    "reportUrl": "https://www.canva.com/design/DAGAvNs_TBs/4nsVm7MCRN0jdseuGj9vog/view"
+    "reportUrl": "https://www.canva.com/design/DAGAvNs_TBs/4nsVm7MCRN0jdseuGj9vog/view",
+    "reportRatio": "4/3"
    }
   ],
   "active": 0
@@ -1145,7 +1147,7 @@
   ],
   "active": 0
  },
- "Delight-Parties": {
+ "Delight-Pastries": {
   "brand": {
    "industry": "F&B",
    "market": "Egypt",
@@ -1160,7 +1162,7 @@
   "projects": [
    {
     "name": "",
-    "client": "Delight Parties",
+    "client": "Delight Pastries",
     "date": "",
     "role": "",
     "agency": "",
@@ -2499,19 +2501,14 @@
    "about": "Carzami is an Egyptian online store for certified used cars, founded in 2022. It brings a car to your door for a test drive and offers financing and insurance on the purchase."
   }
  },
- "Decoys-Real-Estate": {
+ "Deraya-Real-Estate": {
   "brand": {
-   "about": "Decoys is an Egyptian real estate developer."
+   "about": "Deraya Real Estate is an Egyptian real estate developer."
   }
  },
  "Defarm": {
   "brand": {
    "about": "DeFarm is an Egyptian brand that sells fresh herbs and vegetables through its stores in Cairo."
-  }
- },
- "Delight-Pastries": {
-  "brand": {
-   "about": "Delight is an Egyptian pastry house and artisan bakery that has made sweets and catered events since 2004. It serves Cairo, Alexandria and the North Coast."
   }
  },
  "El-Gouna": {

@@ -114,7 +114,7 @@
     'Burger-Pump':       {instagram:'burgerpump_eg'},
     'Warba-Bank':        {instagram:'warbabank',facebook:'WarbaBankKuwait',x:'WarbaBank'},
     'One-Zaabeel':       {instagram:'onezaabeel',facebook:'OneZaabeel'},
-    'Decoys-Real-Estate':{instagram:'derayaeg',facebook:'DerayaRealEstate'},
+    'Deraya-Real-Estate':{instagram:'derayaeg',facebook:'DerayaRealEstate'},
     'Gourmet':           {instagram:'gourmetegypt',facebook:'GourmetEgypt'},
     'Revitalash':        {instagram:'revitalash',facebook:'RevitaLash',x:'RevitaLash'},
     'Almaza-Bay':        {instagram:'almazabay',facebook:'AlmazaBay'},
@@ -147,7 +147,6 @@
     'Escapegoat-Sound':  {instagram:'escapegoatsound',facebook:'EscapegoatSound'},
     'Bohobun':           {instagram:'bohobun.eg',facebook:'Bohobun'},
     'Delight-Pastries':  {instagram:'delightpastry',facebook:'DelightPastry'},
-    'Delight-Parties':   {instagram:'delightparties',facebook:'DelightParties'},
     'Blue-Ocean-Sharm':  {instagram:'blueoceansharm',facebook:'BlueOceanSharm'},
     'Carzami':           {instagram:'carzami',facebook:'Carzami'},
     'Eldib-Co':          {instagram:'eldibco',linkedin:'eldib-co'},
@@ -1445,7 +1444,9 @@
     const c=el('div'); c.className='c';
     const sl=el('p'); sl.className='sl'; sl.textContent='Report';
     const st=el('h2'); st.className='st'; st.textContent='Campaign Results';
-    const wrap=el('div'); wrap.style.cssText='position:relative;width:100%;padding-top:56%;border-radius:12px;overflow:hidden;border:1px solid var(--b,#2c2c33);margin-top:20px';
+    // Same sizing as the decks: out of the text column, as big as the screen allows.
+    const r=/^\d+\/\d+$/.test(p.reportRatio||'')?p.reportRatio:'16/9';
+    const wrap=el('div'); wrap.style.cssText='--r:'+r+';--w:min(calc(100vw - 48px),calc((100svh - 150px) * var(--r)),1680px);position:relative;width:var(--w);margin:20px 0 0 calc(50% - var(--w) / 2);aspect-ratio:var(--r);border-radius:12px;overflow:hidden;border:1px solid var(--b,#2c2c33)';
     const ifr=el('iframe'); ifr.src=embed; ifr.loading='lazy'; ifr.allowFullscreen=true; ifr.allow='fullscreen';
     ifr.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:none';
     wrap.append(ifr); c.append(sl,st,wrap); sec.append(c);
@@ -1515,7 +1516,7 @@
   function loadProjectContent(){
     if(window.ProjectContent) return Promise.resolve();
     if(_pcLoad) return _pcLoad;
-    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=5'; document.head.append(css);
+    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=7'; document.head.append(css);
     const st=el('style'); st.textContent=
       '#zz-dropped-sec .zz-dropzone{margin-top:28px;border:2px dashed var(--b,#2c2c33);border-radius:12px;padding:26px;text-align:center;color:var(--m2,#c2bcb2);font-size:13px;display:flex;flex-direction:column;gap:10px;align-items:center;transition:border-color .15s,background .15s}'
       +'#zz-dropped-sec .zz-dropzone.over{border-color:var(--accent,#f0c233);background:rgba(255,255,255,.03)}'
@@ -1525,7 +1526,7 @@
       +'#zz-dropped-sec .zz-dz-btns button{font:700 12px var(--font,Inter,sans-serif);padding:9px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--b,#2c2c33);background:var(--s2,#1f1f24);color:var(--text,#f4f2ed)}'
       +'#zz-dropped-sec .zz-dz-btns button:first-child{background:var(--accent,#f0c233);border-color:var(--accent,#f0c233);color:#000}';
     document.head.append(st);
-    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=5'; s.onload=res; s.onerror=res; document.head.append(s); });
+    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=7'; s.onload=res; s.onerror=res; document.head.append(s); });
     return _pcLoad;
   }
   function applyDropped(){

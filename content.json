@@ -1,6 +1,23 @@
 {
-  "generated": "2026-09-28T19:11:52.613657+00:00",
+  "generated": "2026-10-04T05:42:20.632689+00:00",
   "brands": {
+    "Almaza-Bay": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF3U_dFBYk/_73mD2bNK6xFMwikiwv_eA/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF3U_dFBYk/_73mD2bNK6xFMwikiwv_eA/view?embed",
+          "title": "Shorelines 2023 festival plan",
+          "kind": "",
+          "id": "DAF3U_dFBYk",
+          "note": "The social plan for the Shorelines music festival on the beach at Almaza Bay."
+        }
+      ],
+      "count": 1
+    },
     "Audi": {
       "images": [],
       "videos": [],
@@ -928,9 +945,42 @@
           "title": "Mooz still 36",
           "kind": "photo",
           "id": "1CCpe16TUHqy7C9HBgi1Gd7q1WaU7UfsF"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGRpI8c2Fg/3uAOBkQ8GjkdO_f7SgD6cQ/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGRpI8c2Fg/3uAOBkQ8GjkdO_f7SgD6cQ/view?embed",
+          "title": "Bazooka 2025 social strategy",
+          "kind": "",
+          "id": "DAGRpI8c2Fg"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGCd9WWLBQ/z0Cm40g2oYw1hOqkN0s-yw/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGCd9WWLBQ/z0Cm40g2oYw1hOqkN0s-yw/view?embed",
+          "title": "Push Pop social strategy",
+          "kind": "",
+          "id": "DAGCd9WWLBQ"
+        },
+        {
+          "url": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view#14",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view?embed#14",
+          "title": "2025 results and 2026 plan",
+          "kind": "",
+          "id": "DAG1nJjPEbk",
+          "note": "Results for 2025 across TV, YouTube, TikTok, Instagram and influencers, then the plan for 2026."
+        },
+        {
+          "url": "https://www.canva.com/design/DAGXr7s6mwM/Mdazg3-5I9ABEqD4wo_eLg/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGXr7s6mwM/Mdazg3-5I9ABEqD4wo_eLg/view?embed",
+          "title": "2025 social media strategy",
+          "kind": "",
+          "id": "DAGXr7s6mwM"
         }
       ],
-      "count": 70
+      "count": 74
     },
     "BIC-WNA": {
       "images": [],
@@ -964,6 +1014,22 @@
       ],
       "count": 3
     },
+    "Big-Baby-Pop": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view#83",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view?embed#83",
+          "title": "2025 results",
+          "kind": "",
+          "id": "DAG1nJjPEbk"
+        }
+      ],
+      "count": 1
+    },
     "Bonny": {
       "images": [],
       "videos": [],
@@ -992,11 +1058,112 @@
           "title": "Bonny still 2",
           "kind": "photo",
           "id": "19lRR8sZc-Qg-0hN5j7ju2um3S_jz7VOe"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGgBI0hf9Q/XTqfy1Hu9F7qUC2tJwasyA/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGgBI0hf9Q/XTqfy1Hu9F7qUC2tJwasyA/view?embed",
+          "title": "Q2 2025 creative briefs",
+          "kind": "",
+          "id": "DAGgBI0hf9Q"
         }
       ],
-      "count": 3
+      "count": 4
     },
-    "Delight-Parties": {
+    "CAPA": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#41",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#41",
+          "title": "Cappa, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
+        }
+      ],
+      "count": 1
+    },
+    "Carina": {
+      "images": [
+        {
+          "src": "clients/Carina/images/Carina-pajamas-shoot-1.webp",
+          "file": "Carina-pajamas-shoot-1.jpg",
+          "title": "Carina pajamas shoot 1",
+          "ext": "jpg",
+          "size": 59055
+        },
+        {
+          "src": "clients/Carina/images/Carina-pajamas-shoot-2.webp",
+          "file": "Carina-pajamas-shoot-2.jpg",
+          "title": "Carina pajamas shoot 2",
+          "ext": "jpg",
+          "size": 66847
+        },
+        {
+          "src": "clients/Carina/images/Carina-pajamas-shoot-3.webp",
+          "file": "Carina-pajamas-shoot-3.jpg",
+          "title": "Carina pajamas shoot 3",
+          "ext": "jpg",
+          "size": 79071
+        }
+      ],
+      "videos": [
+        {
+          "src": "clients/Carina/videos/Ramadan-collection-2023.mp4",
+          "file": "Ramadan-collection-2023.mp4",
+          "title": "Ramadan collection 2023",
+          "ext": "mp4",
+          "size": 5352955
+        },
+        {
+          "src": "clients/Carina/videos/Stay-comfy-with-Carina.mp4",
+          "file": "Stay-comfy-with-Carina.mp4",
+          "title": "Stay comfy with Carina",
+          "ext": "mp4",
+          "size": 9460185
+        },
+        {
+          "src": "clients/Carina/videos/Winter-pajamas-collection-FW21.mp4",
+          "file": "Winter-pajamas-collection-FW21.mp4",
+          "title": "Winter pajamas collection FW21",
+          "ext": "mp4",
+          "size": 6533084
+        }
+      ],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#43",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#43",
+          "title": "Carina, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
+        }
+      ],
+      "count": 7
+    },
+    "Chouchou": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF3UyYZ_HM/_yH23i049u3UfIMN_4pyoQ/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF3UyYZ_HM/_yH23i049u3UfIMN_4pyoQ/view?embed",
+          "title": "Launch social media strategy",
+          "kind": "",
+          "id": "DAF3UyYZ_HM",
+          "note": "The launch plan for the first éclair bar in Cairo."
+        }
+      ],
+      "count": 1
+    },
+    "Delight-Pastries": {
       "images": [],
       "videos": [],
       "articles": [],
@@ -1030,7 +1197,15 @@
     },
     "EA-FC-Mobile": {
       "images": [],
-      "videos": [],
+      "videos": [
+        {
+          "src": "clients/EA-FC-Mobile/videos/FIFA-Mobile-launch-ad.mp4",
+          "file": "FIFA-Mobile-launch-ad.mp4",
+          "title": "FIFA Mobile launch ad",
+          "ext": "mp4",
+          "size": 7431919
+        }
+      ],
       "articles": [],
       "links": [
         {
@@ -1056,9 +1231,17 @@
           "title": "EA Sports shoot 3",
           "kind": "bts",
           "id": "15uwimYZe7od92kM5iMvAJkd584QeC87O"
+        },
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#16",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#16",
+          "title": "FIFA Mobile, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
         }
       ],
-      "count": 3
+      "count": 5
     },
     "Em-Sherif-Cafe": {
       "images": [],
@@ -1456,9 +1639,17 @@
           "title": "Geely still 3",
           "kind": "photo",
           "id": "1hmvYb5g-d3v3w6-iCdboIkuNIEiFo6Dx"
+        },
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#15",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#15",
+          "title": "Geely, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
         }
       ],
-      "count": 11
+      "count": 12
     },
     "Gillette-Venus": {
       "images": [],
@@ -1544,9 +1735,18 @@
           "title": "Hardees still 8",
           "kind": "photo",
           "id": "1v1MWOt3EBORq92Xb4fdGa_IGXScK9wS0"
+        },
+        {
+          "url": "https://www.canva.com/design/DAEn0692KjE/SryyQTyVDm5o8loIQczHDg/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAEn0692KjE/SryyQTyVDm5o8loIQczHDg/view?embed",
+          "title": "#MyFirstChoice campaign plan",
+          "kind": "",
+          "ratio": "4/3",
+          "id": "DAEn0692KjE"
         }
       ],
-      "count": 8
+      "count": 9
     },
     "Hayat-Water": {
       "images": [],
@@ -1632,9 +1832,34 @@
           "title": "Calendar brief 2025 (deck)",
           "kind": "",
           "id": "DAHAYUf2lU4"
+        },
+        {
+          "url": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view#62",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view?embed#62",
+          "title": "2025 results",
+          "kind": "",
+          "id": "DAG1nJjPEbk",
+          "note": "TV, YouTube, social and influencer results for 2025."
         }
       ],
-      "count": 3
+      "count": 4
+    },
+    "Krispy-Kreme": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#32",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#32",
+          "title": "Krispy Kreme Egypt launch, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
+        }
+      ],
+      "count": 1
     },
     "Labanita": {
       "images": [],
@@ -1760,9 +1985,17 @@
           "title": "Molfix shoot",
           "kind": "bts",
           "id": "1Jz76t18-S59OH7xR-hzTra0hIfXn223R"
+        },
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#17",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#17",
+          "title": "Molfix, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
         }
       ],
-      "count": 1
+      "count": 2
     },
     "Mooz": {
       "images": [],
@@ -1777,9 +2010,17 @@
           "kind": "",
           "id": "DAHA0tbWcFM",
           "note": "The Mooz character in motion - 22 boards covering the profile, the poses and the animation set built for social."
+        },
+        {
+          "url": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view#126",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view?embed#126",
+          "title": "Bringing the Mooz back with AI",
+          "kind": "",
+          "id": "DAG1nJjPEbk"
         }
       ],
-      "count": 1
+      "count": 2
     },
     "MTM": {
       "images": [],
@@ -2288,9 +2529,66 @@
           "title": "Q4 influencer campaign",
           "kind": "",
           "id": "DAG0jlw7coQ"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGWLZTCIbs/iTHEE_Ri6iqNCZ8bP_5vlA/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGWLZTCIbs/iTHEE_Ri6iqNCZ8bP_5vlA/view?embed",
+          "title": "2024 results and 2025 social strategy",
+          "kind": "",
+          "id": "DAGWLZTCIbs",
+          "note": "The 2024 numbers, a look at Grohe and Zip Water, and the plan for 2025."
+        },
+        {
+          "url": "https://www.canva.com/design/DAGqsJArcio/iGqEk0UdNAaa8W2OHUNo8g/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGqsJArcio/iGqEk0UdNAaa8W2OHUNo8g/view?embed",
+          "title": "July 2025 content calendar",
+          "kind": "",
+          "id": "DAGqsJArcio"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGg2g_obUE/kTDtTAFozXqgXWZDjqZTDA/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGg2g_obUE/kTDtTAFozXqgXWZDjqZTDA/view?embed",
+          "title": "March 2025 content calendar",
+          "kind": "",
+          "id": "DAGg2g_obUE"
         }
       ],
-      "count": 30
+      "count": 33
+    },
+    "Ring-Pop": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view#150",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAG1nJjPEbk/OxWDbwSiQycQcEXnY5R7wQ/view?embed#150",
+          "title": "2026 launch proposal",
+          "kind": "",
+          "id": "DAG1nJjPEbk"
+        }
+      ],
+      "count": 1
+    },
+    "Royal-Herbs": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#25",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#25",
+          "title": "Royal Herbs, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
+        }
+      ],
+      "count": 1
     },
     "Ruby-Pasta": {
       "images": [],
@@ -2412,6 +2710,22 @@
       ],
       "count": 14
     },
+    "Snapchat": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#8",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#8",
+          "title": "Snapchat Lenses, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
+        }
+      ],
+      "count": 1
+    },
     "Subway-Oman": {
       "images": [],
       "videos": [],
@@ -2512,9 +2826,33 @@
           "title": "April creative brief",
           "kind": "",
           "id": "DAGfdUC0K-s"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGbtMS6dDA/OK616kGZv29ckeDFTQuU1Q/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGbtMS6dDA/OK616kGZv29ckeDFTQuU1Q/view?embed",
+          "title": "February 2025 creative brief",
+          "kind": "",
+          "id": "DAGbtMS6dDA"
         }
       ],
-      "count": 12
+      "count": 13
+    },
+    "The-Recovery-Clinic": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#28",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#28",
+          "title": "The Recovery Clinic, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
+        }
+      ],
+      "count": 1
     },
     "Tonic-International": {
       "images": [],
@@ -2529,6 +2867,30 @@
           "kind": "",
           "video": true,
           "id": "DAGygp5dGkM"
+        },
+        {
+          "url": "https://www.canva.com/design/DAGqnbWOnSg/dYMaUVGhk99dPNbx27q89w/view",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAGqnbWOnSg/dYMaUVGhk99dPNbx27q89w/view?embed",
+          "title": "KSA expansion content plan",
+          "kind": "",
+          "id": "DAGqnbWOnSg"
+        }
+      ],
+      "count": 2
+    },
+    "WallPost": {
+      "images": [],
+      "videos": [],
+      "articles": [],
+      "links": [
+        {
+          "url": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view#52",
+          "provider": "canva",
+          "embed": "https://www.canva.com/design/DAF2HJrZn9g/0-ANsu96lbf2osqWic0ahw/view?embed#52",
+          "title": "WallPost, from my portfolio",
+          "kind": "",
+          "id": "DAF2HJrZn9g"
         }
       ],
       "count": 1

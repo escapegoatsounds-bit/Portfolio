@@ -1,7 +1,6 @@
-# Delight Parties
+# Deraya Real Estate
 
-**Domain:** delightparties.com  
-**Category:** Social Media, Photography, Videography, Design
+**Category:** Social Media, Strategy, Egypt Launch
 
 ## Folder contents
 - `assets/` — logo (replace logo-placeholder.svg with real logo), brand files

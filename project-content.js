@@ -140,7 +140,7 @@
             addFilm({ title: m.caption || m.label || p.name, file: url(m.src) }, about);
           } else if (m.kind === 'canva' && m.src && wantDecks) {
             decks.push({ title: m.label || m.caption || p.name, embed: m.src,
-                         url: String(m.src).replace(/\?embed$/, ''), provider: 'canva' });
+                         url: String(m.src).replace(/\?embed$/, ''), provider: 'canva', ratio: m.ratio });
           } else if (m.kind === 'img' && m.src && wantStills) {
             shots.push({ src: url(m.src), title: m.caption || m.label || p.name });
           }
@@ -160,7 +160,7 @@
         } else {
           decks.push({ title: l.title, embed: l.embed, url: l.url,
                        provider: l.provider, note: l.note,
-                       orient: l.orient, video: l.video });
+                       orient: l.orient, video: l.video, ratio: l.ratio });
         }
       });
       (entry.videos || []).forEach(function (v) {
@@ -245,6 +245,20 @@
   document.addEventListener('click', function (e) {
     if (!e.target.closest) return;
 
+    // Full screen: the deck's own frame where the browser allows it, else the deck in a new tab.
+    var fs = e.target.closest('.pc-fs');
+    if (fs) {
+      var frame = fs.closest('.pc-embed').querySelector('iframe');
+      var go = frame && (frame.requestFullscreen || frame.webkitRequestFullscreen);
+      if (go) {
+        var p = go.call(frame);
+        if (p && p.catch) p.catch(function () { window.open(fs.dataset.href, '_blank', 'noopener'); });
+      } else {
+        window.open(fs.dataset.href, '_blank', 'noopener');
+      }
+      return;
+    }
+
     var cue = e.target.closest('.pc-cue');
     if (cue) {
       var wrap = document.getElementById(cue.dataset.stage);
@@ -320,13 +334,15 @@
      it gets a phone-shaped frame instead of the 16:9 slide frame. */
   function deck(l) {
     return '<figure class="pc-embed pc-embed-' + esc(l.provider) +
-      (l.orient === 'vertical' ? ' pc-embed-vertical' : '') + '">' +
+      (l.orient === 'vertical' ? ' pc-embed-vertical' : '') + '"' +
+      (/^\d+\/\d+$/.test(l.ratio || '') ? ' style="--r:' + l.ratio + '"' : '') + '>' +
       '<iframe src="' + esc(l.embed) + '" title="' + esc(l.title) + '" loading="lazy" ' +
       'allow="autoplay; fullscreen" allowfullscreen></iframe>' +
       '<figcaption>' +
       (l.note ? '<span class="pc-deck-note">' + esc(l.note) + '</span>' : '') +
+      '<span class="pc-deck-actions"><button type="button" class="pc-fs" data-href="' + esc(l.url) + '">Full screen ⤢</button>' +
       '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
-      esc(l.title) + ' ↗</a></figcaption>' +
+      esc(l.title) + ' ↗</a></span></figcaption>' +
       '</figure>';
   }
 

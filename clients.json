@@ -156,11 +156,11 @@
     ]
   },
   {
-    "slug": "Delight-Parties",
-    "name": "Delight Parties",
+    "slug": "Delight-Pastries",
+    "name": "Delight Pastries",
     "color": "#F7931E",
     "text": "#fff",
-    "domain": "delightparties.com",
+    "domain": "",
     "category": [
       "Social Media",
       "Photography",
@@ -259,17 +259,6 @@
     ]
   },
   {
-    "slug": "Delight-Pastries",
-    "name": "Delight Pastries",
-    "color": "#C8960C",
-    "text": "#fff",
-    "domain": "",
-    "category": [
-      "Strategy",
-      "Social Media"
-    ]
-  },
-  {
     "slug": "Juicy-Drop",
     "name": "Juicy Drop",
     "color": "#FF4500",
@@ -282,11 +271,11 @@
     ]
   },
   {
-    "slug": "Decoys-Real-Estate",
-    "name": "Decoys Real Estate",
+    "slug": "Deraya-Real-Estate",
+    "name": "Deraya Real Estate",
     "color": "#1A3A5C",
     "text": "#fff",
-    "domain": "decoys.com",
+    "domain": "",
     "category": [
       "Social Media",
       "Strategy",

@@ -41,6 +41,7 @@
     'Bazooka-Candy':'FMCG',
     'Molfix':'FMCG',
     'Juicy-Drop':'FMCG',
+    'Mooz':'FMCG',
     'Big-Baby-Pop':'FMCG',
     'Ring-Pop':'FMCG',
     'Bonny':'FMCG',
@@ -78,7 +79,6 @@
     'Fujifilm':'Tech & Telecom',
     'WallPost':'Web Design & Copywriting',
     'EA-FC-Mobile':'Media & Entertainment',
-    'Delight-Parties':'Food & Beverage',
     'Imagine-Studio':'Media & Entertainment',
     'Warba-Bank':'Banking & Finance',
 

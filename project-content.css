@@ -59,17 +59,27 @@
 }
 
 /* Canva decks, YouTube films, Vimeo, Drive */
-.pc-embed{margin:0}
-.pc-embed iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--b,#252532);
+/* A deck is read, not glanced at, so it leaves the text column and takes the
+   screen: as wide as the window allows while the whole slide stays in view.
+   --r is the design's own shape (width/height), so Canva draws it edge to edge. */
+.pc-embed{--r:16/9;
+  --w:min(calc(100vw - 48px), calc((100svh - 150px) * var(--r)), 1680px);
+  width:var(--w);margin:0 0 0 calc(50% - var(--w) / 2)}
+.pc-embed iframe{width:100%;aspect-ratio:var(--r);border:1px solid var(--b,#252532);
   border-radius:10px;background:#000;display:block}
-/* A deck is read, not glanced at, so it gets the full width of the section. */
-.pc-embed-vertical{max-width:380px;margin:0 auto}
-.pc-embed-vertical iframe{aspect-ratio:9/16}
+.pc-embed-vertical{--r:9/16}
+@media(max-width:700px){
+  .pc-embed{--w:min(calc(100vw - 24px), calc((100svh - 120px) * var(--r)))}
+}
 .pc-embed figcaption{display:flex;flex-direction:column;gap:9px;margin-top:11px}
 .pc-deck-note{font-size:12.5px;line-height:1.65;color:var(--m2,#b5b0a6);max-width:62ch}
 .pc-embed figcaption a{font-size:11px;letter-spacing:.06em;color:var(--m,#706c64);
   text-decoration:none;align-self:flex-start;border-bottom:1px solid transparent}
 .pc-embed figcaption a:hover{color:var(--gold,#f0c233);border-bottom-color:var(--gold,#f0c233)}
+.pc-deck-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.pc-fs{font:inherit;font-size:11px;letter-spacing:.06em;cursor:pointer;color:var(--text,#f3f0eb);
+  background:var(--s2,#19191f);border:1px solid var(--b,#252532);border-radius:99px;padding:6px 14px}
+.pc-fs:hover{border-color:var(--gold,#f0c233);color:var(--gold,#f0c233)}
 
 /* write-ups, decks, press */
 .pc-docs,.pc-links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}

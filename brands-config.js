@@ -300,7 +300,7 @@ window.BRAND_CONFIG = {
     "banner": "",
     "vimeo": []
   },
-  "Delight-Parties": {
+  "Delight-Pastries": {
     "platforms": [
       "instagram",
       "camera"
@@ -332,7 +332,7 @@ window.BRAND_CONFIG = {
     "banner": "",
     "vimeo": []
   },
-  "Decoys-Real-Estate": {
+  "Deraya-Real-Estate": {
     "platforms": [
       "instagram"
     ],
@@ -343,7 +343,7 @@ window.BRAND_CONFIG = {
       "Digital",
       "Real Estate"
     ],
-    "desc": "Built the Decoys brand from scratch as Egypt shifted to digital-first real estate.",
+    "desc": "Built the Deraya Real Estate brand from scratch as Egypt shifted to digital-first real estate.",
     "banner": "",
     "vimeo": []
   },

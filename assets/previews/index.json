@@ -268,5 +268,13 @@
   "h": 1080,
   "kb": 95,
   "w": 1920
+ },
+ "local-EA-FC-Mobile-FIFA-Mobile-launch-ad": {
+  "audio": true,
+  "dur": 30.0,
+  "full": true,
+  "h": 1280,
+  "kb": 7257,
+  "w": 720
  }
 }
