@@ -4,12 +4,11 @@
     "type": "image",
     "pinned": true,
     "date": "2026-10-04",
-    "title": "AI portraits",
-    "body": "I built a set of studio portraits of myself with AI. This one's my favourite.",
+    "title": "Studio portraits",
+    "body": "A new set of studio portraits. This one's my favourite.",
     "youtube": "",
     "thumb": "assets/gallery/me-hoodie.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -23,7 +22,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-headphones.webp",
     "tags": [
-      "ai",
       "portraits",
       "music"
     ]
@@ -38,7 +36,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-laptop.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -48,11 +45,10 @@
     "pinned": false,
     "date": "2026-10-04",
     "title": "At the desk",
-    "body": "An AI take on my desk at night.",
+    "body": "At my desk, late.",
     "youtube": "",
     "thumb": "assets/gallery/me-desk.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -62,11 +58,10 @@
     "pinned": false,
     "date": "2026-10-04",
     "title": "From above",
-    "body": "One of nine angles I asked the AI for.",
+    "body": "Home, from above.",
     "youtube": "",
     "thumb": "assets/gallery/me-from-above.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -80,7 +75,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-black-cap.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -94,7 +88,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-controller.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -108,7 +101,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-leaning.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -122,7 +114,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-circle-1.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
@@ -136,7 +127,6 @@
     "youtube": "",
     "thumb": "assets/gallery/me-circle-2.webp",
     "tags": [
-      "ai",
       "portraits"
     ]
   },
