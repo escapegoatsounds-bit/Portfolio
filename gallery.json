@@ -1,1 +1,203 @@
-[]
+[
+  {
+    "id": 1,
+    "type": "image",
+    "pinned": true,
+    "date": "2026-10-04",
+    "title": "AI portraits",
+    "body": "I built a set of studio portraits of myself with AI. This one's my favourite.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-hoodie.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "Headphones on",
+    "body": "Music comes first.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-headphones.webp",
+    "tags": [
+      "ai",
+      "portraits",
+      "music"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "Laptop in hand",
+    "body": "My work uniform: white tee, cargo pants, a laptop.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-laptop.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 4,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "At the desk",
+    "body": "An AI take on my desk at night.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-desk.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "From above",
+    "body": "One of nine angles I asked the AI for.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-from-above.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "All black",
+    "body": "Cap, hoodie, cargo pants.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-black-cap.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "Game break",
+    "body": "Controller in hand, headphones round my neck.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-controller.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "Caught laughing",
+    "body": "",
+    "youtube": "",
+    "thumb": "assets/gallery/me-leaning.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 9,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "Black tee",
+    "body": "",
+    "youtube": "",
+    "thumb": "assets/gallery/me-circle-1.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "id": 10,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "Hands in pockets",
+    "body": "",
+    "youtube": "",
+    "thumb": "assets/gallery/me-circle-2.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "type": "video",
+    "pinned": false,
+    "date": "2026-08-07",
+    "title": "Back home",
+    "body": "Never felt closer to home, always good to be back ❤️",
+    "youtube": "",
+    "videoSrc": "assets/gallery/me-home.mp4",
+    "poster": "assets/gallery/me-home.webp",
+    "ratio": "9/16",
+    "thumb": "",
+    "link": "https://www.instagram.com/ziaskar/reel/DbuycS8smxz/",
+    "tags": [
+      "home",
+      "alexandria"
+    ],
+    "id": 11
+  },
+  {
+    "id": 12,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-09-13",
+    "title": "Beautiful day",
+    "body": "Alexandria, by the sea, with Norah Jones' Painter Song playing.",
+    "youtube": "",
+    "thumb": "assets/gallery/ig-beautiful-day.webp",
+    "tags": [
+      "alexandria"
+    ],
+    "link": "https://www.instagram.com/ziaskar/reel/DdOuTznI4Rw/"
+  },
+  {
+    "id": 13,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-06-14",
+    "title": "الليل لف و دار، بس كل ليل أخره نهار",
+    "body": "The night goes round and round, but every night ends in day.",
+    "youtube": "",
+    "thumb": "assets/gallery/ig-night.webp",
+    "tags": [
+      "night"
+    ],
+    "link": "https://www.instagram.com/ziaskar/reel/DZloODsoDWv/"
+  },
+  {
+    "id": 14,
+    "type": "image",
+    "pinned": false,
+    "date": "2022-08-21",
+    "title": "Scoobz ❤️",
+    "body": "",
+    "youtube": "",
+    "thumb": "assets/gallery/ig-scoobz.webp",
+    "tags": [
+      "scoobz"
+    ],
+    "link": "https://www.instagram.com/ziaskar/reel/ChhLuMBFjHt/"
+  }
+]

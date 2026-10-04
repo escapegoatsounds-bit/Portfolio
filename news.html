@@ -218,11 +218,15 @@ function typeBadge(type){
   return '<span class="post-badge badge-text">✏️ Post</span>';
 }
 
+// A post copied from Instagram links back to the original.
+function igLink(post){
+  return post.link ? `<a href="${post.link}" target="_blank" rel="noopener" style="display:block;margin:0 24px 20px;font-size:12px;color:var(--muted)">View on Instagram →</a>` : '';
+}
 function videoBlock(post){
   if(post.videoSrc){
     return `<div class="video-container">
-      <video src="${post.videoSrc}" controls preload="metadata" style="width:100%;aspect-ratio:16/9;display:block;background:#000"></video>
-    </div>`;
+      <video src="${post.videoSrc}"${post.poster?` poster="${post.poster}"`:''} controls preload="metadata" playsinline style="width:100%;aspect-ratio:${post.ratio||'16/9'};max-height:80vh;display:block;background:#000;object-fit:contain"></video>
+    </div>${igLink(post)}`;
   }
   if(post.youtube){
     return `<div class="video-container">
@@ -251,7 +255,7 @@ function renderPost(post, idx, total){
 
   let mediaHTML = '';
   if(post.type==='video') mediaHTML = videoBlock(post);
-  else if(post.type==='image' && post.thumb) mediaHTML = `<div style="margin:0 24px 20px;border-radius:10px;overflow:hidden;border:1px solid var(--border)"><img src="${post.thumb}" alt="${post.title}" style="width:100%;display:block"></div>`;
+  else if(post.type==='image' && post.thumb) mediaHTML = `<div style="margin:0 24px ${post.link?'8px':'20px'};border-radius:10px;overflow:hidden;border:1px solid var(--border)">${post.link?`<a href="${post.link}" target="_blank" rel="noopener">`:''}<img src="${post.thumb}" alt="${post.title}" loading="lazy" style="width:100%;display:block">${post.link?'</a>':''}</div>${igLink(post)}`;
 
   let divider = '';
   if(isPinned && total > 1 && idx === 0){

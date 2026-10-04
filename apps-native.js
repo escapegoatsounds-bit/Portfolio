@@ -629,8 +629,8 @@
   NX.galleryGrid = function (posts) {
     if (!posts.length) return '<div class="ph-empty">' + icon('photos') + '<b>No Photos or Videos</b><span>Moments from my life outside work will show up here.</span></div>';
     return '<div class="ph-grid ph-lib">' + posts.map(function (p) {
-      var bg = p.thumb || (p.youtube ? 'https://i.ytimg.com/vi/' + encodeURIComponent(p.youtube) + '/hqdefault.jpg' : '');
-      var link = p.videoSrc || (p.youtube ? 'https://www.youtube.com/watch?v=' + encodeURIComponent(p.youtube) : 'gallery.html');
+      var bg = p.thumb || p.poster || (p.youtube ? 'https://i.ytimg.com/vi/' + encodeURIComponent(p.youtube) + '/hqdefault.jpg' : '');
+      var link = p.videoSrc || p.link || (p.youtube ? 'https://www.youtube.com/watch?v=' + encodeURIComponent(p.youtube) : 'gallery.html');
       return '<a href="' + esc(link) + '" target="_blank" rel="noopener"' + (bg ? ' style="background-image:url(\'' + esc(bg) + '\')"' : ' class="ph-text"') + ' aria-label="' + esc(p.title || 'Post') + '">' +
         (bg ? '' : '<span>' + esc(p.title || p.body || '') + '</span>') + (p.type === 'video' ? '<i class="ph-vid">' + icon('video') + '</i>' : '') + '</a>';
     }).join('') + '</div>';

@@ -1,29 +1,117 @@
 [
- {
-  "id": 1,
-  "type": "video",
-  "pinned": true,
-  "date": "2026-06-23",
-  "title": "Meet ZIZO — Introduction",
-  "body": "A quick walkthrough of who I am, what I do, and what drives my work as a Creative Director. 18 years. 70+ brands. One identity.",
-  "youtube": "",
-  "thumb": "",
-  "tags": [
-   "intro",
-   "about"
-  ]
- },
- {
-  "id": 2,
-  "type": "text",
-  "pinned": false,
-  "date": "2026-06-23",
-  "title": "The portfolio is live.",
-  "body": "After 18 years of doing the work, I finally built a home for it. This feed is where I'll post ideas, work-in-progress, client results, and anything else worth sharing. Check back often.",
-  "youtube": "",
-  "thumb": "",
-  "tags": [
-   "update"
-  ]
- }
+  {
+    "id": 1,
+    "type": "video",
+    "pinned": true,
+    "date": "2026-06-23",
+    "title": "Meet ZIZO — Introduction",
+    "body": "A quick walkthrough of who I am, what I do, and what drives my work as a Creative Director. 18 years. 70+ brands. One identity.",
+    "youtube": "",
+    "thumb": "",
+    "tags": [
+      "intro",
+      "about"
+    ]
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "pinned": false,
+    "date": "2026-10-04",
+    "title": "New portraits",
+    "body": "I made a set of studio portraits of myself with AI. The full set is in the Gallery app.",
+    "youtube": "",
+    "thumb": "assets/gallery/me-hoodie.webp",
+    "tags": [
+      "ai",
+      "portraits"
+    ]
+  },
+  {
+    "type": "video",
+    "pinned": false,
+    "date": "2026-08-07",
+    "title": "Back home",
+    "body": "Never felt closer to home, always good to be back ❤️",
+    "youtube": "",
+    "videoSrc": "assets/gallery/me-home.mp4",
+    "poster": "assets/gallery/me-home.webp",
+    "ratio": "9/16",
+    "thumb": "",
+    "link": "https://www.instagram.com/ziaskar/reel/DbuycS8smxz/",
+    "tags": [
+      "home",
+      "alexandria"
+    ],
+    "id": 4
+  },
+  {
+    "id": 2,
+    "type": "text",
+    "pinned": false,
+    "date": "2026-06-23",
+    "title": "The portfolio is live.",
+    "body": "After 18 years of doing the work, I finally built a home for it. This feed is where I'll post ideas, work-in-progress, client results, and anything else worth sharing. Check back often.",
+    "youtube": "",
+    "thumb": "",
+    "tags": [
+      "update"
+    ]
+  },
+  {
+    "id": 5,
+    "type": "video",
+    "pinned": false,
+    "date": "2026-01-08",
+    "title": "Lorry Wara Lorry (لوري ورا لوري)",
+    "body": "Stress as traffic on the Ring Road: worry chasing sorry, one lorry after another. Words and music by me, released as Escapegoat.",
+    "youtube": "DQtBXtRR18M",
+    "thumb": "",
+    "tags": [
+      "music",
+      "escapegoat"
+    ]
+  },
+  {
+    "id": 6,
+    "type": "video",
+    "pinned": false,
+    "date": "2026-01-04",
+    "title": "Khalas (خلاص), radio mix",
+    "body": "Egyptian trap about the moment heartbreak turns into clarity. I wrote the lyrics and the composition.",
+    "youtube": "D0b1iYkpBDw",
+    "thumb": "",
+    "tags": [
+      "music",
+      "escapegoat"
+    ]
+  },
+  {
+    "id": 7,
+    "type": "video",
+    "pinned": false,
+    "date": "2025-12-30",
+    "title": "Seeb wana Seeb (سيب وأنا أسيب)",
+    "body": "A talk between a man and his own shadow. It's not a breakup song. It's a truce with yourself.",
+    "youtube": "J49qKBRUrCs",
+    "thumb": "",
+    "tags": [
+      "music",
+      "escapegoat"
+    ]
+  },
+  {
+    "id": 8,
+    "type": "video",
+    "pinned": false,
+    "date": "2025-12-12",
+    "title": "Kollo Adi (كله عادي)",
+    "body": "It's all okay. A song about finding light in the dark, drawn from Rumi and Sufi poetry. I wrote it, composed it and made the video.",
+    "youtube": "zWN2YiCu-yo",
+    "thumb": "",
+    "tags": [
+      "music",
+      "escapegoat"
+    ]
+  }
 ]

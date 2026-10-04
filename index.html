@@ -471,6 +471,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 </style>
   <link rel="stylesheet" href="project-content.css">
   <link rel="stylesheet" href="apps-native.css?v=5">
+  <link rel="stylesheet" href="feed-social.css?v=2">
 </head>
 <body>
 
@@ -758,7 +759,8 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 <script src="tools-data.js"></script>
 <script src="apps-data.js"></script>
 <script src="project-content.js"></script>
-<script src="apps-native.js?v=4"></script>
+<script src="apps-native.js?v=6"></script>
+<script src="feed-social.js?v=1"></script>
 <script>
 // JSON is fetched fresh only while editing locally; the live site lets the browser cache it
 const NOCACHE=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?"?t="+Date.now():"";
@@ -987,9 +989,10 @@ function galleryPost(p,compact){
   const esc2=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   const d=p.date?new Date(p.date).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}):"";
   let media="";
-  if(p.type==="video"&&p.videoSrc) media=`<video src="${esc2(p.videoSrc)}" controls preload="metadata" playsinline style="width:100%;aspect-ratio:16/9;display:block;background:#000;border-radius:8px"></video>`;
+  if(p.type==="video"&&p.videoSrc) media=`<video src="${esc2(p.videoSrc)}"${p.poster?` poster="${esc2(p.poster)}"`:""} controls preload="metadata" playsinline style="width:100%;aspect-ratio:${esc2(p.ratio||"16/9")};display:block;background:#000;border-radius:8px;object-fit:contain"></video>`;
   else if(p.type==="video"&&p.youtube) media=`<div style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000"><iframe src="https://www.youtube.com/embed/${encodeURIComponent(p.youtube)}?rel=0" loading="lazy" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe></div>`;
   else if(p.type==="image"&&p.thumb) media=`<img src="${esc2(p.thumb)}" alt="${esc2(p.title)}" loading="lazy" style="width:100%;display:block;border-radius:8px">`;
+  if(p.link) media=`<a href="${esc2(p.link)}" target="_blank" rel="noopener" style="display:block">${media}</a><a href="${esc2(p.link)}" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-size:10.5px;color:var(--m)">View on Instagram →</a>`;
   const tags=(p.tags||[]).map(t=>`<span style="font-size:10px;padding:3px 9px;border:1px solid var(--b);border-radius:99px;color:var(--m2)">${esc2(t)}</span>`).join("");
   const fs=compact?12:14;
   return `<div style="border:1px solid var(--b);border-radius:12px;background:var(--s1);padding:${compact?"12px":"18px 20px"};margin:${compact?"0 10px 12px":"0 0 16px"}">
@@ -1345,6 +1348,9 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   // short muted loops of the Drive films, keyed by Drive id (see make_previews.py)
   let PREV={};
   try{ const r=await fetch("assets/previews/index.json"+NOCACHE); if(r.ok) PREV=await r.json(); }catch(e){}
+  // the grey line under the brand name and the caption, per brand (feed-copy.json)
+  let FCOPY={};
+  try{ const r=await fetch("feed-copy.json"+NOCACHE); if(r.ok) FCOPY=await r.json(); }catch(e){}
   const DROP_CAP={youtube:3,instagram:3,tiktok:4,photo:4};
   Object.entries(dropped).forEach(([slug,entry])=>{
     const projs=(store[slug]&&store[slug].projects)||[];
@@ -1448,11 +1454,12 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   function inject(id,html){
     if(!html) return;
     const feedEl=document.getElementById(id+"-feed");
-    if(feedEl){const sec=document.createElement("div");sec.className="dyn-content";sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);_observeLazyFrames(sec);fvSchedule();return;}
+    if(feedEl){const sec=document.createElement("div");sec.className="dyn-content";sec.innerHTML=html;feedEl.insertBefore(sec,feedEl.firstChild);_observeLazyFrames(sec);fvSchedule();if(window.fsHydrate)fsHydrate();return;}
     const wrap=document.getElementById(id); if(!wrap) return;
     const body=wrap.querySelector(".app-body,.panel-app-body"); if(!body) return;
     const sec=document.createElement("div"); sec.className="dyn-content";
     sec.innerHTML=html; body.insertBefore(sec,body.firstChild); _observeLazyFrames(sec); fvSchedule();
+    if(window.fsHydrate) fsHydrate();
   }
   function sectionHdr(label){return `<div style="padding:10px 14px 4px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700">${label}</div>`;}
   function vidSrc(v){if(v.source==="canva")return v.embed;return v.source==="drive"?"https://drive.google.com/file/d/"+v.id+"/preview":"https://player.vimeo.com/video/"+v.id+"?color=f0c233&title=0&byline=0&portrait=0&dnt=1";}
@@ -1497,6 +1504,24 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
   const _av=b=>`<div class="fp-av" style="background:${b.c};color:${b.t}">${b.i}${logoOverlay(b,"50%")}</div>`;
   const _handle=b=>b.n.toLowerCase().replace(/[^a-z0-9]+/g,"");
 
+  /* Post copy: the line under the brand name and a short caption, from
+     feed-copy.json; brands not listed use their industry and About line.
+     File names like "Social cut 3" or "still 1" never show as captions. */
+  const _fc=s=>FCOPY[s]||{};
+  const _generic=s=>!s||/^(social cut|still|cut|clip|video|film|reel|portfolio work|campaign)\s*\d*$/i.test(String(s).trim())||/\b(still|cut)\s*\d+$/i.test(String(s).trim());
+  const _about=s=>{const a=(store[s]&&store[s].brand&&store[s].brand.about)||""; const m=a.match(/^.*?\.(\s|$)/); return (m?m[0]:a).trim();};
+  const fLine=(b,fb)=>_fc(b.s).line||(!_generic(fb)?fb:"")||(window.BRAND_INDUSTRY&&BRAND_INDUSTRY[b.s])||"";
+  // a brand can list several captions; each post keeps the same one across visits
+  const fCap=(b,kind,fb,pid)=>{let c=_fc(b.s)[kind]; if(Array.isArray(c)) c=c[parseInt(_hash(pid||""),36)%c.length]; return c||(!_generic(fb)?fb:"")||_about(b.s);};
+  const _hash=s=>{let h=0; for(const ch of s) h=(h*31+ch.charCodeAt(0))>>>0; return h.toString(36);};
+  const pidFilm=v=>("v-"+v.id).replace(/[^A-Za-z0-9_\-:.]/g,"").slice(0,140);
+  const pidPhotos=(b,proj,fr)=>"p-"+b.s+"-"+_hash((proj.name||"")+"|"+fr[0]);
+  /* Like, comment and the comment box (feed-social.js does the saving). */
+  const fsLikeBtn=`<button class="fs-like" onclick="fsLike(this)" aria-label="Like" aria-pressed="false">${NX.icon("heart","fs-off")}${NX.icon("heartFill","fs-on")}</button>`;
+  const fsCmtBtn=`<button class="fs-cmt" onclick="fsOpen(this)" aria-label="Comment">${NX.icon("comment")}</button>`;
+  const fsBox=`<button class="fs-view" onclick="fsOpen(this)" hidden></button><div class="fs-box" hidden><button class="fs-close" onclick="fsOpen(this)" aria-label="Close comments">×</button><div class="fs-list"></div><form class="fs-form" onsubmit="return fsPost(event,this)"><input name="n" placeholder="Your name" maxlength="40" autocomplete="name" aria-label="Your name"><input name="t" placeholder="Add a comment…" maxlength="300" required aria-label="Comment"><button>Post</button><div class="fs-err" role="status"></div></form></div>`;
+  const tkSocial=`<div class="tk-btn"><button class="tk-act fs-like" onclick="fsLike(this)" aria-label="Like" aria-pressed="false">${NX.icon("heartFill")}</button><span class="tk-n fs-n-like"></span></div><div class="tk-btn"><button class="tk-act" onclick="fsOpen(this)" aria-label="Comments">${NX.icon("commentFill")}</button><span class="tk-n fs-n-cmt"></span></div>`;
+
   /* The player inside a film card: the light copy from assets/previews with
      its poster, or Drive's (or Canva's) own player when there is no copy. */
   const fvPlayer=(v,loop,label,tap)=>{
@@ -1524,17 +1549,17 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
 
     if(plat==="tiktok"){
       const cover=r<.8;
-      return `<div class="fi-wrap tk-item"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      return `<div class="fi-wrap tk-item" data-pid="${pidFilm(v)}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <div class="fv tk-fv${cover?" cover":""}" ${data}>${fvPlayer(v,loop,label,tap)}${fvControls(loop,false)}</div>
         <div class="tk-rail">
           <a class="tk-av" href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}<i class="tk-follow">+</i></a>
-          <span class="tk-act" aria-hidden="true">${NX.icon("heartFill")}</span>
-          <span class="tk-act" aria-hidden="true">${NX.icon("commentFill")}</span>
+          ${tkSocial}
           <span class="tk-act" aria-hidden="true">${NX.icon("bookmarkFill")}</span>
           <a class="tk-act" href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("shareFill")}</a>
           ${sound?`<button class="tk-act fv-snd" onclick="fvSound(this)" aria-label="Turn the sound on" aria-pressed="false">${_fvOff}</button>`:""}
         </div>
-        <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${label}</div><div class="tk-sound">${NX.icon("note")} original sound · ${b.n}</div></div>
+        <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${fCap(b,"film",label,pidFilm(v))}</div><div class="tk-sound">${NX.icon("note")} original sound · ${b.n}</div></div>
+        ${fsBox}
       </div>`;
     }
 
@@ -1544,7 +1569,7 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
       return `<div class="fi-wrap yt-card"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
         <div class="fv${cover?" cover":""}" ${data} style="aspect-ratio:${f};max-width:${f<1?"300px":"100%"}">${fvPlayer(v,loop,label,tap)}${fvControls(loop)}</div>
         <div class="yt-meta"><a href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}</a>
-          <div class="yt-txt"><div class="yt-title">${label}</div><div class="yt-sub">${b.n}${proj.date?" · "+proj.date:""}</div></div>
+          <div class="yt-txt"><div class="yt-title">${_generic(label)?fCap(b,"film",label,pidFilm(v)):label}</div><div class="yt-sub">${b.n}${proj.date?" · "+proj.date:""}</div></div>
           <a class="yt-more" href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("more")}</a></div>
       </div>`;
     }
@@ -1552,11 +1577,13 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
     // Instagram
     const f=v.source==="canva"?r:(r<.9?.8:r<1.25?1:16/9);
     const cover=Math.abs(Math.log(r/f))<.25;
-    return `<div class="fi-wrap fp"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-      <a href="${brandLink(b.s)}" class="fp-head">${_av(b)}<div style="flex:1;min-width:0"><div class="fp-name">${b.n}</div><div class="fp-sub">${label}</div></div><span class="fp-more">${NX.icon("more")}</span></a>
+    return `<div class="fi-wrap fp" data-pid="${pidFilm(v)}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <a href="${brandLink(b.s)}" class="fp-head">${_av(b)}<div style="flex:1;min-width:0"><div class="fp-name">${b.n}</div><div class="fp-sub">${fLine(b,label)}</div></div><span class="fp-more">${NX.icon("more")}</span></a>
       <div class="fv${cover?" cover":""}" ${data} style="aspect-ratio:${f};max-width:${f<.8?"320px":"100%"}">${fvPlayer(v,loop,label,tap)}${fvControls(loop)}</div>
-      <div class="fp-acts">${NX.icon("heart")}${NX.icon("comment")}${NX.icon("send")}<a href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("bookmark")}</a></div>
-      <div class="fp-cap"><b>${b.n}</b>${label}</div>
+      <div class="fp-acts">${fsLikeBtn}${fsCmtBtn}${NX.icon("send")}<a href="${link}" target="_blank" rel="noopener" aria-label="Open on ${vidPlatformLabel(v)}">${NX.icon("bookmark")}</a></div>
+      <div class="fs-likes" hidden></div>
+      <div class="fp-cap"><b>${b.n}</b>${fCap(b,"film",label,pidFilm(v))}</div>
+      ${fsBox}
     </div>`;
   };
 
@@ -1590,32 +1617,34 @@ function vpPost(uid){const inp=document.getElementById(uid+"-ci"),lst=document.g
     return raw.length>200?raw.slice(0,200).replace(/\s+\S*$/,"")+"…":raw;
   };
   const fpPost=({b,proj,ms,fr},sub)=>{
-    const n=ms.length, cap=fpCaption(ms,proj);
-    return `<div class="fi-wrap fp" data-fr="${fr[1]}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
-      <a href="${brandLink(b.s)}" class="fp-head">${_av(b)}<div style="flex:1;min-width:0"><div class="fp-name">${b.n}</div><div class="fp-sub">${sub||proj.name||"Campaign"}</div></div><span class="fp-more">${NX.icon("more")}</span></a>
+    const n=ms.length, cap=fCap(b,"photo",(ms.find(m=>m.caption)||{}).caption||"",pidPhotos(b,proj,fr))||fpCaption(ms,proj);
+    return `<div class="fi-wrap fp" data-fr="${fr[1]}" data-pid="${pidPhotos(b,proj,fr)}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+      <a href="${brandLink(b.s)}" class="fp-head">${_av(b)}<div style="flex:1;min-width:0"><div class="fp-name">${b.n}</div><div class="fp-sub">${fLine(b,sub||proj.name||"")}</div></div><span class="fp-more">${NX.icon("more")}</span></a>
       <div class="fp-frame" style="aspect-ratio:${fr[0]}">
         <div class="fp-track" onscroll="fpScroll(this)">${fpSlides(ms,fr[1],b)}</div>
         ${n>1?`<span class="fp-count">1/${n}</span><button class="fp-nav prev" onclick="fpGo(this,-1)" aria-label="Previous photo" hidden>‹</button><button class="fp-nav next" onclick="fpGo(this,1)" aria-label="Next photo">›</button>`:""}
       </div>
-      <div class="fp-acts">${NX.icon("heart")}${NX.icon("comment")}${NX.icon("send")}${n>1?`<div class="fp-dots"><i class="on"></i>${"<i></i>".repeat(n-1)}</div>`:""}${NX.icon("bookmark")}</div>
+      <div class="fp-acts">${fsLikeBtn}${fsCmtBtn}${NX.icon("send")}${n>1?`<div class="fp-dots"><i class="on"></i>${"<i></i>".repeat(n-1)}</div>`:""}${NX.icon("bookmark")}</div>
+      <div class="fs-likes" hidden></div>
       ${cap?`<div class="fp-cap"><b>${b.n}</b>${cap}</div>`:""}
+      ${fsBox}
     </div>`;
   };
   /* TikTok photo mode: a creator campaign's stills as one full-screen swipe. */
-  const tkPhotos=({b,proj,ms},sub)=>{
-    const n=ms.length, cap=fpCaption(ms,proj);
-    return `<div class="fi-wrap tk-item fp" data-fr="0.5625"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
+  const tkPhotos=({b,proj,ms,fr},sub)=>{
+    const n=ms.length, cap=fCap(b,"photo",(ms.find(m=>m.caption)||{}).caption||"",pidPhotos(b,proj,fr||[0.5625]))||fpCaption(ms,proj);
+    return `<div class="fi-wrap tk-item fp" data-fr="0.5625" data-pid="${pidPhotos(b,proj,fr||[0.5625])}"><button class="fi-x" onclick="fDel(this)" title="Remove from feed">×</button>
       <div class="fp-frame tk-frame"><div class="fp-track" onscroll="fpScroll(this)">${fpSlides(ms,.5625,b)}</div>
         ${n>1?`<span class="fp-count">1/${n}</span>`:""}</div>
       ${n>1?`<div class="fp-dots tk-dots"><i class="on"></i>${"<i></i>".repeat(n-1)}</div>`:""}
       <div class="tk-rail">
         <a class="tk-av" href="${brandLink(b.s)}" aria-label="${b.n}">${_av(b)}<i class="tk-follow">+</i></a>
-        <span class="tk-act" aria-hidden="true">${NX.icon("heartFill")}</span>
-        <span class="tk-act" aria-hidden="true">${NX.icon("commentFill")}</span>
+        ${tkSocial}
         <span class="tk-act" aria-hidden="true">${NX.icon("bookmarkFill")}</span>
         <a class="tk-act" href="${brandLink(b.s)}" aria-label="Open the case study">${NX.icon("shareFill")}</a>
       </div>
-      <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${sub}${cap?" · "+cap:""}</div></div>
+      <div class="tk-meta"><a class="tk-user" href="${brandLink(b.s)}">@${_handle(b)}</a><div class="tk-cap">${cap||sub}</div></div>
+      ${fsBox}
     </div>`;
   };
 
