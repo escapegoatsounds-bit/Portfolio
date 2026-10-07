@@ -3,7 +3,7 @@
   "brand": {
    "industry": "Confectionery",
    "market": "MENA",
-   "since": "2021",
+   "since": "2024",
    "services": "Social Media, Character Design",
    "website": "",
    "summary": "Bazooka Candies is a globally recognized confectionery brand known for its iconic bubble gum and candy range. The MENA campaign focused on building a vibrant, Gen Z-facing brand identity through original character design and social-first creative.",
@@ -16,7 +16,7 @@
    {
     "name": "Mooz, Character Design",
     "client": "Bazooka Candies",
-    "date": "2021",
+    "date": "2024-2026",
     "role": "Lead Creative",
     "agency": "",
     "status": "Delivered",
@@ -218,7 +218,7 @@
   "brand": {
    "industry": "F&B",
    "market": "Oman",
-   "since": "2023",
+   "since": "2024",
    "services": "Social Media",
    "website": "",
    "summary": "Challenge: Developing an engaging animated Ramadan calendar campaign while ensuring precise motion timing and accurate product representation for the regional market.\nSolution: Directed the design and animation optimization process, refining motion speeds and sandwich sizing to align perfectly with brand guidelines and elevate the festive promotional rollout.",
@@ -230,7 +230,7 @@
    {
     "name": "",
     "client": "Subway Oman",
-    "date": "2023",
+    "date": "2024",
     "role": "Creative Director",
     "agency": "",
     "status": "Delivered",
@@ -2883,6 +2883,14 @@
    }
   ],
   "active": 0
+ },
+ "City-and-the-Sea": {
+  "brand": {
+   "industry": "Hospitality & Real Estate",
+   "market": "MENA",
+   "logo": "clients/City-and-the-Sea/assets/logo.png",
+   "about": "City & The Sea is a travel brand that plans trips, from city breaks to the desert at Wadi Rum in Jordan. Its line is that every trip should teach you something new."
+  }
  },
  "Nillens": {
   "brand": {

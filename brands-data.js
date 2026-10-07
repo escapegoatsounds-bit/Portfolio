@@ -36,6 +36,7 @@
     'Emirgan-Sutis':'Food & Beverage',
     'Chouchou':'Food & Beverage',
     'Nillens':'Fashion & Apparel',
+    'City-and-the-Sea':'Hospitality & Real Estate',
     'Defarm':'FMCG',
     'Lifebox':'Food & Beverage',
     'Nineteen84':'Other / Agency',

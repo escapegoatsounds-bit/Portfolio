@@ -1,6 +1,6 @@
 {
   "_note": "Campaign notes and target audiences shown on brand pages (project-content.js). Per brand: audience = who the work was for; film / deck / animatic / bts = the note for any item of that kind without its own; items = notes keyed by the exact title in links.txt or the video file name (a string, or {note, audience}). _inferred lists brands whose audience comes from the product, not from a brief: check those.",
-  "_inferred": ["Audi", "BIC-WNA", "Delight-Pastries", "Em-Sherif-Cafe", "Fujifilm", "Gillette-Venus", "Glow", "Hayat-Water", "Labanita", "Carina", "CAPA", "Royal-Herbs", "Krispy-Kreme", "Chouchou", "Hardees", "Warba-Bank", "Steam-Cola", "Lifebox", "Eldib-Co", "WallPost", "Deraya", "Noodle-House", "Biella", "Royal-Tulip-Hotel", "Imagine-Studio", "Ruby-Pasta", "Oppa-App", "The-Center", "EA-FC-Mobile", "Big-Baby-Pop", "Ring-Pop", "Nillens"],
+  "_inferred": ["Audi", "BIC-WNA", "Delight-Pastries", "Em-Sherif-Cafe", "Fujifilm", "Gillette-Venus", "Glow", "Hayat-Water", "Labanita", "Carina", "CAPA", "Royal-Herbs", "Krispy-Kreme", "Chouchou", "Hardees", "Warba-Bank", "Steam-Cola", "Lifebox", "Eldib-Co", "WallPost", "Deraya", "Noodle-House", "Biella", "Royal-Tulip-Hotel", "Imagine-Studio", "Ruby-Pasta", "Oppa-App", "The-Center", "EA-FC-Mobile", "Big-Baby-Pop", "Ring-Pop", "Nillens", "City-and-the-Sea"],
 
   "ACUD": {"audience": "Young professionals, families and companies in Egypt, 21 and up, plus embassies weighing a move to the new capital."},
   "Al-Siddiqi-Holding": {"audience": "Families and young diners in Qatar, 14 to 55."},
@@ -56,6 +56,7 @@
   },
   "Carzami": {"audience": "Car buyers in Egypt: 18 to 28 buying a first car, 25 to 28 moving up to a family car, 25 to 65 upgrading. Three in four are men."},
   "Chouchou": {"audience": "Dessert lovers in and around Sheikh Zayed.", "items": {"Launch social media strategy": "The launch plan for Chouchou, the first éclair bar in Cairo: a March opening, Ramadan in April, then influencers and PR for Eid and summer."}},
+  "City-and-the-Sea": {"audience": "Travellers who want each trip to teach them something new."},
   "Nillens": {"audience": "Women in Cairo who buy Egyptian cotton loungewear and home linen."},
   "Delight-Pastries": {"audience": "Families in Cairo, Alexandria and the North Coast who order sweets for occasions.", "film": "A short social film for Delight, the Egyptian pastry house."},
   "Deraya": {"audience": "Insurance, real estate and banking firms looking for sales teams and training, and the people who join them."},

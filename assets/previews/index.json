@@ -372,5 +372,29 @@
   "h": 1280,
   "kb": 701,
   "w": 720
+ },
+ "local-City-and-the-Sea-Discover-something-new": {
+  "audio": true,
+  "dur": 10.6,
+  "full": true,
+  "h": 720,
+  "kb": 317,
+  "w": 720
+ },
+ "local-City-and-the-Sea-Every-trip-teaches-you": {
+  "audio": true,
+  "dur": 10.0,
+  "full": true,
+  "h": 720,
+  "kb": 207,
+  "w": 720
+ },
+ "local-City-and-the-Sea-Adventure-in-Wadi-Rum": {
+  "audio": true,
+  "dur": 13.8,
+  "full": true,
+  "h": 720,
+  "kb": 628,
+  "w": 720
  }
 }

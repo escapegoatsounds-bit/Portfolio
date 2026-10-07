@@ -442,43 +442,72 @@
     if (n >= 1e3) return (Math.round(n / 100) / 10) + 'K';
     return String(n);
   }
+  // colour helpers: shade() darkens below 1 and lightens above 1
+  function hexRgb(h) {
+    var m = /^#?([0-9a-f]{6})$/i.exec(h || ''); if (!m) return [240, 194, 51];
+    var n = parseInt(m[1], 16); return [n >> 16, n >> 8 & 255, n & 255];
+  }
+  function shade(h, f) {
+    return '#' + hexRgb(h).map(function (v) {
+      v = Math.round(f < 1 ? v * f : v + (255 - v) * (f - 1));
+      return ('0' + Math.max(0, Math.min(255, v)).toString(16)).slice(-2);
+    }).join('');
+  }
+  function light(h) { var c = hexRgb(h); return 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2] > 160; }
+  function grey(h) { var c = hexRgb(h); return Math.max.apply(0, c) - Math.min.apply(0, c) < 40; }
+  var VIVID = ['#ff5d73', '#ffb43c', '#2ed3a0', '#3d8bff', '#a66bff', '#ff6fb5', '#21c7e8'];
+  // the brand's own colours first, then bright ones; greys sit out
+  function palette(col) {
+    var out = [];
+    col.concat(VIVID).forEach(function (h) { h = String(h).toLowerCase(); if (/^#[0-9a-f]{6}$/.test(h) && !grey(h) && out.indexOf(h) < 0) out.push(h); });
+    return out;
+  }
+  // a colour as a soft tint, for the tile and card backgrounds
+  function tint(h, a) { var c = hexRgb(h); return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+  function tone(k) { return '--k:' + k + ';--kt:' + shade(k, 1.3) + ';--kl:' + shade(k, 0.78) + ';--kb:' + tint(k, 0.12) + ';--kr:' + tint(k, 0.26); }
   function chartBars(c, col) {
     var max = 0;
     c.rows.forEach(function (r) { max = Math.max(max, r.result || 0, r.target || 0); });
-    return '<div class="pc-bars">' + c.rows.map(function (r) {
-      var w = max ? (r.result / max * 100) : 0, tw = r.target ? (r.target / max * 100) : 0;
-      var beat = r.target ? r.result >= r.target : null;
+    return '<div class="pc-bars">' + c.rows.map(function (r, i) {
+      var w = max ? Math.max(2, r.result / max * 100) : 0, tw = r.target ? r.target / max * 100 : 0;
+      var k = r.target && r.result < r.target ? '#8a8f98' : col[i % col.length];
       return '<div class="pc-bar"><div class="pc-bar-hd"><span>' + esc(r.label) + '</span><b>' + fmtNum(r.result, c.unit) +
-        (r.target ? '<small> / ' + fmtNum(r.target, c.unit) + ' target</small>' : '') + '</b></div>' +
-        '<div class="pc-bar-track"><i style="width:' + w.toFixed(1) + '%;background:' + (beat === false ? col[1] || '#888' : col[0]) + '"></i>' +
+        (r.target ? '<small> / ' + fmtNum(r.target, c.unit) + '</small>' : '') + '</b></div>' +
+        '<div class="pc-bar-track"><i style="width:' + w.toFixed(1) + '%;background:linear-gradient(90deg,' + k + ',' + shade(k, 1.3) + ');animation-delay:' + (i * 100) + 'ms"></i>' +
         (r.target ? '<em style="left:' + tw.toFixed(1) + '%" title="Target"></em>' : '') + '</div></div>';
     }).join('') + '</div>' +
     (c.rows.some(function (r) { return r.target; }) ? '<p class="pc-chart-key"><i style="background:' + col[0] + '"></i>Result <em></em>Target</p>' : '');
   }
+  // a flat ring: one stroke per slice, rounded ends, a small gap between them
   function chartPie(c, col) {
-    var total = c.data.reduce(function (s, d) { return s + d[1]; }, 0) || 1, a = -Math.PI / 2, R = 42, r = 26;
-    var pal = col.concat(['#f0c233', '#8b5cf6', '#2ecc71', '#e67e22', '#95a5a6']);
-    var segs = c.data.map(function (d, i) {
-      var f = d[1] / total, a2 = a + f * Math.PI * 2, big = f > 0.5 ? 1 : 0;
-      var p = function (rad, ang) { return (50 + rad * Math.cos(ang)).toFixed(2) + ' ' + (50 + rad * Math.sin(ang)).toFixed(2); };
-      var path = f >= 0.9999
-        ? '<circle cx="50" cy="50" r="' + ((R + r) / 2) + '" fill="none" stroke="' + pal[i] + '" stroke-width="' + (R - r) + '"/>'
-        : '<path d="M' + p(R, a) + ' A' + R + ' ' + R + ' 0 ' + big + ' 1 ' + p(R, a2) + ' L' + p(r, a2) + ' A' + r + ' ' + r + ' 0 ' + big + ' 0 ' + p(r, a) + 'Z" fill="' + pal[i] + '"/>';
-      a = a2; return path;
+    var total = c.data.reduce(function (s, d) { return s + d[1]; }, 0) || 1, R = 38, SW = 11, GAP = 2.5, C = 2 * Math.PI * R, at = 0, top = 0;
+    var arcs = c.data.map(function (d, i) {
+      var f = d[1] / total, len = Math.max(0.01, f * C - GAP - SW), k = col[i % col.length];
+      if (f > c.data[top][1] / total) top = i;
+      var s = '<circle cx="50" cy="50" r="' + R + '" fill="none" stroke="' + k + '" stroke-width="' + SW + '" stroke-linecap="round" ' +
+        'stroke-dasharray="' + len.toFixed(2) + ' ' + C.toFixed(2) + '" stroke-dashoffset="' + (-(at + (GAP + SW) / 2)).toFixed(2) + '" style="animation-delay:' + (i * 120) + 'ms"/>';
+      at += f * C; return s;
     }).join('');
-    return '<div class="pc-pie"><svg viewBox="0 0 100 100" role="img" aria-label="' + esc(c.title) + '">' + segs + '</svg><ul>' +
+    var big = c.data[top], bigPct = c.unit === '%' ? fmtNum(big[1], '%') : Math.round(big[1] / total * 100) + '%';
+    return '<div class="pc-pie"><svg class="pc-ring" viewBox="0 0 100 100" role="img" aria-label="' + esc(c.title) + '">' +
+      '<circle cx="50" cy="50" r="' + R + '" fill="none" stroke="rgba(128,128,128,.12)" stroke-width="' + SW + '"/>' +
+      '<g transform="rotate(-90 50 50)">' + arcs + '</g>' +
+      '<text x="50" y="50" text-anchor="middle" class="pc-ring-v">' + esc(bigPct) + '</text>' +
+      '<text x="50" y="62" text-anchor="middle" class="pc-ring-l">' + esc(big[0]) + '</text></svg><ul>' +
       c.data.map(function (d, i) {
-        return '<li><i style="background:' + pal[i] + '"></i>' + esc(d[0]) + '<b>' + (c.unit === '%' ? fmtNum(d[1], '%') : Math.round(d[1] / total * 100) + '%') + '</b></li>';
+        return '<li style="animation-delay:' + (200 + i * 80) + 'ms"><i style="background:' + col[i % col.length] + '"></i>' + esc(d[0]) +
+          '<b>' + (c.unit === '%' ? fmtNum(d[1], '%') : Math.round(d[1] / total * 100) + '%') + '</b></li>';
       }).join('') + '</ul></div>';
   }
   function chartTiles(c, col) {
-    return '<div class="pc-tiles">' + c.data.map(function (d) {
-      return '<div class="pc-tile" style="border-color:' + col[0] + '"><b style="color:' + col[0] + '">' + esc(d[1]) + '</b><span>' + esc(d[0]) + '</span></div>';
+    return '<div class="pc-tiles">' + c.data.map(function (d, i) {
+      return '<div class="pc-tile" style="' + tone(col[i % col.length]) + ';animation-delay:' + (i * 80) + 'ms"><b class="pc-count">' + esc(d[1]) + '</b><span>' + esc(d[0]) + '</span></div>';
     }).join('') + '</div>';
   }
   function chartTimeline(c, col) {
     return '<ol class="pc-steps">' + c.steps.map(function (s, i) {
-      return '<li><span class="pc-step-dot" style="background:' + col[i % col.length] + '">' + (i + 1) + '</span><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span></li>';
+      return '<li style="' + tone(col[i % col.length]) + ';animation-delay:' + (i * 100) + 'ms"><span class="pc-step-dot">' + (i + 1) +
+        '</span><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span></li>';
     }).join('') + '</ol>';
   }
   var CHART = { bars: chartBars, pie: chartPie, tiles: chartTiles, timeline: chartTimeline };
@@ -494,18 +523,55 @@
   /* The headline results: the strongest numbers, shown big under the page's hero. */
   function resultsStrip(spec) {
     if (!spec || !spec.headline || !spec.headline.length) return '';
-    var col = spec.colors ? readable(spec)[0] : 'var(--accent,#f0c233)';
-    return '<div class="pc-results">' + spec.headline.map(function (d) {
-      return '<div class="pc-result"><b style="color:' + col + '">' + esc(d[0]) + '</b><span>' + esc(d[1]) + '</span></div>';
+    var pal = palette(spec.colors ? readable(spec) : ['#f0c233']);
+    return '<div class="pc-results">' + spec.headline.map(function (d, i) {
+      var k = pal[i % pal.length];
+      return '<div class="pc-result" style="' + tone(k) + ';animation-delay:' + (i * 100) + 'ms"><b class="pc-count">' + esc(d[0]) + '</b><span>' + esc(d[1]) + '</span></div>';
     }).join('') + '</div>' + (spec.source ? '<p class="pc-chart-src">Source: ' + esc(spec.source) + '</p>' : '');
   }
   function chartsSection(spec) {
     if (!spec || !spec.charts || !spec.charts.length) return '';
-    var col = readable(spec);
+    var col = palette(readable(spec));
     return section('The numbers', '<div class="pc-charts">' + spec.charts.map(function (c) {
       var draw = CHART[c.type]; if (!draw) return '';
       return '<figure class="pc-chart pc-chart-' + c.type + '"><figcaption>' + esc(c.title) + '</figcaption>' + draw(c, col) + '</figure>';
     }).join('') + '</div>' + (spec.source ? '<p class="pc-chart-src">Source: ' + esc(spec.source) + '</p>' : ''));
+  }
+  /* Charts and results animate in once they scroll into view; numbers count up. */
+  function countUp(el) {
+    var full = el.textContent, m = /^([^\d]*)(\d[\d,]*(?:\.\d+)?)(.*)$/.exec(full);
+    if (!m) return;
+    var end = parseFloat(m[2].replace(/,/g, '')), dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') >= 0, t0 = 0;
+    if (!dec && end >= 1900 && end <= 2100) return;                 // a year stays a year
+    function step(t) {
+      t0 = t0 || t;
+      var p = Math.min(1, (t - t0) / 1200), v = end * (1 - Math.pow(1 - p, 3)), s = v.toFixed(dec);
+      if (comma) s = Number(s).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+      el.textContent = p < 1 ? m[1] + s + m[3] : full;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (root.IntersectionObserver && root.MutationObserver && root.requestAnimationFrame &&
+      !(root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        e.target.classList.add('pc-in');
+        [].forEach.call(e.target.querySelectorAll('.pc-count'), countUp);
+      });
+    }, { threshold: 0.2 });
+    var queued = false;
+    new MutationObserver(function () {
+      if (queued) return; queued = true;
+      requestAnimationFrame(function () {
+        queued = false;
+        [].forEach.call(document.querySelectorAll('.pc-chart:not(.pc-anim),.pc-results:not(.pc-anim)'), function (n) {
+          n.classList.add('pc-anim'); io.observe(n);
+        });
+      });
+    }).observe(document.documentElement, { childList: true, subtree: true });
   }
 
   /* Kept for callers that hand over a raw content.json entry. */

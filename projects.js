@@ -1126,26 +1126,64 @@
     if(btns) btns.before(sec); else document.body.append(sec);
   }
 
+  /* The logo as a rounded app-style icon: blank margins trimmed off, the box filled
+     with the colour at the logo's own edge, so the logo fills the icon. */
+  function fitLogo(img, bc){
+    try{
+      const W=img.naturalWidth, H=img.naturalHeight, sc=Math.min(1, 320/Math.max(W,H)), w=Math.max(1,Math.round(W*sc)), h=Math.max(1,Math.round(H*sc));
+      const cv=document.createElement('canvas'); cv.width=w; cv.height=h; const x=cv.getContext('2d'); x.drawImage(img,0,0,w,h);
+      const d=x.getImageData(0,0,w,h).data, px=(i,j)=>{ const k=(j*w+i)*4; return [d[k],d[k+1],d[k+2],d[k+3]]; };
+      const med=v=>v.length?v.sort((a,b)=>a-b)[v.length>>1]:0;
+      // the colour along a box's border, or null when the border is mostly see-through
+      const edge=(x0,y0,x1,y1)=>{ const R=[],G=[],B=[]; let n=0;
+        for(let i=x0;i<=x1;i++)for(const j of [y0,y1]){ const p=px(i,j); n++; if(p[3]>200){R.push(p[0]);G.push(p[1]);B.push(p[2]);} }
+        for(let j=y0;j<=y1;j++)for(const i of [x0,x1]){ const p=px(i,j); n++; if(p[3]>200){R.push(p[0]);G.push(p[1]);B.push(p[2]);} }
+        return R.length>n*.7?[med(R),med(G),med(B)]:null; };
+      const e0=edge(0,0,w-1,h-1);
+      const far=p=>e0?(p[3]>128&&Math.abs(p[0]-e0[0])+Math.abs(p[1]-e0[1])+Math.abs(p[2]-e0[2])>60):p[3]>40;
+      // the box around the logo; rows and columns with only a stray speck or two don't count
+      const cols=new Array(w).fill(0), rows=new Array(h).fill(0);
+      for(let j=0;j<h;j++)for(let i=0;i<w;i++) if(far(px(i,j))){ cols[i]++; rows[j]++; }
+      const cmin=Math.max(1,Math.round(h*.015),Math.round(Math.max(...cols)*.08)), rmin=Math.max(1,Math.round(w*.015),Math.round(Math.max(...rows)*.08));
+      let x0=cols.findIndex(v=>v>=cmin), x1=w-1-[...cols].reverse().findIndex(v=>v>=cmin);
+      let y0=rows.findIndex(v=>v>=rmin), y1=h-1-[...rows].reverse().findIndex(v=>v>=rmin);
+      if(x0<0||y0<0||x1<x0||y1<y0) return null;
+      const e1=edge(x0,y0,x1,y1)||e0;
+      const out=document.createElement('canvas'); out.width=x1-x0+1; out.height=y1-y0+1;
+      out.getContext('2d').drawImage(cv,x0,y0,out.width,out.height,0,0,out.width,out.height);
+      // a see-through logo: light ink sits on the brand colour, dark ink on white
+      let ink=0, inkN=0;
+      if(!e1) for(let j=y0;j<=y1;j+=2)for(let i=x0;i<=x1;i+=2){ const p=px(i,j); if(p[3]>128){ ink+=.299*p[0]+.587*p[1]+.114*p[2]; inkN++; } }
+      const accent=(getComputedStyle(document.documentElement).getPropertyValue('--accent')||'').trim()||'#222';
+      const bg=e1?'rgb('+e1.join(',')+')':(inkN&&ink/inkN>170?accent:'#fff');
+      return {src:out.toDataURL('image/png'), bg:bg, solid:!!edge(x0,y0,x1,y1)};
+    }catch(e){ return null; }
+  }
   function applyBrandCircle(){
     const bc=document.querySelector('.bc'); if(!bc) return;
-    bc.style.overflow='hidden';
+    bc.style.overflow='hidden'; bc.style.borderRadius='24%';
     // Priority: uploaded logo → assets/logos/[SLUG].png fallback
     const logoSrc=DATA.brand.logo?absPath(DATA.brand.logo):absPath('assets/logos/'+SLUG+'.png');
     // Remove existing initials text
     if(!bc.querySelector('img')){ bc.textContent=''; }
     let img=bc.querySelector('img');
-    if(!img){ img=el('img'); img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:5%'; bc.append(img); }
-    // Scale applies whether this img came from a static page template or was
-    // just created above — so the resize slider works on every brand page.
-    img.style.transform='scale('+(DATA.brand.logoScale||1)+')';
-    const circleBg=DATA.brand.circleBg||'#fff';
-    const applyBg=()=>{ bc.style.background=circleBg; img.style.display='block'; };
+    if(!img){ img=el('img'); bc.append(img); }
+    const scale=DATA.brand.logoScale||1, setBg=DATA.brand.circleBg&&DATA.brand.circleBg.toLowerCase()!=='#fff'&&DATA.brand.circleBg.toLowerCase()!=='#ffffff'?DATA.brand.circleBg:'';
+    const applyBg=()=>{
+      img.style.display='block';
+      if(img.dataset.fit!==img.src){
+        const f=fitLogo(img,bc);
+        if(f){ img.dataset.fit=f.src; img.src=f.src; bc.style.background=setBg||f.bg||'#fff'; img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:'+(f.solid?'9%':'14%')+';box-sizing:border-box;transform:scale('+scale+')'; return; }
+      }
+      if(!img.dataset.fit){ bc.style.background=setBg||'#fff'; img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;padding:12%;box-sizing:border-box;transform:scale('+scale+')'; }
+    };
     img.onload=applyBg;
     img.onerror=()=>{
       img.style.display='none';
       if(!bc.textContent.trim()){ bc.textContent=brandName.slice(0,2).toUpperCase(); }
       bc.style.background='';
     };
+    delete img.dataset.fit;
     img.src=logoSrc;
     // If the logo was already cached, onload won't fire again — apply now.
     if(img.complete && img.naturalWidth>0) applyBg();
@@ -1517,7 +1555,7 @@
   function loadProjectContent(){
     if(window.ProjectContent) return Promise.resolve();
     if(_pcLoad) return _pcLoad;
-    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=10'; document.head.append(css);
+    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=12'; document.head.append(css);
     const st=el('style'); st.textContent=
       '#zz-dropped-sec .zz-dropzone{margin-top:28px;border:2px dashed var(--b,#2c2c33);border-radius:12px;padding:26px;text-align:center;color:var(--m2,#c2bcb2);font-size:13px;display:flex;flex-direction:column;gap:10px;align-items:center;transition:border-color .15s,background .15s}'
       +'#zz-dropped-sec .zz-dropzone.over{border-color:var(--accent,#f0c233);background:rgba(255,255,255,.03)}'
@@ -1527,7 +1565,7 @@
       +'#zz-dropped-sec .zz-dz-btns button{font:700 12px var(--font,Inter,sans-serif);padding:9px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--b,#2c2c33);background:var(--s2,#1f1f24);color:var(--text,#f4f2ed)}'
       +'#zz-dropped-sec .zz-dz-btns button:first-child{background:var(--accent,#f0c233);border-color:var(--accent,#f0c233);color:#000}';
     document.head.append(st);
-    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=10'; s.onload=res; s.onerror=res; document.head.append(s); });
+    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=12'; s.onload=res; s.onerror=res; document.head.append(s); });
     return _pcLoad;
   }
   function applyDropped(){

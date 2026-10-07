@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-07T04:22:56.780120+00:00",
+  "generated": "2026-10-07T09:41:25.679457+00:00",
   "brands": {
     "Almaza-Bay": {
       "images": [],
@@ -1386,6 +1386,35 @@
         }
       ],
       "count": 20
+    },
+    "City-and-the-Sea": {
+      "images": [],
+      "videos": [
+        {
+          "src": "clients/City-and-the-Sea/videos/Adventure-in-Wadi-Rum.mp4",
+          "file": "Adventure-in-Wadi-Rum.mp4",
+          "title": "Adventure in Wadi Rum",
+          "ext": "mp4",
+          "size": 1295003
+        },
+        {
+          "src": "clients/City-and-the-Sea/videos/Discover-something-new.mp4",
+          "file": "Discover-something-new.mp4",
+          "title": "Discover something new",
+          "ext": "mp4",
+          "size": 1083886
+        },
+        {
+          "src": "clients/City-and-the-Sea/videos/Every-trip-teaches-you.mp4",
+          "file": "Every-trip-teaches-you.mp4",
+          "title": "Every trip teaches you",
+          "ext": "mp4",
+          "size": 440790
+        }
+      ],
+      "articles": [],
+      "links": [],
+      "count": 3
     },
     "Delight-Pastries": {
       "images": [
@@ -3245,6 +3274,50 @@
         }
       ],
       "count": 1
+    },
+    "Steam-Cola": {
+      "images": [
+        {
+          "src": "clients/Steam-Cola/images/01_Steam-Cola-brand-guidelines.webp",
+          "file": "01_Steam-Cola-brand-guidelines.jpg",
+          "title": "Steam Cola brand guidelines",
+          "ext": "jpg",
+          "size": 322773,
+          "w": 1600,
+          "h": 1580
+        },
+        {
+          "src": "clients/Steam-Cola/images/02_Steam-Cola-merchandise.webp",
+          "file": "02_Steam-Cola-merchandise.jpg",
+          "title": "Steam Cola merchandise",
+          "ext": "jpg",
+          "size": 334444,
+          "w": 1600,
+          "h": 1580
+        },
+        {
+          "src": "clients/Steam-Cola/images/03_Steam-Cola-brand-profile.webp",
+          "file": "03_Steam-Cola-brand-profile.jpg",
+          "title": "Steam Cola brand profile",
+          "ext": "jpg",
+          "size": 311939,
+          "w": 1600,
+          "h": 1580
+        },
+        {
+          "src": "clients/Steam-Cola/images/04_Steam-Cola-bottle.webp",
+          "file": "04_Steam-Cola-bottle.jpg",
+          "title": "Steam Cola bottle",
+          "ext": "jpg",
+          "size": 210403,
+          "w": 1600,
+          "h": 1580
+        }
+      ],
+      "videos": [],
+      "articles": [],
+      "links": [],
+      "count": 4
     },
     "Subway-Oman": {
       "images": [
