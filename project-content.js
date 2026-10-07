@@ -482,15 +482,26 @@
     }).join('') + '</ol>';
   }
   var CHART = { bars: chartBars, pie: chartPie, tiles: chartTiles, timeline: chartTimeline };
-  function chartsSection(spec) {
-    if (!spec || !spec.charts || !spec.charts.length) return '';
-    // a brand colour too dark to read on the page gives way to the next one
-    var col = (spec.colors || ['#f0c233']).filter(function (h) {
+  // a brand colour too dark to read on the page gives way to the next one
+  function readable(spec) {
+    var col = ((spec && spec.colors) || ['#f0c233']).filter(function (h) {
       var m = /^#?([0-9a-f]{6})$/i.exec(h); if (!m) return true;
       var n = parseInt(m[1], 16), l = 0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255);
       return l > 45;
     });
-    if (!col.length) col = ['#f0c233', '#8b5cf6'];
+    return col.length ? col : ['#f0c233', '#8b5cf6'];
+  }
+  /* The headline results: the strongest numbers, shown big under the page's hero. */
+  function resultsStrip(spec) {
+    if (!spec || !spec.headline || !spec.headline.length) return '';
+    var col = spec.colors ? readable(spec)[0] : 'var(--accent,#f0c233)';
+    return '<div class="pc-results">' + spec.headline.map(function (d) {
+      return '<div class="pc-result"><b style="color:' + col + '">' + esc(d[0]) + '</b><span>' + esc(d[1]) + '</span></div>';
+    }).join('') + '</div>' + (spec.source ? '<p class="pc-chart-src">Source: ' + esc(spec.source) + '</p>' : '');
+  }
+  function chartsSection(spec) {
+    if (!spec || !spec.charts || !spec.charts.length) return '';
+    var col = readable(spec);
     return section('The numbers', '<div class="pc-charts">' + spec.charts.map(function (c) {
       var draw = CHART[c.type]; if (!draw) return '';
       return '<figure class="pc-chart pc-chart-' + c.type + '"><figcaption>' + esc(c.title) + '</figcaption>' + draw(c, col) + '</figure>';
@@ -522,6 +533,9 @@
                links(entry.links || []) +
                articles(entry.articles || []);
       });
+    },
+    results: function (slug) {
+      return loadCharts().then(function (d) { return resultsStrip((d || {})[slug]); });
     },
     has: function (slug) {
       return Promise.all([load(), loadProjects(), loadCharts()]).then(function (res) {

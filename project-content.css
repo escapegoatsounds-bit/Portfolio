@@ -120,6 +120,9 @@
 .pc-pie li{display:flex;align-items:center;gap:7px}
 .pc-pie li i{width:10px;height:10px;border-radius:3px;flex-shrink:0}
 .pc-pie li b{margin-left:auto;color:var(--text,#f4f2ed)}
+.pc-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px 28px;margin:4px 0 6px}
+.pc-result b{display:block;font-size:clamp(30px,4vw,46px);font-weight:900;line-height:1;letter-spacing:-1px}
+.pc-result span{display:block;font-size:13px;line-height:1.45;color:var(--m2,#b5b0a6);margin-top:8px;max-width:26ch}
 .pc-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
 .pc-tile{border-left:3px solid;padding:4px 0 4px 10px}
 .pc-tile b{display:block;font-size:20px;font-weight:900;line-height:1.15}

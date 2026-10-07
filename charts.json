@@ -1,7 +1,20 @@
 {
   "_note": "Charts on brand pages, from the numbers and plans in the Canva strategy decks and the Brand Case Form (project-content.js draws them). Types: bars (result against target), pie, tiles (big numbers), timeline (a plan in steps). Numbers only; budgets and fees stay out. colors = the brand's own, first is the main one.",
 
+  "Delight-Pastries": {
+    "source": "Delight Pastries case study",
+    "headline": [["+29%", "sales growth from digital traffic"]],
+    "charts": []
+  },
+
+  "Al-Siddiqi-Holding": {
+    "source": "Al Siddiqi Holding case notes",
+    "headline": [["1,000+", "people drawn to the Pearl by the influencer challenge"]],
+    "charts": []
+  },
+
   "Bazooka-Candy": {
+    "headline": [["45M+", "YouTube views in 2025"], ["5.1M", "Instagram views, against a 3M target"], ["41K", "TikTok engagements, against 22K"], ["95 → 1,188", "Instagram followers over 2025"]],
     "colors": ["#E8192C", "#FFD100", "#003DA5"],
     "source": "Bazooka Candy Brands 2026 plan with 2025 results, Tonic International",
     "charts": [
@@ -19,6 +32,7 @@
   },
 
   "Juicy-Drop": {
+    "headline": [["100M+", "YouTube impressions in 2025"], ["6.5M", "TikTok views, against a 2.9M target"], ["51K", "TikTok engagements, against 16K"], ["6,300", "new Instagram followers, against 2,048"]],
     "colors": ["#FF4500", "#7B2CBF", "#00B4D8"],
     "source": "Bazooka Candy Brands 2026 plan with 2025 results, Tonic International",
     "charts": [
@@ -38,6 +52,7 @@
   },
 
   "Big-Baby-Pop": {
+    "headline": [["80%+", "of the target audience reached on TV in 2025"], ["3", "markets on air"]],
     "colors": ["#E84393", "#6C5CE7"],
     "source": "Bazooka Candy Brands 2026 plan with 2025 results, Tonic International",
     "charts": [
@@ -47,6 +62,7 @@
   },
 
   "Quooker": {
+    "headline": [["22.71M", "impressions in 2024"], ["+31%", "followers, to 19.19K"], ["53%", "of engagement against Grohe and Zip Water"], ["5.73%", "organic Instagram engagement rate"]],
     "colors": ["#C8963E", "#4A4A4A", "#8FB8DE"],
     "source": "Quooker 2024 performance review and 2025 strategy, Tonic International",
     "charts": [
@@ -60,6 +76,7 @@
   },
 
   "Krispy-Kreme": {
+    "headline": [["5,000+", "guests at the Egypt launch"], ["3M+", "people reached on social"]],
     "colors": ["#007A3D", "#E2231A"],
     "source": "Krispy Kreme Egypt launch, portfolio deck",
     "charts": [
@@ -68,6 +85,7 @@
   },
 
   "ACUD": {
+    "headline": [["15K", "follower target, beaten"], ["6.7M", "impression target, beaten"]],
     "colors": ["#7D0D0D", "#B5B5B5"],
     "source": "ACUD social media strategy",
     "charts": [
@@ -96,6 +114,7 @@
   },
 
   "Snapchat": {
+    "headline": [["#1", "most used Lens of 2019"], ["5", "languages for MENA and Turkey"]],
     "colors": ["#FFFC00", "#111111"],
     "source": "Snapchat Lenses, portfolio deck",
     "charts": [
@@ -154,8 +173,9 @@
   },
 
   "Tonic-International": {
+    "headline": [["30%", "less time on operations after six months of AI"], ["1 day", "to build a pitch that used to take a week"], ["21+", "years in the region"]],
     "colors": ["#F0C233", "#555555"],
-    "source": "Tonic KSA expansion content plan",
+    "source": "Tonic KSA expansion content plan; The Team System, Tonic International",
     "charts": [
       {"type": "tiles", "title": "What Tonic brings", "data": [["Years in the region", "21+"], ["Content themes", "6"], ["Formats", "Videos, carousels, articles"]]}
     ]

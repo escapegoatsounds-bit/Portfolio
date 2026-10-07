@@ -1517,7 +1517,7 @@
   function loadProjectContent(){
     if(window.ProjectContent) return Promise.resolve();
     if(_pcLoad) return _pcLoad;
-    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=9'; document.head.append(css);
+    const css=el('link'); css.rel='stylesheet'; css.href='../../project-content.css?v=10'; document.head.append(css);
     const st=el('style'); st.textContent=
       '#zz-dropped-sec .zz-dropzone{margin-top:28px;border:2px dashed var(--b,#2c2c33);border-radius:12px;padding:26px;text-align:center;color:var(--m2,#c2bcb2);font-size:13px;display:flex;flex-direction:column;gap:10px;align-items:center;transition:border-color .15s,background .15s}'
       +'#zz-dropped-sec .zz-dropzone.over{border-color:var(--accent,#f0c233);background:rgba(255,255,255,.03)}'
@@ -1527,7 +1527,7 @@
       +'#zz-dropped-sec .zz-dz-btns button{font:700 12px var(--font,Inter,sans-serif);padding:9px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--b,#2c2c33);background:var(--s2,#1f1f24);color:var(--text,#f4f2ed)}'
       +'#zz-dropped-sec .zz-dz-btns button:first-child{background:var(--accent,#f0c233);border-color:var(--accent,#f0c233);color:#000}';
     document.head.append(st);
-    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=9'; s.onload=res; s.onerror=res; document.head.append(s); });
+    _pcLoad=new Promise(res=>{ const s=el('script'); s.src='../../project-content.js?v=10'; s.onload=res; s.onerror=res; document.head.append(s); });
     return _pcLoad;
   }
   function applyDropped(){
@@ -1546,6 +1546,27 @@
         sec.innerHTML='<div class="c"><p class="sl">The work</p><div class="zz-dropped"></div></div>';
         sec.querySelector('.zz-dropped').innerHTML=html||'';
         if(editing()) sec.querySelector('.c').append(dropZone());
+      });
+    });
+  }
+  /* Headline results, right under the hero, so the numbers are the first thing a visitor reads. */
+  function applyResults(){
+    return loadProjectContent().then(()=>{
+      if(!window.ProjectContent||!ProjectContent.results) return;
+      return ProjectContent.results(SLUG).then(html=>{
+        let sec=document.getElementById('zz-results');
+        if(!html){ if(sec) sec.remove(); return; }
+        if(!sec){
+          sec=el('section'); sec.id='zz-results';
+          const hero=document.querySelector('.hero'); if(hero) hero.after(sec); else document.body.prepend(sec);
+        }
+        sec.innerHTML='<div class="c"><p class="sl">Results</p><div class="zz-results"></div></div>';
+        sec.querySelector('.zz-results').innerHTML=html;
+        // a brand colour too dark for the page reads as plain light text instead
+        sec.querySelectorAll('.pc-result b').forEach(n=>{
+          const m=getComputedStyle(n).color.match(/\d+/g); if(!m) return;
+          if(0.299*m[0]+0.587*m[1]+0.114*m[2]<110) n.style.color='var(--text,#f4f2ed)';
+        });
       });
     });
   }
@@ -1821,7 +1842,7 @@
     inner.append(save);
   }
 
-  function applyDisplay(){ applyHeader(); applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyProcess(); applyArticles(); applyGallery(); applyReports(); applyDropped(); }
+  function applyDisplay(){ applyHeader(); applyHeroCover(); applyAnalytics(); applyBrandCircle(); applySocialHandles(); applyProcess(); applyArticles(); applyGallery(); applyReports(); applyResults(); applyDropped(); }
   function render(){ root.innerHTML=''; renderBrand(); renderProjects(); applyDisplay(); }
   function mount(){
     if(!root.parentNode){
