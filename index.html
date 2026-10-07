@@ -591,7 +591,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
                   <div style="width:30px;height:30px;border-radius:7px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px">🎧</div>
                   <div style="flex:1;min-width:0">
                     <div style="font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)">escapegoat</div>
-                    <div id="lockTrackName" style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">يا خلاصي</div>
+                    <div id="lockTrackName" style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">منغير كلام</div>
                   </div>
                   <div onclick="egTogglePlaylist()" style="font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;padding:2px 4px;border-radius:4px" title="Playlist">☰</div>
                 </div>
@@ -639,7 +639,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                 <div style="width:26px;height:26px;border-radius:6px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px">🎧</div>
                 <div style="flex:1;min-width:0">
-                  <div id="homeTrackName" style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">يا خلاصي</div>
+                  <div id="homeTrackName" style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">منغير كلام</div>
                   <div style="font-size:8px;color:rgba(255,255,255,.35)" id="homePlayerStatus">Tap to play</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:8px">
@@ -836,7 +836,7 @@ function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
 const SKILLS=[["Creative Direction",85],["Social Strategy",92],["AI Integration",88],["Copywriting",80],["Photography",70],["Music Production",72],["Team Management",85],["Storyboarding",88]];
-const TRACKS=[["يا خلاصي","ya-khalasi"],["اللي كان","elli-kan"],["شالوم","shalom"],["منغير كلام","men-gheir-kalam"],["فيري كيكو","feri-kiko"],["بيني و بيني","beni-w-beni"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يوم الحد (Cover)","youm-el-had"]];
+const TRACKS=[["منغير كلام","men-gheir-kalam"],["اللي كان","elli-kan"],["يوم الحد (Cover)","youm-el-had"],["شالوم","shalom"],["فيري كيكو","feri-kiko"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يا خلاصي","ya-khalasi"],["بيني و بيني","beni-w-beni"]];
 const JINGLES=[
   {slug:"Bazooka-Candy",title:"Bazooka Brand Music",desc:"Original brand music composed for the Bazooka Candies MENA campaign — crafted for social reels, digital activations and product launch moments.",year:"2024",type:"audio",src:""},
   {slug:"Juicy-Drop",title:"Juicy Drop — The Earworm",desc:"The Juicy Drop brand jingle ran across social, radio and in-store activations across MENA. An audio ID engineered to be impossible to unhear.",year:"2021",type:"audio",src:""},
@@ -1857,16 +1857,16 @@ window.addEventListener("message",function(e){
 });
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?"":"none"});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle("on",b.dataset.tk===key));}
 const EG_TRACKS = [
-  { src: "assets/tracks/ya-khalasi.mp3", title: "يا خلاصي" },
-  { src: "assets/tracks/elli-kan.mp3", title: "اللي كان" },
-  { src: "assets/tracks/shalom.mp3", title: "شالوم" },
   { src: "assets/tracks/men-gheir-kalam.mp3", title: "منغير كلام" },
+  { src: "assets/tracks/elli-kan.mp3", title: "اللي كان" },
+  { src: "assets/tracks/youm-el-had.mp3", title: "يوم الحد (Cover)" },
+  { src: "assets/tracks/shalom.mp3", title: "شالوم" },
   { src: "assets/tracks/feri-kiko.mp3", title: "فيري كيكو" },
-  { src: "assets/tracks/beni-w-beni.mp3", title: "بيني و بيني" },
   { src: "assets/tracks/la-abali.mp3", title: "لا أبالي" },
   { src: "assets/tracks/alqa-wala-alaqa.mp3", title: "علقه ولا علاقه" },
   { src: "assets/tracks/miss-you-more.mp3", title: "Miss You More Than I Should" },
-  { src: "assets/tracks/youm-el-had.mp3", title: "يوم الحد (Cover)" },
+  { src: "assets/tracks/ya-khalasi.mp3", title: "يا خلاصي" },
+  { src: "assets/tracks/beni-w-beni.mp3", title: "بيني و بيني" },
 ];
 let egIdx = 0, egPlaying = false, egVol = 0.22;
 const egAudio = new Audio(EG_TRACKS[0].src);
