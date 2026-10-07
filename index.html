@@ -836,7 +836,7 @@ function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
 const SKILLS=[["Creative Direction",85],["Social Strategy",92],["AI Integration",88],["Copywriting",80],["Photography",70],["Music Production",72],["Team Management",85],["Storyboarding",88]];
-const TRACKS=[["يا خلاصي","ya-khalasi"],["اللي كان","elli-kan"],["شالوم","shalom"],["منغير كلام","men-gheir-kalam"],["فيري كيكو","feri-kiko"],["بيني و بيني","beni-w-beni"]];
+const TRACKS=[["يا خلاصي","ya-khalasi"],["اللي كان","elli-kan"],["شالوم","shalom"],["منغير كلام","men-gheir-kalam"],["فيري كيكو","feri-kiko"],["بيني و بيني","beni-w-beni"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يوم الحد (Cover)","youm-el-had"]];
 const JINGLES=[
   {slug:"Bazooka-Candy",title:"Bazooka Brand Music",desc:"Original brand music composed for the Bazooka Candies MENA campaign — crafted for social reels, digital activations and product launch moments.",year:"2024",type:"audio",src:""},
   {slug:"Juicy-Drop",title:"Juicy Drop — The Earworm",desc:"The Juicy Drop brand jingle ran across social, radio and in-store activations across MENA. An audio ID engineered to be impossible to unhear.",year:"2021",type:"audio",src:""},
@@ -1863,6 +1863,10 @@ const EG_TRACKS = [
   { src: "assets/tracks/men-gheir-kalam.mp3", title: "منغير كلام" },
   { src: "assets/tracks/feri-kiko.mp3", title: "فيري كيكو" },
   { src: "assets/tracks/beni-w-beni.mp3", title: "بيني و بيني" },
+  { src: "assets/tracks/la-abali.mp3", title: "لا أبالي" },
+  { src: "assets/tracks/alqa-wala-alaqa.mp3", title: "علقه ولا علاقه" },
+  { src: "assets/tracks/miss-you-more.mp3", title: "Miss You More Than I Should" },
+  { src: "assets/tracks/youm-el-had.mp3", title: "يوم الحد (Cover)" },
 ];
 let egIdx = 0, egPlaying = false, egVol = 0.22;
 const egAudio = new Audio(EG_TRACKS[0].src);
