@@ -316,12 +316,10 @@
         if (bar && sp.audio.duration) bar.style.width = (sp.audio.currentTime / sp.audio.duration * 100) + '%';
       });
       ['play', 'pause'].forEach(function (ev) { sp.audio.addEventListener(ev, spUI); });
+      if (window.soloWatch) window.soloWatch(sp.audio);   // starting it stops every other player
     }
     if (i === sp.i && sp.audio.src) { if (sp.audio.paused) sp.audio.play().catch(function () {}); else sp.audio.pause(); return; }
     sp.i = i; sp.audio.src = 'assets/tracks/' + t[1] + '.mp3';
-    // music and the lock-screen player don't overlap, and films go quiet
-    if (typeof egPlaying !== 'undefined' && egPlaying && typeof toggleEgMusic === 'function') toggleEgMusic();
-    if (typeof fvMusicStarted === 'function') fvMusicStarted();
     sp.audio.play().catch(function () {});
     spUI();
   };
@@ -337,7 +335,7 @@
       }).join('');
       return '<section class="sp-hero"><img src="assets/photos/escapegoat-album.webp" alt="Escapegoat" onerror="this.src=\'assets/photos/escapegoat-logo.webp\'"><div><h1>Escapegoat</h1></div></section>' +
         '<div class="sp-bar"><span class="sp-follow">Follow</span>' + icon('more') + '<span class="nx-grow"></span>' + icon('shuffle', 'sp-shuf') +
-        '<button type="button" class="sp-bigplay" onclick="NX.spToggle()" aria-label="Play">' + icon('play') + '</button></div>' +
+        '<button type="button" class="sp-bigplay eg3d eg3d-main" onclick="NX.spToggle()" aria-label="Play">' + icon('play') + '</button></div>' +
         '<h3 class="sp-h">Popular</h3>' + rows +
         '<h3 class="sp-h">Music production</h3><div class="sp-cards">' +
         [['Custom DJ tracks', 'Made to order, exclusive licensing', '#8c1bab'], ['Lyrics and toplines', 'Arabic and English hooks, verses, toplines', '#1e3264'], ['Brand jingles', 'Audio logos and TVC scores', '#e8115b']].map(function (c) {
@@ -346,7 +344,7 @@
     },
     tabs: function () {
       return '<div class="sp-mini" hidden><img src="assets/photos/escapegoat-album.webp" alt="" onerror="this.remove()"><span class="sp-mini-txt"><b class="sp-mini-t"></b><span>Escapegoat</span></span>' +
-        '<button type="button" class="sp-mini-play" onclick="NX.spToggle()" aria-label="Play or pause">' + icon('play') + '</button><div class="sp-mini-bar"><i></i></div></div>' +
+        '<button type="button" class="sp-mini-play eg3d eg3d-main eg3d-sm" onclick="NX.spToggle()" aria-label="Play or pause">' + icon('play') + '</button><div class="sp-mini-bar"><i></i></div></div>' +
         tabbar([{ icon: 'home', onIcon: 'homeFill', on: true, label: 'Home' }, { icon: 'search', label: 'Search' },
           { icon: 'library', label: 'Your Library' }, { icon: 'plus', label: 'Create' }], 'sp-tabs');
     }

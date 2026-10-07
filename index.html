@@ -470,7 +470,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 .bm-check.on{border-color:var(--gold);color:var(--gold)}
 </style>
   <link rel="stylesheet" href="project-content.css">
-  <link rel="stylesheet" href="apps-native.css?v=7">
+  <link rel="stylesheet" href="apps-native.css?v=9">
   <script src="brands-data.js?v=3"></script>
   <link rel="stylesheet" href="feed-social.css?v=2">
   <link rel="stylesheet" href="highlights.css?v=2">
@@ -586,7 +586,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
               </div>
             </div>
             <div style="width:100%;max-width:240px;margin-top:10px" onclick="event.stopPropagation()">
-              <div style="background:rgba(255,255,255,.11);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:10px 12px">
+              <div class="eg-amb" style="background:rgba(14,10,24,.42);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 12px">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
                   <div style="width:30px;height:30px;border-radius:7px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px">🎧</div>
                   <div style="flex:1;min-width:0">
@@ -601,10 +601,10 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
                 <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,.3);margin-bottom:8px">
                   <span id="lockCurrent">0:00</span><span id="lockDuration">—</span>
                 </div>
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-                  <div onclick="egPrevTrack()" style="font-size:15px;color:rgba(255,255,255,.6);cursor:pointer">⏮</div>
-                  <div onclick="toggleEgMusic()" id="lockPlayBtn" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;color:#000">▶</div>
-                  <div onclick="egNextTrack()" style="font-size:15px;color:rgba(255,255,255,.6);cursor:pointer">⏭</div>
+                <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:9px">
+                  <button type="button" class="eg3d eg3d-sm" onclick="egPrevTrack()" aria-label="Previous track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2.4v14H6zM20 5v14L9 12z" fill="currentColor"/></svg></button>
+                  <button type="button" class="eg3d eg3d-main" onclick="toggleEgMusic()" id="lockPlayBtn" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+                  <button type="button" class="eg3d eg3d-sm" onclick="egNextTrack()" aria-label="Next track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.6 5H18v14h-2.4zM4 5v14l11-7z" fill="currentColor"/></svg></button>
                 </div>
                 <div style="display:flex;align-items:center;gap:6px">
                   <div onclick="egVolDown()" style="font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;width:18px;text-align:center">🔉</div>
@@ -635,7 +635,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
               <div class="widget-title">Social Media & Creative Director · MENA</div>
             </div>
             <div class="app-grid" id="appGrid"></div>
-            <div style="margin:0 14px 8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 10px">
+            <div class="eg-amb" style="margin:0 14px 8px;background:rgba(14,10,24,.42);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px 10px">
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                 <div style="width:26px;height:26px;border-radius:6px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px">🎧</div>
                 <div style="flex:1;min-width:0">
@@ -643,9 +643,9 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
                   <div style="font-size:8px;color:rgba(255,255,255,.35)" id="homePlayerStatus">Tap to play</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:8px">
-                  <div onclick="egPrevTrack()" style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer">⏮</div>
-                  <div onclick="toggleEgMusic()" id="homePlayBtn" style="font-size:16px;color:#1DB954;cursor:pointer;line-height:1">▶</div>
-                  <div onclick="egNextTrack()" style="font-size:13px;color:rgba(255,255,255,.5);cursor:pointer">⏭</div>
+                  <button type="button" class="eg3d eg3d-xs" onclick="egPrevTrack()" aria-label="Previous track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2.4v14H6zM20 5v14L9 12z" fill="currentColor"/></svg></button>
+                  <button type="button" class="eg3d eg3d-main eg3d-sm" onclick="toggleEgMusic()" id="homePlayBtn" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+                  <button type="button" class="eg3d eg3d-xs" onclick="egNextTrack()" aria-label="Next track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.6 5H18v14h-2.4zM4 5v14l11-7z" fill="currentColor"/></svg></button>
                   <div onclick="egTogglePlaylist()" style="font-size:12px;color:rgba(255,255,255,.35);cursor:pointer">☰</div>
                 </div>
               </div>
@@ -762,7 +762,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
 <script src="tools-data.js"></script>
 <script src="apps-data.js"></script>
 <script src="project-content.js"></script>
-<script src="apps-native.js?v=7"></script>
+<script src="apps-native.js?v=8"></script>
 <script src="feed-social.js?v=1"></script>
 <script src="phone-actions.js?v=1"></script>
 <script src="highlights.js?v=2" defer></script>
@@ -1873,15 +1873,42 @@ const egAudio = new Audio(EG_TRACKS[0].src);
 egAudio.volume = egVol;
 egAudio.preload = "none";
 
+/* One sound at a time. When any player starts with its sound on (the lock
+   screen, the Escapegoat app, a track list, a film, the arcade), every other
+   one stops: music pauses, films go mute and keep running. */
+const SOLO_PLAYERS = new Set();                 // players made with new Audio(), outside the page
+function soloStop(keep, fromGame){
+  [...document.querySelectorAll("audio,video"), ...SOLO_PLAYERS].forEach(m=>{
+    if(m === keep || m.paused || m.muted) return;
+    if(m.tagName === "VIDEO"){ if(m.closest && m.closest(".fv") && typeof fvMute === "function") fvMute(m); else m.muted = true; }
+    else m.pause();
+  });
+  if(!fromGame){ const f = document.getElementById("gameFrame"); try{ if(f && f.contentWindow) f.contentWindow.postMessage("eg-quiet", "*"); }catch(_){} }
+}
+function soloWatch(m){
+  if(!m || SOLO_PLAYERS.has(m)) return;
+  SOLO_PLAYERS.add(m);
+  m.addEventListener("play", ()=>{ if(!m.muted) soloStop(m); });
+}
+window.soloWatch = soloWatch;
+document.addEventListener("play", e=>{ const m = e.target; if(m instanceof HTMLMediaElement && !m.muted) soloStop(m); }, true);
+document.addEventListener("volumechange", e=>{ const m = e.target; if(m instanceof HTMLMediaElement && !m.muted && !m.paused) soloStop(m); }, true);
+window.addEventListener("message", e=>{ const f = document.getElementById("gameFrame"); if(e.data === "eg-sound" && f && e.source === f.contentWindow) soloStop(null, true); });
+soloWatch(egAudio);
+// the lock-screen buttons follow the player when something else stops it
+["play","pause"].forEach(ev=>egAudio.addEventListener(ev, ()=>{ const on = !egAudio.paused; if(on !== egPlaying){ egPlaying = on; egUI(); } }));
+
 function egUI(){
   const t = EG_TRACKS[egIdx];
-  const playIcon = egPlaying ? "❚❚" : "▶";
+  const playIcon = egPlaying
+    ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z" fill="currentColor"/></svg>'
+    : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
   const lp = document.getElementById("lockPlayBtn");
-  if(lp){ lp.textContent = playIcon; lp.style.fontSize = egPlaying ? "10px" : "14px"; }
+  if(lp){ lp.innerHTML = playIcon; lp.setAttribute("aria-label", egPlaying ? "Pause" : "Play"); lp.classList.toggle("on", egPlaying); }
   const ln = document.getElementById("lockTrackName");
   if(ln) ln.textContent = t.title;
   const hp = document.getElementById("homePlayBtn");
-  if(hp) hp.textContent = playIcon;
+  if(hp){ hp.innerHTML = playIcon; hp.setAttribute("aria-label", egPlaying ? "Pause" : "Play"); hp.classList.toggle("on", egPlaying); }
   const hn = document.getElementById("homeTrackName");
   if(hn) hn.textContent = t.title;
   const hs = document.getElementById("homePlayerStatus");

@@ -262,9 +262,15 @@ const SFX=(()=>{
 })();
 
 let bgmOn=true; try{bgmOn=localStorage.eg_music!=='0';}catch(_){}
+/* One sound at a time with the site around it: another player starting asks
+   the arcade to go quiet (the speaker setting stays as it was), and the
+   arcade's music starting tells the site to stop its players. */
+let quiet=false;
+addEventListener('message',e=>{ if(e.data==='eg-quiet'){ quiet=true; if(!BGM.paused) BGM.pause(); } });
+BGM.addEventListener('play',()=>{ try{ if(parent!==window) parent.postMessage('eg-sound','*'); }catch(_){} });
 const IN_GAME=/^(brawl|rash|cross|play)$/;
-function music(){ if(bgmOn){ if(BGM.paused&&!music.wait){music.wait=1;BGM.play().then(()=>{music.wait=0;}).catch(()=>{setTimeout(()=>{music.wait=0;},1500);});} } else if(!BGM.paused)BGM.pause(); }
-['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,()=>{SFX.unlock();music.wait=0;music();},{passive:true}));
+function music(){ if(bgmOn&&!quiet){ if(BGM.paused&&!music.wait){music.wait=1;BGM.play().then(()=>{music.wait=0;}).catch(()=>{setTimeout(()=>{music.wait=0;},1500);});} } else if(!BGM.paused)BGM.pause(); }
+['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,()=>{SFX.unlock();quiet=false;music.wait=0;music();},{passive:true}));
 function toggleMusic(){ bgmOn=!bgmOn; try{localStorage.eg_music=bgmOn?'1':'0';}catch(_){} music(); }
 const SB_MENU={x:W-58,y:H-46};                          // the speaker on the start menu, bottom right
 function soundBtn(x,y){                                  // in every game's HUD, left of MENU

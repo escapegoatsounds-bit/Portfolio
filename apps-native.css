@@ -171,19 +171,24 @@
 .li-tabs .nx-tab{font-size:9px}
 
 /* ---- Spotify ---- */
-.nx-spotify{background:#121212}
+.nx-spotify{background:#0e0b16;isolation:isolate;overflow:hidden}
+.nx-spotify::before{content:"";position:absolute;inset:-35%;z-index:-1;pointer-events:none;
+  background:radial-gradient(38% 30% at 28% 22%,rgba(255,122,217,.42),transparent 70%),
+    radial-gradient(34% 30% at 76% 46%,rgba(30,215,96,.30),transparent 70%),
+    radial-gradient(44% 36% at 40% 84%,rgba(124,58,237,.42),transparent 70%);
+  filter:blur(30px);animation:egAmb 26s linear infinite}
 .sp-top{gap:8px}
 .sp-chip{font-size:13px;padding:6px 13px;border-radius:99px;background:#2a2a2a}
 .sp-chip.on{background:#1ed760;color:#000}
 .sp-hero{position:relative;height:250px;margin-top:-4px}
-.sp-hero img{width:100%;height:100%;object-fit:cover}
-.sp-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#121212)}
+.sp-hero img{width:100%;height:100%;object-fit:cover;object-position:50% 0}   /* keep the face in frame */
+.sp-hero img{-webkit-mask-image:linear-gradient(#000 45%,transparent);mask-image:linear-gradient(#000 45%,transparent)}
 .sp-hero div{position:absolute;left:14px;bottom:8px;z-index:2}
 .sp-hero h1{font-size:40px;font-weight:800;letter-spacing:-1.5px}
 .sp-bar{display:flex;align-items:center;gap:14px;padding:6px 14px 4px;color:#b3b3b3}
 .sp-follow{font-size:12px;font-weight:700;color:#fff;border:1px solid #727272;border-radius:99px;padding:5px 13px}
 .sp-shuf{color:#1ed760}
-.sp-bigplay{width:50px;height:50px;border-radius:50%;background:#1ed760!important;color:#000!important;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.sp-bigplay{width:52px;height:52px}
 .sp-bigplay .nx-i{width:22px;height:22px}
 .sp-h{font-size:19px;font-weight:700;padding:16px 14px 8px}
 .sp-row{display:flex;align-items:center;gap:12px;width:100%;padding:7px 14px;text-align:left;cursor:pointer}
@@ -201,12 +206,42 @@
 .sp-card span{display:flex;align-items:flex-end;height:128px;padding:10px;font-weight:800;font-size:15px;line-height:1.15;border-radius:6px}
 .sp-card b{display:block;font-size:13px;margin-top:7px;font-weight:600}
 .sp-card small{display:block;font-size:11.5px;color:#b3b3b3;line-height:1.3;margin-top:2px}
-.sp-mini{flex-shrink:0;margin:0 7px 6px;background:#3a2458;border-radius:7px;display:flex;align-items:center;gap:9px;padding:7px 8px;position:relative;overflow:hidden}
+.sp-mini{flex-shrink:0;margin:0 7px 6px;background:linear-gradient(120deg,rgba(124,58,237,.55),rgba(255,122,217,.35));backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:7px;display:flex;align-items:center;gap:9px;padding:7px 8px;position:relative;overflow:hidden}
 .sp-mini[hidden]{display:none}
 .sp-mini img{width:36px;height:36px;border-radius:4px;object-fit:cover}
 .sp-mini-txt{flex:1;min-width:0;display:flex;flex-direction:column;font-size:12.5px}
 .sp-mini-txt span{color:#cfc4dd;font-size:12px}
-.sp-mini-play .nx-i{width:22px;height:22px}
+.sp-mini-play .nx-i{width:18px;height:18px}
+
+/* Escapegoat players: an ambient gradient drifting behind the music, and
+   raised 3D buttons that press in when tapped. */
+@keyframes egAmb{to{transform:rotate(360deg)}}
+.eg-amb{position:relative;isolation:isolate;overflow:hidden}
+.eg-amb::before{content:"";position:absolute;inset:-60%;z-index:-1;pointer-events:none;
+  background:radial-gradient(30% 30% at 30% 30%,rgba(255,122,217,.6),transparent 70%),
+    radial-gradient(28% 28% at 72% 42%,rgba(30,215,96,.45),transparent 70%),
+    radial-gradient(34% 34% at 46% 78%,rgba(124,58,237,.6),transparent 70%);
+  filter:blur(16px);animation:egAmb 18s linear infinite}
+.eg3d{--s:30px;width:var(--s);height:var(--s);flex:0 0 var(--s);border:0;border-radius:50%;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;padding:0;color:#f4f2ff;
+  background:radial-gradient(circle at 32% 26%,#5b5470,#2a2538 62%,#17131f);
+  box-shadow:inset 0 1.5px 1px rgba(255,255,255,.35),inset 0 -3px 5px rgba(0,0,0,.55),0 4px 0 #0c0a12,0 7px 12px rgba(0,0,0,.45);
+  transition:transform .08s,box-shadow .08s,filter .15s}
+.eg3d svg{width:46%;height:46%;filter:drop-shadow(0 1px 0 rgba(0,0,0,.45))}
+.eg3d:hover{filter:brightness(1.12)}
+.eg3d:active{transform:translateY(3px);box-shadow:inset 0 1px 1px rgba(255,255,255,.25),inset 0 -2px 4px rgba(0,0,0,.6),0 1px 0 #0c0a12,0 2px 5px rgba(0,0,0,.4)}
+.eg3d:focus-visible{outline:2px solid #ff7ad9;outline-offset:3px}
+.eg3d-main{--s:42px;color:#06210f;
+  background:radial-gradient(circle at 32% 24%,#9dffbf,#1ed760 48%,#0f8c3c);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.6),inset 0 -4px 6px rgba(0,60,20,.55),0 4px 0 #0a5c27,0 9px 18px rgba(30,215,96,.35)}
+.eg3d-main:active{box-shadow:inset 0 1px 1px rgba(255,255,255,.5),inset 0 -2px 4px rgba(0,60,20,.6),0 1px 0 #0a5c27,0 3px 8px rgba(30,215,96,.3)}
+.eg3d-main.on{animation:egPulse 2.4s ease-in-out infinite}
+@keyframes egPulse{50%{box-shadow:inset 0 2px 1px rgba(255,255,255,.6),inset 0 -4px 6px rgba(0,60,20,.55),0 4px 0 #0a5c27,0 9px 26px rgba(30,215,96,.6)}}
+.eg3d-main svg{width:44%;height:44%}
+.eg3d-sm{--s:30px}.eg3d-main.eg3d-sm{--s:32px}
+.eg3d-xs{--s:24px}
+.eg3d.sp-bigplay{--s:52px}.eg3d.sp-mini-play{--s:34px}
+@media (prefers-reduced-motion:reduce){.eg-amb::before,.nx-spotify::before,.eg3d-main.on{animation:none}}
 .sp-mini-bar{position:absolute;left:8px;right:8px;bottom:0;height:2px;background:rgba(255,255,255,.25)}
 .sp-mini-bar i{display:block;height:100%;width:0;background:#fff}
 .sp-tabs{background:linear-gradient(transparent,#000 40%);border-top:0}
