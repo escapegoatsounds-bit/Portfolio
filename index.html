@@ -110,6 +110,11 @@ nav{flex-shrink:0;height:60px;display:flex;align-items:center;justify-content:sp
 .status-bar{position:absolute;top:0;left:0;right:0;height:48px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 7px;z-index:40;font-size:12px;font-weight:700}
 .status-time{font-size:14px;font-weight:800}
 .status-icons{display:flex;gap:5px;align-items:center}
+.menu-music{background:none;border:0;padding:0 2px;margin-right:2px;color:#fff;font:700 13px/1 system-ui,sans-serif;cursor:pointer;opacity:.95;transition:opacity .2s}
+.menu-music.off{opacity:.4;text-decoration:line-through}
+.menu-music.on{animation:mmPulse 1.6s ease-in-out infinite}
+@keyframes mmPulse{50%{opacity:.55}}
+@media(prefers-reduced-motion:reduce){.menu-music.on{animation:none}}
 
 .screen{position:absolute;inset:0;border-radius:var(--phone-screen-r);overflow:hidden;transition:opacity .3s,transform .3s;transform-origin:center}
 .screen.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
@@ -553,6 +558,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
         <div class="status-bar" style="color:#fff">
           <span class="status-time" id="clockDisplay">9:41</span>
           <div class="status-icons">
+            <button type="button" class="menu-music" id="menuMusicBtn" onclick="toggleMenuMusic()" aria-label="Turn the menu music off" title="Menu music">&#9835;</button>
             <svg width="14" height="11" viewBox="0 0 14 11" fill="white"><rect x="0" y="4" width="2.5" height="7" rx=".8"/><rect x="3.5" y="2.5" width="2.5" height="8.5" rx=".8"/><rect x="7" y="1" width="2.5" height="10" rx=".8"/><rect x="10.5" y="0" width="2.5" height="11" rx=".8"/></svg>
             <svg width="22" height="11" viewBox="0 0 24 11" fill="none"><rect x=".5" y="1" width="20" height="9" rx="2.5" stroke="white" opacity=".5"/><rect x="2" y="2.5" width="16" height="6" rx="1" fill="white"/><rect x="21.5" y="3.5" width="1.5" height="4" rx=".75" fill="white" opacity=".5"/></svg>
           </div>
@@ -836,7 +842,7 @@ function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
 const SKILLS=[["Creative Direction",85],["Social Strategy",92],["AI Integration",88],["Copywriting",80],["Photography",70],["Music Production",72],["Team Management",85],["Storyboarding",88]];
-const TRACKS=[["منغير كلام","men-gheir-kalam"],["اللي كان","elli-kan"],["يوم الحد (Cover)","youm-el-had"],["شالوم","shalom"],["فيري كيكو","feri-kiko"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يا خلاصي","ya-khalasi"],["بيني و بيني","beni-w-beni"]];
+const TRACKS=[["منغير كلام","men-gheir-kalam-2026"],["اللي كان","elli-kan"],["يوم الحد (Cover)","youm-el-had"],["شالوم","shalom"],["فيري كيكو","feri-kiko"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يا خلاصي","ya-khalasi"],["بيني و بيني","beni-w-beni"]];
 const JINGLES=[
   {slug:"Bazooka-Candy",title:"Bazooka Brand Music",desc:"Original brand music composed for the Bazooka Candies MENA campaign — crafted for social reels, digital activations and product launch moments.",year:"2024",type:"audio",src:""},
   {slug:"Juicy-Drop",title:"Juicy Drop — The Earworm",desc:"The Juicy Drop brand jingle ran across social, radio and in-store activations across MENA. An audio ID engineered to be impossible to unhear.",year:"2021",type:"audio",src:""},
@@ -1857,7 +1863,7 @@ window.addEventListener("message",function(e){
 });
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?"":"none"});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle("on",b.dataset.tk===key));}
 const EG_TRACKS = [
-  { src: "assets/tracks/men-gheir-kalam.mp3", title: "منغير كلام" },
+  { src: "assets/tracks/men-gheir-kalam-2026.mp3", title: "منغير كلام" },
   { src: "assets/tracks/elli-kan.mp3", title: "اللي كان" },
   { src: "assets/tracks/youm-el-had.mp3", title: "يوم الحد (Cover)" },
   { src: "assets/tracks/shalom.mp3", title: "شالوم" },
@@ -1897,6 +1903,52 @@ window.addEventListener("message", e=>{ const f = document.getElementById("gameF
 soloWatch(egAudio);
 // the lock-screen buttons follow the player when something else stops it
 ["play","pause"].forEach(ev=>egAudio.addEventListener(ev, ()=>{ const on = !egAudio.paused; if(on !== egPlaying){ egPlaying = on; egUI(); } }));
+
+/* Menu music: a looping track for the phone's home screen, the site's main menu.
+   Browsers allow sound only after the visitor's first tap or key press, so it tries
+   at once and otherwise starts on the first one. Any other sound stops it (see the
+   one-at-a-time rule above) and it comes back once that sound ends. The note in
+   the status bar turns it off and on, and the choice is remembered. */
+const menuAudio = new Audio("assets/tracks/menu-theme.mp3");
+menuAudio.loop = true; menuAudio.volume = 0.25; menuAudio.preload = "auto";
+soloWatch(menuAudio);
+let menuOn = true; try{ menuOn = localStorage.menu_music !== "0"; }catch(_){}
+let menuStarted = false, menuTimer = 0;
+function otherSound(){
+  if([...document.querySelectorAll("audio,video"), ...SOLO_PLAYERS].some(m => m !== menuAudio && !m.paused && !m.muted)) return true;
+  const g = document.getElementById("gameFrame"); return !!(g && g.offsetParent);   // the arcade has its own soundtrack
+}
+function menuUI(){
+  const b = document.getElementById("menuMusicBtn"); if(!b) return;
+  const playing = !menuAudio.paused;
+  b.classList.toggle("off", !menuOn); b.classList.toggle("on", menuOn && playing);
+  b.setAttribute("aria-label", menuOn ? "Turn the menu music off" : "Turn the menu music on");
+}
+function menuPlay(){
+  if(!menuOn || otherSound()) return;
+  menuAudio.play().then(()=>{ menuStarted = true; menuUI(); }).catch(()=>{});
+}
+function menuResume(){ clearTimeout(menuTimer); menuTimer = setTimeout(()=>{ if(menuStarted) menuPlay(); }, 1200); }
+function toggleMenuMusic(){
+  menuOn = !menuOn; try{ localStorage.menu_music = menuOn ? "1" : "0"; }catch(_){}
+  if(menuOn){ menuStarted = true; menuPlay(); } else menuAudio.pause();
+  menuUI();
+}
+window.toggleMenuMusic = toggleMenuMusic;
+["play","pause"].forEach(ev=>menuAudio.addEventListener(ev, menuUI));
+// when another sound stops, the menu music comes back
+["pause","ended"].forEach(ev=>document.addEventListener(ev, e=>{ if(e.target !== menuAudio) menuResume(); }, true));
+["pause","ended"].forEach(ev=>egAudio.addEventListener(ev, menuResume));
+// first try straight away; if the browser says no, start on the first tap or key
+(menuOn ? menuAudio.play() : Promise.reject()).then(()=>{ menuStarted = true; menuUI(); if(otherSound()) menuAudio.pause(); }).catch(()=>{
+  const first = e => {
+    if(e.target && e.target.closest && e.target.closest("#menuMusicBtn")) return;      // the toggle handles itself
+    ["pointerdown","keydown","touchstart"].forEach(t=>removeEventListener(t, first, true));
+    menuStarted = true; setTimeout(menuPlay, 250);     // a tap on another player wins
+  };
+  ["pointerdown","keydown","touchstart"].forEach(t=>addEventListener(t, first, true));
+});
+menuUI();
 
 function egUI(){
   const t = EG_TRACKS[egIdx];
