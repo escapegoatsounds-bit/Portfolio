@@ -597,7 +597,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
                   <div style="width:30px;height:30px;border-radius:7px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px">🎧</div>
                   <div style="flex:1;min-width:0">
                     <div style="font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)">escapegoat</div>
-                    <div id="lockTrackName" style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">منغير كلام</div>
+                    <div id="lockTrackName" style="font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">ليل يا عين</div>
                   </div>
                   <div onclick="egTogglePlaylist()" style="font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;padding:2px 4px;border-radius:4px" title="Playlist">☰</div>
                 </div>
@@ -645,7 +645,7 @@ mark.kw{background:rgba(240,194,51,.13);color:#f0e87a;font-weight:700;border-rad
               <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                 <div style="width:26px;height:26px;border-radius:6px;background:#1DB954;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px">🎧</div>
                 <div style="flex:1;min-width:0">
-                  <div id="homeTrackName" style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">منغير كلام</div>
+                  <div id="homeTrackName" style="font-size:9px;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">ليل يا عين</div>
                   <div style="font-size:8px;color:rgba(255,255,255,.35)" id="homePlayerStatus">Tap to play</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:8px">
@@ -842,7 +842,7 @@ function bcGet(slug){return(window.BRAND_CONFIG&&window.BRAND_CONFIG[slug])||{};
 function bcFilter(platform){if(!window.BRAND_CONFIG)return[];return BRANDS.filter(b=>{const c=window.BRAND_CONFIG[b.s];return c&&c.platforms&&c.platforms.includes(platform);});}
 
 const SKILLS=[["Creative Direction",85],["Social Strategy",92],["AI Integration",88],["Copywriting",80],["Photography",70],["Music Production",72],["Team Management",85],["Storyboarding",88]];
-const TRACKS=[["منغير كلام","men-gheir-kalam-2026"],["اللي كان","elli-kan"],["يوم الحد (Cover)","youm-el-had"],["شالوم","shalom"],["فيري كيكو","feri-kiko"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يا خلاصي","ya-khalasi"],["بيني و بيني","beni-w-beni"]];
+const TRACKS=[["ليل يا عين","leil-ya-ein"],["منغير كلام","men-gheir-kalam"],["اللي كان","elli-kan"],["يوم الحد (Cover)","youm-el-had"],["شالوم","shalom"],["فيري كيكو","feri-kiko"],["لا أبالي","la-abali"],["علقه ولا علاقه","alqa-wala-alaqa"],["Miss You More Than I Should","miss-you-more"],["يا خلاصي","ya-khalasi"],["بيني و بيني","beni-w-beni"]];
 const JINGLES=[
   {slug:"Bazooka-Candy",title:"Bazooka Brand Music",desc:"Original brand music composed for the Bazooka Candies MENA campaign — crafted for social reels, digital activations and product launch moments.",year:"2024",type:"audio",src:""},
   {slug:"Juicy-Drop",title:"Juicy Drop — The Earworm",desc:"The Juicy Drop brand jingle ran across social, radio and in-store activations across MENA. An audio ID engineered to be impossible to unhear.",year:"2021",type:"audio",src:""},
@@ -875,7 +875,7 @@ const SCREENS={
   photoshop:()=>[B["Brew-Craft"],B["AXE-Unilever"],B["Imagine-Studio"],B["Bazooka-Candy"]].map(b=>cardLink(b,"Design · Artwork · Branding")).join(""),
   chatgpt:()=>'<div style="padding:10px 12px 2px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple2)">AI Automation Projects</div>'+[["🛋️ Furniture","Catalogs · visualization · leads"],["🏥 Medical","Patient comms · scheduling"],["🎚️ Music Production","Stems · mastering · release"],["🔐 Security","Monitoring · smart alerts"]].map(p=>`<div class="acard"><div class="acard-body"><div class="acard-name">${p[0]}</div><div class="acard-meta">${p[1]}</div></div></div>`).join("")+cardLink(B["Warba-Bank"],"First AI-assisted TVC pitch · Kuwait"),
   powerpoint:()=>[B["Snapchat"],B["Carina"],B["Krispy-Kreme"],B["Quooker"]].map(b=>cardLink(b,"Strategy · Tactics")).join(""),
-  spotify:()=>'<div class="tabs"><span class="tab on" data-tb="musP" data-tk="eg" onclick="tabShow(\'musP\',\'eg\')">Escapegoat</span><span class="tab alt" data-tb="musP" data-tk="dj" onclick="tabShow(\'musP\',\'dj\')">Music Production</span></div><div data-ts="musP" data-tk="eg"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.webp" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.webp\'"><div style="font-size:15px;font-weight:800">Escapegoat Sounds</div><div style="font-size:11px;color:var(--m2)">Abdelaziz Askar · 4 tracks</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join("")+'</div><div data-ts="musP" data-tk="dj" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
+  spotify:()=>'<div class="tabs"><span class="tab on" data-tb="musP" data-tk="eg" onclick="tabShow(\'musP\',\'eg\')">Escapegoat</span><span class="tab alt" data-tb="musP" data-tk="dj" onclick="tabShow(\'musP\',\'dj\')">Music Production</span></div><div data-ts="musP" data-tk="eg"><div class="sp-now"><img class="sp-art" src="assets/photos/escapegoat-album.webp" alt="Escapegoat Sounds" onerror="this.src=\'assets/photos/escapegoat-logo.webp\'"><div style="font-size:15px;font-weight:800">Escapegoat Sounds</div><div style="font-size:11px;color:var(--m2)">Abdelaziz Askar · '+TRACKS.length+' tracks</div></div>'+TRACKS.map((t,i)=>`<div class="sp-track"><span class="sp-num">${i+1}</span><div style="flex:1"><div class="sp-tname">${t[0]}</div><audio controls preload="none" src="assets/tracks/${t[1]}.mp3"></audio></div></div>`).join("")+'</div><div data-ts="musP" data-tk="dj" style="display:none"><div style="padding:14px 14px 4px;font-size:11px;color:var(--m2);line-height:1.7">Custom-made tracks for DJs — production + original lyrics, sold online and direct to DJs.</div><div class="acard"><div class="acard-body"><div class="acard-name">🎛️ Custom DJ Tracks</div><div class="acard-meta">Made to order · exclusive licensing</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">✍️ Lyrics Writing</div><div class="acard-meta">Arabic & English · hooks, verses, toplines</div></div></div><div class="acard"><div class="acard-body"><div class="acard-name">🛒 Online Catalog</div><div class="acard-meta">Buy ready tracks · stems included</div></div></div></div>',
   wikipedia:()=>'<div style="padding:14px;font-size:13px;font-weight:700">Abdelaziz Askar</div><div style="padding:0 14px 12px;font-size:11px;color:var(--m2);line-height:1.7">Head of Social & AI at Tonic International (Dubai). 18 years across Egypt, Qatar & the UAE — Nineteen84, Al Siddiqi, Deraya. Songwriter, photographer, AI pioneer.</div><a class="acard" href="about.html"><div class="acard-body"><div class="acard-name" style="color:var(--gold)">Full bio & achievements →</div></div></a>',
   skills:()=>`<div class="arc"><span class="arc-sun"></span>
     <svg class="arc-city" viewBox="0 0 340 90" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
@@ -1126,7 +1126,7 @@ function fvHush(except){
   document.querySelectorAll(".fv video").forEach(o=>{ if(o!==except) fvMute(o); });
   document.querySelectorAll("audio").forEach(a=>{ if(!a.paused) a.pause(); });
   if(window.NX&&NX.stopMusic) NX.stopMusic();
-  if(typeof egPlaying!=="undefined"&&egPlaying&&typeof toggleEgMusic==="function") toggleEgMusic();
+  if(typeof egPlaying!=="undefined"&&egPlaying&&typeof egAudio!=="undefined") egAudio.pause();
 }
 function fvLoud(v,vol){
   fvHush(v);
@@ -1863,7 +1863,8 @@ window.addEventListener("message",function(e){
 });
 function tabShow(scope,key){document.querySelectorAll('[data-ts="'+scope+'"]').forEach(e=>{e.style.display=e.dataset.tk===key?"":"none"});document.querySelectorAll('[data-tb="'+scope+'"]').forEach(b=>b.classList.toggle("on",b.dataset.tk===key));}
 const EG_TRACKS = [
-  { src: "assets/tracks/men-gheir-kalam-2026.mp3", title: "منغير كلام" },
+  { src: "assets/tracks/leil-ya-ein.mp3", title: "ليل يا عين" },
+  { src: "assets/tracks/men-gheir-kalam.mp3", title: "منغير كلام" },
   { src: "assets/tracks/elli-kan.mp3", title: "اللي كان" },
   { src: "assets/tracks/youm-el-had.mp3", title: "يوم الحد (Cover)" },
   { src: "assets/tracks/shalom.mp3", title: "شالوم" },
@@ -1904,50 +1905,35 @@ soloWatch(egAudio);
 // the lock-screen buttons follow the player when something else stops it
 ["play","pause"].forEach(ev=>egAudio.addEventListener(ev, ()=>{ const on = !egAudio.paused; if(on !== egPlaying){ egPlaying = on; egUI(); } }));
 
-/* Menu music: a looping track for the phone's home screen, the site's main menu.
-   Browsers allow sound only after the visitor's first tap or key press, so it tries
-   at once and otherwise starts on the first one. Any other sound stops it (see the
-   one-at-a-time rule above) and it comes back once that sound ends. The note in
-   the status bar turns it off and on, and the choice is remembered. */
-const menuAudio = new Audio("assets/tracks/menu-theme.mp3");
-menuAudio.loop = true; menuAudio.volume = 0.25; menuAudio.preload = "auto";
-soloWatch(menuAudio);
-let menuOn = true; try{ menuOn = localStorage.menu_music !== "0"; }catch(_){}
-let menuStarted = false, menuTimer = 0;
+/* Menu music: nothing plays until the visitor presses play. Once they have started
+   the Escapegoat player, any other sound pauses it and it comes back when that sound
+   ends, unless they paused it. The note in the status bar starts and stops it. */
+let menuOn = true;
+let menuStarted = false, menuTimer = 0, egUserPaused = false;
 function otherSound(){
-  if([...document.querySelectorAll("audio,video"), ...SOLO_PLAYERS].some(m => m !== menuAudio && !m.paused && !m.muted)) return true;
+  if([...document.querySelectorAll("audio,video"), ...SOLO_PLAYERS].some(m => m !== egAudio && !m.paused && !m.muted)) return true;
   const g = document.getElementById("gameFrame"); return !!(g && g.offsetParent);   // the arcade has its own soundtrack
 }
 function menuUI(){
   const b = document.getElementById("menuMusicBtn"); if(!b) return;
-  const playing = !menuAudio.paused;
-  b.classList.toggle("off", !menuOn); b.classList.toggle("on", menuOn && playing);
-  b.setAttribute("aria-label", menuOn ? "Turn the menu music off" : "Turn the menu music on");
+  b.classList.toggle("off", !menuOn); b.classList.toggle("on", menuOn && !egAudio.paused);
+  b.setAttribute("aria-label", egAudio.paused ? "Play the menu music" : "Pause the menu music");
 }
 function menuPlay(){
-  if(!menuOn || otherSound()) return;
-  menuAudio.play().then(()=>{ menuStarted = true; menuUI(); }).catch(()=>{});
+  if(!menuOn || egUserPaused || otherSound()) return;
+  egAudio.play().then(()=>{ menuStarted = true; egPlaying = true; egUI(); menuUI(); }).catch(()=>{});
 }
-function menuResume(){ clearTimeout(menuTimer); menuTimer = setTimeout(()=>{ if(menuStarted) menuPlay(); }, 1200); }
+function menuResume(){ clearTimeout(menuTimer); menuTimer = setTimeout(()=>{ if(menuStarted && egAudio.paused) menuPlay(); }, 1200); }
 function toggleMenuMusic(){
-  menuOn = !menuOn; try{ localStorage.menu_music = menuOn ? "1" : "0"; }catch(_){}
-  if(menuOn){ menuStarted = true; menuPlay(); } else menuAudio.pause();
+  if(egAudio.paused){ menuOn = true; egUserPaused = false; menuStarted = true; menuPlay(); } else { egAudio.pause(); egUserPaused = true; }
   menuUI();
 }
 window.toggleMenuMusic = toggleMenuMusic;
-["play","pause"].forEach(ev=>menuAudio.addEventListener(ev, menuUI));
-// when another sound stops, the menu music comes back
-["pause","ended"].forEach(ev=>document.addEventListener(ev, e=>{ if(e.target !== menuAudio) menuResume(); }, true));
-["pause","ended"].forEach(ev=>egAudio.addEventListener(ev, menuResume));
-// first try straight away; if the browser says no, start on the first tap or key
-(menuOn ? menuAudio.play() : Promise.reject()).then(()=>{ menuStarted = true; menuUI(); if(otherSound()) menuAudio.pause(); }).catch(()=>{
-  const first = e => {
-    if(e.target && e.target.closest && e.target.closest("#menuMusicBtn")) return;      // the toggle handles itself
-    ["pointerdown","keydown","touchstart"].forEach(t=>removeEventListener(t, first, true));
-    menuStarted = true; setTimeout(menuPlay, 250);     // a tap on another player wins
-  };
-  ["pointerdown","keydown","touchstart"].forEach(t=>addEventListener(t, first, true));
-});
+["play","pause"].forEach(ev=>egAudio.addEventListener(ev, menuUI));
+// the music comes back when another song finishes or a film stops; a song the
+// visitor pauses in a track list leaves the room quiet
+document.addEventListener("ended", e=>{ if(e.target !== egAudio) menuResume(); }, true);
+document.addEventListener("pause", e=>{ if(e.target instanceof HTMLVideoElement) menuResume(); }, true);
 menuUI();
 
 function egUI(){
@@ -2003,8 +1989,9 @@ function egPlayIdx(i){
 }
 
 function toggleEgMusic(){
-  if(egPlaying){ egAudio.pause(); egPlaying = false; }
-  else { egAudio.play().catch(()=>{}); egPlaying = true; }
+  menuStarted = true;
+  if(egPlaying){ egAudio.pause(); egPlaying = false; egUserPaused = true; }
+  else { egAudio.play().catch(()=>{}); egPlaying = true; egUserPaused = false; }
   egUI();
 }
 
@@ -2034,7 +2021,7 @@ function egVolClick(e, bar){
   egAudio.volume = egVol; egUI();
 }
 
-egAudio.addEventListener("ended", egNextTrack);
+egAudio.addEventListener("ended", ()=>{ egPlaying = true; egNextTrack(); });
 egAudio.addEventListener("timeupdate", function(){
   const cur = egAudio.currentTime, dur = egAudio.duration || 0;
   const pct = dur ? (cur/dur*100).toFixed(1) : 0;
